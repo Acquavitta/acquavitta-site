@@ -1,14 +1,20 @@
-# AcquaVitta V7
+# AcquaVitta V8
 
-Repository-ready Next.js foundation for Vercel.
+A verified, deploy-ready Next.js foundation for Vercel.
 
-## Local setup
-1. Copy `.env.example` to `.env.local`.
-2. Add Supabase project URL and anon key.
-3. Run `npm install` and `npm run dev`.
+## Verified locally
 
-## Vercel
-Add the same two environment variables in Project Settings > Environment Variables.
+- `npm install`
+- `npm run build`
+- Static route generation
+- No required environment variables
+- No live form submission
+- No payment-card handling
 
-## Important
-Registration/login UI is connected to Supabase when environment variables are configured. Before commercial launch, protect `/catalog` and `/account` server-side, add email verification, rate limiting, bot protection, consent audit records, legal review, and an approved payment processor. No card data should be stored by this application.
+## Important production limitation
+
+The registration and login pages are interface scaffolds only. They intentionally do not collect or store customer data. Before commercial launch, connect a production identity provider with email verification, server-side sessions, password recovery, rate limiting, audit records, and versioned acceptance of the age and research-use declarations.
+
+## GitHub upload
+
+Replace the repository contents with the files inside this folder. Commit to `main`; Vercel should deploy automatically.

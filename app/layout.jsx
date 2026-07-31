@@ -1,2 +1,12 @@
-import './styles.css'; export const metadata={title:'AcquaVitta | Molecular Research Materials',description:'Research-use-only peptide materials for qualified laboratory research.'};
-export default function RootLayout({children}){return <html lang="en"><body>{children}</body></html>}
+import './styles.css'
+
+export const metadata = {
+  title: { default: 'AcquaVitta | Molecular Precision', template: '%s | AcquaVitta' },
+  description: 'Research materials presented with analytical transparency. For laboratory research only. Not for human or animal use.',
+  metadataBase: new URL('https://acquavitta.com'),
+  robots: { index: true, follow: true }
+}
+
+export default function RootLayout({ children }) {
+  return <html lang="en"><body>{children}</body></html>
+}

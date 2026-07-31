@@ -1,3 +1,42 @@
-import Header from '../components/Header'; import Brand from '../components/Brand'; import Link from 'next/link'; import Image from 'next/image';
-const products=[['BPC-157','bpc157.jpg'],['TB-500','tb500.jpg'],['GHK-Cu','ghkcu.jpg'],['Ipamorelin','ipamorelin.jpg']];
-export default function Home(){return <main><Header/><section className="hero"><div className="hero-copy"><span className="eyebrow">ACQUAVITTA RESEARCH MATERIALS</span><h1>Molecular precision.<br/><em>Scientific research.</em></h1><p>Peptide research materials presented with clear identity, analytical documentation and controlled access for qualified laboratory use.</p><div className="buttons"><Link className="gold" href="/register">Request member access</Link><a className="ghost" href="#quality">Our standards</a></div><div className="research-box"><b>FOR RESEARCH USE ONLY</b><span>Not for human or veterinary use, consumption, administration, diagnosis, treatment or prevention.</span></div></div><div className="hero-image"><Image src="/images/hero.jpg" alt="Research vial on marble" fill priority sizes="50vw"/></div></section><section id="quality" className="standards">{[['Verified identity','Batch-specific documentation'],['Controlled access','Account and policy acceptance required'],['Analytical context','Technical information without therapeutic claims'],['Secure foundation','Prepared for server-side authentication']].map(([a,b])=><article key={a}><h3>{a}</h3><p>{b}</p></article>)}</section><section className="catalog-preview"><div className="section-title"><span>MEMBER CATALOG</span><h2>Research materials, presented with restraint.</h2><p>Catalog access requires a verified account and acceptance of the research-use policy.</p></div><div className="products">{products.map(([name,img])=><article className="product" key={name}><div className="product-image"><Image src={`/images/${img}`} alt={name} fill sizes="25vw"/></div><h3>{name}</h3><p>Research material · documentation available</p></article>)}</div></section><section id="about" className="split"><div><span className="eyebrow">SCIENTIFIC INTEGRITY</span><h2>Transparency before transaction.</h2></div><p>AcquaVitta is being built around traceability, clear restrictions, documented consent and a purchasing flow limited to approved adult research customers.</p></section><footer><Brand/><p>© 2026 AcquaVitta. Research use only.</p></footer></main>}
+import Image from 'next/image'
+import Link from 'next/link'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import PolicyNotice from '../components/PolicyNotice'
+
+const standards = [
+  ['Documented identity', 'Product records organized by compound, format and analytical documentation.'],
+  ['Batch transparency', 'Supporting analytical records presented with each qualified research listing.'],
+  ['Controlled handling', 'Clear storage, handling and shipment information for research environments.'],
+  ['Restricted access', 'Catalog access is designed for registered adults who accept the research-use policy.']
+]
+
+export default function Home() {
+  return <><Header/><main>
+    <section className="hero">
+      <div className="heroCopy">
+        <p className="eyebrow">ACQUAVITTA RESEARCH MATERIALS</p>
+        <h1>Molecular precision.<br/><em>Scientific clarity.</em></h1>
+        <p className="lead">A controlled-access research portal built around transparent documentation, refined presentation and responsible use restrictions.</p>
+        <div className="buttonRow"><Link className="goldButton" href="/register">Request member access</Link><Link className="outlineButton" href="/quality">Review standards</Link></div>
+        <PolicyNotice/>
+      </div>
+      <div className="heroVisual"><Image src="/images/hero.jpg" alt="Research vial presented on white marble" fill priority sizes="(max-width: 900px) 100vw, 52vw" /></div>
+    </section>
+
+    <section className="standardsSection">
+      <div className="sectionIntro"><p className="eyebrow">RESPONSIBLE ACCESS</p><h2>Designed for qualified research contexts.</h2><p>Public pages explain the brand and standards. Detailed product access is reserved for registered members who complete the required declarations.</p></div>
+      <div className="standardsGrid">{standards.map(([t,d],i)=><article key={t}><span>0{i+1}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
+    </section>
+
+    <section className="accessPanel">
+      <div><p className="eyebrow">CONTROLLED CATALOG</p><h2>Account required before product access.</h2><p>Applicants must confirm they are at least 21 years old and agree that all materials are intended exclusively for laboratory research—not for use in humans or animals.</p><Link className="goldButton" href="/register">Create research account</Link></div>
+      <div className="declarationCard"><h3>Required declarations</h3><ul><li>Age 21 or older</li><li>No human use</li><li>No animal or veterinary use</li><li>Research use only</li><li>Acceptance of terms and privacy policy</li></ul></div>
+    </section>
+
+    <section className="editorialSection">
+      <div className="editorialImage"><Image src="/images/bpc157.jpg" alt="Research vial on stone surface" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
+      <div className="editorialCopy"><p className="eyebrow">SCIENCE · TRANSPARENCY · INTEGRITY</p><h2>Premium presentation without therapeutic claims.</h2><p>AcquaVitta communicates compound identity, analytical context and documentation while avoiding claims of medical benefit, dosing, administration or personal use.</p><Link className="textLink" href="/research-policy">Read the research-use policy →</Link></div>
+    </section>
+  </main><Footer/></>
+}

@@ -1,1 +1,4 @@
-import Header from '../../components/Header'; export default function Account(){return <main><Header/><section className="page"><span className="eyebrow">MEMBER ACCOUNT</span><h1>Research customer profile</h1><div className="locked"><p>Profile, consent history, orders and account security will appear here after backend activation.</p></div></section></main>}
+import Link from 'next/link'
+import PageShell from '../../components/PageShell'
+export const metadata={title:'Member portal'}
+export default function Account(){return <PageShell><section className="simplePage"><p className="eyebrow">MEMBER PORTAL</p><h1>Account access is not yet activated.</h1><p>The production portal will include profile details, accepted policy version, account verification and order history without storing payment-card data.</p><Link className="goldButton" href="/login">Return to sign in</Link></section></PageShell>}

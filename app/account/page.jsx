@@ -1,0 +1,1 @@
+import Header from '../../components/Header'; export default function Account(){return <main><Header/><section className="page"><span className="eyebrow">MEMBER ACCOUNT</span><h1>Research customer profile</h1><div className="locked"><p>Profile, consent history, orders and account security will appear here after backend activation.</p></div></section></main>}

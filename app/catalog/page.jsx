@@ -1,0 +1,2 @@
+import Header from '../../components/Header';
+export default function Catalog(){return <main><Header/><section className="page"><span className="eyebrow">PROTECTED CATALOG</span><h1>Member research catalog</h1><div className="locked"><h2>Authentication integration prepared</h2><p>After Supabase is connected, this route should be protected with server-side session validation before commercial launch.</p></div></section></main>}

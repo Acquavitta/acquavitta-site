@@ -1,0 +1,2 @@
+import Link from 'next/link'; import Brand from './Brand';
+export default function Header(){return <><div className="notice">FOR RESEARCH USE ONLY · NOT FOR HUMAN OR ANIMAL USE · 21+ ACCOUNT REQUIRED</div><header><Brand/><nav><Link href="/catalog">Research Catalog</Link><a href="#quality">Quality</a><a href="#library">Research Library</a><a href="#about">About</a></nav><div className="actions"><Link className="ghost" href="/login">Sign in</Link><Link className="gold" href="/register">Create account</Link></div></header></>}

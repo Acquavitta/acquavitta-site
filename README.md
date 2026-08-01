@@ -1,12 +1,17 @@
-# AcquaVitta V9
+# AcquaVitta V10
 
-Industrial-stone visual direction with the supplied AcquaVitta logo used directly.
+Dark industrial-stone concept based on the approved mockup.
 
-## Deploy
+## Brand artwork
 
-1. Replace the contents of the local `acquavitta-site` repository with the contents of this folder.
-2. Commit in GitHub Desktop.
-3. Push origin.
-4. Vercel deploys automatically.
+The site uses the supplied AcquaVitta PNG directly. The web asset removes only the checkerboard background and preserves the original logo proportions. The product photography is derived from the approved V10 visual concept, which includes the correct AcquaVitta mark on the vial labels.
 
-The registration and login screens are presentation-only until a real authentication provider is connected. Do not enable payments or collect sensitive data before server-side authentication, email verification, rate limiting, audit logging, legal review, and an approved payment processor are configured.
+## Deploy with GitHub Desktop
+
+1. Open the local `acquavitta-site` repository using **Show in Explorer**.
+2. Replace its contents with the contents of this folder.
+3. In GitHub Desktop, use the summary `Upgrade to AcquaVitta V10`.
+4. Commit to `main` and click **Push origin**.
+5. Vercel will deploy automatically.
+
+The registration and login pages are interface demonstrations only. Before commercial launch, connect real server-side authentication, email verification, consent-version logging, rate limiting, audit records, legal review and an approved payment processor.

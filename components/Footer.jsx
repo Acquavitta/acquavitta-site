@@ -1,14 +1,14 @@
 import Link from 'next/link'
 import Brand from './Brand'
 
-export default function Footer() {
+export default function Footer(){
   return <footer className="footer">
     <div className="footerGrid">
-      <div><Brand compact /><p>Molecular precision for qualified laboratory research.</p></div>
-      <div><h3>Access</h3><Link href="/register">Create account</Link><Link href="/login">Sign in</Link><Link href="/account">Member portal</Link></div>
-      <div><h3>Policies</h3><Link href="/research-policy">Research use policy</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link></div>
-      <div><h3>Contact</h3><a href="mailto:shop@acquavitta.com">shop@acquavitta.com</a><p>AcquaVitta.com</p></div>
+      <div className="footerBrand"><Brand light/><p>Industrial clarity for qualified laboratory research.</p></div>
+      <div><h3>Research</h3><Link href="/quality">Quality standards</Link><Link href="/research-policy">Research policy</Link><Link href="/catalog">Controlled catalog</Link></div>
+      <div><h3>Company</h3><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy">Privacy</Link></div>
+      <div><h3>Access</h3><Link href="/login">Sign in</Link><Link href="/register">Create account</Link><Link href="/terms">Terms</Link></div>
     </div>
-    <div className="footerBottom">© 2026 AcquaVitta. Research materials only. Not for human or veterinary use.</div>
+    <div className="footerBottom">© 2026 AcquaVitta. Research use only. Not for human or animal use.</div>
   </footer>
 }

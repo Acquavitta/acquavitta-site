@@ -1,20 +1,12 @@
-# AcquaVitta V8
+# AcquaVitta V9
 
-A verified, deploy-ready Next.js foundation for Vercel.
+Industrial-stone visual direction with the supplied AcquaVitta logo used directly.
 
-## Verified locally
+## Deploy
 
-- `npm install`
-- `npm run build`
-- Static route generation
-- No required environment variables
-- No live form submission
-- No payment-card handling
+1. Replace the contents of the local `acquavitta-site` repository with the contents of this folder.
+2. Commit in GitHub Desktop.
+3. Push origin.
+4. Vercel deploys automatically.
 
-## Important production limitation
-
-The registration and login pages are interface scaffolds only. They intentionally do not collect or store customer data. Before commercial launch, connect a production identity provider with email verification, server-side sessions, password recovery, rate limiting, audit records, and versioned acceptance of the age and research-use declarations.
-
-## GitHub upload
-
-Replace the repository contents with the files inside this folder. Commit to `main`; Vercel should deploy automatically.
+The registration and login screens are presentation-only until a real authentication provider is connected. Do not enable payments or collect sensitive data before server-side authentication, email verification, rate limiting, audit logging, legal review, and an approved payment processor are configured.

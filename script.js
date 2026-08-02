@@ -13,8 +13,8 @@ const PRODUCTS = [
     tag: "Cu-GHK · 2% complex",
     desc: "A carrier-peptide serum built around copper tripeptide-1, dosed to support the skin's own repair signaling.",
     price: 68,
-    bg: "linear-gradient(160deg, #E9D8B8, #C9A24B)",
-    icon: "bottle"
+    glass: ["#F1D28C", "#8C6D2E"],
+    bottle: "dropper"
   },
   {
     id: "matrixyl-cream",
@@ -22,8 +22,8 @@ const PRODUCTS = [
     tag: "Palmitoyl pentapeptide-4 · 3%",
     desc: "A night cream formulated around a stabilized penta-peptide, designed to support visible firmness over time.",
     price: 74,
-    bg: "linear-gradient(160deg, #EDE3CE, #B79A6B)",
-    icon: "jar"
+    glass: ["#F3ECD9", "#B79A6B"],
+    bottle: "jar"
   },
   {
     id: "snap8-fluid",
@@ -31,8 +31,8 @@ const PRODUCTS = [
     tag: "Acetyl octapeptide-3 · 10%",
     desc: "A lightweight fluid modeled on neurotransmitter-inhibiting peptides, aimed at the look of expression lines.",
     price: 59,
-    bg: "linear-gradient(160deg, #E4E7DA, #93A583)",
-    icon: "dropper"
+    glass: ["#D6DFC9", "#6B7F63"],
+    bottle: "dropper"
   },
   {
     id: "barrier-repair",
@@ -40,8 +40,8 @@ const PRODUCTS = [
     tag: "Palmitoyl tripeptide-1 · fragrance-free",
     desc: "A carrier-oil-based repair balm combining ceramides with a signal peptide, for compromised or reactive barriers.",
     price: 52,
-    bg: "linear-gradient(160deg, #F1E9DC, #D8C39B)",
-    icon: "jar"
+    glass: ["#F6EEDD", "#D8C39B"],
+    bottle: "jar"
   },
   {
     id: "eye-complex",
@@ -49,8 +49,8 @@ const PRODUCTS = [
     tag: "Hexapeptide-11 · ophthalmologist tested",
     desc: "A concentrated eye-area formula pairing hexapeptide-11 with caffeine, for the thinner skin around the eyes.",
     price: 64,
-    bg: "linear-gradient(160deg, #EAE2EE, #A995BE)",
-    icon: "dropper"
+    glass: ["#E4DAEA", "#8F79A8"],
+    bottle: "small-dropper"
   },
   {
     id: "starter-set",
@@ -58,17 +58,80 @@ const PRODUCTS = [
     tag: "3 travel-size serums",
     desc: "A curated trio of our best-selling peptide serums in travel sizes, with the full concentration data included.",
     price: 89,
-    bg: "linear-gradient(160deg, #EFE6D6, #C2A667)",
-    icon: "set"
+    glass: ["#F1E4C4", "#C2A667"],
+    bottle: "trio"
   }
 ];
 
-const ICONS = {
-  bottle: `<svg viewBox="0 0 40 60" fill="none"><rect x="12" y="16" width="16" height="38" rx="4" fill="#fff" fill-opacity="0.85" stroke="#8C6D2E" stroke-width="1.2"/><rect x="15" y="4" width="10" height="14" rx="2" fill="#fff" fill-opacity="0.7" stroke="#8C6D2E" stroke-width="1.2"/><rect x="13" y="30" width="14" height="18" rx="2" fill="#C9A24B" fill-opacity="0.35"/></svg>`,
-  jar: `<svg viewBox="0 0 44 52" fill="none"><rect x="8" y="14" width="28" height="34" rx="6" fill="#fff" fill-opacity="0.85" stroke="#8C6D2E" stroke-width="1.2"/><rect x="10" y="4" width="24" height="12" rx="4" fill="#C9A24B" fill-opacity="0.5" stroke="#8C6D2E" stroke-width="1.2"/></svg>`,
-  dropper: `<svg viewBox="0 0 30 60" fill="none"><rect x="9" y="18" width="12" height="34" rx="3" fill="#fff" fill-opacity="0.85" stroke="#8C6D2E" stroke-width="1.2"/><path d="M11 18 L15 2 L19 18 Z" fill="#C9A24B" fill-opacity="0.5" stroke="#8C6D2E" stroke-width="1.2"/><circle cx="15" cy="2" r="2.4" fill="#8C6D2E"/></svg>`,
-  set: `<svg viewBox="0 0 60 44" fill="none"><rect x="4" y="12" width="12" height="28" rx="3" fill="#fff" fill-opacity="0.85" stroke="#8C6D2E" stroke-width="1.1"/><rect x="24" y="4" width="12" height="36" rx="3" fill="#fff" fill-opacity="0.9" stroke="#8C6D2E" stroke-width="1.1"/><rect x="44" y="12" width="12" height="28" rx="3" fill="#fff" fill-opacity="0.85" stroke="#8C6D2E" stroke-width="1.1"/></svg>`
-};
+/* ---------- Illustration builder: single bottle, minimal marble line ---------- */
+function buildIllustration(product){
+  const id = product.id;
+  const [top, bottom] = product.glass;
+
+  const defs = `
+    <linearGradient id="glass-${id}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${top}"/>
+      <stop offset="1" stop-color="${bottom}"/>
+    </linearGradient>
+    <linearGradient id="capGold-${id}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EFD79B"/>
+      <stop offset="1" stop-color="#A9832F"/>
+    </linearGradient>
+    <radialGradient id="shadow-${id}" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgba(28,35,31,0.14)"/>
+      <stop offset="1" stop-color="rgba(28,35,31,0)"/>
+    </radialGradient>
+  `;
+
+  const ledge = `
+    <line x1="18" y1="140" x2="202" y2="140" stroke="#D8CDB6" stroke-width="1"/>
+    <ellipse cx="110" cy="141" rx="42" ry="5" fill="url(#shadow-${id})"/>
+  `;
+
+  let bottleMarkup = "";
+  if (product.bottle === "dropper"){
+    bottleMarkup = `
+      <g transform="translate(80,30)">
+        <rect x="0" y="30" width="40" height="82" rx="5" fill="url(#glass-${id})"/>
+        <rect x="6" y="36" width="4" height="68" fill="#fff" opacity="0.16"/>
+        <path d="M8 0 L32 0 L27 30 L13 30 Z" fill="url(#capGold-${id})"/>
+        <rect x="6" y="-7" width="28" height="8" rx="2" fill="url(#capGold-${id})"/>
+      </g>`;
+  } else if (product.bottle === "small-dropper"){
+    bottleMarkup = `
+      <g transform="translate(88,48)">
+        <rect x="0" y="20" width="30" height="62" rx="5" fill="url(#glass-${id})"/>
+        <rect x="4" y="25" width="4" height="50" fill="#fff" opacity="0.16"/>
+        <path d="M6 0 L24 0 L20 20 L10 20 Z" fill="url(#capGold-${id})"/>
+        <rect x="4" y="-6" width="22" height="7" rx="2" fill="url(#capGold-${id})"/>
+      </g>`;
+  } else if (product.bottle === "jar"){
+    bottleMarkup = `
+      <g transform="translate(62,50)">
+        <rect x="0" y="18" width="64" height="52" rx="8" fill="url(#glass-${id})"/>
+        <rect x="0" y="0" width="64" height="20" rx="6" fill="url(#capGold-${id})"/>
+        <rect x="8" y="28" width="10" height="30" rx="4" fill="#fff" opacity="0.3"/>
+      </g>`;
+  } else if (product.bottle === "trio"){
+    bottleMarkup = `
+      <g transform="translate(48,44)">
+        <rect x="0" y="34" width="20" height="48" rx="4" fill="url(#glass-${id})" opacity="0.75"/>
+        <rect x="-2" y="24" width="24" height="12" rx="3" fill="url(#capGold-${id})" opacity="0.85"/>
+        <rect x="32" y="0" width="24" height="82" rx="5" fill="url(#glass-${id})"/>
+        <rect x="29" y="-10" width="30" height="12" rx="3" fill="url(#capGold-${id})"/>
+        <rect x="66" y="34" width="20" height="48" rx="4" fill="url(#glass-${id})" opacity="0.75"/>
+        <rect x="64" y="24" width="24" height="12" rx="3" fill="url(#capGold-${id})" opacity="0.85"/>
+      </g>`;
+  }
+
+  return `
+    <svg viewBox="0 0 220 150" class="product-illustration" preserveAspectRatio="xMidYMax meet">
+      <defs>${defs}</defs>
+      ${ledge}
+      ${bottleMarkup}
+    </svg>
+  `;
+}
 
 /* ---------- Cart state (in-memory only) ---------- */
 let cart = []; // [{id, qty}]
@@ -83,8 +146,8 @@ function renderProducts(){
   grid.innerHTML = PRODUCTS.map(p => `
     <article class="product-card">
       <div class="product-card-inner">
-        <div class="product-visual" style="--pv-bg:${p.bg}">
-          ${ICONS[p.icon]}
+        <div class="product-visual">
+          ${buildIllustration(p)}
         </div>
         <p class="product-tag">${p.tag}</p>
         <h3>${p.name}</h3>
@@ -160,9 +223,10 @@ function renderCart(){
     checkoutBtn.disabled = false;
     itemsEl.innerHTML = cart.map(line => {
       const p = findProduct(line.id);
+      const [top, bottom] = p.glass;
       return `
         <div class="cart-item">
-          <div class="cart-item-visual" style="--pv-bg:${p.bg}">${ICONS[p.icon]}</div>
+          <div class="cart-item-visual" style="background:linear-gradient(160deg, ${top}, ${bottom})"></div>
           <div>
             <div class="cart-item-name">${p.name}</div>
             <div class="cart-item-price">${fmt(p.price)} each</div>

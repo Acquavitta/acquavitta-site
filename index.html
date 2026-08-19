@@ -1,174 +1,424 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071626">
-<title>AcquaVitta | Research Peptides</title>
-<meta name="description" content="AcquaVitta — Research Peptides. Science, purity and evolution.">
+<meta name="description" content="AcquaVitta research peptides and laboratory materials. Research use only.">
+<meta name="theme-color" content="#07111d">
+<title>AcquaVitta — Science. Purity. Evolution.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#071626;--navy2:#0a1c2e;--navy3:#0b2034;
-  --gold:#d7a63b;--gold2:#f1cc70;--gold3:#a9781d;
-  --white:#fff;--paper:#f6f7f8;--ink:#17202c;--muted:#697483;
-  --line:#dce1e7;--max:1180px
+  --navy:#07111d;--navy2:#0b1828;--gold:#c69a4b;--gold2:#dfbf7a;
+  --ink:#182230;--muted:#697484;--paper:#f8f8f6;--line:#e5e8eb;--white:#fff;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}img{display:block;max-width:100%}.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
-header{height:70px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,18,31,.96);border-bottom:1px solid #ffffff17;backdrop-filter:blur(16px)}
-.nav{height:70px;display:flex;align-items:center;justify-content:space-between;color:#fff}.logo{width:230px;height:54px;overflow:hidden}.logo img{width:100%;height:100%;object-fit:cover;object-position:center}
-.links{display:flex;gap:34px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}.links a{position:relative;padding:25px 0 21px}.links a.active:after{content:"";position:absolute;bottom:13px;left:0;right:0;height:2px;background:var(--gold)}
-.navright{display:flex;align-items:center;gap:18px}.langs{display:flex;gap:6px;padding:3px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff08}.lang{border:0;background:transparent;cursor:pointer;font-size:18px;line-height:1;padding:4px 6px;border-radius:999px;opacity:.55}.lang.active{opacity:1;background:#ffffff16;box-shadow:inset 0 0 0 1px #d7a63b66}.icon{font-size:20px;opacity:.9}
-.hero{padding-top:70px;background:linear-gradient(90deg,#061421 0%,#0a1a2b 56%,#081626 100%);color:#fff;min-height:520px;position:relative;overflow:hidden}.heroimage{position:absolute;right:0;top:70px;width:68%;height:450px}.heroimage img{width:100%;height:100%;object-fit:cover;object-position:center}.heroimage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#061421 0%,rgba(6,20,33,.85) 16%,rgba(6,20,33,.15) 55%,rgba(6,20,33,.05))}
-.heroin{position:relative;z-index:3;padding:55px 0 120px;max-width:510px}.eyebrow{color:var(--gold2);font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:600;margin-bottom:18px}.hero h1{font:500 72px/.94 "Playfair Display",serif;margin:0;color:var(--gold2)}.hero h2{font:500 31px/1.12 "Playfair Display",serif;margin:16px 0}.hero p{max-width:390px;color:#d3d8df;line-height:1.65;font-size:13px;margin:0}.heroactions{display:flex;gap:15px;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:16px;border-radius:999px;padding:14px 22px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}.gold{background:linear-gradient(135deg,#bc8920,#f1cc70);color:#111a22;box-shadow:0 13px 30px #d6a63b33}.roundplay{display:flex;align-items:center;gap:10px;font-size:9px;text-transform:uppercase}.play{width:42px;height:42px;border-radius:50%;border:1px solid #e0b95c;display:grid;place-items:center;font-size:14px}
-.trust{position:relative;z-index:5;margin-top:-46px}.trustbox{background:linear-gradient(110deg,#081a2c,#0a2034);border:1px solid #ffffff14;border-radius:18px;box-shadow:0 22px 45px #0004;display:grid;grid-template-columns:repeat(4,1fr);padding:19px 0;color:#fff}.trustitem{padding:0 28px;border-right:1px solid #ffffff17;display:grid;grid-template-columns:42px 1fr;gap:15px;align-items:start}.trustitem:last-child{border:0}.trusticon{font-size:30px;color:var(--gold)}.trustitem b{font:500 16px/1.15 "Playfair Display";display:block}.trustitem small{display:block;color:#9eabb8;font-size:10px;line-height:1.45;margin-top:8px}
-.science{padding:20px 0 0;background:linear-gradient(120deg,#edf1f5,#fff)}.sciencegrid{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch}.lab{min-height:250px;overflow:hidden;border-radius:0 12px 12px 0}.lab img{width:100%;height:100%;object-fit:cover}.sciencecopy{padding:28px 42px 24px;background:radial-gradient(circle at 58% 60%,#f5df9b66,transparent 32%)}.sciencecopy .eyebrow{color:#aa7e25;font-size:9px}.sciencecopy h2{font:500 34px "Playfair Display";margin:0 0 12px}.sciencecopy p{color:#647082;font-size:11px;line-height:1.6;max-width:470px}.smallgold{margin-top:20px;padding:12px 20px}
-.products{padding:34px 0 42px;background:#fff}.sectiontop{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:14px}.sectiontop .eyebrow{color:#a77a20;font-size:9px;margin:0 0 7px}.sectiontop h2{font:500 30px "Playfair Display";margin:0}.sectiontop p{font-size:11px;color:#75808d;margin:4px 0 0}.catalog{border:1px solid #d9a63b;border-radius:999px;padding:11px 18px;font-size:9px;text-transform:uppercase;letter-spacing:.05em}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{border:1px solid #d9dee4;border-radius:10px;min-height:155px;padding:10px 16px;display:grid;grid-template-columns:110px 1fr;align-items:center;position:relative;overflow:hidden;background:#fff}.card img{width:105px;height:135px;object-fit:cover;object-position:left center;border-radius:4px}.card h3{font:500 18px/1.05 "Playfair Display";margin:0 0 8px}.dose{display:inline-block;color:#fff;border-radius:5px;padding:6px 16px;font-size:10px;font-weight:600}.purple{background:#9420aa}.red{background:#e02020}.blue{background:#0594d2}.card p{font-size:9px;margin:8px 0;color:#39424c}.arrow{position:absolute;right:16px;bottom:14px;width:26px;height:26px;border:1px solid #d9a63b;border-radius:50%;display:grid;place-items:center;font-size:13px}
-.analytics{background:linear-gradient(110deg,#071626,#092033);color:#fff;padding:25px 0}.analyticsgrid{display:grid;grid-template-columns:1fr 2.25fr;gap:20px;align-items:center}.analyticscopy .eyebrow{font-size:9px}.analyticscopy h2{font:500 31px/1.05 "Playfair Display";margin:0}.analyticscopy p{font-size:10px;color:#b3bec9;line-height:1.6}.chartrow{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:10px}.chartcard{border:1px solid #ffffff20;border-radius:12px;padding:12px;background:#071a2c}.chartcard h3{font-size:10px;margin:0 0 2px}.chart{height:165px}
-.commit{background:linear-gradient(90deg,#092037 0%,#071626 60%);color:#fff;min-height:118px;position:relative;overflow:hidden}.commitimg{position:absolute;left:0;top:0;width:40%;height:100%;opacity:.8}.commitimg img{width:100%;height:100%;object-fit:cover}.commitimg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#081929)}.commitin{position:relative;z-index:2;margin-left:37%;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:20px}.commit h2{font:500 29px "Playfair Display";margin:2px 0 8px}.commit p{color:#aeb8c2;font-size:10px;max-width:500px;line-height:1.5;margin:0}
-footer{background:#061624;color:#9eabb7;padding:28px 0}.footergrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}.footerbrand{font:500 28px "Playfair Display";color:var(--gold2)}footer h4{color:#fff;font-size:10px;margin:0 0 9px}footer p,footer a{font-size:9px;line-height:1.7;margin:0}.social{display:flex;gap:8px}.social span{width:25px;height:25px;border:1px solid #ffffff33;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px}.research{display:inline-block;border:1px solid #d7a63b;border-radius:8px;padding:9px;color:#fff;font-size:9px;font-weight:600}.copyright{text-align:right;font-size:8px;margin-top:18px}
-@media(max-width:900px){.links{display:none}.heroimage{width:100%;opacity:.55}.heroin{max-width:520px}.trustbox{grid-template-columns:1fr 1fr}.trustitem:nth-child(2){border-right:0}.sciencegrid{grid-template-columns:1fr}.lab{border-radius:0;min-height:300px}.cards{grid-template-columns:1fr}.analyticsgrid{grid-template-columns:1fr}.chartrow{grid-template-columns:1fr}.commitin{margin-left:0;padding:25px}.commitimg{width:100%;opacity:.25}.footergrid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.wrap{width:calc(100% - 26px)}.logo{width:175px}.icon{display:none}.hero h1{font-size:54px}.hero h2{font-size:28px}.heroin{padding-top:50px}.trust{margin-top:-25px}.trustbox{grid-template-columns:1fr}.trustitem{border-right:0;border-bottom:1px solid #ffffff18;padding:14px 24px}.sectiontop{display:block}.catalog{display:inline-block;margin-top:15px}.footergrid{grid-template-columns:1fr}.copyright{text-align:left}}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+.topbar{background:#040b13;color:#c7d0d8;text-align:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:9px 16px;font-weight:600}
+.header{position:absolute;top:34px;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px 5vw}
+.brand img{width:170px;max-height:64px;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,0,0,.18))}
+.nav{display:flex;align-items:center;gap:34px;color:#f3f6f8;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.nav a{padding:9px 0;border-bottom:1px solid transparent} .nav a:hover{border-color:var(--gold)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:24px}
+
+.hero{min-height:760px;background:
+radial-gradient(circle at 78% 30%,rgba(84,95,116,.23),transparent 25%),
+linear-gradient(135deg,#09131e,#0c1724 58%,#060d15);
+color:#fff;display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;padding:140px 5vw 70px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-130px;bottom:-200px;width:650px;height:650px;border-radius:50%;border:1px solid rgba(198,154,75,.12)}
+.hero-copy{position:relative;z-index:2;max-width:640px}
+.eyebrow{color:var(--gold2);font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;margin-bottom:20px}
+h1{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(58px,6.3vw,94px);line-height:.98;margin:0;letter-spacing:-.02em}
+.hero-copy p{max-width:560px;color:#b7c2cc;font-size:16px;line-height:1.75;margin:24px 0 32px}
+.btn{display:inline-flex;align-items:center;gap:22px;border:1px solid var(--gold2);border-radius:999px;padding:15px 24px;color:#fff;text-transform:uppercase;font-size:11px;letter-spacing:.08em}
+.btn:hover{background:var(--gold);color:#09131e}
+.ruo{display:flex;gap:18px;align-items:center;margin-top:42px;font-size:10px;color:#bcc5cd}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.hero-art{position:relative;z-index:2;height:620px;display:flex;align-items:center;justify-content:center}
+.hero-art img{width:min(100%,850px);filter:drop-shadow(0 40px 48px rgba(0,0,0,.42));animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-13px)}}
+
+.products-section{padding:90px 5vw 80px;background:linear-gradient(#fbfbfa,#f3f4f4)}
+.section-head{text-align:center;max-width:760px;margin:0 auto 44px}
+.section-head .over{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:700}
+.section-head h2{font-family:"DM Serif Display",Georgia,serif;font-size:52px;font-weight:400;margin:10px 0 8px;color:#1d2837}
+.section-head p{font-size:13px;color:var(--muted)}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1240px;margin:0 auto}
+.product-card{background:#fff;border:1px solid var(--line);border-radius:14px;min-height:270px;display:grid;grid-template-columns:42% 58%;align-items:center;padding:16px;position:relative;overflow:hidden;transition:.28s ease}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(14,30,50,.08)}
+.product-image{height:235px;display:flex;align-items:center;justify-content:center}
+.product-image img{height:220px;width:auto;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(16,27,39,.13))}
+.product-info{padding:12px 10px 12px 4px}
+.product-info .code{font-size:9px;color:#9aa2aa;letter-spacing:.13em;font-weight:700}
+.product-info h3{font-family:"DM Serif Display",Georgia,serif;font-size:23px;font-weight:400;line-height:1.08;margin:7px 0 8px}
+.strength{font-size:12px;color:#535f6c}
+.accent{width:100%;height:3px;margin:14px 0 28px}
+.product-info a{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.product-info a span{float:right;color:var(--gold)}
+
+.feature-strip{max-width:1240px;margin:28px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:repeat(3,1fr)}
+.feature{padding:24px 30px;display:grid;grid-template-columns:46px 1fr;gap:16px;border-right:1px solid var(--line)}
+.feature:last-child{border-right:0} .icon{font-size:28px;color:var(--gold)}
+.feature h4{margin:0 0 5px;font-size:14px} .feature p{margin:0;font-size:11px;color:var(--muted);line-height:1.55}
+
+.contact{padding:80px 5vw;background:#fff;border-top:1px solid var(--line)}
+.contact-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:60px}
+.contact h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:48px;margin:8px 0 15px}
+.contact p{color:var(--muted);line-height:1.7;font-size:14px}
+.contact .email{font-size:25px;color:var(--gold);font-weight:600}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:#4d5965}
+input,select,textarea{width:100%;margin-top:6px;padding:12px;border:1px solid #dce1e5;border-radius:7px;background:#fff}
+.full{grid-column:1/-1}
+.submit{border:0;background:var(--navy);color:#fff;border-radius:999px;padding:14px 22px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;width:max-content;cursor:pointer}
+
+footer{background:#07111d;color:#aab5bf;padding:45px 5vw 25px}
+.footer-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+footer img{width:145px;margin-bottom:12px} footer p,footer a{font-size:11px;line-height:1.6} footer strong{color:#fff}
+.copy{max-width:1240px;margin:30px auto 0;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-size:9px}
+
+@media(max-width:1000px){
+.hero{grid-template-columns:1fr;padding-top:150px}.hero-art{height:540px}
+.product-grid{grid-template-columns:repeat(2,1fr)}.contact-wrap{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+.header{padding:15px 20px}.brand img{width:135px}.menu{display:block}
+.nav{display:none;position:absolute;top:75px;left:18px;right:18px;background:#081421;padding:20px;border-radius:12px;flex-direction:column;align-items:flex-start}.nav.open{display:flex}
+.hero{padding:130px 22px 50px;min-height:auto}.hero-art{height:430px}h1{font-size:58px}
+.products-section{padding:65px 20px}.section-head h2{font-size:42px}.product-grid{grid-template-columns:1fr}
+.feature-strip{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--line)}.feature:last-child{border-bottom:0}
+.contact{padding:65px 22px}form{grid-template-columns:1fr}form label{grid-column:1/-1}.footer-grid{grid-template-columns:1fr}
+}
+
+.nav-area{display:flex;align-items:center;gap:22px}
+.nav-contact{background:none;border:0;color:#f3f6f8;font-size:12px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;padding:9px 0}
+.lang-switch{display:flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.20);border-radius:999px;padding:7px 11px;color:#fff;font-size:10px}
+.lang-switch button{border:0;background:none;color:#fff;font-size:10px;font-weight:700;cursor:pointer;padding:0}
+.lang-switch button.active{color:var(--gold2)}
+.product-request{border:0;background:none;padding:0;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:var(--ink)}
+.product-request span:last-child{float:right;color:var(--gold);margin-left:8px}
+.contact-button-wrap{display:flex;align-items:center;justify-content:flex-end}
+.contact-main-button{border:0;background:var(--navy);color:#fff;border-radius:999px;padding:15px 24px;text-transform:uppercase;font-size:11px;letter-spacing:.08em;cursor:pointer}
+.contact-main-button:hover{background:var(--gold);color:var(--navy)}
+
+.contact-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(3,10,17,.76);backdrop-filter:blur(8px)}
+.contact-modal.open{display:flex}
+.contact-modal-card{width:min(650px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 35px 100px rgba(0,0,0,.38)}
+.modal-head{display:flex;justify-content:space-between;gap:20px;padding:26px 28px 18px;border-bottom:1px solid var(--line)}
+.modal-head h2{font-family:"DM Serif Display",Georgia,serif;font-size:35px;font-weight:400;margin:0 0 4px}
+.modal-head p{font-size:12px;color:var(--muted);margin:0}
+.modal-close{border:0;background:#f1f3f4;width:36px;height:36px;border-radius:50%;font-size:22px;cursor:pointer;color:#303b46}
+.modal-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:24px 28px 28px}
+.modal-form label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:#4d5965}
+.modal-form input,.modal-form select,.modal-form textarea{width:100%;margin-top:6px;padding:12px;border:1px solid #dce1e5;border-radius:8px;background:#fff}
+.modal-form textarea{resize:vertical;min-height:135px}
+.modal-note{grid-column:1/-1;font-size:10px;color:#7b858f;line-height:1.5;margin:0}
+body.modal-open{overflow:hidden}
+
+@media(max-width:720px){
+  .nav-area{gap:10px}
+  .lang-switch{padding:6px 9px}
+  .contact-button-wrap{justify-content:flex-start}
+  .modal-form{grid-template-columns:1fr;padding:20px}
+  .modal-form label{grid-column:1/-1}
+}
+
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a href="#home" class="logo"><img src="assets/logo-header.jpg" alt="AcquaVitta"></a>
-    <nav class="links">
-      <a href="#home" class="active" data-i18n="nav.home">Home</a>
-      <a href="#products" data-i18n="nav.products">Produtos</a>
-      <a href="#science" data-i18n="nav.science">Ciência</a>
-      <a href="#about" data-i18n="nav.about">Sobre</a>
-      <a href="#contact" data-i18n="nav.contact">Contato</a>
+<div class="topbar"><span data-i18n="topbar">For research use only — not for human or veterinary use</span></div>
+
+<header class="header">
+  <a class="brand" href="#top"><img src="assets/logo.png" alt="AcquaVitta"></a>
+  <button class="menu" id="menu">☰</button>
+  <div class="nav-area">
+    <nav class="nav" id="nav">
+      <a href="#top" data-i18n="home">Home</a>
+      <a href="#products" data-i18n="products">Products</a>
+      <a href="#quality" data-i18n="quality">Quality</a>
+      <button type="button" class="nav-contact open-contact" data-i18n="contact">Contact</button>
     </nav>
-    <div class="navright">
-      <div class="langs" aria-label="Language selector">
-        <button class="lang active" id="pt" title="Português">🇧🇷</button>
-        <button class="lang" id="en" title="English">🇺🇸</button>
-      </div>
-      <span class="icon">♙</span><span class="icon">◎</span>
+    <div class="lang-switch" aria-label="Language">
+      <button type="button" id="langEn" class="active">EN</button>
+      <span>→</span>
+      <button type="button" id="langPt">PT</button>
     </div>
   </div>
 </header>
 
-<main>
-<section class="hero" id="home">
-  <div class="heroimage"><img src="assets/hero-products.jpg" alt="AcquaVitta research vials"></div>
-  <div class="wrap">
-    <div class="heroin">
-      <div class="eyebrow" data-i18n="hero.kicker">Research Peptides</div>
-      <h1>AcquaVitta</h1>
-      <h2 data-i18n="hero.title">Ciência e Pureza em Alta Performance</h2>
-      <p data-i18n="hero.text">Peptídeos de grau de pesquisa com pureza excepcional, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.</p>
-      <div class="heroactions">
-        <a class="btn gold" href="#products" data-i18n="hero.cta">Explorar coleção →</a>
-        <div class="roundplay"><span class="play">▶</span><span data-i18n="hero.video">Assistir<br>ao vídeo</span></div>
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow" data-i18n="researchPeptides">Research peptides</div>
+    <h1><span data-i18n="science">Science.</span><br><span data-i18n="purity">Purity.</span><br><span data-i18n="evolution">Evolution.</span></h1>
+    <p><span data-i18n="heroText">AcquaVitta supplies research compounds and laboratory materials with a focus on clear identification, professional presentation and responsive research support.</span></p>
+    <a class="btn" href="#products"><span data-i18n="viewCollection">View collection</span> <span>→</span></a>
+    <div class="ruo"><span class="dot"></span><strong data-i18n="ruo">Research use only</strong><span>|</span><span data-i18n="notHuman">Not for human or veterinary use.</span></div>
+  </div>
+  <div class="hero-art"><img src="assets/hero-vials.png" alt="AcquaVitta research vials"></div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="section-head">
+    <div class="over" data-i18n="ourProducts">Our products</div>
+    <h2 data-i18n="researchPeptidesTitle">Research Peptides</h2>
+    <p><span data-i18n="noPricing">No public pricing. Contact sales for availability, documentation and order requests.</span></p>
+  </div>
+  <div class="product-grid">
+    
+    <article class="product-card">
+      <div class="product-image"><img src="assets/rt30.png" alt="Retatrutide research vial"></div>
+      <div class="product-info">
+        <span class="code">RT30</span>
+        <h3>Retatrutide</h3>
+        <span class="strength">30 mg</span>
+        <div class="accent" style="background:#8f1d8c"></div>
+        <button type="button" class="product-request open-contact" data-product="Retatrutide"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
       </div>
-    </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/cu50.png" alt="GHK-Cu research vial"></div>
+      <div class="product-info">
+        <span class="code">CU50</span>
+        <h3>GHK-Cu</h3>
+        <span class="strength">50 mg</span>
+        <div class="accent" style="background:#1479bd"></div>
+        <button type="button" class="product-request open-contact" data-product="GHK-Cu"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/ms10.png" alt="MOTS-C research vial"></div>
+      <div class="product-info">
+        <span class="code">MS10</span>
+        <h3>MOTS-C</h3>
+        <span class="strength">10 mg</span>
+        <div class="accent" style="background:#b88a37"></div>
+        <button type="button" class="product-request open-contact" data-product="MOTS-C"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/ip5.png" alt="Ipamorelin research vial"></div>
+      <div class="product-info">
+        <span class="code">IP5</span>
+        <h3>Ipamorelin</h3>
+        <span class="strength">5 mg</span>
+        <div class="accent" style="background:#5b58a7"></div>
+        <button type="button" class="product-request open-contact" data-product="Ipamorelin"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/et10.png" alt="Epithalon research vial"></div>
+      <div class="product-info">
+        <span class="code">ET10</span>
+        <h3>Epithalon</h3>
+        <span class="strength">10 mg</span>
+        <div class="accent" style="background:#7d7d7d"></div>
+        <button type="button" class="product-request open-contact" data-product="Epithalon"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/xa11.png" alt="Semax research vial"></div>
+      <div class="product-info">
+        <span class="code">XA11</span>
+        <h3>Semax</h3>
+        <span class="strength">11 mg</span>
+        <div class="accent" style="background:#b24545"></div>
+        <button type="button" class="product-request open-contact" data-product="Semax"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/sk11.png" alt="Selank research vial"></div>
+      <div class="product-info">
+        <span class="code">SK11</span>
+        <h3>Selank</h3>
+        <span class="strength">11 mg</span>
+        <div class="accent" style="background:#3f8d63"></div>
+        <button type="button" class="product-request open-contact" data-product="Selank"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="assets/wa10.png" alt="Bacteriostatic Water research vial"></div>
+      <div class="product-info">
+        <span class="code">WA10</span>
+        <h3>Bacteriostatic Water</h3>
+        <span class="strength">10 mL</span>
+        <div class="accent" style="background:#1da9e6"></div>
+        <button type="button" class="product-request open-contact" data-product="Bacteriostatic Water"><span data-i18n="requestInfo">Request information</span> <span>→</span></button>
+      </div>
+    </article>
+  </div>
+
+  <div class="feature-strip" id="quality">
+    <div class="feature"><div class="icon">◇</div><div><h4 data-i18n="qualityFocus">Quality Focus</h4><p>Research materials presented with clear identification and professional batch documentation where applicable.</p></div></div>
+    <div class="feature"><div class="icon">⌬</div><div><h4 data-i18n="researchGrade">Research Grade</h4><p>For laboratory and analytical research only. Not intended for human or veterinary use.</p></div></div>
+    <div class="feature"><div class="icon">△</div><div><h4 data-i18n="directSupport">Direct Support</h4><p>Product availability, documentation and order requests handled directly by the AcquaVitta sales team.</p></div></div>
   </div>
 </section>
 
-<div class="trust"><div class="wrap trustbox">
-  <div class="trustitem"><div class="trusticon">♢</div><div><b data-i18n="trust.1t">Pureza Excepcional</b><small data-i18n="trust.1d">Análises rigorosas por HPLC e MS</small></div></div>
-  <div class="trustitem"><div class="trusticon">⌬</div><div><b data-i18n="trust.2t">Grau de Pesquisa</b><small data-i18n="trust.2d">Uso exclusivo em laboratório</small></div></div>
-  <div class="trustitem"><div class="trusticon">⌘</div><div><b data-i18n="trust.3t">Qualidade Certificada</b><small data-i18n="trust.3d">Lotes rastreáveis e documentados</small></div></div>
-  <div class="trustitem"><div class="trusticon">♧</div><div><b data-i18n="trust.4t">Inovação Contínua</b><small data-i18n="trust.4d">Ciência em constante evolução</small></div></div>
-</div></div>
-
-<section class="science" id="science">
-  <div class="sciencegrid">
-    <div class="lab"><img src="assets/lab.jpg" alt="Laboratório"></div>
-    <div class="sciencecopy">
-      <div class="eyebrow" data-i18n="science.kicker">Ciência que impulsiona resultados</div>
-      <h2 data-i18n="science.title">Pesquisa. Análise. Evolução.</h2>
-      <p data-i18n="science.text">Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza e estabilidade.</p>
-      <a class="btn gold smallgold" href="#about" data-i18n="science.cta">Conheça nosso processo →</a>
+<section class="contact" id="contact">
+  <div class="contact-wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--gold)" data-i18n="quoteOrders">Quotations & orders</div>
+      <h2 data-i18n="contactSales">Contact our sales team.</h2>
+      <p data-i18n="contactText">For availability, quotations, order requests, analytical documentation or general research inquiries, contact AcquaVitta directly.</p>
+      <a class="email" href="mailto:sales@acquavitta.com">sales@acquavitta.com</a>
     </div>
-  </div>
-</section>
-
-<section class="products" id="products"><div class="wrap">
-  <div class="sectiontop">
-    <div><div class="eyebrow" data-i18n="products.kicker">Nossos produtos</div><h2 data-i18n="products.title">Peptídeos de Alta Performance</h2><p data-i18n="products.text">Qualidade, pureza e confiabilidade para pesquisa científica.</p></div>
-    <a href="#" class="catalog" data-i18n="products.catalog">Ver catálogo completo →</a>
-  </div>
-  <div class="cards">
-    <article class="card"><img src="assets/product-retatrutide.jpg" alt=""><div><h3>Retatrutide<br>Injection</h3><span class="dose purple">60mg/3mL</span><p data-i18n="products.lab">Pesquisa Laboratorial</p><p>3mL Vial</p></div><span class="arrow">→</span></article>
-    <article class="card"><img src="assets/product-semaglutide.jpg" alt=""><div><h3>Semaglutide<br>Injection</h3><span class="dose red">10mg/3mL</span><p data-i18n="products.lab">Pesquisa Laboratorial</p><p>3mL Vial</p></div><span class="arrow">→</span></article>
-    <article class="card"><img src="assets/product-water.jpg" alt=""><div><h3>Bacteriostatic<br>Water</h3><span class="dose blue">10mL</span><p data-i18n="products.water">Diluição e Reconstituição</p><p>10mL Vial</p></div><span class="arrow">→</span></article>
-  </div>
-</div></section>
-
-<section class="analytics" id="about"><div class="wrap analyticsgrid">
-  <div class="analyticscopy"><div class="eyebrow" data-i18n="data.kicker">Dados e análises</div><h2 data-i18n="data.title">Resultados que Comprovam Nossa Qualidade</h2><p data-i18n="data.text">Gráficos baseados em análises laboratoriais reais</p><a class="btn gold" href="#" data-i18n="data.cta">Ver mais dados →</a></div>
-  <div class="chartrow">
-    <div class="chartcard"><h3 data-i18n="chart.purity">Concentração e Pureza Molecular</h3><div id="purity" class="chart"></div></div>
-    <div class="chartcard"><h3 data-i18n="chart.stability">Estabilidade Hidrolítica</h3><div id="stability" class="chart"></div></div>
-    <div class="chartcard"><h3 data-i18n="chart.comp">Composição de Ativos Bioidênticos</h3><div id="donut" class="chart"></div></div>
-  </div>
-</div></section>
-
-<section class="commit" id="contact">
-  <div class="commitimg"><img src="assets/dropper.jpg" alt=""></div>
-  <div class="wrap commitin">
-    <div><div class="eyebrow">AcquaVitta</div><h2 data-i18n="commit.title">Compromisso com a Ciência</h2><p data-i18n="commit.text">Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.</p></div>
-    <a class="btn gold" href="mailto:info@acquavitta.com" data-i18n="commit.cta">Entre em contato →</a>
+    <div class="contact-button-wrap">
+      <button class="contact-main-button open-contact" type="button">
+        <span data-i18n="openForm">Open contact form</span> <span>→</span>
+      </button>
+    </div>
   </div>
 </section>
 </main>
 
-<footer><div class="wrap">
-  <div class="footergrid">
-    <div><div class="footerbrand">⌬ AcquaVitta</div><p>Research Peptides, Life in Evolution.</p></div>
-    <div><h4 data-i18n="footer.nav">Navegação</h4><p><a href="#home">Home</a><br><a href="#products" data-i18n="nav.products">Produtos</a><br><a href="#science" data-i18n="nav.science">Ciência</a><br><a href="#about" data-i18n="nav.about">Sobre</a><br><a href="#contact" data-i18n="nav.contact">Contato</a></p></div>
-    <div><h4 data-i18n="footer.contact">Contato</h4><p>✉ info@acquavitta.com<br>☎ +1 (561) 832-3456<br>⌖ Florida, USA</p></div>
-    <div><h4 data-i18n="footer.follow">Siga-nos</h4><div class="social"><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div><br><span class="research">RESEARCH USE ONLY<br><small>Not for human consumption.</small></span></div>
+<div class="contact-modal" id="contactModal" aria-hidden="true">
+  <div class="contact-modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div>
+        <h2 id="modalTitle" data-i18n="modalTitle">Quotations & Orders</h2>
+        <p data-i18n="modalIntro">Send your request directly to the AcquaVitta sales team.</p>
+      </div>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
+    </div>
+
+    <form class="modal-form" action="https://formsubmit.co/sales@acquavitta.com" method="POST">
+      <input type="hidden" name="_subject" value="New AcquaVitta quotation/order request">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <label><span data-i18n="name">Name</span> *
+        <input type="text" name="name" required autocomplete="name">
+      </label>
+
+      <label><span data-i18n="email">Email</span> *
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+
+      <label><span data-i18n="phone">Phone (optional)</span>
+        <input type="tel" name="phone" autocomplete="tel">
+      </label>
+
+      <label><span data-i18n="productOptional">Product (optional)</span>
+        <select name="product" id="productSelect">
+          <option value="" data-i18n="selectProduct">Select a product</option>
+          <option>Retatrutide RT30 — 30 mg</option>
+          <option>GHK-Cu CU50 — 50 mg</option>
+          <option>MOTS-C MS10 — 10 mg</option>
+          <option>Ipamorelin IP5 — 5 mg</option>
+          <option>Epithalon ET10 — 10 mg</option>
+          <option>Semax XA11 — 11 mg</option>
+          <option>Selank SK11 — 11 mg</option>
+          <option>Bacteriostatic Water WA10 — 10 mL</option>
+        </select>
+      </label>
+
+      <label class="full"><span data-i18n="message">Message</span> *
+        <textarea name="message" id="messageField" rows="6" required placeholder="Tell us what you need for your quotation or order."></textarea>
+      </label>
+
+      <button class="submit full" type="submit" data-i18n="sendRequest">Send request</button>
+      <p class="modal-note" data-i18n="formNote">For quotations, product availability, documentation and order requests.</p>
+    </form>
   </div>
-  <div class="copyright">© 2026 AcquaVitta. All rights reserved.</div>
-</div></footer>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div><img src="assets/logo.png" alt="AcquaVitta"><p><span data-i18n="footerTag">Molecular precision for scientific research.</span></p></div>
+    <div><strong data-i18n="contact">Contact</strong><p><a href="mailto:sales@acquavitta.com">sales@acquavitta.com</a></p></div>
+    <div><strong data-i18n="policy">Research Use Policy</strong><p><span data-i18n="policyText">All products are offered exclusively for laboratory and analytical research.</span></p></div>
+  </div>
+  <div class="copy">© 2026 AcquaVitta. All rights reserved.</div>
+</footer>
 
 <script>
-const T={
-pt:{
-"nav.home":"Home","nav.products":"Produtos","nav.science":"Ciência","nav.about":"Sobre","nav.contact":"Contato",
-"hero.kicker":"Research Peptides","hero.title":"Ciência e Pureza em Alta Performance","hero.text":"Peptídeos de grau de pesquisa com pureza excepcional, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.","hero.cta":"Explorar coleção →","hero.video":"Assistir\\nao vídeo",
-"trust.1t":"Pureza Excepcional","trust.1d":"Análises rigorosas por HPLC e MS","trust.2t":"Grau de Pesquisa","trust.2d":"Uso exclusivo em laboratório","trust.3t":"Qualidade Certificada","trust.3d":"Lotes rastreáveis e documentados","trust.4t":"Inovação Contínua","trust.4d":"Ciência em constante evolução",
-"science.kicker":"Ciência que impulsiona resultados","science.title":"Pesquisa. Análise. Evolução.","science.text":"Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza e estabilidade.","science.cta":"Conheça nosso processo →",
-"products.kicker":"Nossos produtos","products.title":"Peptídeos de Alta Performance","products.text":"Qualidade, pureza e confiabilidade para pesquisa científica.","products.catalog":"Ver catálogo completo →","products.lab":"Pesquisa Laboratorial","products.water":"Diluição e Reconstituição",
-"data.kicker":"Dados e análises","data.title":"Resultados que Comprovam Nossa Qualidade","data.text":"Gráficos baseados em análises laboratoriais reais","data.cta":"Ver mais dados →",
-"chart.purity":"Concentração e Pureza Molecular","chart.stability":"Estabilidade Hidrolítica","chart.comp":"Composição de Ativos Bioidênticos",
-"commit.title":"Compromisso com a Ciência","commit.text":"Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.","commit.cta":"Entre em contato →",
-"footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos"
-},
-en:{
-"nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact",
-"hero.kicker":"Research Peptides","hero.title":"Science and Purity in High Performance","hero.text":"Research-grade peptides with exceptional purity, produced under rigorous laboratory protocols. Innovation, quality and consistency for the evolution of science.","hero.cta":"Explore collection →","hero.video":"Watch\\nthe video",
-"trust.1t":"Exceptional Purity","trust.1d":"Rigorous HPLC and MS analysis","trust.2t":"Research Grade","trust.2d":"For laboratory research only","trust.3t":"Certified Quality","trust.3d":"Traceable and documented batches","trust.4t":"Continuous Innovation","trust.4d":"Science in constant evolution",
-"science.kicker":"Science that drives results","science.title":"Research. Analysis. Evolution.","science.text":"Our peptides are produced following international standards, supported by certificates of analysis, purity testing and stability evaluation.","science.cta":"Discover our process →",
-"products.kicker":"Our products","products.title":"High-Performance Peptides","products.text":"Quality, purity and reliability for scientific research.","products.catalog":"View full catalog →","products.lab":"Laboratory Research","products.water":"Dilution and Reconstitution",
-"data.kicker":"Data and analytics","data.title":"Results That Demonstrate Our Quality","data.text":"Charts based on laboratory analysis data","data.cta":"View more data →",
-"chart.purity":"Molecular Concentration and Purity","chart.stability":"Hydrolytic Stability","chart.comp":"Bioidentical Active Composition",
-"commit.title":"Commitment to Science","commit.text":"Providing exceptional-quality peptides for researchers and contributing to scientific advances and new discoveries.","commit.cta":"Contact us →",
-"footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us"
-}};
-function setLang(lang){
- document.documentElement.lang=lang==="en"?"en":"pt-BR";
- document.querySelectorAll("[data-i18n]").forEach(el=>{let v=T[lang][el.dataset.i18n];if(v!==undefined)el.innerHTML=v.replace("\\n","<br>")});
- document.getElementById("pt").classList.toggle("active",lang==="pt");
- document.getElementById("en").classList.toggle("active",lang==="en");
- localStorage.setItem("av-lang",lang);
-}
-pt.onclick=()=>setLang("pt");en.onclick=()=>setLang("en");setLang(localStorage.getItem("av-lang")||"pt");
+const menu=document.getElementById('menu');
+const nav=document.getElementById('nav');
+const modal=document.getElementById('contactModal');
+const modalClose=document.getElementById('modalClose');
+const productSelect=document.getElementById('productSelect');
+const messageField=document.getElementById('messageField');
+const langEn=document.getElementById('langEn');
+const langPt=document.getElementById('langPt');
 
-const base={chart:{toolbar:{show:false},fontFamily:"Inter",foreColor:"#aeb8c2"},dataLabels:{enabled:false},grid:{borderColor:"#ffffff12"},theme:{mode:"dark"}};
-new ApexCharts(document.querySelector("#purity"),{...base,chart:{...base.chart,type:"area",height:165},series:[{name:"Purity",data:[78,88,90,89,93,92,96]}],colors:["#d7a63b"],stroke:{curve:"smooth",width:2},fill:{type:"gradient",gradient:{gradientToColors:["#f1cc70"],opacityFrom:.32,opacityTo:.02}},xaxis:{categories:["L01","L02","L03","L04","L05","L06","L07"],labels:{style:{fontSize:"7px"}}},yaxis:{min:70,max:100,labels:{style:{fontSize:"7px"}}},legend:{show:false}}).render();
-new ApexCharts(document.querySelector("#stability"),{...base,chart:{...base.chart,type:"bar",height:165},series:[{name:"Stability",data:[96.2,97.1,98.0,97.8,98.5]}],colors:["#d7a63b"],plotOptions:{bar:{borderRadius:4,columnWidth:"50%"}},xaxis:{categories:["0h","24h","48h","72h","96h"],labels:{style:{fontSize:"7px"}}},yaxis:{min:90,max:100,labels:{style:{fontSize:"7px"}}},legend:{show:false}}).render();
-new ApexCharts(document.querySelector("#donut"),{chart:{type:"donut",height:165,fontFamily:"Inter"},series:[64,22,9,5],labels:["Peptide","Control","Excipients","Other"],colors:["#d7a63b","#f1cc70","#a7b0b9","#fff"],stroke:{colors:["#071a2c"],width:2},dataLabels:{enabled:false},legend:{position:"right",fontSize:"7px",labels:{colors:"#c7d0d9"}},plotOptions:{pie:{donut:{size:"68%",labels:{show:true,total:{show:true,label:"Purity",formatter:()=>"99.1%"}}}}}}).render();
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+function openContact(product=''){
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+  if(product){
+    [...productSelect.options].forEach(o=>{
+      if(o.value.startsWith(product)) productSelect.value=o.value;
+    });
+  }
+  setTimeout(()=>modal.querySelector('input[name="name"]').focus(),50);
+}
+function closeContact(){
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+}
+document.querySelectorAll('.open-contact').forEach(b=>b.addEventListener('click',()=>openContact(b.dataset.product||'')));
+modalClose.addEventListener('click',closeContact);
+modal.addEventListener('click',e=>{if(e.target===modal)closeContact()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeContact()});
+
+const T={
+ en:{
+  home:'Home',products:'Products',quality:'Quality',contact:'Contact',
+  topbar:'For research use only — not for human or veterinary use',
+  researchPeptides:'Research peptides',science:'Science.',purity:'Purity.',evolution:'Evolution.',
+  heroText:'AcquaVitta supplies research compounds and laboratory materials with a focus on clear identification, professional presentation and responsive research support.',
+  viewCollection:'View collection',ruo:'Research use only',notHuman:'Not for human or veterinary use.',
+  ourProducts:'Our products',researchPeptidesTitle:'Research Peptides',
+  noPricing:'No public pricing. Contact sales for availability, documentation and order requests.',
+  requestInfo:'Request information',qualityFocus:'Quality Focus',researchGrade:'Research Grade',directSupport:'Direct Support',
+  quoteOrders:'Quotations & orders',contactSales:'Contact our sales team.',
+  contactText:'For availability, quotations, order requests, analytical documentation or general research inquiries, contact AcquaVitta directly.',
+  openForm:'Open contact form',modalTitle:'Quotations & Orders',modalIntro:'Send your request directly to the AcquaVitta sales team.',
+  name:'Name',email:'Email',phone:'Phone (optional)',productOptional:'Product (optional)',selectProduct:'Select a product',
+  message:'Message',sendRequest:'Send request',formNote:'For quotations, product availability, documentation and order requests.',
+  footerTag:'Molecular precision for scientific research.',policy:'Research Use Policy',
+  policyText:'All products are offered exclusively for laboratory and analytical research.'
+ },
+ pt:{
+  home:'Início',products:'Produtos',quality:'Qualidade',contact:'Contato',
+  topbar:'Somente para uso em pesquisa — não destinado ao uso humano ou veterinário',
+  researchPeptides:'Peptídeos para pesquisa',science:'Ciência.',purity:'Pureza.',evolution:'Evolução.',
+  heroText:'A AcquaVitta fornece compostos e materiais laboratoriais para pesquisa, com foco em identificação clara, apresentação profissional e suporte ágil.',
+  viewCollection:'Ver coleção',ruo:'Somente para pesquisa',notHuman:'Não destinado ao uso humano ou veterinário.',
+  ourProducts:'Nossos produtos',researchPeptidesTitle:'Peptídeos para Pesquisa',
+  noPricing:'Não exibimos preços publicamente. Entre em contato com vendas para disponibilidade, documentação, cotações e pedidos.',
+  requestInfo:'Solicitar informações',qualityFocus:'Foco em Qualidade',researchGrade:'Grau de Pesquisa',directSupport:'Atendimento Direto',
+  quoteOrders:'Cotações e pedidos',contactSales:'Fale com nossa equipe comercial.',
+  contactText:'Para disponibilidade, cotações, pedidos, documentação analítica ou dúvidas gerais, entre em contato diretamente com a AcquaVitta.',
+  openForm:'Abrir formulário de contato',modalTitle:'Cotações e Pedidos',modalIntro:'Envie sua solicitação diretamente para a equipe comercial da AcquaVitta.',
+  name:'Nome',email:'E-mail',phone:'Telefone (opcional)',productOptional:'Produto (opcional)',selectProduct:'Selecione um produto',
+  message:'Mensagem',sendRequest:'Enviar solicitação',formNote:'Para cotações, disponibilidade de produtos, documentação e pedidos.',
+  footerTag:'Precisão molecular para pesquisa científica.',policy:'Política de Uso em Pesquisa',
+  policyText:'Todos os produtos são oferecidos exclusivamente para pesquisa laboratorial e analítica.'
+ }
+};
+function setLanguage(lang){
+  document.documentElement.lang=lang==='pt'?'pt-BR':'en';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(T[lang][key]) el.textContent=T[lang][key];
+  });
+  messageField.placeholder=lang==='pt'?'Informe o que você precisa para sua cotação ou pedido.':'Tell us what you need for your quotation or order.';
+  langEn.classList.toggle('active',lang==='en');
+  langPt.classList.toggle('active',lang==='pt');
+  localStorage.setItem('acquavitta-lang',lang);
+}
+langEn.addEventListener('click',()=>setLanguage('en'));
+langPt.addEventListener('click',()=>setLanguage('pt'));
+setLanguage(localStorage.getItem('acquavitta-lang')==='pt'?'pt':'en');
 </script>
 </body>
 </html>

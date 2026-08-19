@@ -1,15 +1,12 @@
-# AcquaVitta V13 — Rose Marble
+# AcquaVitta Website v4
 
-Static HTML/CSS/JS site for GitHub and Vercel.
+This version follows the clean hero + product-grid format requested.
 
-Changes:
-- Transparent clear vials with the AcquaVitta mark directly on the glass.
-- No black labels.
-- No black stones.
-- Pale marble and Himalayan rose salt visual direction.
-- Header logo uses a clean transparent symbol plus live text to prevent cropping and blur.
+Upload to the repository root:
+- index.html
+- CNAME
+- assets/
 
-Framework preset in Vercel: Other.
-No build command required.
+The product vial images are built from the user's supplied real vial photograph and custom AcquaVitta-style research labels.
 
-Login, registration, contact and checkout remain demonstration interfaces until secure backend services are connected.
+Do not delete CNAME if GitHub Pages is already using acquavitta.com.

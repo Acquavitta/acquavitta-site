@@ -5,13 +5,16 @@ Site institucional/e-commerce (front-end estático) para a AcquaVitta.
 ## O que tem aqui
 - `index.html` — página única (HTML + CSS + JS embutidos), pronta para GitHub Pages.
 - `assets/logo-icon.png`, `assets/logo-full.png` — seus logos oficiais.
-- `assets/vials/*.png` — frascos de 3mL renderizados (não são fotos reais; são ilustrações 3D geradas a partir dos seus rótulos, envolvendo o design em torno de um frasco com tampa e batoque). Se um dia você tirar fotos reais dos frascos, é só substituir os arquivos com o mesmo nome.
+- `assets/products/*.jpg` — fotos reais de estúdio (frasco sobre pedestal de mármore) para os 16 produtos do catálogo.
+
+## Catálogo atual (16 itens)
+BPC-157 · CJC-1295 · Epitalon · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Retatrutide · Selank · Semax · TB-500 · Tesamorelin · Tirzepatide (15mg, 20mg e 30mg) · Água Bacteriostática.
 
 ## Idiomas
 O site abre em **inglês** por padrão, com uma aba no topo para trocar entre 🇺🇸 English, 🇧🇷 Português (Brasil) e 🇪🇸 Español. A preferência do visitante fica salva no navegador.
 
 ## Preços
-Os preços estão em **USD** e foram calibrados com base em uma pesquisa de mercado em lojas do mesmo nicho (Prime Peptides, Tydes e concorrentes similares) para as mesmas dosagens — mas são ainda uma referência inicial, não um preço fixo de custo/margem seu.
+Os preços estão em **USD** e foram calibrados com base em pesquisa de mercado em lojas do mesmo nicho (Prime Peptides, Tydes, Factor Peptides, American Peptides e concorrentes similares) para as mesmas dosagens dos rótulos — mas são ainda uma referência inicial, não um preço fixo de custo/margem seu.
 
 ## Antes de publicar, edite:
 

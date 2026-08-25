@@ -52,6 +52,30 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .molC{top:30%;right:44%;width:130px;animation:drift 20s ease-in-out infinite;opacity:.18}
 .hexbg{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='72' viewBox='0 0 84 72'%3E%3Cpath d='M42 0 L84 18 L84 54 L42 72 L0 54 L0 18 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.035' stroke-width='1'/%3E%3C/svg%3E");background-size:84px 72px;opacity:.7}
 
+/* ---------- hero tech layer: particle net, DNA helix, HUD chips, scanline ---------- */
+#heroNet{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.scanline{position:absolute;left:0;right:0;height:120px;background:linear-gradient(180deg,transparent,#d7a63b14 45%,#f1cc7024 50%,#d7a63b14 55%,transparent);mix-blend-mode:screen;animation:scan 9s linear infinite;pointer-events:none}
+@keyframes scan{0%{top:-140px}100%{top:100%}}
+.corners{position:absolute;pointer-events:none}
+.corners i{position:absolute;width:22px;height:22px;border-color:#d7a63b55}
+.corners .tl{top:0;left:0;border-top:1.5px solid;border-left:1.5px solid}
+.corners .tr{top:0;right:0;border-top:1.5px solid;border-right:1.5px solid}
+.corners .bl{bottom:0;left:0;border-bottom:1.5px solid;border-left:1.5px solid}
+.corners .br{bottom:0;right:0;border-bottom:1.5px solid;border-right:1.5px solid}
+.frame{position:absolute;top:14%;right:4%;width:44%;height:72%;pointer-events:none}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+.hud{position:absolute;display:flex;flex-direction:column;gap:2px;padding:9px 13px;border:1px solid #d7a63b3d;border-radius:8px;background:#0a1c2e77;backdrop-filter:blur(4px);font-family:'Inter',monospace;animation:fadeInUp .8s ease both, floatY 6s ease-in-out infinite;pointer-events:none}
+.hud .hl{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#8fa0b0}
+.hud .hv{font-size:15px;color:#f1cc70;font-weight:600;font-family:'Playfair Display',serif}
+.hud .hv small{font-size:9px;color:#6fcf97;font-family:Inter;margin-left:5px}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hud1{top:8%;right:2%;animation-delay:.2s,0s}
+.hud2{top:44%;right:-2%;animation-delay:.5s,1.2s}
+.hud3{bottom:10%;right:8%;animation-delay:.8s,2.4s}
+.dnawrap{position:absolute;top:0;bottom:0;right:0;width:38%;opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 100%)}
+.dnawrap svg{height:100%;animation:dnaspin 22s linear infinite}
+@keyframes dnaspin{0%{transform:scaleX(1)}25%{transform:scaleX(.15)}50%{transform:scaleX(1)}75%{transform:scaleX(.15)}100%{transform:scaleX(1)}}
+
 /* ---------- hero ---------- */
 .hero{padding-top:70px;background:linear-gradient(120deg,#04101c 0%,#0a1a2b 55%,#0c2237 100%);color:#fff;min-height:560px;position:relative;overflow:hidden}
 .heroin{position:relative;z-index:3;padding:70px 0 130px;max-width:560px}
@@ -105,9 +129,10 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .pcard{border:1px solid #e3e7eb;border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .pcard:hover{transform:translateY(-5px);box-shadow:0 22px 40px #0a223522;border-color:#d9a63b55}
-.pcard .plabel{background:radial-gradient(circle at 50% 30%,#123255,#0a1e33 70%,#08172a);padding:18px 16px 8px;display:flex;align-items:flex-end;justify-content:center;height:230px;position:relative;overflow:hidden}
-.pcard .plabel:before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='72' viewBox='0 0 84 72'%3E%3Cpath d='M42 0 L84 18 L84 54 L42 72 L0 54 L0 18 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 48px;opacity:.6}
-.pcard .plabel img{position:relative;z-index:1;height:100%;width:auto;max-width:82%;object-fit:contain;filter:drop-shadow(0 14px 16px #00000066)}
+.pcard .plabel{position:relative;height:220px;overflow:hidden;background:#0a1e33}
+.pcard .plabel img{width:100%;height:100%;object-fit:cover;object-position:center 38%;transition:transform .5s ease}
+.pcard:hover .plabel img{transform:scale(1.05)}
+.pcard .plabel:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#08172aee 100%)}
 .pcard .pbody{padding:16px 17px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
 .pcard h3{font:600 17px/1.1 "Playfair Display";margin:0}
 .pdose{display:inline-flex;align-self:flex-start;align-items:center;color:#fff;border-radius:6px;padding:5px 11px;font-size:10px;font-weight:700;letter-spacing:.02em}
@@ -189,6 +214,7 @@ footer a:hover{color:var(--gold2)}
   .trustbox{grid-template-columns:1fr 1fr}
   .trustitem:nth-child(2){border-right:0}
   .footergrid{grid-template-columns:1fr 1fr}
+  .frame,.dnawrap{display:none}
 }
 @media(max-width:600px){
   .wrap{width:calc(100% - 26px)}
@@ -206,6 +232,7 @@ footer a:hover{color:var(--gold2)}
   .commitin{display:block}
   .commitin .btn{margin-top:18px}
   .drawer{width:100%}
+  #heroNet{opacity:.3}
 }
 </style>
 </head>
@@ -238,9 +265,37 @@ footer a:hover{color:var(--gold2)}
 <section class="hero" id="home">
   <div class="molfield">
     <div class="hexbg"></div>
+    <canvas id="heroNet"></canvas>
+    <div class="scanline"></div>
+    <div class="dnawrap">
+      <svg viewBox="0 0 240 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="dnaGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1cc70"/><stop offset="1" stop-color="#a9781d"/></linearGradient></defs>
+        <g stroke="url(#dnaGold)" stroke-width="2.4" fill="none" opacity=".85">
+          <path d="M40,0 C120,60 120,120 40,180 C-40,240 -40,300 40,360 C120,420 120,480 40,540 C-40,600 -40,660 40,720 C120,780 120,840 40,900"/>
+          <path d="M200,0 C120,60 120,120 200,180 C280,240 280,300 200,360 C120,420 120,480 200,540 C280,600 280,660 200,720 C120,780 120,840 200,900"/>
+        </g>
+        <g stroke="#d7a63b" stroke-width="1.4" opacity=".5">
+          <line x1="40" y1="20" x2="200" y2="20"/><line x1="60" y1="80" x2="180" y2="80"/><line x1="40" y1="180" x2="200" y2="180"/>
+          <line x1="60" y1="260" x2="180" y2="260"/><line x1="40" y1="360" x2="200" y2="360"/><line x1="60" y1="440" x2="180" y2="440"/>
+          <line x1="40" y1="540" x2="200" y2="540"/><line x1="60" y1="620" x2="180" y2="620"/><line x1="40" y1="720" x2="200" y2="720"/>
+          <line x1="60" y1="800" x2="180" y2="800"/>
+        </g>
+        <g fill="#f1cc70" opacity=".9">
+          <circle cx="40" cy="0" r="4"/><circle cx="200" cy="0" r="4"/><circle cx="40" cy="180" r="4"/><circle cx="200" cy="180" r="4"/>
+          <circle cx="40" cy="360" r="4"/><circle cx="200" cy="360" r="4"/><circle cx="40" cy="540" r="4"/><circle cx="200" cy="540" r="4"/>
+          <circle cx="40" cy="720" r="4"/><circle cx="200" cy="720" r="4"/><circle cx="40" cy="900" r="4"/><circle cx="200" cy="900" r="4"/>
+        </g>
+      </svg>
+    </div>
     <svg class="molA" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#d7a63b" stroke-width="2"><path d="M150 40 L150 90 L200 120 L200 170 L150 200 L100 170 L100 120 L150 90 M100 120 L60 95"/><path d="M150 200 L150 250 L200 280 M150 250 L100 280"/></g><g fill="#d7a63b"><circle cx="150" cy="40" r="9"/><circle cx="150" cy="90" r="7"/><circle cx="200" cy="120" r="9"/><circle cx="200" cy="170" r="7"/><circle cx="150" cy="200" r="9"/><circle cx="100" cy="170" r="7"/><circle cx="100" cy="120" r="9"/><circle cx="60" cy="95" r="7"/><circle cx="150" cy="250" r="7"/><circle cx="200" cy="280" r="6"/><circle cx="100" cy="280" r="6"/></g></svg>
     <svg class="molB" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#f1cc70" stroke-width="2"><path d="M150 40 L150 90 L200 120 L200 170 L150 200 L100 170 L100 120 L150 90"/></g><g fill="#f1cc70"><circle cx="150" cy="40" r="8"/><circle cx="200" cy="120" r="8"/><circle cx="150" cy="200" r="8"/><circle cx="100" cy="120" r="8"/></g></svg>
     <svg class="molC" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#fff" stroke-width="2"><path d="M150 40 L150 90 L200 120 L200 170 L150 200 L100 170 L100 120 L150 90"/></g><g fill="#fff"><circle cx="150" cy="40" r="8"/><circle cx="200" cy="120" r="8"/><circle cx="150" cy="200" r="8"/><circle cx="100" cy="120" r="8"/></g></svg>
+    <div class="frame">
+      <div class="corners"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
+      <div class="hud hud1"><span class="hl">Purity Index</span><span class="hv">99.4<small>▲ HPLC</small></span></div>
+      <div class="hud hud2"><span class="hl">Batch</span><span class="hv" id="hudBatch">AV-2026-0341</span></div>
+      <div class="hud hud3"><span class="hl">Cold Chain</span><span class="hv">2–8°<small>● stable</small></span></div>
+    </div>
   </div>
   <div class="wrap">
     <div class="heroin">
@@ -270,7 +325,7 @@ footer a:hover{color:var(--gold2)}
       <div class="hexbg"></div>
       <div class="labchip"><b>99%+</b><span data-i18n="science.chip1">Pureza média por HPLC</span></div>
       <div class="labchip"><b>2–8°C</b><span data-i18n="science.chip2">Cadeia de frio controlada</span></div>
-      <div class="labchip"><b>7</b><span data-i18n="science.chip3">Peptídeos em catálogo ativo</span></div>
+      <div class="labchip"><b>16</b><span data-i18n="science.chip3">Peptídeos em catálogo ativo</span></div>
     </div>
     <div class="sciencecopy">
       <div class="eyebrow" data-i18n="science.kicker">Ciência que impulsiona resultados</div>
@@ -358,56 +413,112 @@ const ORDERS_EMAIL = "sales@acquavitta.com"; // <-- EDIT: e-mail que recebe os p
 
 const PRODUCTS = [
   {
-    id:"epithalon", img:"assets/vials/epithalon.png", color:"#7a8f2e",
-    name:"Epithalon", dose:"10mg / 3mL", price:79.00,
+    id:"bpc-157", img:"assets/products/bpc-157.jpg", color:"#1e5fb8",
+    name:"BPC-157", dose:"10mg / 3mL", price:70.00,
+    benefit:{pt:"Peptídeo pentadecapeptídeo pesquisado por seu potencial na reparação de tecidos, saúde do trato gastrointestinal e recuperação de tendões e ligamentos.",
+              en:"Pentadecapeptide researched for its potential in tissue repair, gastrointestinal health and tendon/ligament recovery.",
+              es:"Pentadecapéptido investigado por su potencial en la reparación de tejidos, la salud gastrointestinal y la recuperación de tendones y ligamentos."}
+  },
+  {
+    id:"cjc-1295", img:"assets/products/cjc-1295.jpg", color:"#7a2ea0",
+    name:"CJC-1295", dose:"5mg / 3mL", price:79.00,
+    benefit:{pt:"Análogo do GHRH estudado por prolongar o pulso natural do hormônio do crescimento, com potencial em composição corporal e recuperação.",
+              en:"GHRH analog studied for extending the natural growth hormone pulse, with potential in body composition and recovery.",
+              es:"Análogo de GHRH estudiado por prolongar el pulso natural de la hormona del crecimiento, con potencial en la composición corporal y la recuperación."}
+  },
+  {
+    id:"epitalon", img:"assets/products/epitalon.jpg", color:"#1c8a4a",
+    name:"Epitalon", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Estudado por seu possível papel na regulação do sono, na atividade da telomerase e em processos ligados ao envelhecimento celular.",
               en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes.",
               es:"Estudiado por su posible papel en la regulación del sueño, la actividad de la telomerasa y procesos ligados al envejecimiento celular."}
   },
   {
-    id:"mots-c", img:"assets/vials/mots-c.png", color:"#5b5f66",
-    name:"MOTS-c", dose:"10mg / 3mL", price:89.00,
-    benefit:{pt:"Peptídeo mitocondrial pesquisado por seu papel no metabolismo energético, na sensibilidade à insulina e na performance física.",
-              en:"Mitochondrial peptide researched for its role in energy metabolism, insulin sensitivity and physical performance.",
-              es:"Péptido mitocondrial investigado por su papel en el metabolismo energético, la sensibilidad a la insulina y el rendimiento físico."}
-  },
-  {
-    id:"ghk-cu", img:"assets/vials/ghk-cu.png", color:"#7a2e8f",
+    id:"ghk-cu", img:"assets/products/ghk-cu.jpg", color:"#7a2e8f",
     name:"GHK-Cu", dose:"50mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo de cobre associado, em estudos, à síntese de colágeno, remodelação de tecidos e ação antioxidante na pele.",
               en:"Copper peptide associated in studies with collagen synthesis, tissue remodeling and antioxidant action on skin.",
               es:"Péptido de cobre asociado, en estudios, con la síntesis de colágeno, la remodelación de tejidos y la acción antioxidante en la piel."}
   },
   {
-    id:"ipamorelin", img:"assets/vials/ipamorelin.png", color:"#c99a1a",
+    id:"glow", img:"assets/products/glow.jpg", color:"#c23a7a",
+    name:"Glow Blend", dose:"50mg/10mg/10mg / 3mL", price:180.00,
+    benefit:{pt:"Blend de GHK-Cu, BPC-157 e TB-500 reunido para pesquisas combinadas sobre regeneração de pele, tecidos e recuperação geral.",
+              en:"Blend of GHK-Cu, BPC-157 and TB-500 combined for research into skin regeneration, tissue repair and overall recovery.",
+              es:"Mezcla de GHK-Cu, BPC-157 y TB-500 combinada para la investigación de la regeneración de la piel, los tejidos y la recuperación general."}
+  },
+  {
+    id:"ipamorelin", img:"assets/products/ipamorelin.jpg", color:"#c99a1a",
     name:"Ipamorelin", dose:"5mg / 3mL", price:69.00,
     benefit:{pt:"Secretagogo seletivo do GH estudado por seu potencial na recuperação muscular, composição corporal e qualidade do sono.",
               en:"Selective GH secretagogue studied for its potential in muscle recovery, body composition and sleep quality.",
               es:"Secretagogo selectivo de GH estudiado por su potencial en la recuperación muscular, la composición corporal y la calidad del sueño."}
   },
   {
-    id:"retatrutide", img:"assets/vials/retatrutide.png", color:"#e02050",
+    id:"mots-c", img:"assets/products/mots-c.jpg", color:"#5b5f66",
+    name:"MOTS-c", dose:"10mg / 3mL", price:89.00,
+    benefit:{pt:"Peptídeo mitocondrial pesquisado por seu papel no metabolismo energético, na sensibilidade à insulina e na performance física.",
+              en:"Mitochondrial peptide researched for its role in energy metabolism, insulin sensitivity and physical performance.",
+              es:"Péptido mitocondrial investigado por su papel en el metabolismo energético, la sensibilidad a la insulina y el rendimiento físico."}
+  },
+  {
+    id:"retatrutide", img:"assets/products/retatrutide.jpg", color:"#e02050",
     name:"Retatrutide", dose:"30mg / 3mL", price:249.00,
     benefit:{pt:"Agonista triplo (GLP-1/GIP/glucagon) pesquisado em modelos de regulação metabólica e controle de peso corporal.",
               en:"Triple agonist (GLP-1/GIP/glucagon) researched in models of metabolic regulation and body weight control.",
               es:"Agonista triple (GLP-1/GIP/glucagón) investigado en modelos de regulación metabólica y control del peso corporal."}
   },
   {
-    id:"selank", img:"assets/vials/selank.png", color:"#1c9b3b",
+    id:"selank", img:"assets/products/selank.jpg", color:"#1c9b3b",
     name:"Selank", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo pesquisado por seu potencial efeito ansiolítico, modulação da resposta ao estresse e suporte imunológico.",
               en:"Peptide researched for its potential anxiolytic effect, stress-response modulation and immune support.",
               es:"Péptido investigado por su potencial efecto ansiolítico, la modulación de la respuesta al estrés y el apoyo inmunológico."}
   },
   {
-    id:"semax", img:"assets/vials/semax.png", color:"#e0692a",
+    id:"semax", img:"assets/products/semax.jpg", color:"#e0692a",
     name:"Semax", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo nootrópico estudado por apoiar a cognição: memória, foco e concentração em modelos de pesquisa.",
               en:"Nootropic peptide studied to support cognition: memory, focus and concentration in research models.",
               es:"Péptido nootrópico estudiado por apoyar la cognición: memoria, enfoque y concentración en modelos de investigación."}
   },
   {
-    id:"water", img:"assets/vials/water.png", color:"#0594d2",
+    id:"tb-500", img:"assets/products/tb-500.jpg", color:"#c81e1e",
+    name:"TB-500", dose:"10mg / 3mL", price:130.00,
+    benefit:{pt:"Fragmento sintético da Timosina Beta-4, pesquisado por seu papel na reparação tecidual, flexibilidade e recuperação muscular.",
+              en:"Synthetic fragment of Thymosin Beta-4, researched for its role in tissue repair, flexibility and muscle recovery.",
+              es:"Fragmento sintético de la Timosina Beta-4, investigado por su papel en la reparación tisular, la flexibilidad y la recuperación muscular."}
+  },
+  {
+    id:"tesamorelin", img:"assets/products/tesamorelin.jpg", color:"#d1a520",
+    name:"Tesamorelin", dose:"10mg / 3mL", price:179.00,
+    benefit:{pt:"Análogo do GHRH estudado por seu papel na liberação de hormônio do crescimento e em modelos de composição corporal.",
+              en:"GHRH analog studied for its role in growth hormone release and body composition research models.",
+              es:"Análogo de GHRH estudiado por su papel en la liberación de la hormona del crecimiento y en modelos de composición corporal."}
+  },
+  {
+    id:"tirzepatide-15", img:"assets/products/tirzepatide-15.jpg", color:"#0d8a8a",
+    name:"Tirzepatide", dose:"15mg / 3mL", price:140.00,
+    benefit:{pt:"Agonista duplo (GIP/GLP-1) pesquisado em modelos de sinalização metabólica e controle glicêmico.",
+              en:"Dual agonist (GIP/GLP-1) researched in models of metabolic signaling and glycemic control.",
+              es:"Agonista dual (GIP/GLP-1) investigado en modelos de señalización metabólica y control glucémico."}
+  },
+  {
+    id:"tirzepatide-20", img:"assets/products/tirzepatide-20.jpg", color:"#1c9b4a",
+    name:"Tirzepatide", dose:"20mg / 3mL", price:180.00,
+    benefit:{pt:"Agonista duplo (GIP/GLP-1) pesquisado em modelos de sinalização metabólica e controle glicêmico.",
+              en:"Dual agonist (GIP/GLP-1) researched in models of metabolic signaling and glycemic control.",
+              es:"Agonista dual (GIP/GLP-1) investigado en modelos de señalización metabólica y control glucémico."}
+  },
+  {
+    id:"tirzepatide-30", img:"assets/products/tirzepatide-30.jpg", color:"#1e4fb8",
+    name:"Tirzepatide", dose:"30mg / 3mL", price:215.00,
+    benefit:{pt:"Agonista duplo (GIP/GLP-1) pesquisado em modelos de sinalização metabólica e controle glicêmico.",
+              en:"Dual agonist (GIP/GLP-1) researched in models of metabolic signaling and glycemic control.",
+              es:"Agonista dual (GIP/GLP-1) investigado en modelos de señalización metabólica y control glucémico."}
+  },
+  {
+    id:"water", img:"assets/products/water.jpg", color:"#0594d2",
     name:"Bacteriostatic Water", dose:"10mL", price:25.00,
     benefit:{pt:"Água bacteriostática para diluição e reconstituição de peptídeos liofilizados em ambiente de pesquisa.",
               en:"Bacteriostatic water for dilution and reconstitution of lyophilized peptides in a research setting.",
@@ -614,6 +725,72 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("in"); });
 },{threshold:.15});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* ---------- hero particle network (molecular / neural style) ---------- */
+(function(){
+  const canvas = document.getElementById("heroNet");
+  if(!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let W, H, particles = [];
+  const LINK_DIST = 150, COUNT_DIVISOR = 9000;
+
+  function resize(){
+    const hero = document.querySelector(".hero");
+    W = canvas.width = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+    const count = Math.min(70, Math.max(30, Math.floor((W*H)/COUNT_DIVISOR)));
+    particles = Array.from({length: count}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.35, vy: (Math.random()-0.5)*0.35,
+      r: Math.random()*1.6 + 0.6
+    }));
+  }
+
+  function step(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of particles){
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0 || p.x > W) p.vx *= -1;
+      if(p.y < 0 || p.y > H) p.vy *= -1;
+    }
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const a = particles[i], b = particles[j];
+        const dx = a.x-b.x, dy = a.y-b.y;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < LINK_DIST){
+          const op = (1 - dist/LINK_DIST) * 0.4;
+          ctx.strokeStyle = `rgba(215,166,59,${op})`;
+          ctx.lineWidth = 0.7;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    for(const p of particles){
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = "rgba(241,204,112,0.85)";
+      ctx.fill();
+    }
+    requestAnimationFrame(step);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+  requestAnimationFrame(step);
+})();
+
+/* ---------- HUD batch id ticker (cosmetic) ---------- */
+(function(){
+  const el = document.getElementById("hudBatch");
+  if(!el) return;
+  const suffixes = ["0341","0342","0358","0402","0417"];
+  let i = 0;
+  setInterval(()=>{
+    i = (i+1) % suffixes.length;
+    el.textContent = "AV-2026-" + suffixes[i];
+  }, 3200);
+})();
 
 /* ---------- init ---------- */
 renderProducts();

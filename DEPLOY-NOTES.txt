@@ -1,1 +1,0 @@
-Upload index.html to the repository root and upload the new avexact-* files into assets/. All new asset names are unique. The exact user-supplied AcquaVitta logo files are used. The vial label panels are sourced from the exact labels supplied, with the expiration strip excluded from the visible vial artwork.

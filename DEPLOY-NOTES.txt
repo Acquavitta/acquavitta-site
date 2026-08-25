@@ -1,15 +1,1 @@
-AcquaVitta clean cinematic deployment package
-
-This version uses NEW unique asset names beginning with:
-  avcinema-
-
-To avoid GitHub filename conflicts:
-1. Keep your existing repository.
-2. Replace ONLY the root index.html with this new index.html.
-3. Upload the NEW files from the assets folder. Their names do not overlap with the previous site assets.
-4. You do not need to delete your previous image assets immediately; the new index.html does not reference them.
-5. GitHub Pages should remain configured for main / (root).
-
-The contact form sends inquiries to sales@acquavitta.com via FormSubmit AJAX.
-The visible care email is care@acquavitta.com.
-Default language is English, with English and Brazilian flags at the top.
+Upload index.html to the repository root and upload the new avexact-* files into assets/. All new asset names are unique. The exact user-supplied AcquaVitta logo files are used. The vial label panels are sourced from the exact labels supplied, with the expiration strip excluded from the visible vial artwork.

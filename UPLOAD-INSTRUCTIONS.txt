@@ -1,0 +1,3 @@
+DO NOT DELETE OR REPLACE YOUR EXISTING CNAME FILE.
+Replace only the root index.html and upload the new avreal2-* files inside assets/.
+All image filenames in this package are unique, so old assets can remain in the repository.

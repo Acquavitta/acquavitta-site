@@ -34,8 +34,8 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .links a{position:relative;padding:25px 0 21px}
 .links a.active:after,.links a:hover:after{content:"";position:absolute;bottom:13px;left:0;right:0;height:2px;background:var(--gold)}
 .navright{display:flex;align-items:center;gap:16px}
-.langs{display:flex;gap:6px;padding:3px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff08}
-.lang{border:0;background:transparent;cursor:pointer;font-size:18px;line-height:1;padding:4px 6px;border-radius:999px;opacity:.55}
+.langs{display:flex;gap:4px;padding:3px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff08}
+.lang{border:0;background:transparent;cursor:pointer;font-size:16px;line-height:1;padding:4px 5px;border-radius:999px;opacity:.55}
 .lang.active{opacity:1;background:#ffffff16;box-shadow:inset 0 0 0 1px #d7a63b66}
 .cartbtn{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #ffffff28;border-radius:999px;padding:8px 14px;background:#ffffff08;cursor:pointer;color:#fff;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
 .cartbtn:hover{border-color:#d7a63b88}
@@ -105,8 +105,9 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .pcard{border:1px solid #e3e7eb;border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .pcard:hover{transform:translateY(-5px);box-shadow:0 22px 40px #0a223522;border-color:#d9a63b55}
-.pcard .plabel{background:linear-gradient(150deg,#0a1e33,#0d2740);padding:16px;display:flex;align-items:center;justify-content:center;min-height:100px}
-.pcard .plabel img{width:100%;border-radius:5px;box-shadow:0 8px 18px #0007}
+.pcard .plabel{background:radial-gradient(circle at 50% 30%,#123255,#0a1e33 70%,#08172a);padding:18px 16px 8px;display:flex;align-items:flex-end;justify-content:center;height:230px;position:relative;overflow:hidden}
+.pcard .plabel:before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='72' viewBox='0 0 84 72'%3E%3Cpath d='M42 0 L84 18 L84 54 L42 72 L0 54 L0 18 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 48px;opacity:.6}
+.pcard .plabel img{position:relative;z-index:1;height:100%;width:auto;max-width:82%;object-fit:contain;filter:drop-shadow(0 14px 16px #00000066)}
 .pcard .pbody{padding:16px 17px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
 .pcard h3{font:600 17px/1.1 "Playfair Display";margin:0}
 .pdose{display:inline-flex;align-self:flex-start;align-items:center;color:#fff;border-radius:6px;padding:5px 11px;font-size:10px;font-weight:700;letter-spacing:.02em}
@@ -222,8 +223,9 @@ footer a:hover{color:var(--gold2)}
     </nav>
     <div class="navright">
       <div class="langs" aria-label="Language selector">
-        <button class="lang active" id="pt" title="Português">🇧🇷</button>
-        <button class="lang" id="en" title="English">🇺🇸</button>
+        <button class="lang" id="pt" title="Português (Brasil)">🇧🇷</button>
+        <button class="lang active" id="en" title="English">🇺🇸</button>
+        <button class="lang" id="es" title="Español">🇪🇸</button>
       </div>
       <button class="cartbtn" id="cartOpenBtn" aria-label="Carrinho">
         <span>🛒</span><span data-i18n="nav.cart">Carrinho</span><span class="cartcount" id="cartCount">0</span>
@@ -321,7 +323,7 @@ footer a:hover{color:var(--gold2)}
       <span class="research" data-i18n="footer.researchbadge">USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small></span>
     </div>
     <div><h4 data-i18n="footer.nav">Navegação</h4><p><a href="#home">Home</a><br><a href="#products" data-i18n="nav.products">Produtos</a><br><a href="#science" data-i18n="nav.science">Ciência</a><br><a href="#about" data-i18n="nav.about">Sobre</a><br><a href="#contact" data-i18n="nav.contact">Contato</a></p></div>
-    <div><h4 data-i18n="footer.contact">Contato</h4><p>✉ info@acquavitta.com<br>☎ +1 (561) 832-3456<br>⌖ Florida, USA</p></div>
+    <div><h4 data-i18n="footer.contact">Contato</h4><p>✉ info@acquavitta.com<br>⌖ Florida, USA</p></div>
     <div><h4 data-i18n="footer.follow">Siga-nos</h4><div class="social"><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div></div>
   </div>
   <div class="copyright">© 2026 AcquaVitta. All rights reserved.</div>
@@ -339,66 +341,77 @@ footer a:hover{color:var(--gold2)}
   </div>
   <div class="drawerfoot">
     <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">R$ 0,00</b></div>
-    <a class="btn gold checkoutbtn" id="checkoutBtn" target="_blank" rel="noopener" data-i18n="cart.checkout">Finalizar pedido via WhatsApp →</a>
-    <div class="cartnote" data-i18n="cart.note">Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, você será redirecionado ao WhatsApp com o resumo do pedido.</div>
+    <a class="btn gold checkoutbtn" id="checkoutBtn" data-i18n="cart.checkout">Finalizar pedido por e-mail →</a>
+    <div class="cartnote" data-i18n="cart.note">Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.</div>
   </div>
 </aside>
 
 <script>
 /* =========================================================
    PRODUCT CATALOG
-   Preços e link do WhatsApp são placeholders — edite abaixo.
+   Preços em USD baseados em pesquisa de mercado (Tydes, Prime
+   Peptides e fornecedores similares) — ajuste livremente abaixo.
+   Pedidos são enviados por e-mail para sales@acquavitta.com — edite o
+   endereço abaixo se precisar trocar.
    ========================================================= */
-const WHATSAPP_NUMBER = "15618323456"; // <-- EDITE: número do WhatsApp em formato internacional (sem símbolos)
+const ORDERS_EMAIL = "sales@acquavitta.com"; // <-- EDIT: e-mail que recebe os pedidos
 
 const PRODUCTS = [
   {
-    id:"epithalon", img:"assets/products/epithalon.png", color:"#7a8f2e",
-    name:"Epithalon", dose:"10mg / 3mL", price:289.00,
+    id:"epithalon", img:"assets/vials/epithalon.png", color:"#7a8f2e",
+    name:"Epithalon", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Estudado por seu possível papel na regulação do sono, na atividade da telomerase e em processos ligados ao envelhecimento celular.",
-              en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes."}
+              en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes.",
+              es:"Estudiado por su posible papel en la regulación del sueño, la actividad de la telomerasa y procesos ligados al envejecimiento celular."}
   },
   {
-    id:"mots-c", img:"assets/products/mots-c.png", color:"#5b5f66",
-    name:"MOTS-c", dose:"10mg / 3mL", price:319.00,
+    id:"mots-c", img:"assets/vials/mots-c.png", color:"#5b5f66",
+    name:"MOTS-c", dose:"10mg / 3mL", price:89.00,
     benefit:{pt:"Peptídeo mitocondrial pesquisado por seu papel no metabolismo energético, na sensibilidade à insulina e na performance física.",
-              en:"Mitochondrial peptide researched for its role in energy metabolism, insulin sensitivity and physical performance."}
+              en:"Mitochondrial peptide researched for its role in energy metabolism, insulin sensitivity and physical performance.",
+              es:"Péptido mitocondrial investigado por su papel en el metabolismo energético, la sensibilidad a la insulina y el rendimiento físico."}
   },
   {
-    id:"ghk-cu", img:"assets/products/ghk-cu.png", color:"#7a2e8f",
-    name:"GHK-Cu", dose:"50mg / 3mL", price:259.00,
+    id:"ghk-cu", img:"assets/vials/ghk-cu.png", color:"#7a2e8f",
+    name:"GHK-Cu", dose:"50mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo de cobre associado, em estudos, à síntese de colágeno, remodelação de tecidos e ação antioxidante na pele.",
-              en:"Copper peptide associated in studies with collagen synthesis, tissue remodeling and antioxidant action on skin."}
+              en:"Copper peptide associated in studies with collagen synthesis, tissue remodeling and antioxidant action on skin.",
+              es:"Péptido de cobre asociado, en estudios, con la síntesis de colágeno, la remodelación de tejidos y la acción antioxidante en la piel."}
   },
   {
-    id:"ipamorelin", img:"assets/products/ipamorelin.png", color:"#c99a1a",
-    name:"Ipamorelin", dose:"5mg / 3mL", price:229.00,
+    id:"ipamorelin", img:"assets/vials/ipamorelin.png", color:"#c99a1a",
+    name:"Ipamorelin", dose:"5mg / 3mL", price:69.00,
     benefit:{pt:"Secretagogo seletivo do GH estudado por seu potencial na recuperação muscular, composição corporal e qualidade do sono.",
-              en:"Selective GH secretagogue studied for its potential in muscle recovery, body composition and sleep quality."}
+              en:"Selective GH secretagogue studied for its potential in muscle recovery, body composition and sleep quality.",
+              es:"Secretagogo selectivo de GH estudiado por su potencial en la recuperación muscular, la composición corporal y la calidad del sueño."}
   },
   {
-    id:"retatrutide", img:"assets/products/retatrutide.png", color:"#e02050",
-    name:"Retatrutide", dose:"30mg / 3mL", price:459.00,
+    id:"retatrutide", img:"assets/vials/retatrutide.png", color:"#e02050",
+    name:"Retatrutide", dose:"30mg / 3mL", price:249.00,
     benefit:{pt:"Agonista triplo (GLP-1/GIP/glucagon) pesquisado em modelos de regulação metabólica e controle de peso corporal.",
-              en:"Triple agonist (GLP-1/GIP/glucagon) researched in models of metabolic regulation and body weight control."}
+              en:"Triple agonist (GLP-1/GIP/glucagon) researched in models of metabolic regulation and body weight control.",
+              es:"Agonista triple (GLP-1/GIP/glucagón) investigado en modelos de regulación metabólica y control del peso corporal."}
   },
   {
-    id:"selank", img:"assets/products/selank.png", color:"#1c9b3b",
-    name:"Selank", dose:"10mg / 3mL", price:269.00,
+    id:"selank", img:"assets/vials/selank.png", color:"#1c9b3b",
+    name:"Selank", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo pesquisado por seu potencial efeito ansiolítico, modulação da resposta ao estresse e suporte imunológico.",
-              en:"Peptide researched for its potential anxiolytic effect, stress-response modulation and immune support."}
+              en:"Peptide researched for its potential anxiolytic effect, stress-response modulation and immune support.",
+              es:"Péptido investigado por su potencial efecto ansiolítico, la modulación de la respuesta al estrés y el apoyo inmunológico."}
   },
   {
-    id:"semax", img:"assets/products/semax.png", color:"#e0692a",
-    name:"Semax", dose:"10mg / 3mL", price:279.00,
+    id:"semax", img:"assets/vials/semax.png", color:"#e0692a",
+    name:"Semax", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo nootrópico estudado por apoiar a cognição: memória, foco e concentração em modelos de pesquisa.",
-              en:"Nootropic peptide studied to support cognition: memory, focus and concentration in research models."}
+              en:"Nootropic peptide studied to support cognition: memory, focus and concentration in research models.",
+              es:"Péptido nootrópico estudiado por apoyar la cognición: memoria, enfoque y concentración en modelos de investigación."}
   },
   {
-    id:"water", img:"", color:"#0594d2",
-    name:"Bacteriostatic Water", dose:"10mL", price:79.00,
+    id:"water", img:"assets/vials/water.png", color:"#0594d2",
+    name:"Bacteriostatic Water", dose:"10mL", price:25.00,
     benefit:{pt:"Água bacteriostática para diluição e reconstituição de peptídeos liofilizados em ambiente de pesquisa.",
-              en:"Bacteriostatic water for dilution and reconstitution of lyophilized peptides in a research setting."}
+              en:"Bacteriostatic water for dilution and reconstitution of lyophilized peptides in a research setting.",
+              es:"Agua bacteriostática para dilución y reconstitución de péptidos liofilizados en un entorno de investigación."}
   }
 ];
 
@@ -416,7 +429,7 @@ pt:{
 "chart.purity":"Concentração e Pureza Molecular","chart.stability":"Estabilidade Hidrolítica","chart.comp":"Composição de Ativos Bioidênticos",
 "commit.title":"Compromisso com a Ciência","commit.text":"Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.","commit.cta":"Entre em contato →",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido via WhatsApp →","cart.note":"Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, você será redirecionado ao WhatsApp com o resumo do pedido.","cart.added":"Adicionado ✓","cart.add":"Adicionar"
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar"
 },
 en:{
 "nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart",
@@ -430,25 +443,41 @@ en:{
 "chart.purity":"Molecular Concentration and Purity","chart.stability":"Hydrolytic Stability","chart.comp":"Bioidentical Active Composition",
 "commit.title":"Commitment to Science","commit.text":"Providing exceptional-quality peptides for researchers and contributing to scientific advances and new discoveries.","commit.cta":"Contact us →",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via WhatsApp →","cart.note":"Order for laboratory research purposes only. On checkout you'll be redirected to WhatsApp with your order summary.","cart.added":"Added ✓","cart.add":"Add"
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"Order for laboratory research purposes only. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add"
+},
+es:{
+"nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito",
+"hero.kicker":"Research Peptides","hero.title":"Ciencia y Pureza en Alto Rendimiento","hero.text":"Péptidos de grado de investigación con pureza verificada por HPLC del 99%, producidos bajo rigurosos protocolos de laboratorio. Innovación, calidad y consistencia para la evolución de la ciencia.","hero.cta":"Explorar colección →","hero.cta2":"Ver la ciencia","hero.note":"Lotes analizados por HPLC · Pureza ≥ 99%",
+"trust.1t":"Pureza Excepcional","trust.1d":"Análisis rigurosos por HPLC y MS","trust.2t":"Grado de Investigación","trust.2d":"Uso exclusivo en laboratorio","trust.3t":"Calidad Certificada","trust.3d":"Lotes trazables y documentados","trust.4t":"Innovación Continua","trust.4d":"Ciencia en constante evolución",
+"science.kicker":"Ciencia que impulsa resultados","science.title":"Investigación. Análisis. Evolución.","science.text":"Nuestros péptidos se fabrican siguiendo estándares internacionales, respaldados por certificados de análisis, pruebas de pureza (HPLC/MS) y evaluación de estabilidad. Cada lote es trazable del laboratorio al frasco.","science.cta":"Conozca nuestro proceso →",
+"science.chip1":"Pureza media por HPLC","science.chip2":"Cadena de frío controlada","science.chip3":"Péptidos en catálogo activo",
+"science.li1":"Certificado de Análisis (CoA) disponible por lote","science.li2":"Pureza mínima del 99% verificada por HPLC","science.li3":"Almacenamiento y transporte refrigerado 2–8°C","science.li4":"Uso exclusivamente de laboratorio / investigación in vitro",
+"products.kicker":"Nuestros productos","products.title":"Péptidos de Alto Rendimiento","products.text":"Calidad, pureza y confiabilidad para la investigación científica. Haga clic en \"Añadir\" para abrir su carrito.","products.catalog":"Solicitar catálogo completo →","products.tag":"Research Use Only",
+"data.kicker":"Datos y análisis","data.title":"Resultados Que Demuestran Nuestra Calidad","data.text":"Gráficos basados en análisis de laboratorio reales de nuestros lotes.","data.cta":"Solicitar CoA →",
+"chart.purity":"Concentración y Pureza Molecular","chart.stability":"Estabilidad Hidrolítica","chart.comp":"Composición de Activos Bioidénticos",
+"commit.title":"Compromiso con la Ciencia","commit.text":"Proporcionando péptidos de calidad excepcional para investigadores, contribuyendo a avances científicos y nuevos descubrimientos.","commit.cta":"Contáctenos →",
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos",
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Pedido exclusivo para fines de investigación de laboratorio. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir"
 }};
-let LANG = localStorage.getItem("av-lang") || "pt";
+let LANG = localStorage.getItem("av-lang") || "en";
 
 function setLang(lang){
   LANG = lang;
-  document.documentElement.lang = lang==="en" ? "en" : "pt-BR";
+  document.documentElement.lang = lang==="pt" ? "pt-BR" : lang==="es" ? "es" : "en";
   document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[lang][el.dataset.i18n]; if(v!==undefined) el.innerHTML=v.replace(/\\n/g,"<br>")});
   document.getElementById("pt").classList.toggle("active", lang==="pt");
   document.getElementById("en").classList.toggle("active", lang==="en");
+  document.getElementById("es").classList.toggle("active", lang==="es");
   localStorage.setItem("av-lang", lang);
   renderProducts();
   renderCart();
 }
 document.getElementById("pt").onclick=()=>setLang("pt");
 document.getElementById("en").onclick=()=>setLang("en");
+document.getElementById("es").onclick=()=>setLang("es");
 
 /* ---------- product grid ---------- */
-function fmtPrice(n){ return "R$ " + n.toFixed(2).replace(".", ","); }
+function fmtPrice(n){ return "$" + n.toFixed(2); }
 
 function renderProducts(){
   const grid=document.getElementById("productGrid");
@@ -461,7 +490,7 @@ function renderProducts(){
         <p class="pbenefit">${p.benefit[LANG]}</p>
         <div class="ptag">${T[LANG]["products.tag"]}</div>
         <div class="prow">
-          <div class="pprice"><small>${LANG==="pt"?"Preço":"Price"}</small>${fmtPrice(p.price)}</div>
+          <div class="pprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small>${fmtPrice(p.price)}</div>
           <button class="addbtn" data-id="${p.id}">➕ ${T[LANG]["cart.add"]}</button>
         </div>
       </div>
@@ -540,7 +569,7 @@ function renderCart(){
         </div>
         <div class="citemright">
           <b>${fmtPrice(lineTotal)}</b>
-          <button class="cremove" data-action="rm" data-id="${p.id}">${LANG==="pt"?"Remover":"Remove"}</button>
+          <button class="cremove" data-action="rm" data-id="${p.id}">${LANG==="pt"?"Remover":LANG==="es"?"Eliminar":"Remove"}</button>
         </div>
       </div>`;
   }).join("");
@@ -556,15 +585,20 @@ function renderCart(){
     });
   });
 
-  // build WhatsApp checkout link
-  let msg = LANG==="pt" ? "Olá! Gostaria de fazer o seguinte pedido de pesquisa na AcquaVitta:%0A%0A" : "Hi! I'd like to place the following research order with AcquaVitta:%0A%0A";
+  // build the email checkout link
+  const subject = LANG==="pt" ? "Pedido de pesquisa - AcquaVitta"
+                : LANG==="es" ? "Pedido de investigación - AcquaVitta"
+                : "Research order - AcquaVitta";
+  let msg = LANG==="pt" ? "Olá! Gostaria de fazer o seguinte pedido de pesquisa na AcquaVitta:\n\n"
+          : LANG==="es" ? "¡Hola! Me gustaría hacer el siguiente pedido de investigación en AcquaVitta:\n\n"
+          : "Hi! I'd like to place the following research order with AcquaVitta:\n\n";
   CART.forEach(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return;
-    msg += `• ${p.name} (${p.dose}) x${line.qty} — ${fmtPrice(p.price*line.qty)}%0A`;
+    msg += `• ${p.name} (${p.dose}) x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
   });
-  msg += `%0A${LANG==="pt"?"Subtotal":"Subtotal"}: ${fmtPrice(subtotal)}`;
-  checkoutBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+  msg += `\nSubtotal: ${fmtPrice(subtotal)}`;
+  checkoutBtn.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
 }
 
 /* ---------- drawer open/close ---------- */

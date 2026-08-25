@@ -1,3 +1,0 @@
-Do NOT delete or replace your existing CNAME file.
-Replace only index.html and upload the new avv3-* files into assets/.
-The new peptide photos are clean cinematic bottle crops with no pasted labels, no boxes beside vials, and no patched overlays.

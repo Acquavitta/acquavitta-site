@@ -39,6 +39,9 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .lang.active{opacity:1;background:#ffffff16;box-shadow:inset 0 0 0 1px #d7a63b66}
 .cartbtn{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #ffffff28;border-radius:999px;padding:8px 14px;background:#ffffff08;cursor:pointer;color:#fff;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
 .cartbtn:hover{border-color:#d7a63b88}
+.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:36px;height:36px;border:1px solid #ffffff28;border-radius:8px;background:#ffffff08;cursor:pointer;flex-shrink:0}
+.hamburger:hover{border-color:#d7a63b88}
+.hamburger span{display:block;width:16px;height:1.5px;background:#f1cc70;border-radius:1px;transition:transform .2s ease,opacity .2s ease}
 .cartcount{background:var(--gold);color:#111a22;font-weight:700;border-radius:999px;min-width:17px;height:17px;font-size:9px;display:grid;place-items:center;padding:0 4px}
 
 /* ---------- molecule / tech background devices ---------- */
@@ -201,6 +204,33 @@ footer a:hover{color:var(--gold2)}
 .checkoutbtn{width:100%;justify-content:center}
 .cartnote{font-size:8.5px;color:#6c7a89;text-align:center;margin-top:12px;line-height:1.6}
 
+/* ---------- shop drawer (hamburger menu with full catalog) ---------- */
+.drawerbanner{background:#3a1a14;border:1px solid #c0392b6e;color:#f3c3ba;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:14px 22px 4px;display:flex;gap:8px;align-items:flex-start}
+.drawerbanner .bicon{flex-shrink:0;font-size:13px;line-height:1}
+.shoplist{padding:2px 22px}
+.shoprow{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #ffffff10}
+.shoprow img{width:52px;height:52px;object-fit:cover;border-radius:8px;background:#0a1e33}
+.shoprow h4{font:600 13px "Playfair Display";margin:0 0 3px;color:#fff}
+.shoprow .sdose{font-size:8.5px;color:#8fa0b0;text-transform:uppercase;letter-spacing:.03em}
+.shoprow .sprice{font:600 13px "Playfair Display";color:#f1cc70;margin-top:3px}
+.shopaddbtn{border:1px solid #d7a63b88;background:transparent;color:#f1cc70;border-radius:999px;padding:7px 12px;font-size:9px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.shopaddbtn:hover{background:#d7a63b;color:#111a22}
+.shopaddbtn.added{background:#1c8a52;border-color:#1c8a52;color:#fff}
+.shopfoot{padding:14px 22px 22px;border-top:1px solid #ffffff14;text-align:center}
+.shopfoot small{display:block;font-size:8.5px;color:#6c7a89;line-height:1.6;margin-top:8px}
+
+/* ---------- story section (history of peptides) ---------- */
+.story{padding:76px 0;background:#fff}
+.storygrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.storyimgs{position:relative}
+.storyimgs img.main{width:100%;display:block;border-radius:16px;box-shadow:0 30px 60px #0a223522}
+.storyimgs img.inset{position:absolute;width:46%;left:-28px;bottom:-28px;border-radius:12px;border:5px solid #fff;box-shadow:0 20px 40px #0a223530}
+.storycopy .eyebrow{color:#a77a20;font-size:9px}
+.storycopy h2{font:600 32px "Playfair Display";margin:0 0 14px}
+.storycopy p{color:#54606d;font-size:12.5px;line-height:1.85;margin:0 0 14px}
+.storybadge{display:flex;gap:9px;align-items:flex-start;background:#fdf3ec;border:1px solid #e8c9a8;border-radius:10px;padding:12px 14px;font-size:10px;color:#7a4a1e;line-height:1.6;margin-top:8px}
+.storybadge .bicon{flex-shrink:0;font-size:14px;line-height:1}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -215,6 +245,9 @@ footer a:hover{color:var(--gold2)}
   .trustitem:nth-child(2){border-right:0}
   .footergrid{grid-template-columns:1fr 1fr}
   .frame,.dnawrap{display:none}
+  .storygrid{grid-template-columns:1fr;gap:70px 0}
+  .storyimgs{order:1}
+  .storycopy{order:2}
 }
 @media(max-width:600px){
   .wrap{width:calc(100% - 26px)}
@@ -233,6 +266,10 @@ footer a:hover{color:var(--gold2)}
   .commitin .btn{margin-top:18px}
   .drawer{width:100%}
   #heroNet{opacity:.3}
+  .story{padding:50px 0}
+  .storyimgs img.inset{width:52%;left:-14px;bottom:-22px;border-width:3px}
+  .storycopy h2{font-size:26px}
+  .navright .cartbtn span:not(.cartcount){display:none}
 }
 </style>
 </head>
@@ -240,10 +277,13 @@ footer a:hover{color:var(--gold2)}
 
 <header>
   <div class="wrap nav">
-    <a href="#home" class="brandmark"><img src="assets/logo-icon.png" alt="AcquaVitta"><span>AcquaVitta</span></a>
+    <div style="display:flex;align-items:center;gap:14px">
+      <button class="hamburger" id="shopOpenBtn" aria-label="Menu de produtos"><span></span><span></span><span></span></button>
+      <a href="#home" class="brandmark"><img src="assets/logo-icon.png" alt="AcquaVitta"><span>AcquaVitta</span></a>
+    </div>
     <nav class="links">
       <a href="#home" class="active" data-i18n="nav.home">Home</a>
-      <a href="#products" data-i18n="nav.products">Produtos</a>
+      <a href="#" id="navProductsLink" data-i18n="nav.products">Produtos</a>
       <a href="#science" data-i18n="nav.science">Ciência</a>
       <a href="#about" data-i18n="nav.about">Sobre</a>
       <a href="#contact" data-i18n="nav.contact">Contato</a>
@@ -304,10 +344,11 @@ footer a:hover{color:var(--gold2)}
       <h2 data-i18n="hero.title">Ciência e Pureza em Alta Performance</h2>
       <p data-i18n="hero.text">Peptídeos de grau de pesquisa com pureza de 99% verificada por HPLC, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.</p>
       <div class="heroactions">
-        <a class="btn gold" href="#products" data-i18n="hero.cta">Explorar coleção →</a>
+        <a class="btn gold" href="#" id="heroCtaBtn" data-i18n="hero.cta">Explorar coleção →</a>
         <a class="btn ghost" href="#science" data-i18n="hero.cta2">Ver ciência</a>
       </div>
       <div class="heronote" style="margin-top:28px"><span class="dot"></span><span data-i18n="hero.note">Lotes analisados por HPLC · Pureza ≥ 99%</span></div>
+      <div class="heronote" style="margin-top:10px;color:#c98a7d"><span style="width:6px;height:6px;border-radius:50%;background:#c98a7d;flex-shrink:0"></span><span data-i18n="hero.note2">Apenas para pesquisa — não é para uso humano ou veterinário</span></div>
     </div>
   </div>
 </section>
@@ -342,13 +383,18 @@ footer a:hover{color:var(--gold2)}
   </div>
 </section>
 
-<section class="products" id="products"><div class="wrap">
-  <div class="sectiontop reveal">
-    <div><div class="eyebrow" data-i18n="products.kicker">Nossos produtos</div><h2 data-i18n="products.title">Peptídeos de Alta Performance</h2><p data-i18n="products.text">Qualidade, pureza e confiabilidade para pesquisa científica. Clique em "Adicionar" para abrir seu carrinho.</p></div>
-    <a href="#contact" class="catalog" data-i18n="products.catalog">Solicitar catálogo completo →</a>
+<section class="story reveal" id="story"><div class="wrap storygrid">
+  <div class="storyimgs">
+    <img class="main" src="assets/story/lab-team.jpg" alt="Laboratório de pesquisa com equipamentos técnicos">
+    <img class="inset" src="assets/story/lab-macro.jpg" alt="Amostras de peptídeos sendo analisadas em laboratório">
   </div>
-
-  <div class="pcards" id="productGrid"></div>
+  <div class="storycopy">
+    <div class="eyebrow" data-i18n="story.kicker">Nossa história</div>
+    <h2 data-i18n="story.title">A ciência por trás dos peptídeos</h2>
+    <p data-i18n="story.p1">Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.</p>
+    <p data-i18n="story.p2">Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.</p>
+    <div class="storybadge"><span class="bicon">⚠</span><span data-i18n="story.badge">Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.</span></div>
+  </div>
 </div></section>
 
 <section class="analytics" id="about">
@@ -377,7 +423,7 @@ footer a:hover{color:var(--gold2)}
     <div><div class="footerbrand"><img src="assets/logo-icon.png" alt="">AcquaVitta</div><p data-i18n="footer.tag">Research Peptides, Life in Evolution.</p>
       <span class="research" data-i18n="footer.researchbadge">USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small></span>
     </div>
-    <div><h4 data-i18n="footer.nav">Navegação</h4><p><a href="#home">Home</a><br><a href="#products" data-i18n="nav.products">Produtos</a><br><a href="#science" data-i18n="nav.science">Ciência</a><br><a href="#about" data-i18n="nav.about">Sobre</a><br><a href="#contact" data-i18n="nav.contact">Contato</a></p></div>
+    <div><h4 data-i18n="footer.nav">Navegação</h4><p><a href="#home">Home</a><br><a href="#" id="footerProductsLink" data-i18n="nav.products">Produtos</a><br><a href="#science" data-i18n="nav.science">Ciência</a><br><a href="#about" data-i18n="nav.about">Sobre</a><br><a href="#contact" data-i18n="nav.contact">Contato</a></p></div>
     <div><h4 data-i18n="footer.contact">Contato</h4><p>✉ info@acquavitta.com<br>⌖ Florida, USA</p></div>
     <div><h4 data-i18n="footer.follow">Siga-nos</h4><div class="social"><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div></div>
   </div>
@@ -398,6 +444,24 @@ footer a:hover{color:var(--gold2)}
     <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">R$ 0,00</b></div>
     <a class="btn gold checkoutbtn" id="checkoutBtn" data-i18n="cart.checkout">Finalizar pedido por e-mail →</a>
     <div class="cartnote" data-i18n="cart.note">Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.</div>
+  </div>
+</aside>
+
+<!-- ---------- shop drawer (hamburger menu, full catalog) ---------- -->
+<aside class="drawer" id="shopDrawer">
+  <div class="drawerhead">
+    <h3 data-i18n="shop.title">Catálogo de peptídeos</h3>
+    <button class="closex" id="shopCloseBtn">✕</button>
+  </div>
+  <div class="drawerbanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
+  <div class="drawerbody">
+    <div class="shoplist" id="shopList"></div>
+  </div>
+  <div class="shopfoot">
+    <button class="cartbtn" id="shopViewCartBtn" style="width:100%;justify-content:center;color:#111a22;background:linear-gradient(135deg,#bc8920,#f1cc70);border:0">
+      <span data-i18n="shop.viewcart">Ver carrinho</span>
+    </button>
+    <small data-i18n="shop.note">Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.</small>
   </div>
 </aside>
 
@@ -530,7 +594,7 @@ const PRODUCTS = [
 const T={
 pt:{
 "nav.home":"Home","nav.products":"Produtos","nav.science":"Ciência","nav.about":"Sobre","nav.contact":"Contato","nav.cart":"Carrinho",
-"hero.kicker":"Research Peptides","hero.title":"Ciência e Pureza em Alta Performance","hero.text":"Peptídeos de grau de pesquisa com pureza de 99% verificada por HPLC, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.","hero.cta":"Explorar coleção →","hero.cta2":"Ver ciência","hero.note":"Lotes analisados por HPLC · Pureza ≥ 99%",
+"hero.kicker":"Research Peptides","hero.title":"Ciência e Pureza em Alta Performance","hero.text":"Peptídeos de grau de pesquisa com pureza de 99% verificada por HPLC, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.","hero.cta":"Explorar coleção →","hero.cta2":"Ver ciência","hero.note":"Lotes analisados por HPLC · Pureza ≥ 99%","hero.note2":"Apenas para pesquisa — não é para uso humano ou veterinário",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análises rigorosas por HPLC e MS","trust.2t":"Grau de Pesquisa","trust.2d":"Uso exclusivo em laboratório","trust.3t":"Qualidade Certificada","trust.3d":"Lotes rastreáveis e documentados","trust.4t":"Inovação Contínua","trust.4d":"Ciência em constante evolução",
 "science.kicker":"Ciência que impulsiona resultados","science.title":"Pesquisa. Análise. Evolução.","science.text":"Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza (HPLC/MS) e avaliação de estabilidade. Cada lote é rastreável do laboratório até o frasco.","science.cta":"Conheça nosso processo →",
 "science.chip1":"Pureza média por HPLC","science.chip2":"Cadeia de frio controlada","science.chip3":"Peptídeos em catálogo ativo",
@@ -539,12 +603,14 @@ pt:{
 "data.kicker":"Dados e análises","data.title":"Resultados que Comprovam Nossa Qualidade","data.text":"Gráficos baseados em análises laboratoriais reais dos nossos lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentração e Pureza Molecular","chart.stability":"Estabilidade Hidrolítica","chart.comp":"Composição de Ativos Bioidênticos",
 "commit.title":"Compromisso com a Ciência","commit.text":"Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.","commit.cta":"Entre em contato →",
+"story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
+"shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar"
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar"
 },
 en:{
 "nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart",
-"hero.kicker":"Research Peptides","hero.title":"Science and Purity in High Performance","hero.text":"Research-grade peptides with 99% HPLC-verified purity, produced under rigorous laboratory protocols. Innovation, quality and consistency for the evolution of science.","hero.cta":"Explore collection →","hero.cta2":"See the science","hero.note":"Batches HPLC-tested · Purity ≥ 99%",
+"hero.kicker":"Research Peptides","hero.title":"Science and Purity in High Performance","hero.text":"Research-grade peptides with 99% HPLC-verified purity, produced under rigorous laboratory protocols. Innovation, quality and consistency for the evolution of science.","hero.cta":"Explore collection →","hero.cta2":"See the science","hero.note":"Batches HPLC-tested · Purity ≥ 99%","hero.note2":"For research use only — not for human or veterinary use",
 "trust.1t":"Exceptional Purity","trust.1d":"Rigorous HPLC and MS analysis","trust.2t":"Research Grade","trust.2d":"For laboratory research only","trust.3t":"Certified Quality","trust.3d":"Traceable and documented batches","trust.4t":"Continuous Innovation","trust.4d":"Science in constant evolution",
 "science.kicker":"Science that drives results","science.title":"Research. Analysis. Evolution.","science.text":"Our peptides are produced following international standards, supported by certificates of analysis, purity testing (HPLC/MS) and stability evaluation. Every batch is traceable from lab to vial.","science.cta":"Discover our process →",
 "science.chip1":"Average purity by HPLC","science.chip2":"Controlled cold chain","science.chip3":"Peptides in active catalog",
@@ -553,12 +619,14 @@ en:{
 "data.kicker":"Data and analytics","data.title":"Results That Demonstrate Our Quality","data.text":"Charts based on real laboratory analysis of our batches.","data.cta":"Request CoA →",
 "chart.purity":"Molecular Concentration and Purity","chart.stability":"Hydrolytic Stability","chart.comp":"Bioidentical Active Composition",
 "commit.title":"Commitment to Science","commit.text":"Providing exceptional-quality peptides for researchers and contributing to scientific advances and new discoveries.","commit.cta":"Contact us →",
+"story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
+"shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"Order for laboratory research purposes only. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add"
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add"
 },
 es:{
 "nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito",
-"hero.kicker":"Research Peptides","hero.title":"Ciencia y Pureza en Alto Rendimiento","hero.text":"Péptidos de grado de investigación con pureza verificada por HPLC del 99%, producidos bajo rigurosos protocolos de laboratorio. Innovación, calidad y consistencia para la evolución de la ciencia.","hero.cta":"Explorar colección →","hero.cta2":"Ver la ciencia","hero.note":"Lotes analizados por HPLC · Pureza ≥ 99%",
+"hero.kicker":"Research Peptides","hero.title":"Ciencia y Pureza en Alto Rendimiento","hero.text":"Péptidos de grado de investigación con pureza verificada por HPLC del 99%, producidos bajo rigurosos protocolos de laboratorio. Innovación, calidad y consistencia para la evolución de la ciencia.","hero.cta":"Explorar colección →","hero.cta2":"Ver la ciencia","hero.note":"Lotes analizados por HPLC · Pureza ≥ 99%","hero.note2":"Solo para investigación — no apto para uso humano ni veterinario",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análisis rigurosos por HPLC y MS","trust.2t":"Grado de Investigación","trust.2d":"Uso exclusivo en laboratorio","trust.3t":"Calidad Certificada","trust.3d":"Lotes trazables y documentados","trust.4t":"Innovación Continua","trust.4d":"Ciencia en constante evolución",
 "science.kicker":"Ciencia que impulsa resultados","science.title":"Investigación. Análisis. Evolución.","science.text":"Nuestros péptidos se fabrican siguiendo estándares internacionales, respaldados por certificados de análisis, pruebas de pureza (HPLC/MS) y evaluación de estabilidad. Cada lote es trazable del laboratorio al frasco.","science.cta":"Conozca nuestro proceso →",
 "science.chip1":"Pureza media por HPLC","science.chip2":"Cadena de frío controlada","science.chip3":"Péptidos en catálogo activo",
@@ -567,8 +635,10 @@ es:{
 "data.kicker":"Datos y análisis","data.title":"Resultados Que Demuestran Nuestra Calidad","data.text":"Gráficos basados en análisis de laboratorio reales de nuestros lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentración y Pureza Molecular","chart.stability":"Estabilidad Hidrolítica","chart.comp":"Composición de Activos Bioidénticos",
 "commit.title":"Compromiso con la Ciencia","commit.text":"Proporcionando péptidos de calidad excepcional para investigadores, contribuyendo a avances científicos y nuevos descubrimientos.","commit.cta":"Contáctenos →",
+"story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
+"shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos",
-"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Pedido exclusivo para fines de investigación de laboratorio. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir"
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir"
 }};
 let LANG = localStorage.getItem("av-lang") || "en";
 
@@ -587,34 +657,30 @@ document.getElementById("pt").onclick=()=>setLang("pt");
 document.getElementById("en").onclick=()=>setLang("en");
 document.getElementById("es").onclick=()=>setLang("es");
 
-/* ---------- product grid ---------- */
+/* ---------- shop list (hamburger drawer, full catalog) ---------- */
 function fmtPrice(n){ return "$" + n.toFixed(2); }
 
 function renderProducts(){
-  const grid=document.getElementById("productGrid");
-  grid.innerHTML = PRODUCTS.map(p=>`
-    <article class="pcard reveal in">
-      <div class="plabel">${p.img ? `<img src="${p.img}" alt="${p.name}">` : `<div style="width:100%;height:68px;border-radius:8px;background:linear-gradient(135deg,${p.color},#0a1e33);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display';font-size:13px;letter-spacing:.04em">Bacteriostatic Water</div>`}</div>
-      <div class="pbody">
-        <span class="pdose" style="background:${p.color}">${p.dose}</span>
-        <h3>${p.name}</h3>
-        <p class="pbenefit">${p.benefit[LANG]}</p>
-        <div class="ptag">${T[LANG]["products.tag"]}</div>
-        <div class="prow">
-          <div class="pprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small>${fmtPrice(p.price)}</div>
-          <button class="addbtn" data-id="${p.id}">➕ ${T[LANG]["cart.add"]}</button>
-        </div>
+  const list=document.getElementById("shopList");
+  if(!list) return;
+  list.innerHTML = PRODUCTS.map(p=>`
+    <div class="shoprow">
+      <img src="${p.img}" alt="${p.name}">
+      <div>
+        <h4>${p.name}</h4>
+        <div class="sdose">${p.dose}</div>
+        <div class="sprice">${fmtPrice(p.price)}</div>
       </div>
-    </article>
+      <button class="shopaddbtn" data-id="${p.id}">+ ${T[LANG]["cart.add"]}</button>
+    </div>
   `).join("");
-  grid.querySelectorAll(".addbtn").forEach(btn=>{
+  list.querySelectorAll(".shopaddbtn").forEach(btn=>{
     btn.addEventListener("click", ()=>{
       addToCart(btn.dataset.id);
       btn.classList.add("added");
       const original = btn.innerHTML;
       btn.innerHTML = T[LANG]["cart.added"];
       setTimeout(()=>{ btn.classList.remove("added"); btn.innerHTML = original; }, 1400);
-      openCart();
     });
   });
 }
@@ -713,12 +779,21 @@ function renderCart(){
 }
 
 /* ---------- drawer open/close ---------- */
-const drawer=document.getElementById("drawer"), overlay=document.getElementById("overlay");
-function openCart(){ drawer.classList.add("show"); overlay.classList.add("show"); }
-function closeCart(){ drawer.classList.remove("show"); overlay.classList.remove("show"); }
+const drawer=document.getElementById("drawer"), overlay=document.getElementById("overlay"), shopDrawer=document.getElementById("shopDrawer");
+function openCart(){ shopDrawer.classList.remove("show"); drawer.classList.add("show"); overlay.classList.add("show"); }
+function closeCart(){ drawer.classList.remove("show"); if(!shopDrawer.classList.contains("show")) overlay.classList.remove("show"); }
+function openShop(){ drawer.classList.remove("show"); shopDrawer.classList.add("show"); overlay.classList.add("show"); }
+function closeShop(){ shopDrawer.classList.remove("show"); if(!drawer.classList.contains("show")) overlay.classList.remove("show"); }
+function closeAllDrawers(){ drawer.classList.remove("show"); shopDrawer.classList.remove("show"); overlay.classList.remove("show"); }
 document.getElementById("cartOpenBtn").onclick = openCart;
 document.getElementById("cartCloseBtn").onclick = closeCart;
-overlay.onclick = closeCart;
+document.getElementById("shopOpenBtn").onclick = openShop;
+document.getElementById("shopCloseBtn").onclick = closeShop;
+document.getElementById("shopViewCartBtn").onclick = openCart;
+document.getElementById("navProductsLink").onclick = (e)=>{ e.preventDefault(); openShop(); };
+document.getElementById("footerProductsLink").onclick = (e)=>{ e.preventDefault(); openShop(); };
+document.getElementById("heroCtaBtn").onclick = (e)=>{ e.preventDefault(); openShop(); };
+overlay.onclick = closeAllDrawers;
 
 /* ---------- scroll reveal ---------- */
 const io = new IntersectionObserver((entries)=>{

@@ -81,7 +81,7 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 
 /* ---------- hero ---------- */
 .hero{padding-top:70px;background:linear-gradient(120deg,#04101c 0%,#0a1a2b 55%,#0c2237 100%);color:#fff;min-height:560px;position:relative;overflow:hidden}
-.heroin{position:relative;z-index:3;padding:70px 0 130px;max-width:560px}
+.heroin{position:relative;z-index:3;padding:70px 0 80px;max-width:560px}
 .eyebrow{color:var(--gold2);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .eyebrow:before{content:"";width:26px;height:1px;background:var(--gold)}
 .hero h1{font:700 74px/.94 "Playfair Display",serif;margin:0;background:linear-gradient(120deg,#f1cc70,#fff8e6 45%,#d7a63b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -96,13 +96,9 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .heronote{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#7c8b9b}
 .dot{width:6px;height:6px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84;animation:pulseGlow 2s infinite}
 
-.trust{position:relative;z-index:5;margin-top:-46px}
-.trustbox{background:linear-gradient(110deg,#081a2c,#0a2034);border:1px solid #ffffff14;border-radius:18px;box-shadow:0 22px 45px #0006;display:grid;grid-template-columns:repeat(4,1fr);padding:19px 0;color:#fff}
-.trustitem{padding:0 28px;border-right:1px solid #ffffff17;display:grid;grid-template-columns:38px 1fr;gap:15px;align-items:start}
-.trustitem:last-child{border:0}
-.trusticon{font-size:26px;color:var(--gold)}
-.trustitem b{font:600 15px/1.15 "Playfair Display";display:block}
-.trustitem small{display:block;color:#9eabb8;font-size:10px;line-height:1.45;margin-top:7px}
+.trustinline{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px;padding-top:18px;border-top:1px solid #ffffff14}
+.trustinline span{display:flex;align-items:center;gap:6px;font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:#9eabb8;white-space:nowrap}
+.trustinline i{font-style:normal;color:#d7a63b;font-size:11px}
 
 /* ---------- science ---------- */
 .science{padding:76px 0 20px;background:linear-gradient(120deg,#edf1f5,#fff)}
@@ -208,16 +204,46 @@ footer a:hover{color:var(--gold2)}
 .drawerbanner{background:#3a1a14;border:1px solid #c0392b6e;color:#f3c3ba;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:14px 22px 4px;display:flex;gap:8px;align-items:flex-start}
 .drawerbanner .bicon{flex-shrink:0;font-size:13px;line-height:1}
 .shoplist{padding:2px 22px}
-.shoprow{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #ffffff10}
+.shoprow{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #ffffff10;cursor:pointer;transition:opacity .15s}
+.shoprow:hover{opacity:.8}
 .shoprow img{width:52px;height:52px;object-fit:cover;border-radius:8px;background:#0a1e33}
 .shoprow h4{font:600 13px "Playfair Display";margin:0 0 3px;color:#fff}
 .shoprow .sdose{font-size:8.5px;color:#8fa0b0;text-transform:uppercase;letter-spacing:.03em}
-.shoprow .sprice{font:600 13px "Playfair Display";color:#f1cc70;margin-top:3px}
-.shopaddbtn{border:1px solid #d7a63b88;background:transparent;color:#f1cc70;border-radius:999px;padding:7px 12px;font-size:9px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
-.shopaddbtn:hover{background:#d7a63b;color:#111a22}
-.shopaddbtn.added{background:#1c8a52;border-color:#1c8a52;color:#fff}
+.shoprow .schev{color:#d7a63b88;font-size:16px}
 .shopfoot{padding:14px 22px 22px;border-top:1px solid #ffffff14;text-align:center}
 .shopfoot small{display:block;font-size:8.5px;color:#6c7a89;line-height:1.6;margin-top:8px}
+.backbtn{background:transparent;border:1px solid #ffffff2a;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0}
+.backbtn:hover{border-color:#d7a63b88}
+#shopHeadTitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pdetailimg{width:100%;max-height:260px;object-fit:cover;border-radius:12px;display:block;margin-bottom:18px;background:#0a1e33}
+.pdetailbody h2{font:600 23px "Playfair Display";margin:12px 0 12px;color:#fff}
+.pdetailtext{font-size:12.5px;line-height:1.8;color:#c3ccd6;margin:0 0 8px}
+.pdetailprice{display:flex;align-items:baseline;gap:9px;margin:18px 0 16px}
+.pdetailprice small{font-size:9px;text-transform:uppercase;letter-spacing:.04em;color:#8fa0b0}
+.pdetailprice b{font:600 25px "Playfair Display";color:#f1cc70}
+.detailaddbtn{width:100%;justify-content:center}
+.detailaddbtn.added{background:linear-gradient(135deg,#1c8a52,#2fae6c)!important}
+
+/* ---------- contact modal (vial-shaped form) ---------- */
+.contactoverlay{position:fixed;inset:0;background:#04101ce0;z-index:600;opacity:0;pointer-events:none;transition:opacity .25s ease;display:flex;align-items:center;justify-content:center;padding:26px;overflow-y:auto}
+.contactoverlay.show{opacity:1;pointer-events:auto}
+.vialwrap{display:flex;flex-direction:column;align-items:center;max-width:420px;width:100%;transform:translateY(16px);transition:transform .3s cubic-bezier(.2,.8,.2,1);margin:auto}
+.contactoverlay.show .vialwrap{transform:translateY(0)}
+.vialcap{width:112px;height:26px;background:linear-gradient(135deg,#bc8920,#f1cc70);border-radius:12px 12px 3px 3px;position:relative;z-index:2;flex-shrink:0}
+.vialcap:before{content:"";position:absolute;left:10px;right:10px;top:6px;height:2px;background:#00000022;border-radius:2px}
+.vialneck{width:68px;height:20px;background:linear-gradient(180deg,#16304f,#0d2038);border-left:1px solid #ffffff22;border-right:1px solid #ffffff22;flex-shrink:0}
+.vialbody{width:100%;background:linear-gradient(165deg,#0b1e33,#0d2740);border:1px solid #ffffff16;border-radius:28px;box-shadow:0 40px 90px #000a;padding:36px 30px 30px;position:relative;max-height:76vh;overflow-y:auto}
+.vialbody .closex{position:absolute;top:16px;right:16px}
+.vialbody h3{font:600 23px "Playfair Display";color:#f1cc70;margin:0 0 8px;padding-right:30px}
+.vialbody .vsub{font-size:11px;color:#9eabb8;line-height:1.6;margin:0 0 4px}
+.vform label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#8fa0b0;margin:16px 0 6px}
+.vform label:first-of-type{margin-top:20px}
+.vform input,.vform textarea{width:100%;background:#ffffff09;border:1px solid #ffffff22;border-radius:9px;padding:11px 13px;color:#fff;font-size:12.5px;font-family:inherit;box-sizing:border-box}
+.vform input:focus,.vform textarea:focus{outline:none;border-color:#d7a63b99;background:#ffffff0d}
+.vform textarea{resize:vertical;min-height:88px;line-height:1.5}
+.vcounter{text-align:right;font-size:9px;color:#6c7a89;margin-top:5px}
+.vform .btn{width:100%;justify-content:center;margin-top:20px}
+.vform .fielderr{color:#e08a7d;font-size:9px;margin-top:5px;display:none}
 
 /* ---------- story section (history of peptides) ---------- */
 .story{padding:76px 0;background:#fff}
@@ -241,8 +267,6 @@ footer a:hover{color:var(--gold2)}
   .pcards{grid-template-columns:repeat(2,1fr)}
   .analyticsgrid{grid-template-columns:1fr}
   .chartrow{grid-template-columns:1fr}
-  .trustbox{grid-template-columns:1fr 1fr}
-  .trustitem:nth-child(2){border-right:0}
   .footergrid{grid-template-columns:1fr 1fr}
   .frame,.dnawrap{display:none}
   .storygrid{grid-template-columns:1fr;gap:70px 0}
@@ -250,13 +274,12 @@ footer a:hover{color:var(--gold2)}
   .storycopy{order:2}
 }
 @media(max-width:600px){
+  .heronote{letter-spacing:.02em}
+  .trustinline{gap:8px 14px}
   .wrap{width:calc(100% - 26px)}
   .hero h1{font-size:52px}
   .hero h2{font-size:25px}
-  .heroin{padding:60px 0 100px}
-  .trust{margin-top:-25px}
-  .trustbox{grid-template-columns:1fr}
-  .trustitem{border-right:0;border-bottom:1px solid #ffffff18;padding:14px 22px}
+  .heroin{padding:60px 0 60px}
   .sectiontop{display:block}
   .catalog{display:inline-block;margin-top:15px}
   .pcards{grid-template-columns:1fr}
@@ -349,16 +372,15 @@ footer a:hover{color:var(--gold2)}
       </div>
       <div class="heronote" style="margin-top:28px"><span class="dot"></span><span data-i18n="hero.note">Lotes analisados por HPLC · Pureza ≥ 99%</span></div>
       <div class="heronote" style="margin-top:10px;color:#c98a7d"><span style="width:6px;height:6px;border-radius:50%;background:#c98a7d;flex-shrink:0"></span><span data-i18n="hero.note2">Apenas para pesquisa — não é para uso humano ou veterinário</span></div>
+      <div class="trustinline">
+        <span><i>◈</i><span data-i18n="trust.1t">Pureza Excepcional</span></span>
+        <span><i>⬡</i><span data-i18n="trust.2t">Grau de Pesquisa</span></span>
+        <span><i>✦</i><span data-i18n="trust.3t">Qualidade Certificada</span></span>
+        <span><i>⟡</i><span data-i18n="trust.4t">Inovação Contínua</span></span>
+      </div>
     </div>
   </div>
 </section>
-
-<div class="trust"><div class="wrap trustbox reveal">
-  <div class="trustitem"><div class="trusticon">◈</div><div><b data-i18n="trust.1t">Pureza Excepcional</b><small data-i18n="trust.1d">Análises rigorosas por HPLC e MS</small></div></div>
-  <div class="trustitem"><div class="trusticon">⬡</div><div><b data-i18n="trust.2t">Grau de Pesquisa</b><small data-i18n="trust.2d">Uso exclusivo em laboratório</small></div></div>
-  <div class="trustitem"><div class="trusticon">✦</div><div><b data-i18n="trust.3t">Qualidade Certificada</b><small data-i18n="trust.3d">Lotes rastreáveis e documentados</small></div></div>
-  <div class="trustitem"><div class="trusticon">⟡</div><div><b data-i18n="trust.4t">Inovação Contínua</b><small data-i18n="trust.4d">Ciência em constante evolução</small></div></div>
-</div></div>
 
 <section class="science reveal" id="science">
   <div class="wrap sciencegrid">
@@ -413,7 +435,7 @@ footer a:hover{color:var(--gold2)}
   <div class="molfield"><div class="hexbg"></div></div>
   <div class="wrap commitin">
     <div><div class="eyebrow">AcquaVitta</div><h2 data-i18n="commit.title">Compromisso com a Ciência</h2><p data-i18n="commit.text">Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.</p></div>
-    <a class="btn gold" href="mailto:info@acquavitta.com" data-i18n="commit.cta">Entre em contato →</a>
+    <a class="btn gold" href="#" id="contactOpenBtn" data-i18n="commit.cta">Entre em contato →</a>
   </div>
 </section>
 </main>
@@ -450,20 +472,56 @@ footer a:hover{color:var(--gold2)}
 <!-- ---------- shop drawer (hamburger menu, full catalog) ---------- -->
 <aside class="drawer" id="shopDrawer">
   <div class="drawerhead">
-    <h3 data-i18n="shop.title">Catálogo de peptídeos</h3>
+    <div style="display:flex;align-items:center;gap:10px;min-width:0">
+      <button class="backbtn" id="shopBackBtn" style="display:none" aria-label="Voltar">←</button>
+      <h3 id="shopHeadTitle" data-i18n="shop.title">Catálogo de peptídeos</h3>
+    </div>
     <button class="closex" id="shopCloseBtn">✕</button>
   </div>
-  <div class="drawerbanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
-  <div class="drawerbody">
-    <div class="shoplist" id="shopList"></div>
+
+  <div id="shopListWrap">
+    <div class="drawerbanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
+    <div class="drawerbody">
+      <div class="shoplist" id="shopList"></div>
+    </div>
+    <div class="shopfoot">
+      <button class="cartbtn" id="shopViewCartBtn" style="width:100%;justify-content:center;color:#111a22;background:linear-gradient(135deg,#bc8920,#f1cc70);border:0">
+        <span data-i18n="shop.viewcart">Ver carrinho</span>
+      </button>
+      <small data-i18n="shop.note">Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.</small>
+    </div>
   </div>
-  <div class="shopfoot">
-    <button class="cartbtn" id="shopViewCartBtn" style="width:100%;justify-content:center;color:#111a22;background:linear-gradient(135deg,#bc8920,#f1cc70);border:0">
-      <span data-i18n="shop.viewcart">Ver carrinho</span>
-    </button>
-    <small data-i18n="shop.note">Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.</small>
+
+  <div id="shopDetailWrap" style="display:none">
+    <div class="drawerbody" id="shopDetailBody"></div>
   </div>
 </aside>
+
+<!-- ---------- contact modal (vial-shaped form) ---------- -->
+<div class="contactoverlay" id="contactOverlay">
+  <div class="vialwrap">
+    <div class="vialcap"></div>
+    <div class="vialneck"></div>
+    <div class="vialbody">
+      <button class="closex" id="contactCloseBtn">✕</button>
+      <h3 data-i18n="contact.title">Entre em contato</h3>
+      <p class="vsub" data-i18n="contact.sub">Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.</p>
+      <form class="vform" id="contactForm">
+        <label for="cfName" data-i18n="contact.name">Nome</label>
+        <input type="text" id="cfName" required maxlength="120">
+        <label for="cfPhone" data-i18n="contact.phone">Telefone (opcional)</label>
+        <input type="tel" id="cfPhone" maxlength="40">
+        <label for="cfEmail" data-i18n="contact.email">E-mail</label>
+        <input type="email" id="cfEmail" required maxlength="160">
+        <label for="cfMsg" data-i18n="contact.msg">Mensagem</label>
+        <textarea id="cfMsg" required maxlength="600" rows="4"></textarea>
+        <div class="vcounter"><span id="cfCount">0</span>/600</div>
+        <div class="fielderr" id="cfErr" data-i18n="contact.err">Preencha nome, e-mail e mensagem antes de enviar.</div>
+        <button type="submit" class="btn gold" data-i18n="contact.send">Enviar mensagem →</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
 /* =========================================================
@@ -603,6 +661,7 @@ pt:{
 "data.kicker":"Dados e análises","data.title":"Resultados que Comprovam Nossa Qualidade","data.text":"Gráficos baseados em análises laboratoriais reais dos nossos lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentração e Pureza Molecular","chart.stability":"Estabilidade Hidrolítica","chart.comp":"Composição de Ativos Bioidênticos",
 "commit.title":"Compromisso com a Ciência","commit.text":"Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.","commit.cta":"Entre em contato →",
+"contact.title":"Entre em contato","contact.sub":"Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.","contact.name":"Nome","contact.phone":"Telefone (opcional)","contact.email":"E-mail","contact.msg":"Mensagem","contact.err":"Preencha nome, e-mail e mensagem antes de enviar.","contact.send":"Enviar mensagem →",
 "story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
 "shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos",
@@ -619,6 +678,7 @@ en:{
 "data.kicker":"Data and analytics","data.title":"Results That Demonstrate Our Quality","data.text":"Charts based on real laboratory analysis of our batches.","data.cta":"Request CoA →",
 "chart.purity":"Molecular Concentration and Purity","chart.stability":"Hydrolytic Stability","chart.comp":"Bioidentical Active Composition",
 "commit.title":"Commitment to Science","commit.text":"Providing exceptional-quality peptides for researchers and contributing to scientific advances and new discoveries.","commit.cta":"Contact us →",
+"contact.title":"Get in touch","contact.sub":"Questions, catalog requests or research partnerships — write to us.","contact.name":"Name","contact.phone":"Phone (optional)","contact.email":"Email","contact.msg":"Message","contact.err":"Please fill in name, email and message before sending.","contact.send":"Send message →",
 "story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
 "shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us",
@@ -635,6 +695,7 @@ es:{
 "data.kicker":"Datos y análisis","data.title":"Resultados Que Demuestran Nuestra Calidad","data.text":"Gráficos basados en análisis de laboratorio reales de nuestros lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentración y Pureza Molecular","chart.stability":"Estabilidad Hidrolítica","chart.comp":"Composición de Activos Bioidénticos",
 "commit.title":"Compromiso con la Ciencia","commit.text":"Proporcionando péptidos de calidad excepcional para investigadores, contribuyendo a avances científicos y nuevos descubrimientos.","commit.cta":"Contáctenos →",
+"contact.title":"Contáctenos","contact.sub":"Dudas, solicitudes de catálogo o alianzas de investigación — escríbanos.","contact.name":"Nombre","contact.phone":"Teléfono (opcional)","contact.email":"Correo electrónico","contact.msg":"Mensaje","contact.err":"Complete nombre, correo y mensaje antes de enviar.","contact.send":"Enviar mensaje →",
 "story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
 "shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos",
@@ -664,26 +725,58 @@ function renderProducts(){
   const list=document.getElementById("shopList");
   if(!list) return;
   list.innerHTML = PRODUCTS.map(p=>`
-    <div class="shoprow">
+    <div class="shoprow" data-id="${p.id}">
       <img src="${p.img}" alt="${p.name}">
       <div>
         <h4>${p.name}</h4>
         <div class="sdose">${p.dose}</div>
-        <div class="sprice">${fmtPrice(p.price)}</div>
       </div>
-      <button class="shopaddbtn" data-id="${p.id}">+ ${T[LANG]["cart.add"]}</button>
+      <span class="schev">›</span>
     </div>
   `).join("");
-  list.querySelectorAll(".shopaddbtn").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      addToCart(btn.dataset.id);
-      btn.classList.add("added");
-      const original = btn.innerHTML;
-      btn.innerHTML = T[LANG]["cart.added"];
-      setTimeout(()=>{ btn.classList.remove("added"); btn.innerHTML = original; }, 1400);
-    });
+  list.querySelectorAll(".shoprow").forEach(row=>{
+    row.addEventListener("click", ()=> openProductDetail(row.dataset.id));
   });
 }
+
+/* ---------- product detail screen (inside shop drawer) ---------- */
+function openProductDetail(id){
+  const p = PRODUCTS.find(pr=>pr.id===id);
+  if(!p) return;
+  document.getElementById("shopListWrap").style.display = "none";
+  const detail = document.getElementById("shopDetailWrap");
+  detail.style.display = "block";
+  document.getElementById("shopBackBtn").style.display = "inline-block";
+  document.getElementById("shopHeadTitle").textContent = p.name;
+
+  document.getElementById("shopDetailBody").innerHTML = `
+    <img class="pdetailimg" src="${p.img}" alt="${p.name}">
+    <div class="pdetailbody">
+      <span class="pdose" style="background:${p.color}">${p.dose}</span>
+      <h2>${p.name}</h2>
+      <p class="pdetailtext">${p.benefit[LANG]}</p>
+      <div class="drawerbanner"><span class="bicon">⚠</span><span>${T[LANG]["shop.warning"]}</span></div>
+      <div class="pdetailprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small><b>${fmtPrice(p.price)}</b></div>
+      <button class="btn gold detailaddbtn" id="shopDetailAddBtn">+ ${T[LANG]["cart.add"]}</button>
+    </div>
+  `;
+  document.getElementById("shopDetailAddBtn").onclick = (e)=>{
+    addToCart(p.id);
+    const btn = e.currentTarget;
+    btn.classList.add("added");
+    const original = btn.innerHTML;
+    btn.innerHTML = T[LANG]["cart.added"];
+    setTimeout(()=>{ btn.classList.remove("added"); btn.innerHTML = original; }, 1400);
+  };
+}
+
+function backToShopList(){
+  document.getElementById("shopDetailWrap").style.display = "none";
+  document.getElementById("shopListWrap").style.display = "block";
+  document.getElementById("shopBackBtn").style.display = "none";
+  document.getElementById("shopHeadTitle").textContent = T[LANG]["shop.title"];
+}
+document.getElementById("shopBackBtn").onclick = backToShopList;
 
 /* ---------- cart ---------- */
 let CART = JSON.parse(localStorage.getItem("av-cart") || "[]");
@@ -782,7 +875,7 @@ function renderCart(){
 const drawer=document.getElementById("drawer"), overlay=document.getElementById("overlay"), shopDrawer=document.getElementById("shopDrawer");
 function openCart(){ shopDrawer.classList.remove("show"); drawer.classList.add("show"); overlay.classList.add("show"); }
 function closeCart(){ drawer.classList.remove("show"); if(!shopDrawer.classList.contains("show")) overlay.classList.remove("show"); }
-function openShop(){ drawer.classList.remove("show"); shopDrawer.classList.add("show"); overlay.classList.add("show"); }
+function openShop(){ drawer.classList.remove("show"); shopDrawer.classList.add("show"); overlay.classList.add("show"); backToShopList(); }
 function closeShop(){ shopDrawer.classList.remove("show"); if(!drawer.classList.contains("show")) overlay.classList.remove("show"); }
 function closeAllDrawers(){ drawer.classList.remove("show"); shopDrawer.classList.remove("show"); overlay.classList.remove("show"); }
 document.getElementById("cartOpenBtn").onclick = openCart;
@@ -794,6 +887,44 @@ document.getElementById("navProductsLink").onclick = (e)=>{ e.preventDefault(); 
 document.getElementById("footerProductsLink").onclick = (e)=>{ e.preventDefault(); openShop(); };
 document.getElementById("heroCtaBtn").onclick = (e)=>{ e.preventDefault(); openShop(); };
 overlay.onclick = closeAllDrawers;
+
+/* ---------- contact modal (vial-shaped form) ---------- */
+const contactOverlay = document.getElementById("contactOverlay");
+const contactForm = document.getElementById("contactForm");
+const cfMsg = document.getElementById("cfMsg");
+const cfCount = document.getElementById("cfCount");
+const cfErr = document.getElementById("cfErr");
+
+function openContact(){ contactOverlay.classList.add("show"); }
+function closeContact(){ contactOverlay.classList.remove("show"); }
+document.getElementById("contactOpenBtn").onclick = (e)=>{ e.preventDefault(); openContact(); };
+document.getElementById("contactCloseBtn").onclick = closeContact;
+contactOverlay.addEventListener("click", (e)=>{ if(e.target === contactOverlay) closeContact(); });
+
+cfMsg.addEventListener("input", ()=>{ cfCount.textContent = cfMsg.value.length; });
+
+contactForm.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const name = document.getElementById("cfName").value.trim();
+  const phone = document.getElementById("cfPhone").value.trim();
+  const email = document.getElementById("cfEmail").value.trim();
+  const msg = cfMsg.value.trim();
+
+  if(!name || !email || !msg){
+    cfErr.style.display = "block";
+    return;
+  }
+  cfErr.style.display = "none";
+
+  const subject = LANG==="pt" ? "Contato pelo site - AcquaVitta"
+                : LANG==="es" ? "Contacto desde el sitio - AcquaVitta"
+                : "Website contact - AcquaVitta";
+  let body = `${T[LANG]["contact.name"]}: ${name}\n`;
+  if(phone) body += `${T[LANG]["contact.phone"].replace(/\s*\(.*\)/,"")}: ${phone}\n`;
+  body += `${T[LANG]["contact.email"]}: ${email}\n\n${msg}`;
+
+  window.location.href = `mailto:info@acquavitta.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
 
 /* ---------- scroll reveal ---------- */
 const io = new IntersectionObserver((entries)=>{

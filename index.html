@@ -42,7 +42,8 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:36px;height:36px;border:1px solid #ffffff28;border-radius:8px;background:#ffffff08;cursor:pointer;flex-shrink:0}
 .hamburger:hover{border-color:#d7a63b88}
 .hamburger span{display:block;width:16px;height:1.5px;background:#f1cc70;border-radius:1px;transition:transform .2s ease,opacity .2s ease}
-.cartcount{background:var(--gold);color:#111a22;font-weight:700;border-radius:999px;min-width:17px;height:17px;font-size:9px;display:grid;place-items:center;padding:0 4px}
+.carticonwrap{position:relative;display:inline-flex;color:#f1cc70}
+.cartcount{position:absolute;top:-8px;right:-9px;background:var(--gold);color:#111a22;font-weight:700;border-radius:999px;min-width:16px;height:16px;font-size:9px;display:grid;place-items:center;padding:0 3px;border:1.5px solid #05121f}
 
 /* ---------- molecule / tech background devices ---------- */
 .molfield{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -67,8 +68,8 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .corners .br{bottom:0;right:0;border-bottom:1.5px solid;border-right:1.5px solid}
 .frame{position:absolute;top:14%;right:4%;width:44%;height:72%;pointer-events:none}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
-.hud{position:absolute;display:flex;flex-direction:column;gap:2px;padding:9px 13px;border:1px solid #d7a63b3d;border-radius:8px;background:#0a1c2e77;backdrop-filter:blur(4px);font-family:'Inter',monospace;animation:fadeInUp .8s ease both, floatY 6s ease-in-out infinite;pointer-events:none}
-.hud .hl{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#8fa0b0}
+.hud{position:absolute;display:flex;flex-direction:column;gap:3px;padding:10px 14px;border:1px solid #d7a63b55;border-radius:8px;background:#081524ec;backdrop-filter:blur(4px);font-family:'Inter',monospace;animation:fadeInUp .8s ease both, floatY 6s ease-in-out infinite;pointer-events:none}
+.hud .hl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#c3cedb}
 .hud .hv{font-size:15px;color:#f1cc70;font-weight:600;font-family:'Playfair Display',serif}
 .hud .hv small{font-size:9px;color:#6fcf97;font-family:Inter;margin-left:5px}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
@@ -88,12 +89,12 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .hero h2{font:500 30px/1.16 "Playfair Display",serif;margin:16px 0;color:#eef1f4}
 .hero p{max-width:410px;color:#aeb9c6;line-height:1.7;font-size:13px;margin:0}
 .heroactions{display:flex;align-items:center;gap:22px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 24px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 24px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;white-space:nowrap}
 .gold{background:linear-gradient(135deg,#bc8920,#f1cc70);color:#111a22;box-shadow:0 13px 30px #d6a63b3d}
 .gold:hover{transform:translateY(-2px);box-shadow:0 16px 34px #d6a63b55}
 .ghost{border:1px solid #ffffff3a;color:#fff;background:transparent}
 .ghost:hover{border-color:var(--gold)}
-.heronote{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#7c8b9b}
+.heronote{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#98a5b1}
 .dot{width:6px;height:6px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84;animation:pulseGlow 2s infinite}
 
 .trustinline{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px;padding-top:18px;border-top:1px solid #ffffff14}
@@ -171,19 +172,21 @@ footer p,footer a{font-size:10px;line-height:1.9;margin:0}
 footer a:hover{color:var(--gold2)}
 .social{display:flex;gap:8px;margin-top:4px}
 .social span{width:26px;height:26px;border:1px solid #ffffff33;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px}
-.research{display:inline-block;border:1px solid #d7a63b;border-radius:8px;padding:10px 12px;color:#fff;font-size:9px;font-weight:600;margin-top:14px;line-height:1.5}
-.copyright{text-align:right;font-size:8.5px;margin-top:28px;border-top:1px solid #ffffff10;padding-top:18px;color:#6c7a89}
+.research{display:inline-flex;align-items:flex-start;gap:8px;background:#1c1608;border:1px solid #d7a63b55;border-radius:8px;padding:10px 12px;color:#e8cd94;font-size:9px;font-weight:600;margin-top:14px;line-height:1.5}
+.copyright{text-align:right;font-size:8.5px;margin-top:28px;border-top:1px solid #ffffff10;padding-top:18px;color:#8a97a3}
 
 /* ---------- cart drawer ---------- */
 .overlay{position:fixed;inset:0;background:#04101ccc;z-index:490;opacity:0;pointer-events:none;transition:opacity .25s ease}
 .overlay.show{opacity:1;pointer-events:auto}
 .drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:#0a1c2e;color:#fff;z-index:500;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px #0009}
 .drawer.show{transform:translateX(0)}
+.drawer.drawer-left{left:0;right:auto;transform:translateX(-100%);box-shadow:30px 0 60px #0009}
+.drawer.drawer-left.show{transform:translateX(0)}
 .drawerhead{display:flex;align-items:center;justify-content:space-between;padding:22px 22px 16px;border-bottom:1px solid #ffffff14}
 .drawerhead h3{font:600 20px "Playfair Display";margin:0;color:var(--gold2)}
 .closex{background:transparent;border:1px solid #ffffff2a;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px}
-.drawerbody{flex:1;overflow-y:auto;padding:16px 22px}
-.emptycart{text-align:center;color:#7c8b9b;font-size:11.5px;padding:60px 10px;line-height:1.7}
+.drawerbody{flex:1;min-height:0;overflow-y:auto;padding:16px 22px}
+.emptycart{text-align:center;color:#98a5b1;font-size:11.5px;padding:60px 10px;line-height:1.7}
 .citem{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #ffffff10}
 .citem img{width:52px;height:52px;object-fit:cover;border-radius:6px;background:#fff}
 .citem h4{font:600 13px "Playfair Display";margin:0 0 4px}
@@ -198,20 +201,18 @@ footer a:hover{color:var(--gold2)}
 .subtotalrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:12px;color:#c3ccd6}
 .subtotalrow b{font:600 20px "Playfair Display";color:#fff}
 .checkoutbtn{width:100%;justify-content:center}
-.cartnote{font-size:8.5px;color:#6c7a89;text-align:center;margin-top:12px;line-height:1.6}
+.cartnote{font-size:8.5px;color:#8a97a3;text-align:center;margin-top:12px;line-height:1.6}
 
 /* ---------- shop drawer (hamburger menu with full catalog) ---------- */
-.drawerbanner{background:#3a1a14;border:1px solid #c0392b6e;color:#f3c3ba;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:14px 22px 4px;display:flex;gap:8px;align-items:flex-start}
-.drawerbanner .bicon{flex-shrink:0;font-size:13px;line-height:1}
+.drawerbanner{background:#1c1608;border:1px solid #d7a63b45;color:#e8cd94;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:0 0 14px;display:flex;gap:8px;align-items:flex-start;text-align:left}
+.drawerbanner .bicon{flex-shrink:0;font-size:13px;line-height:1;color:#d7a63b}
 .shoplist{padding:2px 22px}
-.shoprow{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #ffffff10;cursor:pointer;transition:opacity .15s}
-.shoprow:hover{opacity:.8}
-.shoprow img{width:52px;height:52px;object-fit:cover;border-radius:8px;background:#0a1e33}
-.shoprow h4{font:600 13px "Playfair Display";margin:0 0 3px;color:#fff}
-.shoprow .sdose{font-size:8.5px;color:#8fa0b0;text-transform:uppercase;letter-spacing:.03em}
-.shoprow .schev{color:#d7a63b88;font-size:16px}
+.shoprow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 2px;border-bottom:1px solid #ffffff10;cursor:pointer;transition:background .15s;border-radius:6px}
+.shoprow:hover{background:#ffffff08}
+.shoprow h4{font:500 14px "Inter",sans-serif;margin:0;color:#f2f5f7;letter-spacing:.01em}
+.shoprow .schev{color:#d7a63bcc;font-size:17px;flex-shrink:0}
 .shopfoot{padding:14px 22px 22px;border-top:1px solid #ffffff14;text-align:center}
-.shopfoot small{display:block;font-size:8.5px;color:#6c7a89;line-height:1.6;margin-top:8px}
+.shopfoot small{display:block;font-size:8.5px;color:#8a97a3;line-height:1.6;margin-top:8px}
 .backbtn{background:transparent;border:1px solid #ffffff2a;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0}
 .backbtn:hover{border-color:#d7a63b88}
 #shopHeadTitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -241,9 +242,14 @@ footer a:hover{color:var(--gold2)}
 .vform input,.vform textarea{width:100%;background:#ffffff09;border:1px solid #ffffff22;border-radius:9px;padding:11px 13px;color:#fff;font-size:12.5px;font-family:inherit;box-sizing:border-box}
 .vform input:focus,.vform textarea:focus{outline:none;border-color:#d7a63b99;background:#ffffff0d}
 .vform textarea{resize:vertical;min-height:88px;line-height:1.5}
-.vcounter{text-align:right;font-size:9px;color:#6c7a89;margin-top:5px}
+.vcounter{text-align:right;font-size:9px;color:#8a97a3;margin-top:5px}
 .vform .btn{width:100%;justify-content:center;margin-top:20px}
 .vform .fielderr{color:#e08a7d;font-size:9px;margin-top:5px;display:none}
+.vsuccess{text-align:center;padding:20px 4px 6px}
+.vsuccessicon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1c8a52,#2fae6c);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.vsuccess h4{font:600 19px "Playfair Display";color:#fff;margin:0 0 8px}
+.vsuccess p{font-size:12px;color:#9eabb8;line-height:1.6;margin:0 0 22px}
+.vsuccess .btn{width:100%;justify-content:center}
 
 /* ---------- story section (history of peptides) ---------- */
 .story{padding:76px 0;background:#fff}
@@ -274,12 +280,18 @@ footer a:hover{color:var(--gold2)}
   .storycopy{order:2}
 }
 @media(max-width:600px){
-  .heronote{letter-spacing:.02em}
-  .trustinline{gap:8px 14px}
+  .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding-top:64px;box-sizing:border-box}
+  .heroin{width:100%;max-width:100%;text-align:center;padding:6vh 0;margin:0 auto}
+  .eyebrow{justify-content:center}
+  .eyebrow:before{display:none}
+  .heronote{justify-content:center;letter-spacing:.02em}
+  .trustinline{justify-content:center;gap:8px 14px}
   .wrap{width:calc(100% - 26px)}
-  .hero h1{font-size:52px}
-  .hero h2{font-size:25px}
-  .heroin{padding:60px 0 60px}
+  .hero h1{font-size:15vw}
+  .hero h2{font-size:6.4vw}
+  .hero p{max-width:420px;margin-left:auto;margin-right:auto}
+  .heroactions{flex-direction:column;align-items:stretch;gap:14px;width:100%;max-width:300px;margin-left:auto;margin-right:auto}
+  .heroactions .btn{width:100%}
   .sectiontop{display:block}
   .catalog{display:inline-block;margin-top:15px}
   .pcards{grid-template-columns:1fr}
@@ -292,7 +304,8 @@ footer a:hover{color:var(--gold2)}
   .story{padding:50px 0}
   .storyimgs img.inset{width:52%;left:-14px;bottom:-22px;border-width:3px}
   .storycopy h2{font-size:26px}
-  .navright .cartbtn span:not(.cartcount){display:none}
+  .navright .cartbtn .cartlabel{display:none}
+  .navright .cartbtn{padding:8px 10px}
 }
 </style>
 </head>
@@ -318,7 +331,11 @@ footer a:hover{color:var(--gold2)}
         <button class="lang" id="es" title="Español">🇪🇸</button>
       </div>
       <button class="cartbtn" id="cartOpenBtn" aria-label="Carrinho">
-        <span>🛒</span><span data-i18n="nav.cart">Carrinho</span><span class="cartcount" id="cartCount">0</span>
+        <span class="carticonwrap">
+          <svg class="carticon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="19" height="19"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cartcount" id="cartCount">0</span>
+        </span>
+        <span class="cartlabel" data-i18n="nav.cart">Carrinho</span>
       </button>
     </div>
   </div>
@@ -388,7 +405,7 @@ footer a:hover{color:var(--gold2)}
       <div class="hexbg"></div>
       <div class="labchip"><b>99%+</b><span data-i18n="science.chip1">Pureza média por HPLC</span></div>
       <div class="labchip"><b>2–8°C</b><span data-i18n="science.chip2">Cadeia de frio controlada</span></div>
-      <div class="labchip"><b>16</b><span data-i18n="science.chip3">Peptídeos em catálogo ativo</span></div>
+      <div class="labchip"><b>19</b><span data-i18n="science.chip3">Peptídeos em catálogo ativo</span></div>
     </div>
     <div class="sciencecopy">
       <div class="eyebrow" data-i18n="science.kicker">Ciência que impulsiona resultados</div>
@@ -470,7 +487,7 @@ footer a:hover{color:var(--gold2)}
 </aside>
 
 <!-- ---------- shop drawer (hamburger menu, full catalog) ---------- -->
-<aside class="drawer" id="shopDrawer">
+<aside class="drawer drawer-left" id="shopDrawer">
   <div class="drawerhead">
     <div style="display:flex;align-items:center;gap:10px;min-width:0">
       <button class="backbtn" id="shopBackBtn" style="display:none" aria-label="Voltar">←</button>
@@ -479,20 +496,19 @@ footer a:hover{color:var(--gold2)}
     <button class="closex" id="shopCloseBtn">✕</button>
   </div>
 
-  <div id="shopListWrap">
-    <div class="drawerbanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
+  <div id="shopListWrap" style="display:flex;flex-direction:column;flex:1;min-height:0">
     <div class="drawerbody">
       <div class="shoplist" id="shopList"></div>
     </div>
     <div class="shopfoot">
+      <div class="drawerbanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
       <button class="cartbtn" id="shopViewCartBtn" style="width:100%;justify-content:center;color:#111a22;background:linear-gradient(135deg,#bc8920,#f1cc70);border:0">
         <span data-i18n="shop.viewcart">Ver carrinho</span>
       </button>
-      <small data-i18n="shop.note">Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.</small>
     </div>
   </div>
 
-  <div id="shopDetailWrap" style="display:none">
+  <div id="shopDetailWrap" style="display:none;flex-direction:column;flex:1;min-height:0">
     <div class="drawerbody" id="shopDetailBody"></div>
   </div>
 </aside>
@@ -506,19 +522,26 @@ footer a:hover{color:var(--gold2)}
       <button class="closex" id="contactCloseBtn">✕</button>
       <h3 data-i18n="contact.title">Entre em contato</h3>
       <p class="vsub" data-i18n="contact.sub">Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.</p>
-      <form class="vform" id="contactForm">
+      <form class="vform" id="contactForm" action="https://formspree.io/f/mrpgzbzy" method="POST">
+        <input type="hidden" name="_subject" value="Contato pelo site - AcquaVitta">
+        <input type="hidden" name="_next" id="cfNext" value="">
         <label for="cfName" data-i18n="contact.name">Nome</label>
-        <input type="text" id="cfName" required maxlength="120">
+        <input type="text" id="cfName" name="name" required maxlength="120">
         <label for="cfPhone" data-i18n="contact.phone">Telefone (opcional)</label>
-        <input type="tel" id="cfPhone" maxlength="40">
+        <input type="tel" id="cfPhone" name="phone" maxlength="40">
         <label for="cfEmail" data-i18n="contact.email">E-mail</label>
-        <input type="email" id="cfEmail" required maxlength="160">
+        <input type="email" id="cfEmail" name="email" required maxlength="160">
         <label for="cfMsg" data-i18n="contact.msg">Mensagem</label>
-        <textarea id="cfMsg" required maxlength="600" rows="4"></textarea>
+        <textarea id="cfMsg" name="message" required maxlength="600" rows="4"></textarea>
         <div class="vcounter"><span id="cfCount">0</span>/600</div>
-        <div class="fielderr" id="cfErr" data-i18n="contact.err">Preencha nome, e-mail e mensagem antes de enviar.</div>
-        <button type="submit" class="btn gold" data-i18n="contact.send">Enviar mensagem →</button>
+        <button type="submit" class="btn gold" id="cfSubmitBtn" data-i18n="contact.send">Enviar mensagem →</button>
       </form>
+      <div class="vsuccess" id="cfSuccess" style="display:none">
+        <div class="vsuccessicon">✓</div>
+        <h4 data-i18n="contact.successtitle">Mensagem enviada!</h4>
+        <p data-i18n="contact.successtext">Obrigado pelo contato. Nossa equipe vai responder em breve.</p>
+        <button class="btn ghost" id="cfSuccessCloseBtn" data-i18n="contact.close">Fechar</button>
+      </div>
     </div>
   </div>
 </div>
@@ -584,13 +607,6 @@ const PRODUCTS = [
               es:"Péptido mitocondrial investigado por su papel en el metabolismo energético, la sensibilidad a la insulina y el rendimiento físico."}
   },
   {
-    id:"retatrutide", img:"assets/products/retatrutide.jpg", color:"#e02050",
-    name:"Retatrutide", dose:"30mg / 3mL", price:249.00,
-    benefit:{pt:"Agonista triplo (GLP-1/GIP/glucagon) pesquisado em modelos de regulação metabólica e controle de peso corporal.",
-              en:"Triple agonist (GLP-1/GIP/glucagon) researched in models of metabolic regulation and body weight control.",
-              es:"Agonista triple (GLP-1/GIP/glucagón) investigado en modelos de regulación metabólica y control del peso corporal."}
-  },
-  {
     id:"selank", img:"assets/products/selank.jpg", color:"#1c9b3b",
     name:"Selank", dose:"10mg / 3mL", price:79.00,
     benefit:{pt:"Peptídeo pesquisado por seu potencial efeito ansiolítico, modulação da resposta ao estresse e suporte imunológico.",
@@ -619,25 +635,53 @@ const PRODUCTS = [
               es:"Análogo de GHRH estudiado por su papel en la liberación de la hormona del crecimiento y en modelos de composición corporal."}
   },
   {
-    id:"tirzepatide-15", img:"assets/products/tirzepatide-15.jpg", color:"#0d8a8a",
-    name:"Tirzepatide", dose:"15mg / 3mL", price:140.00,
-    benefit:{pt:"Agonista duplo (GIP/GLP-1) pesquisado em modelos de sinalização metabólica e controle glicêmico.",
-              en:"Dual agonist (GIP/GLP-1) researched in models of metabolic signaling and glycemic control.",
-              es:"Agonista dual (GIP/GLP-1) investigado en modelos de señalización metabólica y control glucémico."}
+    id:"pt-141", img:"assets/products/pt-141.jpg", color:"#c23a7a",
+    name:"PT-141", dose:"10mg / 3mL", price:69.00,
+    benefit:{pt:"Peptídeo estudado por sua ação central relacionada à libido e ao desejo sexual, atuando em receptores de melanocortina no sistema nervoso.",
+              en:"Peptide studied for its central action related to libido and sexual desire, acting on melanocortin receptors in the nervous system.",
+              es:"Péptido estudiado por su acción central relacionada con la libido y el deseo sexual, actuando sobre receptores de melanocortina en el sistema nervioso."}
   },
   {
-    id:"tirzepatide-20", img:"assets/products/tirzepatide-20.jpg", color:"#1c9b4a",
-    name:"Tirzepatide", dose:"20mg / 3mL", price:180.00,
-    benefit:{pt:"Agonista duplo (GIP/GLP-1) pesquisado em modelos de sinalização metabólica e controle glicêmico.",
-              en:"Dual agonist (GIP/GLP-1) researched in models of metabolic signaling and glycemic control.",
-              es:"Agonista dual (GIP/GLP-1) investigado en modelos de señalización metabólica y control glucémico."}
+    id:"glutathione", img:"assets/products/glutathione.jpg", color:"#2e9e6e",
+    name:"Glutathione", dose:"600mg / 10mL", price:59.00,
+    benefit:{pt:"Antioxidante natural do corpo, estudado por seu papel na proteção das células contra o estresse oxidativo e no suporte metabólico.",
+              en:"The body's natural antioxidant, studied for its role in protecting cells from oxidative stress and supporting metabolism.",
+              es:"Antioxidante natural del cuerpo, estudiado por su papel en la protección de las células contra el estrés oxidativo y el apoyo metabólico."}
   },
   {
-    id:"tirzepatide-30", img:"assets/products/tirzepatide-30.jpg", color:"#1e4fb8",
-    name:"Tirzepatide", dose:"30mg / 3mL", price:215.00,
-    benefit:{pt:"Agonista duplo (GIP/GLP-1) pesquisado em modelos de sinalização metabólica e controle glicêmico.",
-              en:"Dual agonist (GIP/GLP-1) researched in models of metabolic signaling and glycemic control.",
-              es:"Agonista dual (GIP/GLP-1) investigado en modelos de señalización metabólica y control glucémico."}
+    id:"nad", img:"assets/products/nad.jpg", color:"#5b7fd1",
+    name:"NAD+", dose:"500mg / 10mL", price:99.00,
+    benefit:{pt:"Coenzima essencial presente em toda célula viva, pesquisada por seu papel central na produção de energia celular e no metabolismo.",
+              en:"Essential coenzyme found in every living cell, researched for its central role in cellular energy production and metabolism.",
+              es:"Coenzima esencial presente en toda célula viva, investigada por su papel central en la producción de energía celular y el metabolismo."}
+  },
+  {
+    id:"vitamin-b12", img:"assets/products/vitamin-b12.jpg", color:"#d1663a",
+    name:"Vitamin B12", dose:"10mg / 10mL", price:39.00,
+    benefit:{pt:"Vitamina envolvida em diversos processos metabólicos do corpo, estudada por seu papel na produção de energia e na saúde celular.",
+              en:"Vitamin involved in several metabolic processes in the body, studied for its role in energy production and cellular health.",
+              es:"Vitamina implicada en diversos procesos metabólicos del cuerpo, estudiada por su papel en la producción de energía y la salud celular."}
+  },
+  {
+    id:"igf-1-lr3", img:"assets/products/igf-1-lr3.jpg", color:"#8a5bd1",
+    name:"IGF-1 LR3", dose:"1mg / 3mL", price:89.00,
+    benefit:{pt:"Análogo do fator de crescimento IGF-1, pesquisado por seu papel na sinalização celular ligada à hipertrofia muscular.",
+              en:"Analog of the IGF-1 growth factor, researched for its role in cell signaling linked to muscle hypertrophy.",
+              es:"Análogo del factor de crecimiento IGF-1, investigado por su papel en la señalización celular relacionada con la hipertrofia muscular."}
+  },
+  {
+    id:"oxytocin", img:"assets/products/oxytocin.jpg", color:"#d1a53a",
+    name:"Oxytocin", dose:"5mg / 3mL", price:59.00,
+    benefit:{pt:"Peptídeo conhecido como hormônio do vínculo social, estudado por seu papel no bem-estar, na sensação de alegria e na sociabilidade.",
+              en:"Peptide known as the social-bonding hormone, studied for its role in well-being, feelings of joy and sociability.",
+              es:"Péptido conocido como la hormona del vínculo social, estudiado por su papel en el bienestar, la sensación de alegría y la sociabilidad."}
+  },
+  {
+    id:"aod-9604", img:"assets/products/aod-9604.jpg", color:"#3a9ed1",
+    name:"AOD-9604", dose:"10mg / 3mL", price:79.00,
+    benefit:{pt:"Fragmento sintético estudado por seu papel na quebra de gordura corporal (lipólise) em modelos de pesquisa metabólica.",
+              en:"Synthetic fragment studied for its role in body fat breakdown (lipolysis) in metabolic research models.",
+              es:"Fragmento sintético estudiado por su papel en la descomposición de grasa corporal (lipólisis) en modelos de investigación metabólica."}
   },
   {
     id:"water", img:"assets/products/water.jpg", color:"#0594d2",
@@ -661,11 +705,11 @@ pt:{
 "data.kicker":"Dados e análises","data.title":"Resultados que Comprovam Nossa Qualidade","data.text":"Gráficos baseados em análises laboratoriais reais dos nossos lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentração e Pureza Molecular","chart.stability":"Estabilidade Hidrolítica","chart.comp":"Composição de Ativos Bioidênticos",
 "commit.title":"Compromisso com a Ciência","commit.text":"Fornecendo peptídeos de qualidade excepcional para pesquisadores, contribuindo para avanços científicos e novas descobertas.","commit.cta":"Entre em contato →",
-"contact.title":"Entre em contato","contact.sub":"Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.","contact.name":"Nome","contact.phone":"Telefone (opcional)","contact.email":"E-mail","contact.msg":"Mensagem","contact.err":"Preencha nome, e-mail e mensagem antes de enviar.","contact.send":"Enviar mensagem →",
+"contact.title":"Entre em contato","contact.sub":"Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.","contact.name":"Nome","contact.phone":"Telefone (opcional)","contact.email":"E-mail","contact.msg":"Mensagem","contact.err":"Preencha nome, e-mail e mensagem antes de enviar.","contact.send":"Enviar mensagem →","contact.successtitle":"Mensagem enviada!","contact.successtext":"Obrigado pelo contato. Nossa equipe vai responder em breve.","contact.close":"Fechar",
 "story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
 "shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar"
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho"
 },
 en:{
 "nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart",
@@ -678,11 +722,11 @@ en:{
 "data.kicker":"Data and analytics","data.title":"Results That Demonstrate Our Quality","data.text":"Charts based on real laboratory analysis of our batches.","data.cta":"Request CoA →",
 "chart.purity":"Molecular Concentration and Purity","chart.stability":"Hydrolytic Stability","chart.comp":"Bioidentical Active Composition",
 "commit.title":"Commitment to Science","commit.text":"Providing exceptional-quality peptides for researchers and contributing to scientific advances and new discoveries.","commit.cta":"Contact us →",
-"contact.title":"Get in touch","contact.sub":"Questions, catalog requests or research partnerships — write to us.","contact.name":"Name","contact.phone":"Phone (optional)","contact.email":"Email","contact.msg":"Message","contact.err":"Please fill in name, email and message before sending.","contact.send":"Send message →",
+"contact.title":"Get in touch","contact.sub":"Questions, catalog requests or research partnerships — write to us.","contact.name":"Name","contact.phone":"Phone (optional)","contact.email":"Email","contact.msg":"Message","contact.err":"Please fill in name, email and message before sending.","contact.send":"Send message →","contact.successtitle":"Message sent!","contact.successtext":"Thanks for reaching out. Our team will get back to you shortly.","contact.close":"Close",
 "story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
 "shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add"
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart"
 },
 es:{
 "nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito",
@@ -695,11 +739,11 @@ es:{
 "data.kicker":"Datos y análisis","data.title":"Resultados Que Demuestran Nuestra Calidad","data.text":"Gráficos basados en análisis de laboratorio reales de nuestros lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentración y Pureza Molecular","chart.stability":"Estabilidad Hidrolítica","chart.comp":"Composición de Activos Bioidénticos",
 "commit.title":"Compromiso con la Ciencia","commit.text":"Proporcionando péptidos de calidad excepcional para investigadores, contribuyendo a avances científicos y nuevos descubrimientos.","commit.cta":"Contáctenos →",
-"contact.title":"Contáctenos","contact.sub":"Dudas, solicitudes de catálogo o alianzas de investigación — escríbanos.","contact.name":"Nombre","contact.phone":"Teléfono (opcional)","contact.email":"Correo electrónico","contact.msg":"Mensaje","contact.err":"Complete nombre, correo y mensaje antes de enviar.","contact.send":"Enviar mensaje →",
+"contact.title":"Contáctenos","contact.sub":"Dudas, solicitudes de catálogo o alianzas de investigación — escríbanos.","contact.name":"Nombre","contact.phone":"Teléfono (opcional)","contact.email":"Correo electrónico","contact.msg":"Mensaje","contact.err":"Complete nombre, correo y mensaje antes de enviar.","contact.send":"Enviar mensaje →","contact.successtitle":"¡Mensaje enviado!","contact.successtext":"Gracias por contactarnos. Nuestro equipo responderá en breve.","contact.close":"Cerrar",
 "story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
 "shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos",
-"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir"
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito"
 }};
 let LANG = localStorage.getItem("av-lang") || "en";
 
@@ -726,11 +770,7 @@ function renderProducts(){
   if(!list) return;
   list.innerHTML = PRODUCTS.map(p=>`
     <div class="shoprow" data-id="${p.id}">
-      <img src="${p.img}" alt="${p.name}">
-      <div>
-        <h4>${p.name}</h4>
-        <div class="sdose">${p.dose}</div>
-      </div>
+      <h4>${p.name}</h4>
       <span class="schev">›</span>
     </div>
   `).join("");
@@ -745,7 +785,7 @@ function openProductDetail(id){
   if(!p) return;
   document.getElementById("shopListWrap").style.display = "none";
   const detail = document.getElementById("shopDetailWrap");
-  detail.style.display = "block";
+  detail.style.display = "flex";
   document.getElementById("shopBackBtn").style.display = "inline-block";
   document.getElementById("shopHeadTitle").textContent = p.name;
 
@@ -757,7 +797,7 @@ function openProductDetail(id){
       <p class="pdetailtext">${p.benefit[LANG]}</p>
       <div class="drawerbanner"><span class="bicon">⚠</span><span>${T[LANG]["shop.warning"]}</span></div>
       <div class="pdetailprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small><b>${fmtPrice(p.price)}</b></div>
-      <button class="btn gold detailaddbtn" id="shopDetailAddBtn">+ ${T[LANG]["cart.add"]}</button>
+      <button class="btn gold detailaddbtn" id="shopDetailAddBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> ${T[LANG]["cart.addtocart"]}</button>
     </div>
   `;
   document.getElementById("shopDetailAddBtn").onclick = (e)=>{
@@ -772,7 +812,7 @@ function openProductDetail(id){
 
 function backToShopList(){
   document.getElementById("shopDetailWrap").style.display = "none";
-  document.getElementById("shopListWrap").style.display = "block";
+  document.getElementById("shopListWrap").style.display = "flex";
   document.getElementById("shopBackBtn").style.display = "none";
   document.getElementById("shopHeadTitle").textContent = T[LANG]["shop.title"];
 }
@@ -889,42 +929,50 @@ document.getElementById("heroCtaBtn").onclick = (e)=>{ e.preventDefault(); openS
 overlay.onclick = closeAllDrawers;
 
 /* ---------- contact modal (vial-shaped form) ---------- */
+/* Envio real de e-mail via Formspree (https://formspree.io/f/mrpgzbzy) — já
+   configurado e ativo. O formulário é enviado do jeito HTML padrão (sem
+   JavaScript no meio), porque formulários novos do Formspree bloqueiam por
+   segurança o envio "silencioso" via JS a partir de sites recém-configurados.
+   O campo _next abaixo traz o visitante de volta pro site depois do envio,
+   e o site detecta esse retorno pra mostrar a tela de "Mensagem enviada!". */
 const contactOverlay = document.getElementById("contactOverlay");
 const contactForm = document.getElementById("contactForm");
 const cfMsg = document.getElementById("cfMsg");
 const cfCount = document.getElementById("cfCount");
-const cfErr = document.getElementById("cfErr");
+const cfSuccess = document.getElementById("cfSuccess");
+const cfNext = document.getElementById("cfNext");
 
-function openContact(){ contactOverlay.classList.add("show"); }
-function closeContact(){ contactOverlay.classList.remove("show"); }
-document.getElementById("contactOpenBtn").onclick = (e)=>{ e.preventDefault(); openContact(); };
+function openContact(showSuccess){
+  contactOverlay.classList.add("show");
+  resetContactForm(showSuccess);
+}
+function closeContact(){
+  contactOverlay.classList.remove("show");
+  if(location.hash === "#contact-sent") history.replaceState(null, "", location.pathname + location.search);
+}
+document.getElementById("contactOpenBtn").onclick = (e)=>{ e.preventDefault(); openContact(false); };
 document.getElementById("contactCloseBtn").onclick = closeContact;
 contactOverlay.addEventListener("click", (e)=>{ if(e.target === contactOverlay) closeContact(); });
+document.getElementById("cfSuccessCloseBtn").onclick = closeContact;
+
+function resetContactForm(showSuccess){
+  contactForm.reset();
+  cfCount.textContent = "0";
+  cfNext.value = location.origin + location.pathname + "#contact-sent";
+  if(showSuccess){
+    contactForm.style.display = "none";
+    cfSuccess.style.display = "block";
+  } else {
+    contactForm.style.display = "block";
+    cfSuccess.style.display = "none";
+  }
+}
 
 cfMsg.addEventListener("input", ()=>{ cfCount.textContent = cfMsg.value.length; });
 
-contactForm.addEventListener("submit", (e)=>{
-  e.preventDefault();
-  const name = document.getElementById("cfName").value.trim();
-  const phone = document.getElementById("cfPhone").value.trim();
-  const email = document.getElementById("cfEmail").value.trim();
-  const msg = cfMsg.value.trim();
+// se o visitante acabou de voltar do Formspree após enviar, mostra a confirmação
+if(location.hash === "#contact-sent"){ openContact(true); }
 
-  if(!name || !email || !msg){
-    cfErr.style.display = "block";
-    return;
-  }
-  cfErr.style.display = "none";
-
-  const subject = LANG==="pt" ? "Contato pelo site - AcquaVitta"
-                : LANG==="es" ? "Contacto desde el sitio - AcquaVitta"
-                : "Website contact - AcquaVitta";
-  let body = `${T[LANG]["contact.name"]}: ${name}\n`;
-  if(phone) body += `${T[LANG]["contact.phone"].replace(/\s*\(.*\)/,"")}: ${phone}\n`;
-  body += `${T[LANG]["contact.email"]}: ${email}\n\n${msg}`;
-
-  window.location.href = `mailto:info@acquavitta.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
 
 /* ---------- scroll reveal ---------- */
 const io = new IntersectionObserver((entries)=>{

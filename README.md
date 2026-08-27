@@ -2,11 +2,27 @@
 
 Site institucional/e-commerce (front-end estático) para a AcquaVitta.
 
+## ⚠️ Antes de publicar — pendências com placeholder
+Estes arquivos têm campos marcados em destaque (fundo laranja claro) que você precisa preencher com os dados reais da sua empresa:
+- `refund-policy.html`, `privacy-policy.html`, `shipping-policy.html`, `terms.html` — procure por `[Your LLC / company legal name]`, `[Company mailing address]` e, no `terms.html`, `[Your state, e.g. Florida]`.
+- `index.html` — no rodapé, `<span id="footerCompanyName">AcquaVitta LLC</span>` (troque pelo nome legal exato) e `<span id="footerAddress">[Company mailing address — pending]</span>`.
+- `shipping-policy.html` também tem placeholders sobre prazo de processamento, transportadora e se você envia internacionalmente — preencha com a sua operação real.
+
+Assim que tiver o endereço comercial resolvido (endereço virtual, não caixa postal — como conversamos), é só me mandar que eu atualizo tudo de uma vez.
+
 ## O que tem aqui
 - `index.html` — página única (HTML + CSS + JS embutidos), pronta para GitHub Pages.
+- `refund-policy.html`, `privacy-policy.html`, `shipping-policy.html`, `terms.html` — páginas de política jurídica exigidas por processadores de pagamento de alto risco, linkadas no rodapé do site e no checkbox de confirmação do carrinho.
 - `assets/logo-icon.png`, `assets/logo-full.png` — seus logos oficiais.
 - `assets/products/*.jpg` — fotos reais de estúdio (frasco sobre pedestal de mármore) para os 19 produtos do catálogo, exibidas no menu lateral de produtos.
 - `assets/story/*.jpg` — as duas fotos de laboratório usadas na seção "Nossa história".
+
+## Páginas de política (novo)
+Criei 4 páginas separadas, no mesmo estilo visual do site, linkadas no rodapé ("Legal") e também dentro do checkbox de confirmação do carrinho ("termos de venda" e "política de privacidade" agora são links de verdade):
+- **Refund & Return Policy** — política de reembolso adaptada para produtos de pesquisa laboratorial (venda final em produtos abertos, RMA para itens lacrados, etc.)
+- **Privacy Policy** — o que o site coleta (localStorage do carrinho, formulário de contato via Formspree) e o que não faz (não vende dados, não usa cookies de rastreamento)
+- **Shipping Policy** — prazos, transportadora, embalagem discreta (preencha os placeholders com sua operação real)
+- **Terms of Service** — elegibilidade (21+, uso exclusivo de pesquisa), isenção de responsabilidade, lei aplicável. **Recomendo revisão por um advogado antes de publicar** — deixei um aviso nesse sentido na própria página.
 
 ## Navegação e catálogo
 O ícone ☰ no cabeçalho abre um **menu de navegação simples** (Home, Produtos, Ciência, Sobre, Contato) — não é mais o catálogo em si. Ao clicar em "Produtos" (no menu, no cabeçalho, no rodapé ou no botão principal do hero), abre uma **página de catálogo em tela cheia**, com os produtos numa **grade alinhada de 2 colunas** (1 coluna no celular): foto, dose, descrição curta, preço e botão de adicionar ao carrinho direto no card — sem precisar entrar em uma tela de detalhe separada. A página central do site mostra a seção **"A ciência por trás dos peptídeos"**, com um resumo simples e baseado em evidências sobre o que são peptídeos.

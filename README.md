@@ -26,6 +26,13 @@ Os preços estão em **USD**, definidos por você diretamente (última atualiza�
 ## Compliance no checkout
 Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado (mesma linguagem usada por outros sites do nicho, como a Tydes) — mas agora em texto discreto, sem caixas coloridas de alerta, para não parecer um erro do site. O código já tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI`) explicando onde plugar um gateway de pagamento real quando você escolher um processador de alto risco.
 
+## Acessibilidade (auditoria WAVE)
+Depois de rodar o site no [wave.webaim.org](https://wave.webaim.org), corrigi os pontos reais que apareceram:
+- **9 erros de contraste muito baixo** — os selos de dose dos produtos (ex. "10mg / 3mL") tinham texto branco sobre fundo colorido, e algumas cores (dourado, laranja, azul) não passavam no mínimo de 4,5:1. Redesenhei o selo: agora é um fundo escuro fixo com um pontinho colorido identificando o produto — mantém a identidade visual sem falhar o contraste em nenhuma cor. Também escurecidos: os textos "Science that drives results" / "Data and Analytics" / etc. sobre fundo claro, e o texto pequeno do rodapé.
+- **Nível de título pulado** — o "Research Use Only" do banner de entrada (H2) aparecia antes do "AcquaVitta" (H1) na ordem do código; reordenei para H1 vir primeiro.
+- **Texto alternativo redundante** — a logo do cabeçalho tinha `alt="AcquaVitta"` bem ao lado do texto visível "AcquaVitta", duplicando a leitura pra quem usa leitor de tela; corrigido.
+- **"Texto muito pequeno" (70 ocorrências)** — a maioria eram os textos pequenos em caixa alta (rótulos, selos, chips) que fazem parte do estilo visual do site. Aumentei o que estava abaixo de 10px para pelo menos 10-11px em todo o site, sem descaracterizar o visual.
+
 ## Aviso "apenas para pesquisa"
 O aviso "For research use only — not for human or veterinary use" segue um único visual (caixa âmbar com ícone ⚠, sem tom de alerta vermelho) e aparece de forma consistente em: logo abaixo do título no topo do site, no rodapé do menu de produtos, no rodapé do carrinho, na tela de detalhe de cada produto, e no selo do rodapé do site. Mantenha esse padrão em qualquer novo material que você criar.
 

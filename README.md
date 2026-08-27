@@ -9,19 +9,22 @@ Site institucional/e-commerce (front-end estático) para a AcquaVitta.
 - `assets/story/*.jpg` — as duas fotos de laboratório usadas na seção "Nossa história".
 
 ## Navegação e catálogo
-O ícone ☰ no cabeçalho abre um **menu de navegação simples** (Home, Produtos, Ciência, Sobre, Contato) — não é mais o catálogo em si. Ao clicar em "Produtos" (no menu, no cabeçalho, no rodapé ou no botão principal do hero), abre uma **página de catálogo em tela cheia**, com os produtos em cascata de 2 colunas (1 coluna no celular): foto, dose, descrição curta, preço e botão de adicionar ao carrinho direto no card — sem precisar entrar em uma tela de detalhe separada. A página central do site mostra a seção **"A ciência por trás dos peptídeos"**, com um resumo simples e baseado em evidências sobre o que são peptídeos.
+O ícone ☰ no cabeçalho abre um **menu de navegação simples** (Home, Produtos, Ciência, Sobre, Contato) — não é mais o catálogo em si. Ao clicar em "Produtos" (no menu, no cabeçalho, no rodapé ou no botão principal do hero), abre uma **página de catálogo em tela cheia**, com os produtos numa **grade alinhada de 2 colunas** (1 coluna no celular): foto, dose, descrição curta, preço e botão de adicionar ao carrinho direto no card — sem precisar entrar em uma tela de detalhe separada. A página central do site mostra a seção **"A ciência por trás dos peptídeos"**, com um resumo simples e baseado em evidências sobre o que são peptídeos.
+
+## Banner de entrada (idade + declaração de pesquisa)
+Assim que o site carrega, aparece um cartão pedindo que o visitante confirme que tem 21 anos ou mais e que entende que os produtos são exclusivamente para pesquisa — no estilo comum a outros sites do nicho (ex. Prime Peptides). Depois de clicar em "Entendi", essa confirmação fica salva no navegador do visitante e não aparece de novo nas próximas visitas. Os textos desse banner ficam em `age.title`, `age.text`, `age.age` e `age.cta` (nas 3 línguas) dentro do `index.html`, caso queira ajustar a redação.
 
 ## Catálogo atual (22 itens)
 BPC-157 · CJC-1295 · Epithalon (10mg e 50mg) · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Selank · Semax · TB-500 · Tesamorelin · PT-141 · Glutathione · NAD+ · Vitamin B12 · IGF-1 LR3 · Oxytocin · AOD-9604 · Água Bacteriostática · Start Kit Água Bacteriostática (15 seringas) · Kit Água Bacteriostática (60 seringas).
 
 ## Idiomas
-O site abre em **inglês** por padrão, com uma aba no topo para trocar entre 🇺🇸 English, 🇧🇷 Português (Brasil) e 🇪🇸 Español. A preferência do visitante fica salva no navegador.
+O site abre em **inglês** por padrão, com uma aba no topo para trocar entre 🇧🇷 Português (Brasil), 🇺🇸 English e 🇪🇸 Español — as bandeiras são desenhadas direto no código (SVG), sem depender de nenhum servidor externo, então aparecem sempre, em qualquer navegador. A preferência do visitante fica salva no navegador.
 
 ## Preços
 Os preços estão em **USD**, definidos por você diretamente (última atualização: Epithalon $79,90/$140,90, GHK-Cu $49,90, Glow Blend $149,90, Ipamorelin $59,90, MOTS-c $79,90, Selank $68,90, Semax $64,90, TB-500 $129,90, NAD+ $139,90, Vitamin B12 $45,90, IGF-1 LR3 $69,90, Oxytocin $49,90, AOD-9604 $119,90, Água $14,90, Start Kit $19,90, Kit 60 seringas $49,90). Para alterar, edite `const PRODUCTS = [` no `index.html`.
 
-## Compliance no checkout (novo)
-Antes de finalizar o pedido, o carrinho agora exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado (mesma linguagem usada por outros sites do nicho, como a Tydes). O código já tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI`) explicando onde plugar um gateway de pagamento real quando você escolher um processador de alto risco.
+## Compliance no checkout
+Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado (mesma linguagem usada por outros sites do nicho, como a Tydes) — mas agora em texto discreto, sem caixas coloridas de alerta, para não parecer um erro do site. O código já tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI`) explicando onde plugar um gateway de pagamento real quando você escolher um processador de alto risco.
 
 ## Aviso "apenas para pesquisa"
 O aviso "For research use only — not for human or veterinary use" segue um único visual (caixa âmbar com ícone ⚠, sem tom de alerta vermelho) e aparece de forma consistente em: logo abaixo do título no topo do site, no rodapé do menu de produtos, no rodapé do carrinho, na tela de detalhe de cada produto, e no selo do rodapé do site. Mantenha esse padrão em qualquer novo material que você criar.

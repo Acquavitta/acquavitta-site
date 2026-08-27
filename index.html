@@ -37,7 +37,7 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .navright{display:flex;align-items:center;gap:16px}
 .langs{display:flex;gap:4px;padding:3px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff08}
 .lang{border:0;background:transparent;cursor:pointer;line-height:1;padding:4px 5px;border-radius:999px;opacity:.55;display:flex;align-items:center}
-.lang img{display:block;border-radius:3px;object-fit:cover}
+.lang svg{display:block;border-radius:3px}
 .lang.active{opacity:1;background:#ffffff16;box-shadow:inset 0 0 0 1px #d7a63b66}
 .cartbtn{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #ffffff28;border-radius:999px;padding:8px 14px;background:#ffffff08;cursor:pointer;color:#fff;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
 .cartbtn:hover{border-color:#d7a63b88}
@@ -180,7 +180,7 @@ footer p,footer a{font-size:10px;line-height:1.9;margin:0}
 footer a:hover{color:var(--gold2)}
 .social{display:flex;gap:8px;margin-top:4px}
 .social span{width:26px;height:26px;border:1px solid #ffffff33;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px}
-.research{display:inline-flex;align-items:flex-start;gap:8px;background:#1c1608;border:1px solid #d7a63b55;border-radius:8px;padding:10px 12px;color:#e8cd94;font-size:9px;font-weight:600;margin-top:14px;line-height:1.5}
+.research{display:flex;align-items:flex-start;gap:7px;background:transparent;border:0;padding:0;color:#8a97a3;font-size:9px;font-weight:500;margin-top:14px;line-height:1.65}
 .copyright{text-align:right;font-size:8.5px;margin-top:14px;color:#8a97a3}
 .footerlegal{font-size:8.5px;line-height:1.7;color:#6c7a89;text-align:center;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff10}
 
@@ -217,8 +217,8 @@ footer a:hover{color:var(--gold2)}
 .checkoutbtn.disabled{opacity:.4;pointer-events:none;filter:grayscale(.4)}
 
 /* ---------- shop drawer (hamburger menu with full catalog) ---------- */
-.drawerbanner{background:#1c1608;border:1px solid #d7a63b45;color:#e8cd94;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:0 0 14px;display:flex;gap:8px;align-items:flex-start;text-align:left}
-.drawerbanner .bicon{flex-shrink:0;font-size:13px;line-height:1;color:#d7a63b}
+.drawerbanner{background:transparent;border:0;color:#8a97a3;font-size:9.5px;line-height:1.65;padding:0;margin:0 0 14px;display:flex;gap:7px;align-items:flex-start;text-align:left}
+.drawerbanner .bicon{flex-shrink:0;font-size:11px;line-height:1.4;color:#c9ad6e}
 .shoplist{padding:2px 22px}
 .shoprow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 2px;border-bottom:1px solid #ffffff10;cursor:pointer;transition:background .15s;border-radius:6px}
 .shoprow:hover{background:#ffffff08}
@@ -241,20 +241,20 @@ footer a:hover{color:var(--gold2)}
 .pageheader h2{font:600 20px "Playfair Display";color:#f1cc70;margin:0}
 .pagebody{flex:1;min-height:0;overflow-y:auto;padding:20px 24px 60px}
 .pagebanner{max-width:900px;margin:0 auto 20px}
-.cascadegrid{column-count:2;column-gap:16px;max-width:900px;margin:0 auto}
-.ccard{break-inside:avoid;margin-bottom:16px;background:#0d2740;border:1px solid #ffffff14;border-radius:14px;overflow:hidden}
+.cascadegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:0 auto;align-items:stretch}
+.ccard{background:#0d2740;border:1px solid #ffffff14;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .ccard img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#0a1e33}
-.ccardbody{padding:14px 15px 16px}
+.ccardbody{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
 .ccardbody .pdose{display:inline-block;font-size:9px;color:#fff;border-radius:6px;padding:4px 9px;font-weight:700;margin-bottom:9px}
 .ccardbody h3{font:600 15px "Playfair Display";color:#fff;margin:0 0 7px}
 .ccardbody p{font-size:10.5px;line-height:1.55;color:#a8b7c4;margin:0 0 12px}
-.ccardrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ccardrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px}
 .ccardrow b{font:600 16px "Playfair Display";color:#f1cc70}
 .ccardadd{border:0;background:linear-gradient(135deg,#bc8920,#f1cc70);color:#111a22;border-radius:999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform .15s}
 .ccardadd:hover{transform:scale(1.08)}
 .ccardadd.added{background:linear-gradient(135deg,#1c8a52,#2fae6c)}
 @media(max-width:560px){
-  .cascadegrid{column-count:1}
+  .cascadegrid{grid-template-columns:1fr}
   .pageheader{padding:16px 18px}
   .pagebody{padding:16px 18px 50px}
 }
@@ -294,6 +294,15 @@ footer a:hover{color:var(--gold2)}
 .vsuccessicon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1c8a52,#2fae6c);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .vsuccess h4{font:600 19px "Playfair Display";color:#fff;margin:0 0 8px}
 .vsuccess p{font-size:12px;color:#9eabb8;line-height:1.6;margin:0 0 22px}
+
+/* ---------- age / research declaration gate ---------- */
+.agegate{position:fixed;inset:0;background:#04101cf2;backdrop-filter:blur(6px);z-index:900;display:flex;align-items:center;justify-content:center;padding:24px;opacity:1;transition:opacity .3s ease}
+.agegate.hide{opacity:0;pointer-events:none}
+.agegatecard{max-width:440px;width:100%;background:#0d2740;border:1px solid #ffffff16;border-radius:18px;box-shadow:0 40px 90px #000a;padding:34px 32px}
+.agegatebadge{display:inline-block;background:#d7a63b1f;color:#f1cc70;font-size:9px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:999px;margin-bottom:14px}
+.agegatecard h2{font:600 24px "Playfair Display";color:#fff;margin:0 0 14px}
+.agegatecard p{font-size:12px;line-height:1.7;color:#a8b7c4;margin:0 0 14px}
+.agegatecard .btn{width:100%;justify-content:center;margin-top:6px}
 .vsuccess .btn{width:100%;justify-content:center}
 
 /* ---------- story section (history of peptides) ---------- */
@@ -305,7 +314,7 @@ footer a:hover{color:var(--gold2)}
 .storycopy .eyebrow{color:#a77a20;font-size:9px}
 .storycopy h2{font:600 32px "Playfair Display";margin:0 0 14px}
 .storycopy p{color:#54606d;font-size:12.5px;line-height:1.85;margin:0 0 14px}
-.storybadge{display:flex;gap:9px;align-items:flex-start;background:#fdf3ec;border:1px solid #e8c9a8;border-radius:10px;padding:12px 14px;font-size:10px;color:#7a4a1e;line-height:1.6;margin-top:8px}
+.storybadge{display:flex;gap:8px;align-items:flex-start;background:transparent;border:0;border-top:1px solid #e3e0d8;padding:14px 0 0;font-size:10px;color:#8a7a68;line-height:1.65;margin-top:18px}
 .storybadge .bicon{flex-shrink:0;font-size:14px;line-height:1}
 
 /* ---------- reveal ---------- */
@@ -356,6 +365,17 @@ footer a:hover{color:var(--gold2)}
 </head>
 <body>
 
+<!-- ---------- age / research declaration gate ---------- -->
+<div class="agegate" id="ageGate">
+  <div class="agegatecard">
+    <span class="agegatebadge" data-i18n="age.badge">Pesquisa</span>
+    <h2 data-i18n="age.title">Apenas para pesquisa</h2>
+    <p data-i18n="age.text">Ao usar este site, você declara que todos os produtos e informações aqui apresentados são fornecidos exclusivamente para fins de pesquisa e não se destinam a consumo humano, uso veterinário ou qualquer aplicação médica.</p>
+    <p data-i18n="age.age"><b>Você deve ter 21 anos ou mais</b> para usar este site.</p>
+    <button class="btn gold" id="ageGateBtn" data-i18n="age.cta">Entendi →</button>
+  </div>
+</div>
+
 <header>
   <div class="wrap nav">
     <div style="display:flex;align-items:center;gap:14px">
@@ -371,9 +391,15 @@ footer a:hover{color:var(--gold2)}
     </nav>
     <div class="navright">
       <div class="langs" aria-label="Language selector">
-        <button class="lang" id="pt" title="Português (Brasil)"><img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x" width="20" height="15" alt="BR"></button>
-        <button class="lang active" id="en" title="English"><img src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" width="20" height="15" alt="US"></button>
-        <button class="lang" id="es" title="Español"><img src="https://flagcdn.com/24x18/es.png" srcset="https://flagcdn.com/48x36/es.png 2x" width="20" height="15" alt="ES"></button>
+        <button class="lang" id="pt" title="Português (Brasil)">
+          <svg viewBox="0 0 20 15" width="20" height="15"><rect width="20" height="15" fill="#009c3b"/><polygon points="10,2.2 18.2,7.5 10,12.8 1.8,7.5" fill="#ffdf00"/><circle cx="10" cy="7.5" r="3.4" fill="#002776"/></svg>
+        </button>
+        <button class="lang active" id="en" title="English">
+          <svg viewBox="0 0 20 15" width="20" height="15"><rect width="20" height="15" fill="#fff"/><g fill="#b22234"><rect y="0" width="20" height="1.15"/><rect y="2.3" width="20" height="1.15"/><rect y="4.6" width="20" height="1.15"/><rect y="6.9" width="20" height="1.15"/><rect y="9.2" width="20" height="1.15"/><rect y="11.5" width="20" height="1.15"/><rect y="13.8" width="20" height="1.15"/></g><rect width="9" height="8.05" fill="#3c3b6e"/></svg>
+        </button>
+        <button class="lang" id="es" title="Español">
+          <svg viewBox="0 0 20 15" width="20" height="15"><rect width="20" height="15" fill="#c60b1e"/><rect y="3.75" width="20" height="7.5" fill="#ffc400"/></svg>
+        </button>
       </div>
       <button class="cartbtn" id="cartOpenBtn" aria-label="Carrinho">
         <span class="carticonwrap">
@@ -433,7 +459,7 @@ footer a:hover{color:var(--gold2)}
         <a class="btn ghost" href="#science" data-i18n="hero.cta2">Ver ciência</a>
       </div>
       <div class="heronote" style="margin-top:28px"><span class="dot"></span><span data-i18n="hero.note">Lotes analisados por HPLC · Pureza ≥ 99%</span></div>
-      <div class="heronote" style="margin-top:10px;color:#c98a7d"><span style="width:6px;height:6px;border-radius:50%;background:#c98a7d;flex-shrink:0"></span><span data-i18n="hero.note2">Apenas para pesquisa — não é para uso humano ou veterinário</span></div>
+      <div class="heronote" style="margin-top:10px;color:#9aa5af"><span style="width:6px;height:6px;border-radius:50%;background:#9aa5af;flex-shrink:0"></span><span data-i18n="hero.note2">Apenas para pesquisa — não é para uso humano ou veterinário</span></div>
       <div class="trustinline">
         <span><i>✦</i><span data-i18n="trust.1t">Pureza Excepcional</span></span>
         <span><i>✦</i><span data-i18n="trust.2t">Grau de Pesquisa</span></span>
@@ -470,7 +496,7 @@ footer a:hover{color:var(--gold2)}
     <h2 data-i18n="story.title">A ciência por trás dos peptídeos</h2>
     <p data-i18n="story.p1">Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.</p>
     <p data-i18n="story.p2">Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.</p>
-    <div class="storybadge"><span class="bicon">⚠</span><span data-i18n="story.badge">Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.</span></div>
+    <div class="storybadge"><span class="bicon">ⓘ</span><span data-i18n="story.badge">Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.</span></div>
   </div>
 </div></section>
 
@@ -561,7 +587,7 @@ footer a:hover{color:var(--gold2)}
     </div>
   </div>
   <div class="pagebody">
-    <div class="drawerbanner pagebanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
+    <div class="drawerbanner pagebanner"><span class="bicon">ⓘ</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
     <div class="cascadegrid" id="cascadeGrid"></div>
   </div>
 </div>
@@ -771,7 +797,7 @@ const PRODUCTS = [
 /* ---------- i18n ---------- */
 const T={
 pt:{
-"nav.home":"Home","nav.products":"Produtos","nav.science":"Ciência","nav.about":"Sobre","nav.contact":"Contato","nav.cart":"Carrinho","nav.menu":"Menu",
+"nav.home":"Home","nav.products":"Produtos","nav.science":"Ciência","nav.about":"Sobre","nav.contact":"Contato","nav.cart":"Carrinho","nav.menu":"Menu","age.badge":"Pesquisa","age.title":"Apenas para pesquisa","age.text":"Ao usar este site, você declara que todos os produtos e informações aqui apresentados são fornecidos exclusivamente para fins de pesquisa e não se destinam a consumo humano, uso veterinário ou qualquer aplicação médica.","age.age":"<b>Você deve ter 21 anos ou mais</b> para usar este site.","age.age.b":"Você deve ter 21 anos ou mais","age.cta":"Entendi →",
 "hero.kicker":"Research Peptides","hero.title":"Ciência e Pureza em Alta Performance","hero.text":"Peptídeos de grau de pesquisa com pureza de 99% verificada por HPLC, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.","hero.cta":"Explorar coleção →","hero.cta2":"Ver ciência","hero.note":"Lotes analisados por HPLC · Pureza ≥ 99%","hero.note2":"Apenas para pesquisa — não é para uso humano ou veterinário",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análises rigorosas por HPLC e MS","trust.2t":"Grau de Pesquisa","trust.2d":"Uso exclusivo em laboratório","trust.3t":"Qualidade Certificada","trust.3d":"Lotes rastreáveis e documentados","trust.4t":"Inovação Contínua","trust.4d":"Ciência em constante evolução",
 "science.kicker":"Ciência que impulsiona resultados","science.title":"Pesquisa. Análise. Evolução.","science.text":"Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza (HPLC/MS) e avaliação de estabilidade. Cada lote é rastreável do laboratório até o frasco. Trabalhamos com fornecedores auditados e protocolos de controle de qualidade em cada etapa da produção, desde a síntese até o envase, para garantir consistência entre lotes. Nossa equipe acompanha de perto os resultados analíticos de cada remessa, permitindo que pesquisadores confiem na reprodutibilidade dos seus experimentos.","science.cta":"Conheça nosso processo →",
@@ -787,7 +813,7 @@ pt:{
 "cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os termos de venda e a política de privacidade."
 },
 en:{
-"nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart","nav.menu":"Menu",
+"nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart","nav.menu":"Menu","age.badge":"Research","age.title":"Research Use Only","age.text":"By using this site, you declare that all products and information provided are for research purposes only and are not intended for human consumption, veterinary use, or any medical application.","age.age":"<b>You must be 21 years of age or older</b> to use this website.","age.age.b":"You must be 21 years of age or older","age.cta":"I Understand →",
 "hero.kicker":"Research Peptides","hero.title":"Science and Purity in High Performance","hero.text":"Research-grade peptides with 99% HPLC-verified purity, produced under rigorous laboratory protocols. Innovation, quality and consistency for the evolution of science.","hero.cta":"Explore collection →","hero.cta2":"See the science","hero.note":"Batches HPLC-tested · Purity ≥ 99%","hero.note2":"For research use only — not for human or veterinary use",
 "trust.1t":"Exceptional Purity","trust.1d":"Rigorous HPLC and MS analysis","trust.2t":"Research Grade","trust.2d":"For laboratory research only","trust.3t":"Certified Quality","trust.3d":"Traceable and documented batches","trust.4t":"Continuous Innovation","trust.4d":"Science in constant evolution",
 "science.kicker":"Science that drives results","science.title":"Research. Analysis. Evolution.","science.text":"Our peptides are produced following international standards, supported by certificates of analysis, purity testing (HPLC/MS) and stability evaluation. Every batch is traceable from lab to vial. We work with audited suppliers and quality-control protocols at every stage of production, from synthesis to packaging, to ensure consistency across batches. Our team closely reviews the analytical results of every shipment, so researchers can trust the reproducibility of their experiments.","science.cta":"Discover our process →",
@@ -803,7 +829,7 @@ en:{
 "cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the terms of sale and privacy policy."
 },
 es:{
-"nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito","nav.menu":"Menú",
+"nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito","nav.menu":"Menú","age.badge":"Investigación","age.title":"Solo para investigación","age.text":"Al usar este sitio, usted declara que todos los productos e información aquí presentados se proporcionan exclusivamente con fines de investigación y no están destinados al consumo humano, uso veterinario ni ninguna aplicación médica.","age.age":"<b>Debe tener 21 años de edad o más</b> para usar este sitio.","age.age.b":"Debe tener 21 años de edad o más","age.cta":"Entendido →",
 "hero.kicker":"Research Peptides","hero.title":"Ciencia y Pureza en Alto Rendimiento","hero.text":"Péptidos de grado de investigación con pureza verificada por HPLC del 99%, producidos bajo rigurosos protocolos de laboratorio. Innovación, calidad y consistencia para la evolución de la ciencia.","hero.cta":"Explorar colección →","hero.cta2":"Ver la ciencia","hero.note":"Lotes analizados por HPLC · Pureza ≥ 99%","hero.note2":"Solo para investigación — no apto para uso humano ni veterinario",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análisis rigurosos por HPLC y MS","trust.2t":"Grado de Investigación","trust.2d":"Uso exclusivo en laboratorio","trust.3t":"Calidad Certificada","trust.3d":"Lotes trazables y documentados","trust.4t":"Innovación Continua","trust.4d":"Ciencia en constante evolución",
 "science.kicker":"Ciencia que impulsa resultados","science.title":"Investigación. Análisis. Evolución.","science.text":"Nuestros péptidos se fabrican siguiendo estándares internacionales, respaldados por certificados de análisis, pruebas de pureza (HPLC/MS) y evaluación de estabilidad. Cada lote es trazable del laboratorio al frasco. Trabajamos con proveedores auditados y protocolos de control de calidad en cada etapa de la producción, desde la síntesis hasta el envasado, para garantizar la consistencia entre lotes. Nuestro equipo revisa de cerca los resultados analíticos de cada envío, para que los investigadores puedan confiar en la reproducibilidad de sus experimentos.","science.cta":"Conozca nuestro proceso →",
@@ -1134,6 +1160,23 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
     i = (i+1) % suffixes.length;
     el.textContent = "AV-2026-" + suffixes[i];
   }, 3200);
+})();
+
+/* ---------- age / research declaration gate ---------- */
+(function(){
+  const gate = document.getElementById("ageGate");
+  const btn = document.getElementById("ageGateBtn");
+  if(localStorage.getItem("av-age-confirmed") === "1"){
+    gate.style.display = "none";
+  } else {
+    document.body.style.overflow = "hidden";
+  }
+  btn.addEventListener("click", ()=>{
+    localStorage.setItem("av-age-confirmed", "1");
+    gate.classList.add("hide");
+    document.body.style.overflow = "";
+    setTimeout(()=>{ gate.style.display = "none"; }, 320);
+  });
 })();
 
 /* ---------- init ---------- */

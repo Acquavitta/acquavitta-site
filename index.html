@@ -36,7 +36,8 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .links a.active:after,.links a:hover:after{content:"";position:absolute;bottom:13px;left:0;right:0;height:2px;background:var(--gold)}
 .navright{display:flex;align-items:center;gap:16px}
 .langs{display:flex;gap:4px;padding:3px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff08}
-.lang{border:0;background:transparent;cursor:pointer;font-size:16px;line-height:1;padding:4px 5px;border-radius:999px;opacity:.55}
+.lang{border:0;background:transparent;cursor:pointer;line-height:1;padding:4px 5px;border-radius:999px;opacity:.55;display:flex;align-items:center}
+.lang img{display:block;border-radius:3px;object-fit:cover}
 .lang.active{opacity:1;background:#ffffff16;box-shadow:inset 0 0 0 1px #d7a63b66}
 .cartbtn{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #ffffff28;border-radius:999px;padding:8px 14px;background:#ffffff08;cursor:pointer;color:#fff;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
 .cartbtn:hover{border-color:#d7a63b88}
@@ -335,9 +336,9 @@ footer a:hover{color:var(--gold2)}
     </nav>
     <div class="navright">
       <div class="langs" aria-label="Language selector">
-        <button class="lang" id="pt" title="Português (Brasil)">🇧🇷</button>
-        <button class="lang active" id="en" title="English">🇺🇸</button>
-        <button class="lang" id="es" title="Español">🇪🇸</button>
+        <button class="lang" id="pt" title="Português (Brasil)"><img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x" width="20" height="15" alt="BR"></button>
+        <button class="lang active" id="en" title="English"><img src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" width="20" height="15" alt="US"></button>
+        <button class="lang" id="es" title="Español"><img src="https://flagcdn.com/24x18/es.png" srcset="https://flagcdn.com/48x36/es.png 2x" width="20" height="15" alt="ES"></button>
       </div>
       <button class="cartbtn" id="cartOpenBtn" aria-label="Carrinho">
         <span class="carticonwrap">
@@ -483,7 +484,7 @@ footer a:hover{color:var(--gold2)}
     <div class="emptycart" data-i18n="cart.empty">Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.</div>
   </div>
   <div class="drawerfoot">
-    <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">R$ 0,00</b></div>
+    <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">$0.00</b></div>
     <label class="compliancecheck">
       <input type="checkbox" id="complianceCheck">
       <span data-i18n="cart.compliance">Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os termos de venda e a política de privacidade.</span>
@@ -706,14 +707,16 @@ const PRODUCTS = [
   },
   {
     id:"water-kit-15", img:"assets/products/water-kit-15.jpg", color:"#0a2c4e",
-    name:"Start Kit Água Bacteriostática", dose:"1× água 10mL + 15 seringas", price:19.90,
+    name:{pt:"Start Kit Água Bacteriostática", en:"Start Kit Bacteriostatic Water", es:"Start Kit Agua Bacteriostática"},
+    dose:{pt:"1× água 10mL + 15 seringas", en:"1× 10mL water + 15 syringes", es:"1× agua 10mL + 15 jeringas"}, price:19.90,
     benefit:{pt:"Kit de altíssima qualidade destinado para melhor pesquisa: água bacteriostática, seringas de insulina, seringa para mistura e álcool para preparo — tudo em um só kit.",
               en:"Top-quality kit designed for better research: bacteriostatic water, insulin syringes, a mixing syringe and prep pads — everything in one kit.",
               es:"Kit de altísima calidad diseñado para una mejor investigación: agua bacteriostática, jeringas de insulina, jeringa de mezcla y toallitas de preparación — todo en un solo kit."}
   },
   {
     id:"water-kit-60", img:"assets/products/water-kit-60.jpg", color:"#0a2c4e",
-    name:"Kit Água Bacteriostática", dose:"1× água 10mL + 60 seringas", price:49.90,
+    name:{pt:"Kit Água Bacteriostática", en:"Bacteriostatic Water Kit", es:"Kit Agua Bacteriostática"},
+    dose:{pt:"1× água 10mL + 60 seringas", en:"1× 10mL water + 60 syringes", es:"1× agua 10mL + 60 jeringas"}, price:49.90,
     benefit:{pt:"Kit de altíssima qualidade destinado para melhor pesquisa: água bacteriostática, 60 seringas de insulina, seringas para mistura e álcool para preparo — tudo em um só kit.",
               en:"Top-quality kit designed for better research: bacteriostatic water, 60 insulin syringes, mixing syringes and prep pads — everything in one kit.",
               es:"Kit de altísima calidad diseñado para una mejor investigación: agua bacteriostática, 60 jeringas de insulina, jeringas de mezcla y toallitas de preparación — todo en un solo kit."}
@@ -727,8 +730,7 @@ pt:{
 "hero.kicker":"Research Peptides","hero.title":"Ciência e Pureza em Alta Performance","hero.text":"Peptídeos de grau de pesquisa com pureza de 99% verificada por HPLC, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.","hero.cta":"Explorar coleção →","hero.cta2":"Ver ciência","hero.note":"Lotes analisados por HPLC · Pureza ≥ 99%","hero.note2":"Apenas para pesquisa — não é para uso humano ou veterinário",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análises rigorosas por HPLC e MS","trust.2t":"Grau de Pesquisa","trust.2d":"Uso exclusivo em laboratório","trust.3t":"Qualidade Certificada","trust.3d":"Lotes rastreáveis e documentados","trust.4t":"Inovação Contínua","trust.4d":"Ciência em constante evolução",
 "science.kicker":"Ciência que impulsiona resultados","science.title":"Pesquisa. Análise. Evolução.","science.text":"Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza (HPLC/MS) e avaliação de estabilidade. Cada lote é rastreável do laboratório até o frasco.","science.cta":"Conheça nosso processo →",
-"science.chip1":"Pureza média por HPLC","science.chip2":"Cadeia de frio controlada","science.chip3":"Peptídeos em catálogo ativo",
-"science.li1":"Certificado de Análise (CoA) disponível por lote","science.li2":"Pureza mínima de 99% verificada por HPLC","science.li3":"Armazenamento e transporte refrigerado 2–8°C","science.li4":"Uso exclusivamente laboratorial / pesquisa in vitro",
+"science.li1":"Certificado de Análise (CoA) disponível por lote","science.li2":"Pureza mínima de 99% verificada por HPLC","science.li4":"Uso exclusivamente laboratorial / pesquisa in vitro",
 "products.kicker":"Nossos produtos","products.title":"Peptídeos de Alta Performance","products.text":"Qualidade, pureza e confiabilidade para pesquisa científica. Clique em \"Adicionar\" para abrir seu carrinho.","products.catalog":"Solicitar catálogo completo →","products.tag":"Research Use Only",
 "data.kicker":"Dados e análises","data.title":"Resultados que Comprovam Nossa Qualidade","data.text":"Gráficos baseados em análises laboratoriais reais dos nossos lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentração e Pureza Molecular","chart.stability":"Estabilidade Hidrolítica","chart.comp":"Composição de Ativos Bioidênticos",
@@ -744,8 +746,7 @@ en:{
 "hero.kicker":"Research Peptides","hero.title":"Science and Purity in High Performance","hero.text":"Research-grade peptides with 99% HPLC-verified purity, produced under rigorous laboratory protocols. Innovation, quality and consistency for the evolution of science.","hero.cta":"Explore collection →","hero.cta2":"See the science","hero.note":"Batches HPLC-tested · Purity ≥ 99%","hero.note2":"For research use only — not for human or veterinary use",
 "trust.1t":"Exceptional Purity","trust.1d":"Rigorous HPLC and MS analysis","trust.2t":"Research Grade","trust.2d":"For laboratory research only","trust.3t":"Certified Quality","trust.3d":"Traceable and documented batches","trust.4t":"Continuous Innovation","trust.4d":"Science in constant evolution",
 "science.kicker":"Science that drives results","science.title":"Research. Analysis. Evolution.","science.text":"Our peptides are produced following international standards, supported by certificates of analysis, purity testing (HPLC/MS) and stability evaluation. Every batch is traceable from lab to vial.","science.cta":"Discover our process →",
-"science.chip1":"Average purity by HPLC","science.chip2":"Controlled cold chain","science.chip3":"Peptides in active catalog",
-"science.li1":"Certificate of Analysis (CoA) available per batch","science.li2":"Minimum 99% purity verified by HPLC","science.li3":"Refrigerated storage & shipping 2–8°C","science.li4":"For laboratory / in-vitro research use only",
+"science.li1":"Certificate of Analysis (CoA) available per batch","science.li2":"Minimum 99% purity verified by HPLC","science.li4":"For laboratory / in-vitro research use only",
 "products.kicker":"Our products","products.title":"High-Performance Peptides","products.text":"Quality, purity and reliability for scientific research. Click \"Add\" to open your cart.","products.catalog":"Request full catalog →","products.tag":"Research Use Only",
 "data.kicker":"Data and analytics","data.title":"Results That Demonstrate Our Quality","data.text":"Charts based on real laboratory analysis of our batches.","data.cta":"Request CoA →",
 "chart.purity":"Molecular Concentration and Purity","chart.stability":"Hydrolytic Stability","chart.comp":"Bioidentical Active Composition",
@@ -761,8 +762,7 @@ es:{
 "hero.kicker":"Research Peptides","hero.title":"Ciencia y Pureza en Alto Rendimiento","hero.text":"Péptidos de grado de investigación con pureza verificada por HPLC del 99%, producidos bajo rigurosos protocolos de laboratorio. Innovación, calidad y consistencia para la evolución de la ciencia.","hero.cta":"Explorar colección →","hero.cta2":"Ver la ciencia","hero.note":"Lotes analizados por HPLC · Pureza ≥ 99%","hero.note2":"Solo para investigación — no apto para uso humano ni veterinario",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análisis rigurosos por HPLC y MS","trust.2t":"Grado de Investigación","trust.2d":"Uso exclusivo en laboratorio","trust.3t":"Calidad Certificada","trust.3d":"Lotes trazables y documentados","trust.4t":"Innovación Continua","trust.4d":"Ciencia en constante evolución",
 "science.kicker":"Ciencia que impulsa resultados","science.title":"Investigación. Análisis. Evolución.","science.text":"Nuestros péptidos se fabrican siguiendo estándares internacionales, respaldados por certificados de análisis, pruebas de pureza (HPLC/MS) y evaluación de estabilidad. Cada lote es trazable del laboratorio al frasco.","science.cta":"Conozca nuestro proceso →",
-"science.chip1":"Pureza media por HPLC","science.chip2":"Cadena de frío controlada","science.chip3":"Péptidos en catálogo activo",
-"science.li1":"Certificado de Análisis (CoA) disponible por lote","science.li2":"Pureza mínima del 99% verificada por HPLC","science.li3":"Almacenamiento y transporte refrigerado 2–8°C","science.li4":"Uso exclusivamente de laboratorio / investigación in vitro",
+"science.li1":"Certificado de Análisis (CoA) disponible por lote","science.li2":"Pureza mínima del 99% verificada por HPLC","science.li4":"Uso exclusivamente de laboratorio / investigación in vitro",
 "products.kicker":"Nuestros productos","products.title":"Péptidos de Alto Rendimiento","products.text":"Calidad, pureza y confiabilidad para la investigación científica. Haga clic en \"Añadir\" para abrir su carrito.","products.catalog":"Solicitar catálogo completo →","products.tag":"Research Use Only",
 "data.kicker":"Datos y análisis","data.title":"Resultados Que Demuestran Nuestra Calidad","data.text":"Gráficos basados en análisis de laboratorio reales de nuestros lotes.","data.cta":"Solicitar CoA →",
 "chart.purity":"Concentración y Pureza Molecular","chart.stability":"Estabilidad Hidrolítica","chart.comp":"Composición de Activos Bioidénticos",
@@ -792,15 +792,17 @@ document.getElementById("es").onclick=()=>setLang("es");
 
 /* ---------- shop list (hamburger drawer, full catalog) ---------- */
 function fmtPrice(n){ return "$" + n.toFixed(2); }
+function pName(p){ return typeof p.name === "object" ? p.name[LANG] : p.name; }
+function pDose(p){ return typeof p.dose === "object" ? p.dose[LANG] : p.dose; }
 
 function renderProducts(){
   const list=document.getElementById("shopList");
   if(!list) return;
   const nameCounts = {};
-  PRODUCTS.forEach(p=>{ nameCounts[p.name] = (nameCounts[p.name]||0) + 1; });
+  PRODUCTS.forEach(p=>{ const n=pName(p); nameCounts[n] = (nameCounts[n]||0) + 1; });
   list.innerHTML = PRODUCTS.map(p=>`
     <div class="shoprow" data-id="${p.id}">
-      <h4>${p.name}${nameCounts[p.name] > 1 && p.dose ? ` <span class="shoprowdose">— ${p.dose}</span>` : ""}</h4>
+      <h4>${pName(p)}${nameCounts[pName(p)] > 1 && pDose(p) ? ` <span class="shoprowdose">— ${pDose(p)}</span>` : ""}</h4>
       <span class="schev">›</span>
     </div>
   `).join("");
@@ -817,13 +819,13 @@ function openProductDetail(id){
   const detail = document.getElementById("shopDetailWrap");
   detail.style.display = "flex";
   document.getElementById("shopBackBtn").style.display = "inline-block";
-  document.getElementById("shopHeadTitle").textContent = p.name;
+  document.getElementById("shopHeadTitle").textContent = pName(p);
 
   document.getElementById("shopDetailBody").innerHTML = `
-    <img class="pdetailimg" src="${p.img}" alt="${p.name}">
+    <img class="pdetailimg" src="${p.img}" alt="${pName(p)}">
     <div class="pdetailbody">
-      ${p.dose ? `<span class="pdose" style="background:${p.color}">${p.dose}</span>` : ""}
-      <h2>${p.name}</h2>
+      ${pDose(p) ? `<span class="pdose" style="background:${p.color}">${pDose(p)}</span>` : ""}
+      <h2>${pName(p)}</h2>
       <p class="pdetailtext">${p.benefit[LANG]}</p>
       <div class="drawerbanner"><span class="bicon">⚠</span><span>${T[LANG]["shop.warning"]}</span></div>
       <div class="pdetailprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small><b>${fmtPrice(p.price)}</b></div>
@@ -926,8 +928,8 @@ function renderCart(){
       <div class="citem">
         ${thumb}
         <div>
-          <h4>${p.name}</h4>
-          ${p.dose ? `<div class="cdose">${p.dose}</div>` : ""}
+          <h4>${pName(p)}</h4>
+          ${pDose(p) ? `<div class="cdose">${pDose(p)}</div>` : ""}
           <div class="qty">
             <button data-action="dec" data-id="${p.id}">−</button>
             <span>${line.qty}</span>
@@ -962,7 +964,7 @@ function renderCart(){
   CART.forEach(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return;
-    msg += `• ${p.name}${p.dose ? " ("+p.dose+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
+    msg += `• ${pName(p)}${pDose(p) ? " ("+pDose(p)+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
   });
   msg += `\nSubtotal: ${fmtPrice(subtotal)}`;
   checkoutBtn.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;

@@ -1165,17 +1165,15 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
   }, 3200);
 })();
 
-/* ---------- age / research declaration gate ---------- */
+/* ---------- age / research declaration gate ----------
+   Por decisão do cliente (exigência de segurança jurídica), este aviso
+   aparece em TODA entrada no site, sem exceção — não fica salvo entre
+   visitas (nem em localStorage, nem em sessionStorage/cookie). */
 (function(){
   const gate = document.getElementById("ageGate");
   const btn = document.getElementById("ageGateBtn");
-  if(localStorage.getItem("av-age-confirmed") === "1"){
-    gate.style.display = "none";
-  } else {
-    document.body.style.overflow = "hidden";
-  }
+  document.body.style.overflow = "hidden";
   btn.addEventListener("click", ()=>{
-    localStorage.setItem("av-age-confirmed", "1");
     gate.classList.add("hide");
     document.body.style.overflow = "";
     setTimeout(()=>{ gate.style.display = "none"; }, 320);

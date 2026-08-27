@@ -107,7 +107,7 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .science{padding:76px 0 20px;background:linear-gradient(120deg,#edf1f5,#fff)}
 .sciencegrid{display:grid;grid-template-columns:.92fr 1.08fr;align-items:stretch;gap:0;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px #0a223518}
 .sciencegrid-solo{grid-template-columns:1fr;max-width:820px;margin:0 auto;background:transparent;box-shadow:none;border-radius:0}
-.sciencegrid-solo .sciencecopy{padding:10px 0;text-align:center}
+.sciencegrid-solo .sciencecopy{padding:48px 52px;text-align:center}
 .sciencegrid-solo .sciencelist{text-align:left;max-width:480px;margin:22px auto 6px}
 .sciencegrid-solo .eyebrow{justify-content:center}
 .sciencegrid-solo .eyebrow:before{display:none}
@@ -843,21 +843,36 @@ function pDose(p){ return typeof p.dose === "object" ? p.dose[LANG] : p.dose; }
 /* ---------- products page (cascata 2 colunas) ---------- */
 function renderProducts(){
   const grid=document.getElementById("cascadeGrid");
-  if(!grid) return;
-  grid.innerHTML = PRODUCTS.map(p=>`
-    <div class="ccard">
-      <img src="${p.img}" alt="${pName(p)}" loading="lazy">
-      <div class="ccardbody">
-        ${pDose(p) ? `<span class="pdose" style="background:${p.color}">${pDose(p)}</span>` : ""}
-        <h3>${pName(p)}</h3>
-        <p>${p.benefit[LANG]}</p>
-        <div class="ccardrow">
-          <b>${fmtPrice(p.price)}</b>
-          <button class="ccardadd" data-id="${p.id}" aria-label="${T[LANG]['cart.addtocart']}">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          </button>
+  const list=document.getElementById("shopList");
+  if(!grid && !list) return;
+  if(grid){
+    grid.innerHTML = PRODUCTS.map(p=>`
+      <div class="ccard">
+        <img src="${p.img}" alt="${pName(p)}" loading="lazy">
+        <div class="ccardbody">
+          ${pDose(p) ? `<span class="pdose" style="background:${p.color}">${pDose(p)}</span>` : ""}
+          <h3>${pName(p)}</h3>
+          <p>${p.benefit[LANG]}</p>
+          <div class="ccardrow">
+            <b>${fmtPrice(p.price)}</b>
+            <button class="ccardadd" data-id="${p.id}" aria-label="${T[LANG]['cart.addtocart']}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </button>
+          </div>
         </div>
       </div>
+    `).join("");
+  } else {
+    const nameCounts = {};
+    PRODUCTS.forEach(p=>{ const n=pName(p); nameCounts[n] = (nameCounts[n]||0) + 1; });
+    list.innerHTML = PRODUCTS.map(p=>`
+      <div class="shoprow" data-id="${p.id}">
+        <h4>${pName(p)}${nameCounts[pName(p)] > 1 && pDose(p) ? ` <span class="shoprowdose">— ${pDose(p)}</span>` : ""}</h4>
+        <span class="schev">›</span>
+      </div>
+    `).join("");
+    return;
+  }
     </div>
   `).join("");
   grid.querySelectorAll(".ccardadd").forEach(btn=>{
@@ -870,6 +885,45 @@ function renderProducts(){
     });
   });
 }
+
+/* ---------- product detail screen (inside shop drawer) ---------- */
+function openProductDetail(id){
+  const p = PRODUCTS.find(pr=>pr.id===id);
+  if(!p) return;
+  document.getElementById("shopListWrap").style.display = "none";
+  const detail = document.getElementById("shopDetailWrap");
+  detail.style.display = "flex";
+  document.getElementById("shopBackBtn").style.display = "inline-block";
+  document.getElementById("shopHeadTitle").textContent = pName(p);
+
+  document.getElementById("shopDetailBody").innerHTML = `
+    <img class="pdetailimg" src="${p.img}" alt="${pName(p)}">
+    <div class="pdetailbody">
+      ${pDose(p) ? `<span class="pdose" style="background:${p.color}">${pDose(p)}</span>` : ""}
+      <h2>${pName(p)}</h2>
+      <p class="pdetailtext">${p.benefit[LANG]}</p>
+      <div class="drawerbanner"><span class="bicon">⚠</span><span>${T[LANG]["shop.warning"]}</span></div>
+      <div class="pdetailprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small><b>${fmtPrice(p.price)}</b></div>
+      <button class="btn gold detailaddbtn" id="shopDetailAddBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> ${T[LANG]["cart.addtocart"]}</button>
+    </div>
+  `;
+  document.getElementById("shopDetailAddBtn").onclick = (e)=>{
+    addToCart(p.id);
+    const btn = e.currentTarget;
+    btn.classList.add("added");
+    const original = btn.innerHTML;
+    btn.innerHTML = T[LANG]["cart.added"];
+    setTimeout(()=>{ btn.classList.remove("added"); btn.innerHTML = original; }, 1400);
+  };
+}
+
+function backToShopList(){
+  document.getElementById("shopDetailWrap").style.display = "none";
+  document.getElementById("shopListWrap").style.display = "flex";
+  document.getElementById("shopBackBtn").style.display = "none";
+  document.getElementById("shopHeadTitle").textContent = T[LANG]["shop.title"];
+}
+document.getElementById("shopBackBtn").onclick = backToShopList;
 
 const productsPage = document.getElementById("productsPage");
 function openProductsPage(){ productsPage.classList.add("show"); closeShop(); document.body.style.overflow="hidden"; }

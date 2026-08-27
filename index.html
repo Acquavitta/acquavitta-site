@@ -105,6 +105,8 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 /* ---------- science ---------- */
 .science{padding:76px 0 20px;background:linear-gradient(120deg,#edf1f5,#fff)}
 .sciencegrid{display:grid;grid-template-columns:.92fr 1.08fr;align-items:stretch;gap:0;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px #0a223518}
+.sciencegrid-solo{grid-template-columns:1fr;max-width:760px;margin:0 auto;background:#fff}
+.sciencegrid-solo .sciencecopy{padding:48px 52px}
 .labpanel{background:linear-gradient(150deg,#071626,#0d2740);position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden}
 .labpanel .hexbg{opacity:1}
 .labchip{position:relative;z-index:2;background:#ffffff0d;border:1px solid #ffffff22;backdrop-filter:blur(6px);border-radius:12px;padding:12px 18px;margin:6px 0;color:#fff;font-size:10px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:10px;min-width:230px}
@@ -174,15 +176,16 @@ footer a:hover{color:var(--gold2)}
 .social{display:flex;gap:8px;margin-top:4px}
 .social span{width:26px;height:26px;border:1px solid #ffffff33;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px}
 .research{display:inline-flex;align-items:flex-start;gap:8px;background:#1c1608;border:1px solid #d7a63b55;border-radius:8px;padding:10px 12px;color:#e8cd94;font-size:9px;font-weight:600;margin-top:14px;line-height:1.5}
-.copyright{text-align:right;font-size:8.5px;margin-top:28px;border-top:1px solid #ffffff10;padding-top:18px;color:#8a97a3}
+.copyright{text-align:right;font-size:8.5px;margin-top:14px;color:#8a97a3}
+.footerlegal{font-size:8.5px;line-height:1.7;color:#6c7a89;text-align:center;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff10}
 
 /* ---------- cart drawer ---------- */
 .overlay{position:fixed;inset:0;background:#04101ccc;z-index:490;opacity:0;pointer-events:none;transition:opacity .25s ease}
 .overlay.show{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:#0a1c2e;color:#fff;z-index:500;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px #0009}
-.drawer.show{transform:translateX(0)}
-.drawer.drawer-left{left:0;right:auto;transform:translateX(-100%);box-shadow:30px 0 60px #0009}
-.drawer.drawer-left.show{transform:translateX(0)}
+.drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:#0a1c2e;color:#fff;z-index:500;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.show{transform:translateX(0);box-shadow:-30px 0 60px #0009}
+.drawer.drawer-left{left:0;right:auto;transform:translateX(-100%)}
+.drawer.drawer-left.show{transform:translateX(0);box-shadow:30px 0 60px #0009}
 .drawerhead{display:flex;align-items:center;justify-content:space-between;padding:22px 22px 16px;border-bottom:1px solid #ffffff14}
 .drawerhead h3{font:600 20px "Playfair Display";margin:0;color:var(--gold2)}
 .closex{background:transparent;border:1px solid #ffffff2a;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px}
@@ -203,6 +206,10 @@ footer a:hover{color:var(--gold2)}
 .subtotalrow b{font:600 20px "Playfair Display";color:#fff}
 .checkoutbtn{width:100%;justify-content:center}
 .cartnote{font-size:8.5px;color:#8a97a3;text-align:center;margin-top:12px;line-height:1.6}
+.compliancecheck{display:flex;gap:9px;align-items:flex-start;margin:14px 0;cursor:pointer}
+.compliancecheck input{margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:#d7a63b;cursor:pointer}
+.compliancecheck span{font-size:9px;line-height:1.55;color:#98a5b1}
+.checkoutbtn.disabled{opacity:.4;pointer-events:none;filter:grayscale(.4)}
 
 /* ---------- shop drawer (hamburger menu with full catalog) ---------- */
 .drawerbanner{background:#1c1608;border:1px solid #d7a63b45;color:#e8cd94;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:0 0 14px;display:flex;gap:8px;align-items:flex-start;text-align:left}
@@ -211,6 +218,7 @@ footer a:hover{color:var(--gold2)}
 .shoprow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 2px;border-bottom:1px solid #ffffff10;cursor:pointer;transition:background .15s;border-radius:6px}
 .shoprow:hover{background:#ffffff08}
 .shoprow h4{font:500 14px "Inter",sans-serif;margin:0;color:#f2f5f7;letter-spacing:.01em}
+.shoprowdose{font-weight:400;color:#8a97a3;font-size:12px}
 .shoprow .schev{color:#d7a63bcc;font-size:17px;flex-shrink:0}
 .shopfoot{padding:14px 22px 22px;border-top:1px solid #ffffff14;text-align:center}
 .shopfoot small{display:block;font-size:8.5px;color:#8a97a3;line-height:1.6;margin-top:8px}
@@ -375,7 +383,7 @@ footer a:hover{color:var(--gold2)}
       <div class="corners"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
       <div class="hud hud1"><span class="hl">Purity Index</span><span class="hv">99.4<small>▲ HPLC</small></span></div>
       <div class="hud hud2"><span class="hl">Batch</span><span class="hv" id="hudBatch">AV-2026-0341</span></div>
-      <div class="hud hud3"><span class="hl">Cold Chain</span><span class="hv">2–8°<small>● stable</small></span></div>
+      <div class="hud hud3"><span class="hl">Lab Status</span><span class="hv">Verified<small>✓ COA</small></span></div>
     </div>
   </div>
   <div class="wrap">
@@ -401,13 +409,7 @@ footer a:hover{color:var(--gold2)}
 </section>
 
 <section class="science reveal" id="science">
-  <div class="wrap sciencegrid">
-    <div class="labpanel">
-      <div class="hexbg"></div>
-      <div class="labchip"><b>99%+</b><span data-i18n="science.chip1">Pureza média por HPLC</span></div>
-      <div class="labchip"><b>2–8°C</b><span data-i18n="science.chip2">Cadeia de frio controlada</span></div>
-      <div class="labchip"><b>19</b><span data-i18n="science.chip3">Peptídeos em catálogo ativo</span></div>
-    </div>
+  <div class="wrap sciencegrid sciencegrid-solo">
     <div class="sciencecopy">
       <div class="eyebrow" data-i18n="science.kicker">Ciência que impulsiona resultados</div>
       <h2 data-i18n="science.title">Pesquisa. Análise. Evolução.</h2>
@@ -415,7 +417,6 @@ footer a:hover{color:var(--gold2)}
       <ul class="sciencelist">
         <li data-i18n="science.li1">Certificado de Análise (CoA) disponível por lote</li>
         <li data-i18n="science.li2">Pureza mínima de 99% verificada por HPLC</li>
-        <li data-i18n="science.li3">Armazenamento e transporte refrigerado 2–8°C</li>
         <li data-i18n="science.li4">Uso exclusivamente laboratorial / pesquisa in vitro</li>
       </ul>
       <a class="btn gold smallgold" href="#contact" data-i18n="science.cta">Conheça nosso processo →</a>
@@ -423,13 +424,13 @@ footer a:hover{color:var(--gold2)}
   </div>
 </section>
 
+
 <section class="story reveal" id="story"><div class="wrap storygrid">
   <div class="storyimgs">
     <img class="main" src="assets/story/lab-team.jpg" alt="Laboratório de pesquisa com equipamentos técnicos">
     <img class="inset" src="assets/story/lab-macro.jpg" alt="Amostras de peptídeos sendo analisadas em laboratório">
   </div>
   <div class="storycopy">
-    <div class="eyebrow" data-i18n="story.kicker">Nossa história</div>
     <h2 data-i18n="story.title">A ciência por trás dos peptídeos</h2>
     <p data-i18n="story.p1">Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.</p>
     <p data-i18n="story.p2">Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.</p>
@@ -467,6 +468,7 @@ footer a:hover{color:var(--gold2)}
     <div><h4 data-i18n="footer.contact">Contato</h4><p>✉ info@acquavitta.com<br>⌖ Florida, USA</p></div>
     <div><h4 data-i18n="footer.follow">Siga-nos</h4><div class="social"><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div></div>
   </div>
+  <div class="footerlegal" data-i18n="footer.legal">Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso.</div>
   <div class="copyright">© 2026 AcquaVitta. All rights reserved.</div>
 </div></footer>
 
@@ -482,6 +484,10 @@ footer a:hover{color:var(--gold2)}
   </div>
   <div class="drawerfoot">
     <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">R$ 0,00</b></div>
+    <label class="compliancecheck">
+      <input type="checkbox" id="complianceCheck">
+      <span data-i18n="cart.compliance">Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os termos de venda e a política de privacidade.</span>
+    </label>
     <a class="btn gold checkoutbtn" id="checkoutBtn" data-i18n="cart.checkout">Finalizar pedido por e-mail →</a>
     <div class="cartnote" data-i18n="cart.note">Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.</div>
   </div>
@@ -573,57 +579,64 @@ const PRODUCTS = [
               es:"Análogo de GHRH estudiado por prolongar el pulso natural de la hormona del crecimiento, con potencial en la composición corporal y la recuperación."}
   },
   {
-    id:"epitalon", img:"assets/products/epitalon.jpg", color:"#1c8a4a",
-    name:"Epitalon", dose:"10mg / 3mL", price:79.00,
+    id:"epithalon-10", img:"assets/products/epithalon.jpg", color:"#1c8a4a",
+    name:"Epithalon", dose:"10mg / 3mL", price:79.90,
+    benefit:{pt:"Estudado por seu possível papel na regulação do sono, na atividade da telomerase e em processos ligados ao envelhecimento celular.",
+              en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes.",
+              es:"Estudiado por su posible papel en la regulación del sueño, la actividad de la telomerasa y procesos ligados al envejecimiento celular."}
+  },
+  {
+    id:"epithalon-50", img:"assets/products/epithalon.jpg", color:"#1c8a4a",
+    name:"Epithalon", dose:"50mg / 3mL", price:140.90,
     benefit:{pt:"Estudado por seu possível papel na regulação do sono, na atividade da telomerase e em processos ligados ao envelhecimento celular.",
               en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes.",
               es:"Estudiado por su posible papel en la regulación del sueño, la actividad de la telomerasa y procesos ligados al envejecimiento celular."}
   },
   {
     id:"ghk-cu", img:"assets/products/ghk-cu.jpg", color:"#7a2e8f",
-    name:"GHK-Cu", dose:"50mg / 3mL", price:79.00,
+    name:"GHK-Cu", dose:"50mg / 3mL", price:49.90,
     benefit:{pt:"Peptídeo de cobre associado, em estudos, à síntese de colágeno, remodelação de tecidos e ação antioxidante na pele.",
               en:"Copper peptide associated in studies with collagen synthesis, tissue remodeling and antioxidant action on skin.",
               es:"Péptido de cobre asociado, en estudios, con la síntesis de colágeno, la remodelación de tejidos y la acción antioxidante en la piel."}
   },
   {
     id:"glow", img:"assets/products/glow.jpg", color:"#c23a7a",
-    name:"Glow Blend", dose:"50mg/10mg/10mg / 3mL", price:180.00,
+    name:"Glow Blend", dose:"50mg/10mg/10mg / 3mL", price:149.90,
     benefit:{pt:"Blend de GHK-Cu, BPC-157 e TB-500 reunido para pesquisas combinadas sobre regeneração de pele, tecidos e recuperação geral.",
               en:"Blend of GHK-Cu, BPC-157 and TB-500 combined for research into skin regeneration, tissue repair and overall recovery.",
               es:"Mezcla de GHK-Cu, BPC-157 y TB-500 combinada para la investigación de la regeneración de la piel, los tejidos y la recuperación general."}
   },
   {
     id:"ipamorelin", img:"assets/products/ipamorelin.jpg", color:"#c99a1a",
-    name:"Ipamorelin", dose:"5mg / 3mL", price:69.00,
+    name:"Ipamorelin", dose:"5mg / 3mL", price:59.90,
     benefit:{pt:"Secretagogo seletivo do GH estudado por seu potencial na recuperação muscular, composição corporal e qualidade do sono.",
               en:"Selective GH secretagogue studied for its potential in muscle recovery, body composition and sleep quality.",
               es:"Secretagogo selectivo de GH estudiado por su potencial en la recuperación muscular, la composición corporal y la calidad del sueño."}
   },
   {
     id:"mots-c", img:"assets/products/mots-c.jpg", color:"#5b5f66",
-    name:"MOTS-c", dose:"10mg / 3mL", price:89.00,
+    name:"MOTS-c", dose:"10mg / 3mL", price:79.90,
     benefit:{pt:"Peptídeo mitocondrial pesquisado por seu papel no metabolismo energético, na sensibilidade à insulina e na performance física.",
               en:"Mitochondrial peptide researched for its role in energy metabolism, insulin sensitivity and physical performance.",
               es:"Péptido mitocondrial investigado por su papel en el metabolismo energético, la sensibilidad a la insulina y el rendimiento físico."}
   },
   {
     id:"selank", img:"assets/products/selank.jpg", color:"#1c9b3b",
-    name:"Selank", dose:"10mg / 3mL", price:79.00,
+    name:"Selank", dose:"10mg / 3mL", price:68.90,
     benefit:{pt:"Peptídeo pesquisado por seu potencial efeito ansiolítico, modulação da resposta ao estresse e suporte imunológico.",
               en:"Peptide researched for its potential anxiolytic effect, stress-response modulation and immune support.",
               es:"Péptido investigado por su potencial efecto ansiolítico, la modulación de la respuesta al estrés y el apoyo inmunológico."}
   },
   {
     id:"semax", img:"assets/products/semax.jpg", color:"#e0692a",
-    name:"Semax", dose:"10mg / 3mL", price:79.00,
+    name:"Semax", dose:"10mg / 3mL", price:64.90,
     benefit:{pt:"Peptídeo nootrópico estudado por apoiar a cognição: memória, foco e concentração em modelos de pesquisa.",
               en:"Nootropic peptide studied to support cognition: memory, focus and concentration in research models.",
               es:"Péptido nootrópico estudiado por apoyar la cognición: memoria, enfoque y concentración en modelos de investigación."}
   },
   {
     id:"tb-500", img:"assets/products/tb-500.jpg", color:"#c81e1e",
-    name:"TB-500", dose:"10mg / 3mL", price:130.00,
+    name:"TB-500", dose:"10mg / 3mL", price:129.90,
     benefit:{pt:"Fragmento sintético da Timosina Beta-4, pesquisado por seu papel na reparação tecidual, flexibilidade e recuperação muscular.",
               en:"Synthetic fragment of Thymosin Beta-4, researched for its role in tissue repair, flexibility and muscle recovery.",
               es:"Fragmento sintético de la Timosina Beta-4, investigado por su papel en la reparación tisular, la flexibilidad y la recuperación muscular."}
@@ -637,59 +650,73 @@ const PRODUCTS = [
   },
   {
     id:"pt-141", img:"assets/products/pt-141.jpg", color:"#c23a7a",
-    name:"PT-141", dose:"10mg / 3mL", price:69.00,
+    name:"PT-141", dose:"", price:69.00,
     benefit:{pt:"Peptídeo estudado por sua ação central relacionada à libido e ao desejo sexual, atuando em receptores de melanocortina no sistema nervoso.",
               en:"Peptide studied for its central action related to libido and sexual desire, acting on melanocortin receptors in the nervous system.",
               es:"Péptido estudiado por su acción central relacionada con la libido y el deseo sexual, actuando sobre receptores de melanocortina en el sistema nervioso."}
   },
   {
     id:"glutathione", img:"assets/products/glutathione.jpg", color:"#2e9e6e",
-    name:"Glutathione", dose:"600mg / 10mL", price:59.00,
+    name:"Glutathione", dose:"", price:59.00,
     benefit:{pt:"Antioxidante natural do corpo, estudado por seu papel na proteção das células contra o estresse oxidativo e no suporte metabólico.",
               en:"The body's natural antioxidant, studied for its role in protecting cells from oxidative stress and supporting metabolism.",
               es:"Antioxidante natural del cuerpo, estudiado por su papel en la protección de las células contra el estrés oxidativo y el apoyo metabólico."}
   },
   {
     id:"nad", img:"assets/products/nad.jpg", color:"#5b7fd1",
-    name:"NAD+", dose:"500mg / 10mL", price:99.00,
+    name:"NAD+", dose:"", price:139.90,
     benefit:{pt:"Coenzima essencial presente em toda célula viva, pesquisada por seu papel central na produção de energia celular e no metabolismo.",
               en:"Essential coenzyme found in every living cell, researched for its central role in cellular energy production and metabolism.",
               es:"Coenzima esencial presente en toda célula viva, investigada por su papel central en la producción de energía celular y el metabolismo."}
   },
   {
     id:"vitamin-b12", img:"assets/products/vitamin-b12.jpg", color:"#d1663a",
-    name:"Vitamin B12", dose:"10mg / 10mL", price:39.00,
+    name:"Vitamin B12", dose:"", price:45.90,
     benefit:{pt:"Vitamina envolvida em diversos processos metabólicos do corpo, estudada por seu papel na produção de energia e na saúde celular.",
               en:"Vitamin involved in several metabolic processes in the body, studied for its role in energy production and cellular health.",
               es:"Vitamina implicada en diversos procesos metabólicos del cuerpo, estudiada por su papel en la producción de energía y la salud celular."}
   },
   {
     id:"igf-1-lr3", img:"assets/products/igf-1-lr3.jpg", color:"#8a5bd1",
-    name:"IGF-1 LR3", dose:"1mg / 3mL", price:89.00,
+    name:"IGF-1 LR3", dose:"1mg / 3mL", price:69.90,
     benefit:{pt:"Análogo do fator de crescimento IGF-1, pesquisado por seu papel na sinalização celular ligada à hipertrofia muscular.",
               en:"Analog of the IGF-1 growth factor, researched for its role in cell signaling linked to muscle hypertrophy.",
               es:"Análogo del factor de crecimiento IGF-1, investigado por su papel en la señalización celular relacionada con la hipertrofia muscular."}
   },
   {
     id:"oxytocin", img:"assets/products/oxytocin.jpg", color:"#d1a53a",
-    name:"Oxytocin", dose:"5mg / 3mL", price:59.00,
+    name:"Oxytocin", dose:"2mg / 3mL", price:49.90,
     benefit:{pt:"Peptídeo conhecido como hormônio do vínculo social, estudado por seu papel no bem-estar, na sensação de alegria e na sociabilidade.",
               en:"Peptide known as the social-bonding hormone, studied for its role in well-being, feelings of joy and sociability.",
               es:"Péptido conocido como la hormona del vínculo social, estudiado por su papel en el bienestar, la sensación de alegría y la sociabilidad."}
   },
   {
     id:"aod-9604", img:"assets/products/aod-9604.jpg", color:"#3a9ed1",
-    name:"AOD-9604", dose:"10mg / 3mL", price:79.00,
+    name:"AOD-9604", dose:"", price:119.90,
     benefit:{pt:"Fragmento sintético estudado por seu papel na quebra de gordura corporal (lipólise) em modelos de pesquisa metabólica.",
               en:"Synthetic fragment studied for its role in body fat breakdown (lipolysis) in metabolic research models.",
               es:"Fragmento sintético estudiado por su papel en la descomposición de grasa corporal (lipólisis) en modelos de investigación metabólica."}
   },
   {
     id:"water", img:"assets/products/water.jpg", color:"#0594d2",
-    name:"Bacteriostatic Water", dose:"10mL", price:25.00,
+    name:"Bacteriostatic Water", dose:"10mL", price:14.90,
     benefit:{pt:"Água bacteriostática para diluição e reconstituição de peptídeos liofilizados em ambiente de pesquisa.",
               en:"Bacteriostatic water for dilution and reconstitution of lyophilized peptides in a research setting.",
               es:"Agua bacteriostática para dilución y reconstitución de péptidos liofilizados en un entorno de investigación."}
+  },
+  {
+    id:"water-kit-15", img:"assets/products/water-kit-15.jpg", color:"#0a2c4e",
+    name:"Start Kit Água Bacteriostática", dose:"1× água 10mL + 15 seringas", price:19.90,
+    benefit:{pt:"Kit de altíssima qualidade destinado para melhor pesquisa: água bacteriostática, seringas de insulina, seringa para mistura e álcool para preparo — tudo em um só kit.",
+              en:"Top-quality kit designed for better research: bacteriostatic water, insulin syringes, a mixing syringe and prep pads — everything in one kit.",
+              es:"Kit de altísima calidad diseñado para una mejor investigación: agua bacteriostática, jeringas de insulina, jeringa de mezcla y toallitas de preparación — todo en un solo kit."}
+  },
+  {
+    id:"water-kit-60", img:"assets/products/water-kit-60.jpg", color:"#0a2c4e",
+    name:"Kit Água Bacteriostática", dose:"1× água 10mL + 60 seringas", price:49.90,
+    benefit:{pt:"Kit de altíssima qualidade destinado para melhor pesquisa: água bacteriostática, 60 seringas de insulina, seringas para mistura e álcool para preparo — tudo em um só kit.",
+              en:"Top-quality kit designed for better research: bacteriostatic water, 60 insulin syringes, mixing syringes and prep pads — everything in one kit.",
+              es:"Kit de altísima calidad diseñado para una mejor investigación: agua bacteriostática, 60 jeringas de insulina, jeringas de mezcla y toallitas de preparación — todo en un solo kit."}
   }
 ];
 
@@ -709,8 +736,8 @@ pt:{
 "contact.title":"Entre em contato","contact.sub":"Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.","contact.name":"Nome","contact.phone":"Telefone (opcional)","contact.email":"E-mail","contact.msg":"Mensagem","contact.err":"Preencha nome, e-mail e mensagem antes de enviar.","contact.send":"Enviar mensagem →","contact.successtitle":"Mensagem enviada!","contact.successtext":"Obrigado pelo contato. Nossa equipe vai responder em breve.","contact.close":"Fechar",
 "story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
 "shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho"
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos","footer.legal":"Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso.",
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os termos de venda e a política de privacidade."
 },
 en:{
 "nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart",
@@ -726,8 +753,8 @@ en:{
 "contact.title":"Get in touch","contact.sub":"Questions, catalog requests or research partnerships — write to us.","contact.name":"Name","contact.phone":"Phone (optional)","contact.email":"Email","contact.msg":"Message","contact.err":"Please fill in name, email and message before sending.","contact.send":"Send message →","contact.successtitle":"Message sent!","contact.successtext":"Thanks for reaching out. Our team will get back to you shortly.","contact.close":"Close",
 "story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
 "shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart"
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us","footer.legal":"Our services and products are for research use only and are not intended for personal use or consumption, nor are they intended to diagnose, treat, cure, or prevent any disease. You agree to use our services and products in compliance with all applicable laws and regulations. AcquaVitta reserves the right to refuse the sale of products if it believes a customer is violating the Terms and Conditions. Products are supplied in lyophilized (freeze-dried) powder form and require reconstitution prior to use.",
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the terms of sale and privacy policy."
 },
 es:{
 "nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito",
@@ -743,8 +770,8 @@ es:{
 "contact.title":"Contáctenos","contact.sub":"Dudas, solicitudes de catálogo o alianzas de investigación — escríbanos.","contact.name":"Nombre","contact.phone":"Teléfono (opcional)","contact.email":"Correo electrónico","contact.msg":"Mensaje","contact.err":"Complete nombre, correo y mensaje antes de enviar.","contact.send":"Enviar mensaje →","contact.successtitle":"¡Mensaje enviado!","contact.successtext":"Gracias por contactarnos. Nuestro equipo responderá en breve.","contact.close":"Cerrar",
 "story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
 "shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos",
-"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito"
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos","footer.legal":"Nuestros servicios y productos son exclusivamente para uso en investigación y no están destinados al uso o consumo personal, ni a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Usted acepta usar nuestros servicios y productos de conformidad con todas las leyes y regulaciones aplicables. AcquaVitta se reserva el derecho de rechazar la venta de productos si cree que un cliente está violando los Términos y Condiciones. Los productos se suministran en forma de polvo liofilizado y requieren reconstitución antes de su uso.",
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los términos de venta y la política de privacidad."
 }};
 let LANG = localStorage.getItem("av-lang") || "en";
 
@@ -769,9 +796,11 @@ function fmtPrice(n){ return "$" + n.toFixed(2); }
 function renderProducts(){
   const list=document.getElementById("shopList");
   if(!list) return;
+  const nameCounts = {};
+  PRODUCTS.forEach(p=>{ nameCounts[p.name] = (nameCounts[p.name]||0) + 1; });
   list.innerHTML = PRODUCTS.map(p=>`
     <div class="shoprow" data-id="${p.id}">
-      <h4>${p.name}</h4>
+      <h4>${p.name}${nameCounts[p.name] > 1 && p.dose ? ` <span class="shoprowdose">— ${p.dose}</span>` : ""}</h4>
       <span class="schev">›</span>
     </div>
   `).join("");
@@ -793,7 +822,7 @@ function openProductDetail(id){
   document.getElementById("shopDetailBody").innerHTML = `
     <img class="pdetailimg" src="${p.img}" alt="${p.name}">
     <div class="pdetailbody">
-      <span class="pdose" style="background:${p.color}">${p.dose}</span>
+      ${p.dose ? `<span class="pdose" style="background:${p.color}">${p.dose}</span>` : ""}
       <h2>${p.name}</h2>
       <p class="pdetailtext">${p.benefit[LANG]}</p>
       <div class="drawerbanner"><span class="bicon">⚠</span><span>${T[LANG]["shop.warning"]}</span></div>
@@ -840,6 +869,35 @@ function removeLine(id){
   saveCart(); renderCart();
 }
 
+/* =========================================================
+   PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI
+   Quando você tiver uma conta de comerciante de alto risco
+   (PaymentCloud, AllayPay, Easy Pay Direct etc.), o gateway por
+   trás é quase sempre o NMI (Network Merchant Inc) — o mesmo que
+   a Tydes usa. Nesse momento, o botão "Finalizar pedido" abaixo
+   deixa de apenas montar um e-mail e passa a:
+   1. Carregar o Collect.js do NMI (script fornecido pelo seu
+      processador, com sua public key de checkout)
+   2. Trocar este link <a id="checkoutBtn"> por um formulário real
+      de pagamento (número do cartão, validade, CVC) — como a
+      tela "Payment" que você me mandou da Tydes
+   3. Enviar os dados tokenizados pro NMI, que devolve confirmação
+      antes de liberar a tela de sucesso
+   O carrinho (array CART, função fmtPrice, subtotal) já está
+   pronto e não muda — só a etapa final de pagamento é substituída.
+   ========================================================= */
+function updateCheckoutState(){
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  const compliant = document.getElementById("complianceCheck").checked;
+  const hasItems = CART.length > 0;
+  if(hasItems && compliant){
+    checkoutBtn.classList.remove("disabled");
+  } else {
+    checkoutBtn.classList.add("disabled");
+  }
+}
+document.getElementById("complianceCheck").addEventListener("change", updateCheckoutState);
+
 function renderCart(){
   const body=document.getElementById("cartBody");
   const countEl=document.getElementById("cartCount");
@@ -852,12 +910,10 @@ function renderCart(){
   if(CART.length===0){
     body.innerHTML = `<div class="emptycart">${T[LANG]["cart.empty"]}</div>`;
     subtotalEl.textContent = fmtPrice(0);
-    checkoutBtn.style.opacity = .4;
-    checkoutBtn.style.pointerEvents = "none";
+    updateCheckoutState();
     return;
   }
-  checkoutBtn.style.opacity = 1;
-  checkoutBtn.style.pointerEvents = "auto";
+  updateCheckoutState();
 
   let subtotal = 0;
   body.innerHTML = CART.map(line=>{
@@ -871,7 +927,7 @@ function renderCart(){
         ${thumb}
         <div>
           <h4>${p.name}</h4>
-          <div class="cdose">${p.dose}</div>
+          ${p.dose ? `<div class="cdose">${p.dose}</div>` : ""}
           <div class="qty">
             <button data-action="dec" data-id="${p.id}">−</button>
             <span>${line.qty}</span>
@@ -906,7 +962,7 @@ function renderCart(){
   CART.forEach(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return;
-    msg += `• ${p.name} (${p.dose}) x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
+    msg += `• ${p.name}${p.dose ? " ("+p.dose+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
   });
   msg += `\nSubtotal: ${fmtPrice(subtotal)}`;
   checkoutBtn.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;

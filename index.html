@@ -208,7 +208,26 @@ footer a:hover{color:var(--gold2)}
 .citemright b{font:600 13px "Playfair Display";display:block}
 .cremove{border:0;background:transparent;color:#8fa0b0;font-size:10px;cursor:pointer;text-decoration:underline;margin-top:6px}
 .drawerfoot{padding:20px 22px 26px;border-top:1px solid #ffffff14}
-.subtotalrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:12px;color:#c3ccd6}
+.subtotalrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px;color:#c3ccd6}
+.subtotalrow.totalrow{margin-top:6px;padding-top:12px;border-top:1px solid #ffffff16;margin-bottom:16px}
+.subtotalrow.totalrow span{font-size:13px;color:#fff;font-weight:600}
+.subtotalrow.totalrow b{font-size:19px}
+.shipnudge{background:#0d2740;border:1px solid #ffffff14;border-radius:9px;padding:10px 12px;margin-bottom:14px;font-size:10.5px;color:#c3ccd6}
+.shipnudge b{color:#f1cc70}
+.shipnudge .bar{height:5px;border-radius:99px;background:#ffffff14;margin-top:8px;overflow:hidden}
+.shipnudge .bar i{display:block;height:100%;background:linear-gradient(90deg,#bc8920,#f1cc70);border-radius:99px;transition:width .3s ease}
+.shipnudge.unlocked{color:#8fe0ac;border-color:#2fae6c44}
+/* cross-sell suggestions in cart */
+.cartsuggest{margin-top:18px;padding-top:16px;border-top:1px solid #ffffff10}
+.cartsuggest h5{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#8a97a3;margin:0 0 12px;font-weight:600}
+.suggestrow{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #ffffff0a}
+.suggestrow:last-child{border-bottom:0}
+.suggestrow img{width:42px;height:42px;object-fit:cover;border-radius:7px;background:#0a1e33;flex-shrink:0}
+.suggestrow .sname{font-size:11.5px;color:#eef2f5;font-weight:500;margin:0 0 2px}
+.suggestrow .sprice2{font-size:10.5px;color:#8a97a3}
+.suggestaddbtn{margin-left:auto;border:1px solid #d7a63b88;background:transparent;color:#f1cc70;border-radius:999px;width:26px;height:26px;font-size:14px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.suggestaddbtn:hover{background:#d7a63b;color:#111a22}
+.suggestaddbtn.added{background:#1c8a52;border-color:#1c8a52;color:#fff}
 .subtotalrow b{font:600 20px "Playfair Display";color:#fff}
 .checkoutbtn{width:100%;justify-content:center}
 .cartnote{font-size:10px;color:#8a97a3;text-align:center;margin-top:12px;line-height:1.6}
@@ -537,7 +556,10 @@ footer a:hover{color:var(--gold2)}
     <div class="emptycart" data-i18n="cart.empty">Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.</div>
   </div>
   <div class="drawerfoot">
+    <div class="shipnudge" id="cartShipNudge"></div>
     <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">$0.00</b></div>
+    <div class="subtotalrow" id="cartShipRow"><span data-i18n="cart.shipping">Envio</span><b id="cartShipping">$0.00</b></div>
+    <div class="subtotalrow totalrow"><span data-i18n="cart.total">Total</span><b id="cartTotal">$0.00</b></div>
     <label class="compliancecheck">
       <input type="checkbox" id="complianceCheck">
       <span data-i18n="cart.compliance">Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href="terms.html" target="_blank" rel="noopener" style="color:#f1cc70">termos de venda</a> e a <a href="privacy-policy.html" target="_blank" rel="noopener" style="color:#f1cc70">política de privacidade</a>.</span>
@@ -812,8 +834,8 @@ pt:{
 "contact.title":"Entre em contato","contact.sub":"Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.","contact.name":"Nome","contact.phone":"Telefone (opcional)","contact.email":"E-mail","contact.msg":"Mensagem","contact.err":"Preencha nome, e-mail e mensagem antes de enviar.","contact.send":"Enviar mensagem →","contact.successtitle":"Mensagem enviada!","contact.successtext":"Obrigado pelo contato. Nossa equipe vai responder em breve.","contact.close":"Fechar",
 "story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
 "shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.legalnav":"Legal","footer.contact":"Contato","footer.follow":"Siga-nos","footer.legal":"Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso.",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>termos de venda</a> e a <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidade</a>."
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.legalnav":"Legal","footer.contact":"Contato","footer.follow":"Siga-nos","footer.legal":"Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso. Em caso de exposição acidental, contate o Poison Help Line dos EUA: 1-800-222-1222.",
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.shipping":"Envio","cart.total":"Total","cart.freeshipprefix":"Faltam","cart.freeshipsuffix":"para frete grátis!","cart.freeshipunlocked":"Você ganhou frete grátis!","cart.youmayneed":"Você também pode precisar","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>termos de venda</a> e a <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidade</a>."
 },
 en:{
 "nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart","nav.menu":"Menu","age.badge":"Research","age.title":"Research Use Only","age.text":"By using this site, you declare that all products and information provided are for research purposes only and are not intended for human consumption, veterinary use, or any medical application.","age.age":"<b>You must be 21 years of age or older</b> to use this website.","age.age.b":"You must be 21 years of age or older","age.cta":"I Understand →",
@@ -828,8 +850,8 @@ en:{
 "contact.title":"Get in touch","contact.sub":"Questions, catalog requests or research partnerships — write to us.","contact.name":"Name","contact.phone":"Phone (optional)","contact.email":"Email","contact.msg":"Message","contact.err":"Please fill in name, email and message before sending.","contact.send":"Send message →","contact.successtitle":"Message sent!","contact.successtext":"Thanks for reaching out. Our team will get back to you shortly.","contact.close":"Close",
 "story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
 "shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.legalnav":"Legal","footer.contact":"Contact","footer.follow":"Follow us","footer.legal":"Our services and products are for research use only and are not intended for personal use or consumption, nor are they intended to diagnose, treat, cure, or prevent any disease. You agree to use our services and products in compliance with all applicable laws and regulations. AcquaVitta reserves the right to refuse the sale of products if it believes a customer is violating the Terms and Conditions. Products are supplied in lyophilized (freeze-dried) powder form and require reconstitution prior to use.",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>terms of sale</a> and <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>privacy policy</a>."
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.legalnav":"Legal","footer.contact":"Contact","footer.follow":"Follow us","footer.legal":"Our services and products are for research use only and are not intended for personal use or consumption, nor are they intended to diagnose, treat, cure, or prevent any disease. You agree to use our services and products in compliance with all applicable laws and regulations. AcquaVitta reserves the right to refuse the sale of products if it believes a customer is violating the Terms and Conditions. Products are supplied in lyophilized (freeze-dried) powder form and require reconstitution prior to use. In case of accidental exposure, contact the U.S. Poison Help Line: 1-800-222-1222.",
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.shipping":"Shipping","cart.total":"Total","cart.freeshipprefix":"You are","cart.freeshipsuffix":"away from free shipping!","cart.freeshipunlocked":"You unlocked free shipping!","cart.youmayneed":"You may also need","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>terms of sale</a> and <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>privacy policy</a>."
 },
 es:{
 "nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito","nav.menu":"Menú","age.badge":"Investigación","age.title":"Solo para investigación","age.text":"Al usar este sitio, usted declara que todos los productos e información aquí presentados se proporcionan exclusivamente con fines de investigación y no están destinados al consumo humano, uso veterinario ni ninguna aplicación médica.","age.age":"<b>Debe tener 21 años de edad o más</b> para usar este sitio.","age.age.b":"Debe tener 21 años de edad o más","age.cta":"Entendido →",
@@ -844,8 +866,8 @@ es:{
 "contact.title":"Contáctenos","contact.sub":"Dudas, solicitudes de catálogo o alianzas de investigación — escríbanos.","contact.name":"Nombre","contact.phone":"Teléfono (opcional)","contact.email":"Correo electrónico","contact.msg":"Mensaje","contact.err":"Complete nombre, correo y mensaje antes de enviar.","contact.send":"Enviar mensaje →","contact.successtitle":"¡Mensaje enviado!","contact.successtext":"Gracias por contactarnos. Nuestro equipo responderá en breve.","contact.close":"Cerrar",
 "story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
 "shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.legalnav":"Legal","footer.contact":"Contacto","footer.follow":"Síganos","footer.legal":"Nuestros servicios y productos son exclusivamente para uso en investigación y no están destinados al uso o consumo personal, ni a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Usted acepta usar nuestros servicios y productos de conformidad con todas las leyes y regulaciones aplicables. AcquaVitta se reserva el derecho de rechazar la venta de productos si cree que un cliente está violando los Términos y Condiciones. Los productos se suministran en forma de polvo liofilizado y requieren reconstitución antes de su uso.",
-"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>términos de venta</a> y la <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidad</a>."
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.legalnav":"Legal","footer.contact":"Contacto","footer.follow":"Síganos","footer.legal":"Nuestros servicios y productos son exclusivamente para uso en investigación y no están destinados al uso o consumo personal, ni a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Usted acepta usar nuestros servicios y productos de conformidad con todas las leyes y regulaciones aplicables. AcquaVitta se reserva el derecho de rechazar la venta de productos si cree que un cliente está violando los Términos y Condiciones. Los productos se suministran en forma de polvo liofilizado y requieren reconstitución antes de su uso. En caso de exposición accidental, contacte la Línea de Ayuda de Envenenamiento de EE. UU.: 1-800-222-1222.",
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.shipping":"Envío","cart.total":"Total","cart.freeshipprefix":"Te faltan","cart.freeshipsuffix":"para envío gratis!","cart.freeshipunlocked":"¡Desbloqueaste el envío gratis!","cart.youmayneed":"También podrías necesitar","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>términos de venta</a> y la <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidad</a>."
 }};
 let LANG = localStorage.getItem("av-lang") || "en";
 
@@ -901,8 +923,27 @@ function renderProducts(){
 }
 
 const productsPage = document.getElementById("productsPage");
-function openProductsPage(){ productsPage.classList.add("show"); closeShop(); document.body.style.overflow="hidden"; }
-function closeProductsPage(){ productsPage.classList.remove("show"); document.body.style.overflow=""; }
+function openProductsPage(){
+  productsPage.classList.add("show");
+  closeShop();
+  document.body.style.overflow="hidden";
+  history.pushState({avPage:"products"}, "", "#products");
+}
+function hideProductsPageUI(){
+  productsPage.classList.remove("show");
+  document.body.style.overflow="";
+}
+function closeProductsPage(){
+  hideProductsPageUI();
+  if(history.state && history.state.avPage === "products"){
+    history.back();
+  }
+}
+window.addEventListener("popstate", (e)=>{
+  if(!(e.state && e.state.avPage === "products")){
+    hideProductsPageUI();
+  }
+});
 document.getElementById("navMenuProducts").onclick = openProductsPage;
 document.getElementById("productsCloseBtn").onclick = closeProductsPage;
 document.getElementById("productsCartBtn").onclick = ()=>{ closeProductsPage(); openCart(); };
@@ -929,20 +970,26 @@ function removeLine(id){
 }
 
 /* =========================================================
-   PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI
-   Quando você tiver uma conta de comerciante de alto risco
-   (PaymentCloud, AllayPay, Easy Pay Direct etc.), o gateway por
-   trás é quase sempre o NMI (Network Merchant Inc) — o mesmo que
-   a Tydes usa. Nesse momento, o botão "Finalizar pedido" abaixo
-   deixa de apenas montar um e-mail e passa a:
-   1. Carregar o Collect.js do NMI (script fornecido pelo seu
-      processador, com sua public key de checkout)
-   2. Trocar este link <a id="checkoutBtn"> por um formulário real
-      de pagamento (número do cartão, validade, CVC) — como a
-      tela "Payment" que você me mandou da Tydes
-   3. Enviar os dados tokenizados pro NMI, que devolve confirmação
-      antes de liberar a tela de sucesso
-   O carrinho (array CART, função fmtPrice, subtotal) já está
+   PONTO DE INTEGRAÇÃO FUTURO: PAGAMENTO REAL
+   Baseado na análise de concorrentes reais do nicho (Tydes, Prime
+   Peptides, RUO Science), a estratégia mais robusta NÃO depende
+   só de cartão de crédito — cartão de alto risco é instável e pode
+   ficar indisponível sem aviso. O padrão vencedor combina:
+   1. Zelle / transferência P2P — sem chargeback, sem taxa de banco
+      de alto risco. Costuma ser o método PRINCIPAL nesse nicho.
+   2. Criptomoeda (USDC/USDT) — via PayRam, Plisio, BTCPay Server etc.
+   3. ACH / transferência bancária no mesmo dia (via Plaid ou similar)
+   4. Cartão de crédito de alto risco (NMI, via PaymentCloud/AllayPay/
+      Easy Pay Direct) — como opção adicional, não como base única.
+   Verificação de pagamento pra Zelle/cripto costuma ser manual no
+   início (cliente envia comprovante, pedido fica "Aguardando
+   pagamento" até confirmar) — dá pra fazer isso com baixo volume,
+   sem precisar de gateway automatizado no primeiro momento.
+   Quando estiver pronto, o botão "Finalizar pedido" abaixo deixa de
+   apenas montar um e-mail e passa a mostrar as opções de pagamento
+   reais (ex: endereço de carteira cripto, dados do Zelle, ou
+   formulário de cartão via Collect.js do NMI).
+   O carrinho (array CART, função fmtPrice, subtotal/frete) já está
    pronto e não muda — só a etapa final de pagamento é substituída.
    ========================================================= */
 function updateCheckoutState(){
@@ -957,11 +1004,18 @@ function updateCheckoutState(){
 }
 document.getElementById("complianceCheck").addEventListener("change", updateCheckoutState);
 
+const SHIPPING_FLAT_RATE = 9.95;
+const FREE_SHIPPING_THRESHOLD = 200;
+
 function renderCart(){
   const body=document.getElementById("cartBody");
   const countEl=document.getElementById("cartCount");
   const subtotalEl=document.getElementById("cartSubtotal");
   const checkoutBtn=document.getElementById("checkoutBtn");
+  const shipNudge=document.getElementById("cartShipNudge");
+  const shipRow=document.getElementById("cartShipRow");
+  const shippingEl=document.getElementById("cartShipping");
+  const totalEl=document.getElementById("cartTotal");
 
   const totalQty = CART.reduce((s,l)=>s+l.qty,0);
   countEl.textContent = totalQty;
@@ -971,13 +1025,16 @@ function renderCart(){
   if(CART.length===0){
     body.innerHTML = `<div class="emptycart">${T[LANG]["cart.empty"]}</div>`;
     subtotalEl.textContent = fmtPrice(0);
+    shipRow.style.display = "none";
+    shipNudge.style.display = "none";
+    totalEl.textContent = fmtPrice(0);
     updateCheckoutState();
     return;
   }
   updateCheckoutState();
 
   let subtotal = 0;
-  body.innerHTML = CART.map(line=>{
+  const itemsHtml = CART.map(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return "";
     const lineTotal = p.price * line.qty;
@@ -1002,7 +1059,28 @@ function renderCart(){
       </div>`;
   }).join("");
 
+  body.innerHTML = itemsHtml + `<div class="cartsuggest" id="cartSuggest"></div>`;
+  renderCartSuggestions();
+
   subtotalEl.textContent = fmtPrice(subtotal);
+
+  // shipping calculation
+  shipRow.style.display = "flex";
+  const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
+  shippingEl.textContent = shippingCost === 0 ? (LANG==="pt"?"Grátis":LANG==="es"?"Gratis":"Free") : fmtPrice(shippingCost);
+  totalEl.textContent = fmtPrice(subtotal + shippingCost);
+
+  // free-shipping progress nudge
+  shipNudge.style.display = "block";
+  if(subtotal >= FREE_SHIPPING_THRESHOLD){
+    shipNudge.classList.add("unlocked");
+    shipNudge.innerHTML = `🎉 ${T[LANG]["cart.freeshipunlocked"]}`;
+  } else {
+    shipNudge.classList.remove("unlocked");
+    const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+    const pct = Math.min(100, (subtotal/FREE_SHIPPING_THRESHOLD)*100);
+    shipNudge.innerHTML = `${T[LANG]["cart.freeshipprefix"]} <b>${fmtPrice(remaining)}</b> ${T[LANG]["cart.freeshipsuffix"]}<div class="bar"><i style="width:${pct}%"></i></div>`;
+  }
 
   body.querySelectorAll("[data-action]").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -1026,7 +1104,54 @@ function renderCart(){
     msg += `• ${pName(p)}${pDose(p) ? " ("+pDose(p)+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
   });
   msg += `\nSubtotal: ${fmtPrice(subtotal)}`;
+  msg += `\n${LANG==="pt"?"Envio":LANG==="es"?"Envío":"Shipping"}: ${shippingCost===0 ? (LANG==="pt"?"Grátis":LANG==="es"?"Gratis":"Free") : fmtPrice(shippingCost)}`;
+  msg += `\nTotal: ${fmtPrice(subtotal + shippingCost)}`;
   checkoutBtn.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+}
+
+/* ---------- cross-sell suggestions inside the cart ---------- */
+function renderCartSuggestions(){
+  const wrap = document.getElementById("cartSuggest");
+  if(!wrap) return;
+  const cartIds = new Set(CART.map(l=>l.id));
+  const waterIds = ["water-kit-60","water-kit-15","water"];
+  const suggestions = [];
+
+  // prioritize bacteriostatic water / kits if none are already in the cart
+  const hasWaterItem = waterIds.some(id=>cartIds.has(id));
+  if(!hasWaterItem){
+    const kit = PRODUCTS.find(p=>p.id==="water-kit-60") || PRODUCTS.find(p=>p.id==="water");
+    if(kit) suggestions.push(kit);
+  }
+  // fill remaining slots with other products not already in the cart
+  for(const p of PRODUCTS){
+    if(suggestions.length >= 3) break;
+    if(cartIds.has(p.id)) continue;
+    if(suggestions.find(s=>s.id===p.id)) continue;
+    suggestions.push(p);
+  }
+
+  if(suggestions.length === 0){ wrap.innerHTML = ""; return; }
+
+  wrap.innerHTML = `<h5>${T[LANG]["cart.youmayneed"]}</h5>` + suggestions.map(p=>`
+    <div class="suggestrow">
+      <img src="${p.img}" alt="${pName(p)}">
+      <div>
+        <div class="sname">${pName(p)}</div>
+        <div class="sprice2">${fmtPrice(p.price)}</div>
+      </div>
+      <button class="suggestaddbtn" data-id="${p.id}" aria-label="${T[LANG]['cart.addtocart']}">+</button>
+    </div>
+  `).join("");
+
+  wrap.querySelectorAll(".suggestaddbtn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      addToCart(btn.dataset.id);
+      btn.classList.add("added");
+      btn.innerHTML = "✓";
+      setTimeout(renderCart, 500);
+    });
+  });
 }
 
 /* ---------- drawer open/close ---------- */

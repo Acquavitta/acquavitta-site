@@ -40,7 +40,15 @@ O site abre em **inglês** por padrão, com uma aba no topo para trocar entre �
 Os preços estão em **USD**, definidos por você diretamente (última atualização: Epithalon $79,90/$140,90, GHK-Cu $49,90, Glow Blend $149,90, Ipamorelin $59,90, MOTS-c $79,90, Selank $68,90, Semax $64,90, TB-500 $129,90, NAD+ $139,90, Vitamin B12 $45,90, IGF-1 LR3 $69,90, Oxytocin $49,90, AOD-9604 $119,90, Água $14,90, Start Kit $19,90, Kit 60 seringas $49,90). Para alterar, edite `const PRODUCTS = [` no `index.html`.
 
 ## Compliance no checkout
-Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado (mesma linguagem usada por outros sites do nicho, como a Tydes) — mas agora em texto discreto, sem caixas coloridas de alerta, para não parecer um erro do site. O código já tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI`) explicando onde plugar um gateway de pagamento real quando você escolher um processador de alto risco.
+Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado, incluindo o número da Central de Intoxicação dos EUA (1-800-222-1222) — mesma linguagem usada por outros sites do nicho (Tydes, RUO Science) — mas em texto discreto, sem caixas coloridas de alerta. O código tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: PAGAMENTO REAL`) explicando a estratégia recomendada: Zelle/cripto/ACH como base (sem chargeback, mais estáveis nesse nicho) e cartão de alto risco como opção adicional — baseado em como a RUO Science, um concorrente real e maduro, resolve isso na prática.
+
+## Carrinho: frete e vendas adicionais (novo)
+- **Frete**: taxa fixa de $9,95 para pedidos abaixo de $200; **frete grátis automático a partir de $200** (mesma regra que vimos na RUO Science). Pra alterar, edite `SHIPPING_FLAT_RATE` e `FREE_SHIPPING_THRESHOLD` no `index.html`.
+- **Barra de progresso de frete grátis**: mostra "Faltam $X para frete grátis" com uma barrinha visual, e "Você ganhou frete grátis!" quando o cliente atinge o valor.
+- **Sugestões no carrinho** ("Você também pode precisar"): sempre que o carrinho não tiver nenhum item de água bacteriostática, o site sugere automaticamente o Kit de 60 seringas em primeiro lugar (mais vendável), seguido de outros produtos que ainda não estão no carrinho — cada um com botão de adicionar em 1 clique.
+
+## Navegação: botão "voltar" do navegador (novo)
+Ao abrir a página de produtos (tela cheia), o site registra isso no histórico do navegador. Se o visitante clicar no botão "voltar" do navegador (em vez do X pequeno dentro da página), ele fecha a página de produtos e volta pra Home — não sai do site nem volta pra uma página anterior desconhecida.
 
 ## Acessibilidade (auditoria WAVE)
 Depois de rodar o site no [wave.webaim.org](https://wave.webaim.org), corrigi os pontos reais que apareceram:

@@ -31,21 +31,21 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .brandmark{display:flex;align-items:center;gap:11px}
 .brandmark img{width:36px;height:36px;object-fit:contain}
 .brandmark span{font:600 21px "Playfair Display",serif;color:var(--gold2);letter-spacing:.01em}
-.links{display:flex;gap:34px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.links{display:flex;gap:34px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .links a{position:relative;padding:25px 0 21px}
 .links a.active:after,.links a:hover:after{content:"";position:absolute;bottom:13px;left:0;right:0;height:2px;background:var(--gold)}
 .navright{display:flex;align-items:center;gap:16px}
 .langs{display:flex;gap:4px;padding:3px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff08}
 .lang{border:0;background:transparent;cursor:pointer;line-height:1;padding:4px 5px;border-radius:999px;opacity:.55;display:flex;align-items:center}
-.lang img{display:block;border-radius:3px;object-fit:cover}
+.lang svg{display:block;border-radius:3px}
 .lang.active{opacity:1;background:#ffffff16;box-shadow:inset 0 0 0 1px #d7a63b66}
-.cartbtn{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #ffffff28;border-radius:999px;padding:8px 14px;background:#ffffff08;cursor:pointer;color:#fff;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
+.cartbtn{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #ffffff28;border-radius:999px;padding:8px 14px;background:#ffffff08;cursor:pointer;color:#fff;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
 .cartbtn:hover{border-color:#d7a63b88}
 .hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:36px;height:36px;border:1px solid #ffffff28;border-radius:8px;background:#ffffff08;cursor:pointer;flex-shrink:0}
 .hamburger:hover{border-color:#d7a63b88}
 .hamburger span{display:block;width:16px;height:1.5px;background:#f1cc70;border-radius:1px;transition:transform .2s ease,opacity .2s ease}
 .carticonwrap{position:relative;display:inline-flex;color:#f1cc70}
-.cartcount{position:absolute;top:-8px;right:-9px;background:var(--gold);color:#111a22;font-weight:700;border-radius:999px;min-width:16px;height:16px;font-size:9px;display:grid;place-items:center;padding:0 3px;border:1.5px solid #05121f}
+.cartcount{position:absolute;top:-8px;right:-9px;background:var(--gold);color:#111a22;font-weight:700;border-radius:999px;min-width:16px;height:16px;font-size:10px;display:grid;place-items:center;padding:0 3px;border:1.5px solid #05121f}
 
 /* ---------- molecule / tech background devices ---------- */
 .molfield{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -71,9 +71,9 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .frame{position:absolute;top:14%;right:4%;width:44%;height:72%;pointer-events:none}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
 .hud{position:absolute;display:flex;flex-direction:column;gap:3px;padding:10px 14px;border:1px solid #d7a63b55;border-radius:8px;background:#081524ec;backdrop-filter:blur(4px);font-family:'Inter',monospace;animation:fadeInUp .8s ease both, floatY 6s ease-in-out infinite;pointer-events:none}
-.hud .hl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#c3cedb}
+.hud .hl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#c3cedb}
 .hud .hv{font-size:15px;color:#f1cc70;font-weight:600;font-family:'Playfair Display',serif}
-.hud .hv small{font-size:9px;color:#6fcf97;font-family:Inter;margin-left:5px}
+.hud .hv small{font-size:10px;color:#6fcf97;font-family:Inter;margin-left:5px}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .hud1{top:8%;right:2%;animation-delay:.2s,0s}
 .hud2{top:44%;right:-2%;animation-delay:.5s,1.2s}
@@ -91,43 +91,47 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .hero h2{font:500 30px/1.16 "Playfair Display",serif;margin:16px 0;color:#eef1f4}
 .hero p{max-width:410px;color:#aeb9c6;line-height:1.7;font-size:13px;margin:0}
 .heroactions{display:flex;align-items:center;gap:22px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 24px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 24px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;white-space:nowrap}
 .gold{background:linear-gradient(135deg,#bc8920,#f1cc70);color:#111a22;box-shadow:0 13px 30px #d6a63b3d}
 .gold:hover{transform:translateY(-2px);box-shadow:0 16px 34px #d6a63b55}
 .ghost{border:1px solid #ffffff3a;color:#fff;background:transparent}
 .ghost:hover{border-color:var(--gold)}
-.heronote{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#98a5b1}
+.heronote{display:flex;align-items:center;gap:9px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#98a5b1}
 .dot{width:6px;height:6px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84;animation:pulseGlow 2s infinite}
 
 .trustinline{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px;padding-top:18px;border-top:1px solid #ffffff14}
-.trustinline span{display:flex;align-items:center;gap:6px;font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:#9eabb8;white-space:nowrap}
+.trustinline span{display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:#9eabb8;white-space:nowrap}
 .trustinline i{font-style:normal;color:#d7a63b;font-size:11px}
 
 /* ---------- science ---------- */
 .science{padding:76px 0 20px;background:linear-gradient(120deg,#edf1f5,#fff)}
 .sciencegrid{display:grid;grid-template-columns:.92fr 1.08fr;align-items:stretch;gap:0;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px #0a223518}
-.sciencegrid-solo{grid-template-columns:1fr;max-width:760px;margin:0 auto;background:#fff}
-.sciencegrid-solo .sciencecopy{padding:48px 52px}
+.sciencegrid-solo{grid-template-columns:1fr;max-width:820px;margin:0 auto;background:transparent;box-shadow:none;border-radius:0}
+.sciencegrid-solo .sciencecopy{padding:10px 0;text-align:center}
+.sciencegrid-solo .sciencelist{text-align:left;max-width:480px;margin:22px auto 6px}
+.sciencegrid-solo .eyebrow{justify-content:center}
+.sciencegrid-solo .eyebrow:before{display:none}
+.sciencegrid-solo p{max-width:600px;margin-left:auto;margin-right:auto}
 .labpanel{background:linear-gradient(150deg,#071626,#0d2740);position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden}
 .labpanel .hexbg{opacity:1}
-.labchip{position:relative;z-index:2;background:#ffffff0d;border:1px solid #ffffff22;backdrop-filter:blur(6px);border-radius:12px;padding:12px 18px;margin:6px 0;color:#fff;font-size:10px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:10px;min-width:230px}
+.labchip{position:relative;z-index:2;background:#ffffff0d;border:1px solid #ffffff22;backdrop-filter:blur(6px);border-radius:12px;padding:12px 18px;margin:6px 0;color:#fff;font-size:11px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:10px;min-width:230px}
 .labchip b{color:var(--gold2);font-size:14px;font-family:"Playfair Display"}
 .sciencecopy{padding:44px 46px;background:radial-gradient(circle at 78% 20%,#f5df9b3d,transparent 40%)}
-.sciencecopy .eyebrow{color:#aa7e25;font-size:9px}
+.sciencecopy .eyebrow{color:#7a5710;font-size:10px}
 .sciencecopy h2{font:600 34px "Playfair Display";margin:0 0 14px}
 .sciencecopy p{color:#5b6673;font-size:12px;line-height:1.75;max-width:470px}
 .sciencelist{list-style:none;margin:22px 0 6px;padding:0;display:grid;gap:11px}
 .sciencelist li{display:flex;gap:10px;font-size:11.5px;color:#3a4552;align-items:flex-start}
-.sciencelist li:before{content:"◆";color:var(--gold3);font-size:9px;margin-top:3px}
+.sciencelist li:before{content:"◆";color:var(--gold3);font-size:10px;margin-top:3px}
 .smallgold{margin-top:22px;padding:13px 22px}
 
 /* ---------- products ---------- */
 .products{padding:78px 0 60px;background:#fff}
 .sectiontop{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:34px}
-.sectiontop .eyebrow{color:#a77a20;font-size:9px}
+.sectiontop .eyebrow{color:#7a5710;font-size:10px}
 .sectiontop h2{font:600 32px "Playfair Display";margin:0}
 .sectiontop p{font-size:11.5px;color:#75808d;margin:6px 0 0}
-.catalog{border:1px solid #d9a63b;border-radius:999px;padding:11px 20px;font-size:9px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.catalog{border:1px solid #d9a63b;border-radius:999px;padding:11px 20px;font-size:10px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .catalog:hover{background:#d9a63b12}
 
 .pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -139,25 +143,26 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 .pcard .plabel:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#08172aee 100%)}
 .pcard .pbody{padding:16px 17px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
 .pcard h3{font:600 17px/1.1 "Playfair Display";margin:0}
-.pdose{display:inline-flex;align-self:flex-start;align-items:center;color:#fff;border-radius:6px;padding:5px 11px;font-size:10px;font-weight:700;letter-spacing:.02em}
+.pdose{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;color:#eef2f5;background:#0d2740;border:1px solid #ffffff22;border-radius:7px;padding:5px 12px 5px 10px;font-size:11px;font-weight:700;letter-spacing:.02em}
+.pdose:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dot,#d7a63b);flex-shrink:0;box-shadow:0 0 0 2px #ffffff14}
 .pcard .pbenefit{font-size:11px;line-height:1.55;color:#556070;margin:0;min-height:52px}
-.ptag{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#9aa4af;border-top:1px dashed #e3e7eb;padding-top:9px;margin-top:auto}
+.ptag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#9aa4af;border-top:1px dashed #e3e7eb;padding-top:9px;margin-top:auto}
 .prow{display:flex;align-items:center;justify-content:space-between;margin-top:2px}
 .pprice{font:600 16px "Playfair Display";color:#17202c}
 .pprice small{font:400 9px Inter;color:#93a0ad;display:block;letter-spacing:.04em;text-transform:uppercase}
-.addbtn{border:1px solid #17202c;background:#17202c;color:#fff;border-radius:999px;padding:9px 15px;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .2s,transform .15s}
+.addbtn{border:1px solid #17202c;background:#17202c;color:#fff;border-radius:999px;padding:9px 15px;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .2s,transform .15s}
 .addbtn:hover{background:var(--gold3);border-color:var(--gold3);transform:translateY(-1px)}
 .addbtn.added{background:#1c8a52;border-color:#1c8a52}
 
 /* ---------- analytics ---------- */
 .analytics{background:linear-gradient(115deg,#071626,#0a2237);color:#fff;padding:70px 0;position:relative;overflow:hidden}
 .analyticsgrid{display:grid;grid-template-columns:.85fr 2.15fr;gap:30px;align-items:center;position:relative;z-index:2}
-.analyticscopy .eyebrow{font-size:9px}
+.analyticscopy .eyebrow{font-size:10px}
 .analyticscopy h2{font:600 32px/1.1 "Playfair Display";margin:0}
 .analyticscopy p{font-size:11px;color:#b3bec9;line-height:1.7;margin:12px 0 20px}
 .chartrow{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px}
 .chartcard{border:1px solid #ffffff20;border-radius:14px;padding:14px;background:#081a2c99;backdrop-filter:blur(6px)}
-.chartcard h3{font-size:10px;margin:0 0 6px;letter-spacing:.03em;color:#dbe2e9}
+.chartcard h3{font-size:11px;margin:0 0 6px;letter-spacing:.03em;color:#dbe2e9}
 .chart{height:165px}
 
 /* ---------- commit / contact ---------- */
@@ -168,17 +173,17 @@ header{height:70px;position:fixed;top:0;left:0;right:0;z-index:200;background:rg
 
 /* ---------- footer ---------- */
 footer{background:#061624;color:#9eabb7;padding:44px 0 22px}
-.footergrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+.footergrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:26px}
 .footerbrand{display:flex;align-items:center;gap:10px;font:600 24px "Playfair Display";color:var(--gold2);margin-bottom:8px}
 .footerbrand img{width:28px;height:28px}
-footer h4{color:#fff;font-size:10px;margin:0 0 11px;letter-spacing:.05em;text-transform:uppercase}
-footer p,footer a{font-size:10px;line-height:1.9;margin:0}
+footer h4{color:#fff;font-size:11px;margin:0 0 11px;letter-spacing:.05em;text-transform:uppercase}
+footer p,footer a{font-size:11px;line-height:1.9;margin:0}
 footer a:hover{color:var(--gold2)}
 .social{display:flex;gap:8px;margin-top:4px}
-.social span{width:26px;height:26px;border:1px solid #ffffff33;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px}
-.research{display:inline-flex;align-items:flex-start;gap:8px;background:#1c1608;border:1px solid #d7a63b55;border-radius:8px;padding:10px 12px;color:#e8cd94;font-size:9px;font-weight:600;margin-top:14px;line-height:1.5}
-.copyright{text-align:right;font-size:8.5px;margin-top:14px;color:#8a97a3}
-.footerlegal{font-size:8.5px;line-height:1.7;color:#6c7a89;text-align:center;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff10}
+.social span{width:26px;height:26px;border:1px solid #ffffff33;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px}
+.research{display:flex;align-items:flex-start;gap:7px;background:transparent;border:0;padding:0;color:#8a97a3;font-size:10px;font-weight:500;margin-top:14px;line-height:1.65}
+.copyright{text-align:right;font-size:10px;margin-top:14px;color:#8a97a3}
+.footerlegal{font-size:10px;line-height:1.7;color:#8a97a3;text-align:center;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff10}
 
 /* ---------- cart drawer ---------- */
 .overlay{position:fixed;inset:0;background:#04101ccc;z-index:490;opacity:0;pointer-events:none;transition:opacity .25s ease}
@@ -195,26 +200,58 @@ footer a:hover{color:var(--gold2)}
 .citem{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #ffffff10}
 .citem img{width:52px;height:52px;object-fit:cover;border-radius:6px;background:#fff}
 .citem h4{font:600 13px "Playfair Display";margin:0 0 4px}
-.citem .cdose{font-size:9px;color:#8fa0b0;text-transform:uppercase;letter-spacing:.04em}
+.citem .cdose{font-size:10px;color:#8fa0b0;text-transform:uppercase;letter-spacing:.04em}
 .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
 .qty button{width:20px;height:20px;border-radius:5px;border:1px solid #ffffff2a;background:transparent;color:#fff;cursor:pointer;font-size:11px;line-height:1}
 .qty span{font-size:11px;min-width:12px;text-align:center}
 .citemright{text-align:right}
 .citemright b{font:600 13px "Playfair Display";display:block}
-.cremove{border:0;background:transparent;color:#8fa0b0;font-size:9px;cursor:pointer;text-decoration:underline;margin-top:6px}
+.cremove{border:0;background:transparent;color:#8fa0b0;font-size:10px;cursor:pointer;text-decoration:underline;margin-top:6px}
 .drawerfoot{padding:20px 22px 26px;border-top:1px solid #ffffff14}
-.subtotalrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:12px;color:#c3ccd6}
+.subtotalrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px;color:#c3ccd6}
+.subtotalrow.totalrow{margin-top:6px;padding-top:12px;border-top:1px solid #ffffff16;margin-bottom:16px}
+.subtotalrow.totalrow span{font-size:13px;color:#fff;font-weight:600}
+.subtotalrow.totalrow b{font-size:19px}
+.shipnudge{background:#0d2740;border:1px solid #ffffff14;border-radius:9px;padding:10px 12px;margin-bottom:14px;font-size:10.5px;color:#c3ccd6}
+.shipnudge b{color:#f1cc70}
+.shipnudge .bar{height:5px;border-radius:99px;background:#ffffff14;margin-top:8px;overflow:hidden}
+.shipnudge .bar i{display:block;height:100%;background:linear-gradient(90deg,#bc8920,#f1cc70);border-radius:99px;transition:width .3s ease}
+.shipnudge.unlocked{color:#8fe0ac;border-color:#2fae6c44}
+/* cross-sell suggestions in cart */
+.cartsuggest{margin-top:18px;padding-top:16px;border-top:1px solid #ffffff10}
+.cartsuggest h5{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#8a97a3;margin:0 0 12px;font-weight:600}
+.suggestrow{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #ffffff0a}
+.suggestrow:last-child{border-bottom:0}
+.suggestrow img{width:42px;height:42px;object-fit:cover;border-radius:7px;background:#0a1e33;flex-shrink:0}
+.suggestrow .sname{font-size:11.5px;color:#eef2f5;font-weight:500;margin:0 0 2px}
+.suggestrow .sprice2{font-size:10.5px;color:#8a97a3}
+.suggestaddbtn{margin-left:auto;border:1px solid #d7a63b88;background:transparent;color:#f1cc70;border-radius:999px;width:26px;height:26px;font-size:14px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.suggestaddbtn:hover{background:#d7a63b;color:#111a22}
+.suggestaddbtn.added{background:#1c8a52;border-color:#1c8a52;color:#fff}
 .subtotalrow b{font:600 20px "Playfair Display";color:#fff}
 .checkoutbtn{width:100%;justify-content:center}
-.cartnote{font-size:8.5px;color:#8a97a3;text-align:center;margin-top:12px;line-height:1.6}
+.cartnote{font-size:10px;color:#8a97a3;text-align:center;margin-top:12px;line-height:1.6}
+.checkoutinfo{margin-bottom:16px}
+.checkoutinfo h5{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#8a97a3;margin:0 0 10px;font-weight:600}
+.checkoutinfo input,.checkoutinfo textarea{width:100%;background:#ffffff09;border:1px solid #ffffff22;border-radius:8px;padding:9px 11px;color:#fff;font-size:12px;font-family:inherit;margin-bottom:8px;box-sizing:border-box}
+.checkoutinfo input:focus,.checkoutinfo textarea:focus{outline:none;border-color:#d7a63b99;background:#ffffff0d}
+.checkoutinfo textarea{resize:vertical;min-height:44px;line-height:1.4}
+.checkoutinfo input::placeholder,.checkoutinfo textarea::placeholder{color:#6c7a89}
+.paymethods{margin:14px 0;padding-top:14px;border-top:1px solid #ffffff10}
+.paymethods>span{display:block;font-size:9.5px;color:#8a97a3;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.paymethodslist{display:flex;flex-wrap:wrap;gap:6px}
+.paypill{font-size:10px;font-weight:600;padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:5px}
+.paypill.ok{background:#123d2a;color:#8fe0ac;border:1px solid #2fae6c44}
+.paypill.ok:before{content:"✓"}
+.paypill.no{background:#3a1414;color:#e0a09a;border:1px solid #c0392b33;text-decoration:line-through;opacity:.7}
 .compliancecheck{display:flex;gap:9px;align-items:flex-start;margin:14px 0;cursor:pointer}
 .compliancecheck input{margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:#d7a63b;cursor:pointer}
-.compliancecheck span{font-size:9px;line-height:1.55;color:#98a5b1}
+.compliancecheck span{font-size:10px;line-height:1.55;color:#98a5b1}
 .checkoutbtn.disabled{opacity:.4;pointer-events:none;filter:grayscale(.4)}
 
 /* ---------- shop drawer (hamburger menu with full catalog) ---------- */
-.drawerbanner{background:#1c1608;border:1px solid #d7a63b45;color:#e8cd94;font-size:9.5px;line-height:1.55;border-radius:8px;padding:10px 12px;margin:0 0 14px;display:flex;gap:8px;align-items:flex-start;text-align:left}
-.drawerbanner .bicon{flex-shrink:0;font-size:13px;line-height:1;color:#d7a63b}
+.drawerbanner{background:transparent;border:0;color:#8a97a3;font-size:10.5px;line-height:1.65;padding:0;margin:0 0 14px;display:flex;gap:7px;align-items:flex-start;text-align:left}
+.drawerbanner .bicon{flex-shrink:0;font-size:11px;line-height:1.4;color:#c9ad6e}
 .shoplist{padding:2px 22px}
 .shoprow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 2px;border-bottom:1px solid #ffffff10;cursor:pointer;transition:background .15s;border-radius:6px}
 .shoprow:hover{background:#ffffff08}
@@ -222,7 +259,39 @@ footer a:hover{color:var(--gold2)}
 .shoprowdose{font-weight:400;color:#8a97a3;font-size:12px}
 .shoprow .schev{color:#d7a63bcc;font-size:17px;flex-shrink:0}
 .shopfoot{padding:14px 22px 22px;border-top:1px solid #ffffff14;text-align:center}
-.shopfoot small{display:block;font-size:8.5px;color:#8a97a3;line-height:1.6;margin-top:8px}
+.shopfoot small{display:block;font-size:10px;color:#8a97a3;line-height:1.6;margin-top:8px}
+
+/* ---------- nav drawer menu ---------- */
+.navmenu{display:flex;flex-direction:column}
+.navmenuitem{display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:0;border-bottom:1px solid #ffffff10;padding:18px 4px;color:#f2f5f7;font:500 15px "Inter",sans-serif;text-align:left;cursor:pointer;text-decoration:none}
+.navmenuitem:hover{background:#ffffff08}
+.navmenuitem .schev{color:#d7a63bcc;font-size:17px}
+
+/* ---------- products page (full overlay, cascata) ---------- */
+.pagesoverlay{position:fixed;inset:0;background:#0a1c2e;z-index:700;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pagesoverlay.show{transform:translateY(0)}
+.pageheader{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #ffffff14;flex-shrink:0}
+.pageheader h2{font:600 20px "Playfair Display";color:#f1cc70;margin:0}
+.pagebody{flex:1;min-height:0;overflow-y:auto;padding:20px 24px 60px}
+.pagebanner{max-width:900px;margin:0 auto 20px}
+.cascadegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:0 auto;align-items:stretch}
+.ccard{background:#0d2740;border:1px solid #ffffff14;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.ccard img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#0a1e33}
+.ccardbody{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
+.ccardbody .pdose{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:#eef2f5;background:#0a1e33;border:1px solid #ffffff1c;border-radius:7px;padding:4px 10px 4px 8px;font-weight:700;margin-bottom:9px}
+.ccardbody .pdose:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot,#d7a63b);flex-shrink:0}
+.ccardbody h3{font:600 15px "Playfair Display";color:#fff;margin:0 0 7px}
+.ccardbody p{font-size:11.5px;line-height:1.55;color:#a8b7c4;margin:0 0 12px}
+.ccardrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px}
+.ccardrow b{font:600 16px "Playfair Display";color:#f1cc70}
+.ccardadd{border:0;background:linear-gradient(135deg,#bc8920,#f1cc70);color:#111a22;border-radius:999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform .15s}
+.ccardadd:hover{transform:scale(1.08)}
+.ccardadd.added{background:linear-gradient(135deg,#1c8a52,#2fae6c)}
+@media(max-width:560px){
+  .cascadegrid{grid-template-columns:1fr}
+  .pageheader{padding:16px 18px}
+  .pagebody{padding:16px 18px 50px}
+}
 .backbtn{background:transparent;border:1px solid #ffffff2a;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0}
 .backbtn:hover{border-color:#d7a63b88}
 #shopHeadTitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -230,7 +299,7 @@ footer a:hover{color:var(--gold2)}
 .pdetailbody h2{font:600 23px "Playfair Display";margin:12px 0 12px;color:#fff}
 .pdetailtext{font-size:12.5px;line-height:1.8;color:#c3ccd6;margin:0 0 8px}
 .pdetailprice{display:flex;align-items:baseline;gap:9px;margin:18px 0 16px}
-.pdetailprice small{font-size:9px;text-transform:uppercase;letter-spacing:.04em;color:#8fa0b0}
+.pdetailprice small{font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:#8fa0b0}
 .pdetailprice b{font:600 25px "Playfair Display";color:#f1cc70}
 .detailaddbtn{width:100%;justify-content:center}
 .detailaddbtn.added{background:linear-gradient(135deg,#1c8a52,#2fae6c)!important}
@@ -247,18 +316,27 @@ footer a:hover{color:var(--gold2)}
 .vialbody .closex{position:absolute;top:16px;right:16px}
 .vialbody h3{font:600 23px "Playfair Display";color:#f1cc70;margin:0 0 8px;padding-right:30px}
 .vialbody .vsub{font-size:11px;color:#9eabb8;line-height:1.6;margin:0 0 4px}
-.vform label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#8fa0b0;margin:16px 0 6px}
+.vform label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:#8fa0b0;margin:16px 0 6px}
 .vform label:first-of-type{margin-top:20px}
 .vform input,.vform textarea{width:100%;background:#ffffff09;border:1px solid #ffffff22;border-radius:9px;padding:11px 13px;color:#fff;font-size:12.5px;font-family:inherit;box-sizing:border-box}
 .vform input:focus,.vform textarea:focus{outline:none;border-color:#d7a63b99;background:#ffffff0d}
 .vform textarea{resize:vertical;min-height:88px;line-height:1.5}
-.vcounter{text-align:right;font-size:9px;color:#8a97a3;margin-top:5px}
+.vcounter{text-align:right;font-size:10px;color:#8a97a3;margin-top:5px}
 .vform .btn{width:100%;justify-content:center;margin-top:20px}
-.vform .fielderr{color:#e08a7d;font-size:9px;margin-top:5px;display:none}
+.vform .fielderr{color:#e08a7d;font-size:10px;margin-top:5px;display:none}
 .vsuccess{text-align:center;padding:20px 4px 6px}
 .vsuccessicon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1c8a52,#2fae6c);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .vsuccess h4{font:600 19px "Playfair Display";color:#fff;margin:0 0 8px}
 .vsuccess p{font-size:12px;color:#9eabb8;line-height:1.6;margin:0 0 22px}
+
+/* ---------- age / research declaration gate ---------- */
+.agegate{position:fixed;inset:0;background:#04101cf2;backdrop-filter:blur(6px);z-index:900;display:flex;align-items:center;justify-content:center;padding:24px;opacity:1;transition:opacity .3s ease}
+.agegate.hide{opacity:0;pointer-events:none}
+.agegatecard{max-width:440px;width:100%;background:#0d2740;border:1px solid #ffffff16;border-radius:18px;box-shadow:0 40px 90px #000a;padding:34px 32px}
+.agegatebadge{display:inline-block;background:#2e2408;color:#f6d585;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:999px;margin-bottom:14px;border:1px solid #d7a63b40}
+.agegatecard h2{font:600 24px "Playfair Display";color:#fff;margin:0 0 14px}
+.agegatecard p{font-size:12px;line-height:1.7;color:#a8b7c4;margin:0 0 14px}
+.agegatecard .btn{width:100%;justify-content:center;margin-top:6px}
 .vsuccess .btn{width:100%;justify-content:center}
 
 /* ---------- story section (history of peptides) ---------- */
@@ -267,10 +345,10 @@ footer a:hover{color:var(--gold2)}
 .storyimgs{position:relative}
 .storyimgs img.main{width:100%;display:block;border-radius:16px;box-shadow:0 30px 60px #0a223522}
 .storyimgs img.inset{position:absolute;width:46%;left:-28px;bottom:-28px;border-radius:12px;border:5px solid #fff;box-shadow:0 20px 40px #0a223530}
-.storycopy .eyebrow{color:#a77a20;font-size:9px}
+.storycopy .eyebrow{color:#7a5710;font-size:10px}
 .storycopy h2{font:600 32px "Playfair Display";margin:0 0 14px}
 .storycopy p{color:#54606d;font-size:12.5px;line-height:1.85;margin:0 0 14px}
-.storybadge{display:flex;gap:9px;align-items:flex-start;background:#fdf3ec;border:1px solid #e8c9a8;border-radius:10px;padding:12px 14px;font-size:10px;color:#7a4a1e;line-height:1.6;margin-top:8px}
+.storybadge{display:flex;gap:8px;align-items:flex-start;background:transparent;border:0;border-top:1px solid #e3e0d8;padding:14px 0 0;font-size:11px;color:#6b5c4a;line-height:1.65;margin-top:18px}
 .storybadge .bicon{flex-shrink:0;font-size:14px;line-height:1}
 
 /* ---------- reveal ---------- */
@@ -325,7 +403,7 @@ footer a:hover{color:var(--gold2)}
   <div class="wrap nav">
     <div style="display:flex;align-items:center;gap:14px">
       <button class="hamburger" id="shopOpenBtn" aria-label="Menu de produtos"><span></span><span></span><span></span></button>
-      <a href="#home" class="brandmark"><img src="assets/logo-icon.png" alt="AcquaVitta"><span>AcquaVitta</span></a>
+      <a href="#home" class="brandmark"><img src="assets/logo-icon.png" alt=""><span>AcquaVitta</span></a>
     </div>
     <nav class="links">
       <a href="#home" class="active" data-i18n="nav.home">Home</a>
@@ -336,9 +414,15 @@ footer a:hover{color:var(--gold2)}
     </nav>
     <div class="navright">
       <div class="langs" aria-label="Language selector">
-        <button class="lang" id="pt" title="Português (Brasil)"><img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x" width="20" height="15" alt="BR"></button>
-        <button class="lang active" id="en" title="English"><img src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" width="20" height="15" alt="US"></button>
-        <button class="lang" id="es" title="Español"><img src="https://flagcdn.com/24x18/es.png" srcset="https://flagcdn.com/48x36/es.png 2x" width="20" height="15" alt="ES"></button>
+        <button class="lang" id="pt" title="Português (Brasil)">
+          <svg viewBox="0 0 20 15" width="20" height="15"><rect width="20" height="15" fill="#009c3b"/><polygon points="10,2.2 18.2,7.5 10,12.8 1.8,7.5" fill="#ffdf00"/><circle cx="10" cy="7.5" r="3.4" fill="#002776"/></svg>
+        </button>
+        <button class="lang active" id="en" title="English">
+          <svg viewBox="0 0 20 15" width="20" height="15"><rect width="20" height="15" fill="#fff"/><g fill="#b22234"><rect y="0" width="20" height="1.15"/><rect y="2.3" width="20" height="1.15"/><rect y="4.6" width="20" height="1.15"/><rect y="6.9" width="20" height="1.15"/><rect y="9.2" width="20" height="1.15"/><rect y="11.5" width="20" height="1.15"/><rect y="13.8" width="20" height="1.15"/></g><rect width="9" height="8.05" fill="#3c3b6e"/></svg>
+        </button>
+        <button class="lang" id="es" title="Español">
+          <svg viewBox="0 0 20 15" width="20" height="15"><rect width="20" height="15" fill="#c60b1e"/><rect y="3.75" width="20" height="7.5" fill="#ffc400"/></svg>
+        </button>
       </div>
       <button class="cartbtn" id="cartOpenBtn" aria-label="Carrinho">
         <span class="carticonwrap">
@@ -356,7 +440,7 @@ footer a:hover{color:var(--gold2)}
   <div class="molfield">
     <div class="hexbg"></div>
     <canvas id="heroNet"></canvas>
-    <div class="scanline"></div>
+    <!-- scanline desativada a pedido -->
     <div class="dnawrap">
       <svg viewBox="0 0 240 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
         <defs><linearGradient id="dnaGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1cc70"/><stop offset="1" stop-color="#a9781d"/></linearGradient></defs>
@@ -398,12 +482,12 @@ footer a:hover{color:var(--gold2)}
         <a class="btn ghost" href="#science" data-i18n="hero.cta2">Ver ciência</a>
       </div>
       <div class="heronote" style="margin-top:28px"><span class="dot"></span><span data-i18n="hero.note">Lotes analisados por HPLC · Pureza ≥ 99%</span></div>
-      <div class="heronote" style="margin-top:10px;color:#c98a7d"><span style="width:6px;height:6px;border-radius:50%;background:#c98a7d;flex-shrink:0"></span><span data-i18n="hero.note2">Apenas para pesquisa — não é para uso humano ou veterinário</span></div>
+      <div class="heronote" style="margin-top:10px;color:#9aa5af"><span style="width:6px;height:6px;border-radius:50%;background:#9aa5af;flex-shrink:0"></span><span data-i18n="hero.note2">Apenas para pesquisa — não é para uso humano ou veterinário</span></div>
       <div class="trustinline">
-        <span><i>◈</i><span data-i18n="trust.1t">Pureza Excepcional</span></span>
-        <span><i>⬡</i><span data-i18n="trust.2t">Grau de Pesquisa</span></span>
+        <span><i>✦</i><span data-i18n="trust.1t">Pureza Excepcional</span></span>
+        <span><i>✦</i><span data-i18n="trust.2t">Grau de Pesquisa</span></span>
         <span><i>✦</i><span data-i18n="trust.3t">Qualidade Certificada</span></span>
-        <span><i>⟡</i><span data-i18n="trust.4t">Inovação Contínua</span></span>
+        <span><i>✦</i><span data-i18n="trust.4t">Inovação Contínua</span></span>
       </div>
     </div>
   </div>
@@ -435,7 +519,7 @@ footer a:hover{color:var(--gold2)}
     <h2 data-i18n="story.title">A ciência por trás dos peptídeos</h2>
     <p data-i18n="story.p1">Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.</p>
     <p data-i18n="story.p2">Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.</p>
-    <div class="storybadge"><span class="bicon">⚠</span><span data-i18n="story.badge">Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.</span></div>
+    <div class="storybadge"><span class="bicon">ⓘ</span><span data-i18n="story.badge">Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.</span></div>
   </div>
 </div></section>
 
@@ -466,7 +550,8 @@ footer a:hover{color:var(--gold2)}
       <span class="research" data-i18n="footer.researchbadge">USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small></span>
     </div>
     <div><h4 data-i18n="footer.nav">Navegação</h4><p><a href="#home">Home</a><br><a href="#" id="footerProductsLink" data-i18n="nav.products">Produtos</a><br><a href="#science" data-i18n="nav.science">Ciência</a><br><a href="#about" data-i18n="nav.about">Sobre</a><br><a href="#contact" data-i18n="nav.contact">Contato</a></p></div>
-    <div><h4 data-i18n="footer.contact">Contato</h4><p>✉ info@acquavitta.com<br>⌖ Florida, USA</p></div>
+    <div><h4 data-i18n="footer.legalnav">Legal</h4><p><a href="terms.html">Terms of Service</a><br><a href="privacy-policy.html">Privacy Policy</a><br><a href="refund-policy.html">Refund Policy</a><br><a href="shipping-policy.html">Shipping Policy</a></p></div>
+    <div><h4 data-i18n="footer.contact">Contato</h4><p><span id="footerCompanyName">AcquaVitta LLC</span><br>✉ info@acquavitta.com<br>⌖ <span id="footerAddress">[Company mailing address — pending]</span></p></div>
     <div><h4 data-i18n="footer.follow">Siga-nos</h4><div class="social"><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div></div>
   </div>
   <div class="footerlegal" data-i18n="footer.legal">Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso.</div>
@@ -484,42 +569,72 @@ footer a:hover{color:var(--gold2)}
     <div class="emptycart" data-i18n="cart.empty">Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.</div>
   </div>
   <div class="drawerfoot">
+    <div class="shipnudge" id="cartShipNudge"></div>
+    <div class="checkoutinfo">
+      <h5 data-i18n="cart.infotitle">Seus dados para envio</h5>
+      <input type="text" id="cfCartName" data-i18n-ph="cart.infoname" placeholder="Nome completo" autocomplete="name">
+      <input type="email" id="cfCartEmail" data-i18n-ph="cart.infoemail" placeholder="E-mail" autocomplete="email">
+      <input type="tel" id="cfCartPhone" data-i18n-ph="cart.infophone" placeholder="Telefone" autocomplete="tel">
+      <textarea id="cfCartAddress" rows="2" data-i18n-ph="cart.infoaddress" placeholder="Endereço completo de envio (rua, cidade, estado, CEP)" autocomplete="street-address"></textarea>
+    </div>
     <div class="subtotalrow"><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">$0.00</b></div>
+    <div class="subtotalrow" id="cartShipRow"><span data-i18n="cart.shipping">Envio</span><b id="cartShipping">$0.00</b></div>
+    <div class="subtotalrow totalrow"><span data-i18n="cart.total">Total</span><b id="cartTotal">$0.00</b></div>
+    <div class="paymethods">
+      <span data-i18n="cart.paymethodslabel">Formas de pagamento aceitas:</span>
+      <div class="paymethodslist">
+        <span class="paypill ok">Zelle</span>
+        <span class="paypill ok" data-i18n="cart.paycrypto">Cripto</span>
+        <span class="paypill ok" data-i18n="cart.paybank">Transf. bancária</span>
+        <span class="paypill no" data-i18n="cart.paycard">Cartão</span>
+        <span class="paypill no">PayPal</span>
+      </div>
+    </div>
     <label class="compliancecheck">
       <input type="checkbox" id="complianceCheck">
-      <span data-i18n="cart.compliance">Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os termos de venda e a política de privacidade.</span>
+      <span data-i18n="cart.compliance">Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href="terms.html" target="_blank" rel="noopener" style="color:#f1cc70">termos de venda</a> e a <a href="privacy-policy.html" target="_blank" rel="noopener" style="color:#f1cc70">política de privacidade</a>.</span>
     </label>
     <a class="btn gold checkoutbtn" id="checkoutBtn" data-i18n="cart.checkout">Finalizar pedido por e-mail →</a>
-    <div class="cartnote" data-i18n="cart.note">Pedido exclusivo para fins de pesquisa laboratorial. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.</div>
+    <div class="cartnote" data-i18n="cart.note">Preencha seus dados acima. Ao finalizar, seu cliente de e-mail abrirá com o pedido completo pronto para envio a sales@acquavitta.com — vamos responder com as instruções de pagamento via Zelle.</div>
   </div>
 </aside>
 
-<!-- ---------- shop drawer (hamburger menu, full catalog) ---------- -->
+<!-- ---------- nav drawer (hamburger menu → navegação simples) ---------- -->
 <aside class="drawer drawer-left" id="shopDrawer">
   <div class="drawerhead">
-    <div style="display:flex;align-items:center;gap:10px;min-width:0">
-      <button class="backbtn" id="shopBackBtn" style="display:none" aria-label="Voltar">←</button>
-      <h3 id="shopHeadTitle" data-i18n="shop.title">Catálogo de peptídeos</h3>
-    </div>
+    <h3 data-i18n="nav.menu">Menu</h3>
     <button class="closex" id="shopCloseBtn">✕</button>
   </div>
-
-  <div id="shopListWrap" style="display:flex;flex-direction:column;flex:1;min-height:0">
-    <div class="drawerbody">
-      <div class="shoplist" id="shopList"></div>
-    </div>
-    <div class="shopfoot">
-      <div class="drawerbanner"><span class="bicon">⚠</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
-      <button class="cartbtn" id="shopViewCartBtn" style="width:100%;justify-content:center;color:#111a22;background:linear-gradient(135deg,#bc8920,#f1cc70);border:0">
-        <span data-i18n="shop.viewcart">Ver carrinho</span>
-      </button>
-    </div>
-  </div>
-
-  <div id="shopDetailWrap" style="display:none;flex-direction:column;flex:1;min-height:0">
-    <div class="drawerbody" id="shopDetailBody"></div>
+  <div class="drawerbody">
+    <nav class="navmenu">
+      <a href="#home" class="navmenuitem" data-navclose><span data-i18n="nav.home">Home</span><span class="schev">›</span></a>
+      <button class="navmenuitem" id="navMenuProducts"><span data-i18n="nav.products">Produtos</span><span class="schev">›</span></button>
+      <a href="#science" class="navmenuitem" data-navclose><span data-i18n="nav.science">Ciência</span><span class="schev">›</span></a>
+      <a href="#about" class="navmenuitem" data-navclose><span data-i18n="nav.about">Sobre</span><span class="schev">›</span></a>
+      <button class="navmenuitem" id="navMenuContact"><span data-i18n="nav.contact">Contato</span><span class="schev">›</span></button>
+    </nav>
   </div>
 </aside>
+
+<!-- ---------- products page (cascata 2 colunas) ---------- -->
+<div class="pagesoverlay" id="productsPage">
+  <div class="pageheader">
+    <h2 data-i18n="shop.title">Catálogo de peptídeos</h2>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="cartbtn" id="productsCartBtn" aria-label="Carrinho">
+        <span class="carticonwrap">
+          <svg class="carticon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cartcount" id="cartCount2">0</span>
+        </span>
+      </button>
+      <button class="closex" id="productsCloseBtn">✕</button>
+    </div>
+  </div>
+  <div class="pagebody">
+    <div class="drawerbanner pagebanner"><span class="bicon">ⓘ</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
+    <div class="cascadegrid" id="cascadeGrid"></div>
+  </div>
+</div>
 
 <!-- ---------- contact modal (vial-shaped form) ---------- -->
 <div class="contactoverlay" id="contactOverlay">
@@ -551,6 +666,17 @@ footer a:hover{color:var(--gold2)}
         <button class="btn ghost" id="cfSuccessCloseBtn" data-i18n="contact.close">Fechar</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ---------- age / research declaration gate ---------- -->
+<div class="agegate" id="ageGate">
+  <div class="agegatecard">
+    <span class="agegatebadge" data-i18n="age.badge">Pesquisa</span>
+    <h2 data-i18n="age.title">Apenas para pesquisa</h2>
+    <p data-i18n="age.text">Ao usar este site, você declara que todos os produtos e informações aqui apresentados são fornecidos exclusivamente para fins de pesquisa e não se destinam a consumo humano, uso veterinário ou qualquer aplicação médica.</p>
+    <p data-i18n="age.age"><b>Você deve ter 21 anos ou mais</b> para usar este site.</p>
+    <button class="btn gold" id="ageGateBtn" data-i18n="age.cta">Entendi →</button>
   </div>
 </div>
 
@@ -726,10 +852,10 @@ const PRODUCTS = [
 /* ---------- i18n ---------- */
 const T={
 pt:{
-"nav.home":"Home","nav.products":"Produtos","nav.science":"Ciência","nav.about":"Sobre","nav.contact":"Contato","nav.cart":"Carrinho",
+"nav.home":"Home","nav.products":"Produtos","nav.science":"Ciência","nav.about":"Sobre","nav.contact":"Contato","nav.cart":"Carrinho","nav.menu":"Menu","age.badge":"Pesquisa","age.title":"Apenas para pesquisa","age.text":"Ao usar este site, você declara que todos os produtos e informações aqui apresentados são fornecidos exclusivamente para fins de pesquisa e não se destinam a consumo humano, uso veterinário ou qualquer aplicação médica.","age.age":"<b>Você deve ter 21 anos ou mais</b> para usar este site.","age.age.b":"Você deve ter 21 anos ou mais","age.cta":"Entendi →",
 "hero.kicker":"Research Peptides","hero.title":"Ciência e Pureza em Alta Performance","hero.text":"Peptídeos de grau de pesquisa com pureza de 99% verificada por HPLC, produzidos sob rigorosos protocolos laboratoriais. Inovação, qualidade e consistência para a evolução da ciência.","hero.cta":"Explorar coleção →","hero.cta2":"Ver ciência","hero.note":"Lotes analisados por HPLC · Pureza ≥ 99%","hero.note2":"Apenas para pesquisa — não é para uso humano ou veterinário",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análises rigorosas por HPLC e MS","trust.2t":"Grau de Pesquisa","trust.2d":"Uso exclusivo em laboratório","trust.3t":"Qualidade Certificada","trust.3d":"Lotes rastreáveis e documentados","trust.4t":"Inovação Contínua","trust.4d":"Ciência em constante evolução",
-"science.kicker":"Ciência que impulsiona resultados","science.title":"Pesquisa. Análise. Evolução.","science.text":"Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza (HPLC/MS) e avaliação de estabilidade. Cada lote é rastreável do laboratório até o frasco.","science.cta":"Conheça nosso processo →",
+"science.kicker":"Ciência que impulsiona resultados","science.title":"Pesquisa. Análise. Evolução.","science.text":"Nossos peptídeos são fabricados seguindo padrões internacionais, com certificados de análise, testes de pureza (HPLC/MS) e avaliação de estabilidade. Cada lote é rastreável do laboratório até o frasco. Trabalhamos com fornecedores auditados e protocolos de controle de qualidade em cada etapa da produção, desde a síntese até o envase, para garantir consistência entre lotes. Nossa equipe acompanha de perto os resultados analíticos de cada remessa, permitindo que pesquisadores confiem na reprodutibilidade dos seus experimentos.","science.cta":"Conheça nosso processo →",
 "science.li1":"Certificado de Análise (CoA) disponível por lote","science.li2":"Pureza mínima de 99% verificada por HPLC","science.li4":"Uso exclusivamente laboratorial / pesquisa in vitro",
 "products.kicker":"Nossos produtos","products.title":"Peptídeos de Alta Performance","products.text":"Qualidade, pureza e confiabilidade para pesquisa científica. Clique em \"Adicionar\" para abrir seu carrinho.","products.catalog":"Solicitar catálogo completo →","products.tag":"Research Use Only",
 "data.kicker":"Dados e análises","data.title":"Resultados que Comprovam Nossa Qualidade","data.text":"Gráficos baseados em análises laboratoriais reais dos nossos lotes.","data.cta":"Solicitar CoA →",
@@ -738,14 +864,14 @@ pt:{
 "contact.title":"Entre em contato","contact.sub":"Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.","contact.name":"Nome","contact.phone":"Telefone (opcional)","contact.email":"E-mail","contact.msg":"Mensagem","contact.err":"Preencha nome, e-mail e mensagem antes de enviar.","contact.send":"Enviar mensagem →","contact.successtitle":"Mensagem enviada!","contact.successtext":"Obrigado pelo contato. Nossa equipe vai responder em breve.","contact.close":"Fechar",
 "story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
 "shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.contact":"Contato","footer.follow":"Siga-nos","footer.legal":"Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso.",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Apenas para pesquisa em laboratório — não é para uso humano nem uso veterinário. Ao finalizar, seu cliente de e-mail abrirá com o resumo do pedido pronto para envio a sales@acquavitta.com.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os termos de venda e a política de privacidade."
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.legalnav":"Legal","footer.contact":"Contato","footer.follow":"Siga-nos","footer.legal":"Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso. Em caso de exposição acidental, contate o Poison Help Line dos EUA: 1-800-222-1222.",
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.shipping":"Envio","cart.total":"Total","cart.freeshipprefix":"Faltam","cart.freeshipsuffix":"para frete grátis!","cart.freeshipunlocked":"Você ganhou frete grátis!","cart.youmayneed":"Você também pode precisar","cart.infotitle":"Seus dados para envio","cart.infoname":"Nome completo","cart.infoemail":"E-mail","cart.infophone":"Telefone","cart.infoaddress":"Endereço completo de envio (rua, cidade, estado, CEP)","cart.paymethodslabel":"Formas de pagamento aceitas:","cart.paycrypto":"Cripto","cart.paybank":"Transf. bancária","cart.paycard":"Cartão","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Ao finalizar, seu cliente de e-mail abrirá com o pedido e seus dados prontos para envio a sales@acquavitta.com. Você vai receber por e-mail as instruções de pagamento (Zelle, cripto ou transferência bancária) — o pedido só é confirmado como pago depois da verificação.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>termos de venda</a> e a <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidade</a>."
 },
 en:{
-"nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart",
+"nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart","nav.menu":"Menu","age.badge":"Research","age.title":"Research Use Only","age.text":"By using this site, you declare that all products and information provided are for research purposes only and are not intended for human consumption, veterinary use, or any medical application.","age.age":"<b>You must be 21 years of age or older</b> to use this website.","age.age.b":"You must be 21 years of age or older","age.cta":"I Understand →",
 "hero.kicker":"Research Peptides","hero.title":"Science and Purity in High Performance","hero.text":"Research-grade peptides with 99% HPLC-verified purity, produced under rigorous laboratory protocols. Innovation, quality and consistency for the evolution of science.","hero.cta":"Explore collection →","hero.cta2":"See the science","hero.note":"Batches HPLC-tested · Purity ≥ 99%","hero.note2":"For research use only — not for human or veterinary use",
 "trust.1t":"Exceptional Purity","trust.1d":"Rigorous HPLC and MS analysis","trust.2t":"Research Grade","trust.2d":"For laboratory research only","trust.3t":"Certified Quality","trust.3d":"Traceable and documented batches","trust.4t":"Continuous Innovation","trust.4d":"Science in constant evolution",
-"science.kicker":"Science that drives results","science.title":"Research. Analysis. Evolution.","science.text":"Our peptides are produced following international standards, supported by certificates of analysis, purity testing (HPLC/MS) and stability evaluation. Every batch is traceable from lab to vial.","science.cta":"Discover our process →",
+"science.kicker":"Science that drives results","science.title":"Research. Analysis. Evolution.","science.text":"Our peptides are produced following international standards, supported by certificates of analysis, purity testing (HPLC/MS) and stability evaluation. Every batch is traceable from lab to vial. We work with audited suppliers and quality-control protocols at every stage of production, from synthesis to packaging, to ensure consistency across batches. Our team closely reviews the analytical results of every shipment, so researchers can trust the reproducibility of their experiments.","science.cta":"Discover our process →",
 "science.li1":"Certificate of Analysis (CoA) available per batch","science.li2":"Minimum 99% purity verified by HPLC","science.li4":"For laboratory / in-vitro research use only",
 "products.kicker":"Our products","products.title":"High-Performance Peptides","products.text":"Quality, purity and reliability for scientific research. Click \"Add\" to open your cart.","products.catalog":"Request full catalog →","products.tag":"Research Use Only",
 "data.kicker":"Data and analytics","data.title":"Results That Demonstrate Our Quality","data.text":"Charts based on real laboratory analysis of our batches.","data.cta":"Request CoA →",
@@ -754,14 +880,14 @@ en:{
 "contact.title":"Get in touch","contact.sub":"Questions, catalog requests or research partnerships — write to us.","contact.name":"Name","contact.phone":"Phone (optional)","contact.email":"Email","contact.msg":"Message","contact.err":"Please fill in name, email and message before sending.","contact.send":"Send message →","contact.successtitle":"Message sent!","contact.successtext":"Thanks for reaching out. Our team will get back to you shortly.","contact.close":"Close",
 "story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
 "shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.contact":"Contact","footer.follow":"Follow us","footer.legal":"Our services and products are for research use only and are not intended for personal use or consumption, nor are they intended to diagnose, treat, cure, or prevent any disease. You agree to use our services and products in compliance with all applicable laws and regulations. AcquaVitta reserves the right to refuse the sale of products if it believes a customer is violating the Terms and Conditions. Products are supplied in lyophilized (freeze-dried) powder form and require reconstitution prior to use.",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.checkout":"Checkout via email →","cart.note":"For laboratory research only — not for human or veterinary use. On checkout, your email client will open with the order summary ready to send to sales@acquavitta.com.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the terms of sale and privacy policy."
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.legalnav":"Legal","footer.contact":"Contact","footer.follow":"Follow us","footer.legal":"Our services and products are for research use only and are not intended for personal use or consumption, nor are they intended to diagnose, treat, cure, or prevent any disease. You agree to use our services and products in compliance with all applicable laws and regulations. AcquaVitta reserves the right to refuse the sale of products if it believes a customer is violating the Terms and Conditions. Products are supplied in lyophilized (freeze-dried) powder form and require reconstitution prior to use. In case of accidental exposure, contact the U.S. Poison Help Line: 1-800-222-1222.",
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.shipping":"Shipping","cart.total":"Total","cart.freeshipprefix":"You are","cart.freeshipsuffix":"away from free shipping!","cart.freeshipunlocked":"You unlocked free shipping!","cart.youmayneed":"You may also need","cart.infotitle":"Your shipping details","cart.infoname":"Full name","cart.infoemail":"Email","cart.infophone":"Phone","cart.infoaddress":"Full shipping address (street, city, state, ZIP)","cart.paymethodslabel":"Accepted payment methods:","cart.paycrypto":"Crypto","cart.paybank":"Bank transfer","cart.paycard":"Card","cart.checkout":"Checkout via email →","cart.note":"On checkout, your email client will open with the order and your details ready to send to sales@acquavitta.com. You will receive payment instructions by email (Zelle, crypto, or bank transfer) — your order is only confirmed as paid after verification.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>terms of sale</a> and <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>privacy policy</a>."
 },
 es:{
-"nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito",
+"nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito","nav.menu":"Menú","age.badge":"Investigación","age.title":"Solo para investigación","age.text":"Al usar este sitio, usted declara que todos los productos e información aquí presentados se proporcionan exclusivamente con fines de investigación y no están destinados al consumo humano, uso veterinario ni ninguna aplicación médica.","age.age":"<b>Debe tener 21 años de edad o más</b> para usar este sitio.","age.age.b":"Debe tener 21 años de edad o más","age.cta":"Entendido →",
 "hero.kicker":"Research Peptides","hero.title":"Ciencia y Pureza en Alto Rendimiento","hero.text":"Péptidos de grado de investigación con pureza verificada por HPLC del 99%, producidos bajo rigurosos protocolos de laboratorio. Innovación, calidad y consistencia para la evolución de la ciencia.","hero.cta":"Explorar colección →","hero.cta2":"Ver la ciencia","hero.note":"Lotes analizados por HPLC · Pureza ≥ 99%","hero.note2":"Solo para investigación — no apto para uso humano ni veterinario",
 "trust.1t":"Pureza Excepcional","trust.1d":"Análisis rigurosos por HPLC y MS","trust.2t":"Grado de Investigación","trust.2d":"Uso exclusivo en laboratorio","trust.3t":"Calidad Certificada","trust.3d":"Lotes trazables y documentados","trust.4t":"Innovación Continua","trust.4d":"Ciencia en constante evolución",
-"science.kicker":"Ciencia que impulsa resultados","science.title":"Investigación. Análisis. Evolución.","science.text":"Nuestros péptidos se fabrican siguiendo estándares internacionales, respaldados por certificados de análisis, pruebas de pureza (HPLC/MS) y evaluación de estabilidad. Cada lote es trazable del laboratorio al frasco.","science.cta":"Conozca nuestro proceso →",
+"science.kicker":"Ciencia que impulsa resultados","science.title":"Investigación. Análisis. Evolución.","science.text":"Nuestros péptidos se fabrican siguiendo estándares internacionales, respaldados por certificados de análisis, pruebas de pureza (HPLC/MS) y evaluación de estabilidad. Cada lote es trazable del laboratorio al frasco. Trabajamos con proveedores auditados y protocolos de control de calidad en cada etapa de la producción, desde la síntesis hasta el envasado, para garantizar la consistencia entre lotes. Nuestro equipo revisa de cerca los resultados analíticos de cada envío, para que los investigadores puedan confiar en la reproducibilidad de sus experimentos.","science.cta":"Conozca nuestro proceso →",
 "science.li1":"Certificado de Análisis (CoA) disponible por lote","science.li2":"Pureza mínima del 99% verificada por HPLC","science.li4":"Uso exclusivamente de laboratorio / investigación in vitro",
 "products.kicker":"Nuestros productos","products.title":"Péptidos de Alto Rendimiento","products.text":"Calidad, pureza y confiabilidad para la investigación científica. Haga clic en \"Añadir\" para abrir su carrito.","products.catalog":"Solicitar catálogo completo →","products.tag":"Research Use Only",
 "data.kicker":"Datos y análisis","data.title":"Resultados Que Demuestran Nuestra Calidad","data.text":"Gráficos basados en análisis de laboratorio reales de nuestros lotes.","data.cta":"Solicitar CoA →",
@@ -770,8 +896,8 @@ es:{
 "contact.title":"Contáctenos","contact.sub":"Dudas, solicitudes de catálogo o alianzas de investigación — escríbanos.","contact.name":"Nombre","contact.phone":"Teléfono (opcional)","contact.email":"Correo electrónico","contact.msg":"Mensaje","contact.err":"Complete nombre, correo y mensaje antes de enviar.","contact.send":"Enviar mensaje →","contact.successtitle":"¡Mensaje enviado!","contact.successtext":"Gracias por contactarnos. Nuestro equipo responderá en breve.","contact.close":"Cerrar",
 "story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
 "shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
-"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.contact":"Contacto","footer.follow":"Síganos","footer.legal":"Nuestros servicios y productos son exclusivamente para uso en investigación y no están destinados al uso o consumo personal, ni a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Usted acepta usar nuestros servicios y productos de conformidad con todas las leyes y regulaciones aplicables. AcquaVitta se reserva el derecho de rechazar la venta de productos si cree que un cliente está violando los Términos y Condiciones. Los productos se suministran en forma de polvo liofilizado y requieren reconstitución antes de su uso.",
-"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Solo para investigación de laboratorio — no apto para uso humano ni veterinario. Al finalizar, su cliente de correo se abrirá con el resumen del pedido listo para enviar a sales@acquavitta.com.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los términos de venta y la política de privacidad."
+"footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.legalnav":"Legal","footer.contact":"Contacto","footer.follow":"Síganos","footer.legal":"Nuestros servicios y productos son exclusivamente para uso en investigación y no están destinados al uso o consumo personal, ni a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Usted acepta usar nuestros servicios y productos de conformidad con todas las leyes y regulaciones aplicables. AcquaVitta se reserva el derecho de rechazar la venta de productos si cree que un cliente está violando los Términos y Condiciones. Los productos se suministran en forma de polvo liofilizado y requieren reconstitución antes de su uso. En caso de exposición accidental, contacte la Línea de Ayuda de Envenenamiento de EE. UU.: 1-800-222-1222.",
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.shipping":"Envío","cart.total":"Total","cart.freeshipprefix":"Te faltan","cart.freeshipsuffix":"para envío gratis!","cart.freeshipunlocked":"¡Desbloqueaste el envío gratis!","cart.youmayneed":"También podrías necesitar","cart.infotitle":"Tus datos de envío","cart.infoname":"Nombre completo","cart.infoemail":"Correo electrónico","cart.infophone":"Teléfono","cart.infoaddress":"Dirección completa de envío (calle, ciudad, estado, código postal)","cart.paymethodslabel":"Formas de pago aceptadas:","cart.paycrypto":"Cripto","cart.paybank":"Transferencia bancaria","cart.paycard":"Tarjeta","cart.checkout":"Finalizar pedido por e-mail →","cart.note":"Al finalizar, su cliente de correo se abrirá con el pedido y sus datos listos para enviar a sales@acquavitta.com. Recibirá por correo las instrucciones de pago (Zelle, cripto o transferencia bancaria) — el pedido solo se confirma como pagado después de la verificación.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>términos de venta</a> y la <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidad</a>."
 }};
 let LANG = localStorage.getItem("av-lang") || "en";
 
@@ -779,6 +905,7 @@ function setLang(lang){
   LANG = lang;
   document.documentElement.lang = lang==="pt" ? "pt-BR" : lang==="es" ? "es" : "en";
   document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[lang][el.dataset.i18n]; if(v!==undefined) el.innerHTML=v.replace(/\\n/g,"<br>")});
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const v=T[lang][el.dataset.i18nPh]; if(v!==undefined) el.placeholder=v;});
   document.getElementById("pt").classList.toggle("active", lang==="pt");
   document.getElementById("en").classList.toggle("active", lang==="en");
   document.getElementById("es").classList.toggle("active", lang==="es");
@@ -795,60 +922,62 @@ function fmtPrice(n){ return "$" + n.toFixed(2); }
 function pName(p){ return typeof p.name === "object" ? p.name[LANG] : p.name; }
 function pDose(p){ return typeof p.dose === "object" ? p.dose[LANG] : p.dose; }
 
+/* ---------- products page (cascata 2 colunas) ---------- */
 function renderProducts(){
-  const list=document.getElementById("shopList");
-  if(!list) return;
-  const nameCounts = {};
-  PRODUCTS.forEach(p=>{ const n=pName(p); nameCounts[n] = (nameCounts[n]||0) + 1; });
-  list.innerHTML = PRODUCTS.map(p=>`
-    <div class="shoprow" data-id="${p.id}">
-      <h4>${pName(p)}${nameCounts[pName(p)] > 1 && pDose(p) ? ` <span class="shoprowdose">— ${pDose(p)}</span>` : ""}</h4>
-      <span class="schev">›</span>
+  const grid=document.getElementById("cascadeGrid");
+  if(!grid) return;
+  grid.innerHTML = PRODUCTS.map(p=>`
+    <div class="ccard">
+      <img src="${p.img}" alt="${pName(p)}" loading="lazy">
+      <div class="ccardbody">
+        ${pDose(p) ? `<span class="pdose" style="--dot:${p.color}">${pDose(p)}</span>` : ""}
+        <h3>${pName(p)}</h3>
+        <p>${p.benefit[LANG]}</p>
+        <div class="ccardrow">
+          <b>${fmtPrice(p.price)}</b>
+          <button class="ccardadd" data-id="${p.id}" aria-label="${T[LANG]['cart.addtocart']}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   `).join("");
-  list.querySelectorAll(".shoprow").forEach(row=>{
-    row.addEventListener("click", ()=> openProductDetail(row.dataset.id));
+  grid.querySelectorAll(".ccardadd").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      addToCart(btn.dataset.id);
+      btn.classList.add("added");
+      const original = btn.innerHTML;
+      btn.innerHTML = "✓";
+      setTimeout(()=>{ btn.classList.remove("added"); btn.innerHTML = original; }, 1200);
+    });
   });
 }
 
-/* ---------- product detail screen (inside shop drawer) ---------- */
-function openProductDetail(id){
-  const p = PRODUCTS.find(pr=>pr.id===id);
-  if(!p) return;
-  document.getElementById("shopListWrap").style.display = "none";
-  const detail = document.getElementById("shopDetailWrap");
-  detail.style.display = "flex";
-  document.getElementById("shopBackBtn").style.display = "inline-block";
-  document.getElementById("shopHeadTitle").textContent = pName(p);
-
-  document.getElementById("shopDetailBody").innerHTML = `
-    <img class="pdetailimg" src="${p.img}" alt="${pName(p)}">
-    <div class="pdetailbody">
-      ${pDose(p) ? `<span class="pdose" style="background:${p.color}">${pDose(p)}</span>` : ""}
-      <h2>${pName(p)}</h2>
-      <p class="pdetailtext">${p.benefit[LANG]}</p>
-      <div class="drawerbanner"><span class="bicon">⚠</span><span>${T[LANG]["shop.warning"]}</span></div>
-      <div class="pdetailprice"><small>${LANG==="pt"?"Preço":LANG==="es"?"Precio":"Price"}</small><b>${fmtPrice(p.price)}</b></div>
-      <button class="btn gold detailaddbtn" id="shopDetailAddBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> ${T[LANG]["cart.addtocart"]}</button>
-    </div>
-  `;
-  document.getElementById("shopDetailAddBtn").onclick = (e)=>{
-    addToCart(p.id);
-    const btn = e.currentTarget;
-    btn.classList.add("added");
-    const original = btn.innerHTML;
-    btn.innerHTML = T[LANG]["cart.added"];
-    setTimeout(()=>{ btn.classList.remove("added"); btn.innerHTML = original; }, 1400);
-  };
+const productsPage = document.getElementById("productsPage");
+function openProductsPage(){
+  productsPage.classList.add("show");
+  closeShop();
+  document.body.style.overflow="hidden";
+  history.pushState({avPage:"products"}, "", "#products");
 }
-
-function backToShopList(){
-  document.getElementById("shopDetailWrap").style.display = "none";
-  document.getElementById("shopListWrap").style.display = "flex";
-  document.getElementById("shopBackBtn").style.display = "none";
-  document.getElementById("shopHeadTitle").textContent = T[LANG]["shop.title"];
+function hideProductsPageUI(){
+  productsPage.classList.remove("show");
+  document.body.style.overflow="";
 }
-document.getElementById("shopBackBtn").onclick = backToShopList;
+function closeProductsPage(){
+  hideProductsPageUI();
+  if(history.state && history.state.avPage === "products"){
+    history.back();
+  }
+}
+window.addEventListener("popstate", (e)=>{
+  if(!(e.state && e.state.avPage === "products")){
+    hideProductsPageUI();
+  }
+});
+document.getElementById("navMenuProducts").onclick = openProductsPage;
+document.getElementById("productsCloseBtn").onclick = closeProductsPage;
+document.getElementById("productsCartBtn").onclick = ()=>{ closeProductsPage(); openCart(); };
 
 /* ---------- cart ---------- */
 let CART = JSON.parse(localStorage.getItem("av-cart") || "[]");
@@ -872,53 +1001,94 @@ function removeLine(id){
 }
 
 /* =========================================================
-   PONTO DE INTEGRAÇÃO FUTURO: GATEWAY NMI
-   Quando você tiver uma conta de comerciante de alto risco
-   (PaymentCloud, AllayPay, Easy Pay Direct etc.), o gateway por
-   trás é quase sempre o NMI (Network Merchant Inc) — o mesmo que
-   a Tydes usa. Nesse momento, o botão "Finalizar pedido" abaixo
-   deixa de apenas montar um e-mail e passa a:
-   1. Carregar o Collect.js do NMI (script fornecido pelo seu
-      processador, com sua public key de checkout)
-   2. Trocar este link <a id="checkoutBtn"> por um formulário real
-      de pagamento (número do cartão, validade, CVC) — como a
-      tela "Payment" que você me mandou da Tydes
-   3. Enviar os dados tokenizados pro NMI, que devolve confirmação
-      antes de liberar a tela de sucesso
-   O carrinho (array CART, função fmtPrice, subtotal) já está
+   PONTO DE INTEGRAÇÃO FUTURO: PAGAMENTO REAL
+   Baseado na análise de concorrentes reais do nicho (Tydes, Prime
+   Peptides, RUO Science), a estratégia mais robusta NÃO depende
+   só de cartão de crédito — cartão de alto risco é instável e pode
+   ficar indisponível sem aviso. O padrão vencedor combina:
+   1. Zelle / transferência P2P — sem chargeback, sem taxa de banco
+      de alto risco. Costuma ser o método PRINCIPAL nesse nicho.
+   2. Criptomoeda (USDC/USDT) — via PayRam, Plisio, BTCPay Server etc.
+   3. ACH / transferência bancária no mesmo dia (via Plaid ou similar)
+   4. Cartão de crédito de alto risco (NMI, via PaymentCloud/AllayPay/
+      Easy Pay Direct) — como opção adicional, não como base única.
+   Verificação de pagamento pra Zelle/cripto costuma ser manual no
+   início (cliente envia comprovante, pedido fica "Aguardando
+   pagamento" até confirmar) — dá pra fazer isso com baixo volume,
+   sem precisar de gateway automatizado no primeiro momento.
+   Quando estiver pronto, o botão "Finalizar pedido" abaixo deixa de
+   apenas montar um e-mail e passa a mostrar as opções de pagamento
+   reais (ex: endereço de carteira cripto, dados do Zelle, ou
+   formulário de cartão via Collect.js do NMI).
+   O carrinho (array CART, função fmtPrice, subtotal/frete) já está
    pronto e não muda — só a etapa final de pagamento é substituída.
    ========================================================= */
+function checkoutInfoFilled(){
+  const name = document.getElementById("cfCartName").value.trim();
+  const email = document.getElementById("cfCartEmail").value.trim();
+  const phone = document.getElementById("cfCartPhone").value.trim();
+  const address = document.getElementById("cfCartAddress").value.trim();
+  return name && email && phone && address;
+}
+
 function updateCheckoutState(){
   const checkoutBtn = document.getElementById("checkoutBtn");
   const compliant = document.getElementById("complianceCheck").checked;
   const hasItems = CART.length > 0;
-  if(hasItems && compliant){
+  if(hasItems && compliant && checkoutInfoFilled()){
     checkoutBtn.classList.remove("disabled");
   } else {
     checkoutBtn.classList.add("disabled");
   }
 }
 document.getElementById("complianceCheck").addEventListener("change", updateCheckoutState);
+["cfCartName","cfCartEmail","cfCartPhone","cfCartAddress"].forEach(id=>{
+  document.getElementById(id).addEventListener("input", updateCheckoutState);
+});
+
+// pré-preenche com os dados salvos da última compra, se houver
+(function(){
+  try{
+    const saved = JSON.parse(localStorage.getItem("av-checkout-info") || "null");
+    if(saved){
+      document.getElementById("cfCartName").value = saved.name || "";
+      document.getElementById("cfCartEmail").value = saved.email || "";
+      document.getElementById("cfCartPhone").value = saved.phone || "";
+      document.getElementById("cfCartAddress").value = saved.address || "";
+    }
+  }catch(e){}
+})();
+
+const SHIPPING_FLAT_RATE = 9.95;
+const FREE_SHIPPING_THRESHOLD = 200;
 
 function renderCart(){
   const body=document.getElementById("cartBody");
   const countEl=document.getElementById("cartCount");
   const subtotalEl=document.getElementById("cartSubtotal");
-  const checkoutBtn=document.getElementById("checkoutBtn");
+  const shipNudge=document.getElementById("cartShipNudge");
+  const shipRow=document.getElementById("cartShipRow");
+  const shippingEl=document.getElementById("cartShipping");
+  const totalEl=document.getElementById("cartTotal");
 
   const totalQty = CART.reduce((s,l)=>s+l.qty,0);
   countEl.textContent = totalQty;
+  const countEl2 = document.getElementById("cartCount2");
+  if(countEl2) countEl2.textContent = totalQty;
 
   if(CART.length===0){
     body.innerHTML = `<div class="emptycart">${T[LANG]["cart.empty"]}</div>`;
     subtotalEl.textContent = fmtPrice(0);
+    shipRow.style.display = "none";
+    shipNudge.style.display = "none";
+    totalEl.textContent = fmtPrice(0);
     updateCheckoutState();
     return;
   }
   updateCheckoutState();
 
   let subtotal = 0;
-  body.innerHTML = CART.map(line=>{
+  const itemsHtml = CART.map(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return "";
     const lineTotal = p.price * line.qty;
@@ -943,7 +1113,28 @@ function renderCart(){
       </div>`;
   }).join("");
 
+  body.innerHTML = itemsHtml + `<div class="cartsuggest" id="cartSuggest"></div>`;
+  renderCartSuggestions();
+
   subtotalEl.textContent = fmtPrice(subtotal);
+
+  // shipping calculation
+  shipRow.style.display = "flex";
+  const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
+  shippingEl.textContent = shippingCost === 0 ? (LANG==="pt"?"Grátis":LANG==="es"?"Gratis":"Free") : fmtPrice(shippingCost);
+  totalEl.textContent = fmtPrice(subtotal + shippingCost);
+
+  // free-shipping progress nudge
+  shipNudge.style.display = "block";
+  if(subtotal >= FREE_SHIPPING_THRESHOLD){
+    shipNudge.classList.add("unlocked");
+    shipNudge.innerHTML = `🎉 ${T[LANG]["cart.freeshipunlocked"]}`;
+  } else {
+    shipNudge.classList.remove("unlocked");
+    const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+    const pct = Math.min(100, (subtotal/FREE_SHIPPING_THRESHOLD)*100);
+    shipNudge.innerHTML = `${T[LANG]["cart.freeshipprefix"]} <b>${fmtPrice(remaining)}</b> ${T[LANG]["cart.freeshipsuffix"]}<div class="bar"><i style="width:${pct}%"></i></div>`;
+  }
 
   body.querySelectorAll("[data-action]").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -954,37 +1145,119 @@ function renderCart(){
     });
   });
 
-  // build the email checkout link
+  // o link de e-mail é montado no momento do clique (função buildCheckoutEmail),
+  // não aqui, pra sempre pegar os dados mais recentes digitados nos campos
+}
+
+function buildCheckoutEmail(){
+  const custName = document.getElementById("cfCartName").value.trim();
+  const custEmail = document.getElementById("cfCartEmail").value.trim();
+  const custPhone = document.getElementById("cfCartPhone").value.trim();
+  const custAddress = document.getElementById("cfCartAddress").value.trim();
+
+  let subtotal = 0;
+  CART.forEach(line=>{
+    const p = PRODUCTS.find(pr=>pr.id===line.id);
+    if(p) subtotal += p.price * line.qty;
+  });
+  const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
+
   const subject = LANG==="pt" ? "Pedido de pesquisa - AcquaVitta"
                 : LANG==="es" ? "Pedido de investigación - AcquaVitta"
                 : "Research order - AcquaVitta";
   let msg = LANG==="pt" ? "Olá! Gostaria de fazer o seguinte pedido de pesquisa na AcquaVitta:\n\n"
           : LANG==="es" ? "¡Hola! Me gustaría hacer el siguiente pedido de investigación en AcquaVitta:\n\n"
           : "Hi! I'd like to place the following research order with AcquaVitta:\n\n";
+
+  msg += `${LANG==="pt"?"DADOS PARA ENVIO":LANG==="es"?"DATOS DE ENVÍO":"SHIPPING INFO"}\n`;
+  msg += `${LANG==="pt"?"Nome":LANG==="es"?"Nombre":"Name"}: ${custName}\n`;
+  msg += `${LANG==="pt"?"E-mail":LANG==="es"?"Correo":"Email"}: ${custEmail}\n`;
+  msg += `${LANG==="pt"?"Telefone":LANG==="es"?"Teléfono":"Phone"}: ${custPhone}\n`;
+  msg += `${LANG==="pt"?"Endereço":LANG==="es"?"Dirección":"Address"}: ${custAddress}\n`;
+  msg += `\n${LANG==="pt"?"PEDIDO":LANG==="es"?"PEDIDO":"ORDER"}\n`;
   CART.forEach(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return;
     msg += `• ${pName(p)}${pDose(p) ? " ("+pDose(p)+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
   });
   msg += `\nSubtotal: ${fmtPrice(subtotal)}`;
-  checkoutBtn.href = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+  msg += `\n${LANG==="pt"?"Envio":LANG==="es"?"Envío":"Shipping"}: ${shippingCost===0 ? (LANG==="pt"?"Grátis":LANG==="es"?"Gratis":"Free") : fmtPrice(shippingCost)}`;
+  msg += `\nTotal: ${fmtPrice(subtotal + shippingCost)}`;
+
+  try{
+    localStorage.setItem("av-checkout-info", JSON.stringify({name:custName, email:custEmail, phone:custPhone, address:custAddress}));
+  }catch(e){}
+
+  return `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+}
+
+document.getElementById("checkoutBtn").addEventListener("click", (e)=>{
+  e.preventDefault();
+  if(e.currentTarget.classList.contains("disabled")) return;
+  window.location.href = buildCheckoutEmail();
+});
+
+/* ---------- cross-sell suggestions inside the cart ---------- */
+function renderCartSuggestions(){
+  const wrap = document.getElementById("cartSuggest");
+  if(!wrap) return;
+  const cartIds = new Set(CART.map(l=>l.id));
+  const waterIds = ["water-kit-60","water-kit-15","water"];
+  const suggestions = [];
+
+  // prioritize bacteriostatic water / kits if none are already in the cart
+  const hasWaterItem = waterIds.some(id=>cartIds.has(id));
+  if(!hasWaterItem){
+    const kit = PRODUCTS.find(p=>p.id==="water-kit-60") || PRODUCTS.find(p=>p.id==="water");
+    if(kit) suggestions.push(kit);
+  }
+  // fill remaining slots with other products not already in the cart
+  for(const p of PRODUCTS){
+    if(suggestions.length >= 3) break;
+    if(cartIds.has(p.id)) continue;
+    if(suggestions.find(s=>s.id===p.id)) continue;
+    suggestions.push(p);
+  }
+
+  if(suggestions.length === 0){ wrap.innerHTML = ""; return; }
+
+  wrap.innerHTML = `<h5>${T[LANG]["cart.youmayneed"]}</h5>` + suggestions.map(p=>`
+    <div class="suggestrow">
+      <img src="${p.img}" alt="${pName(p)}">
+      <div>
+        <div class="sname">${pName(p)}</div>
+        <div class="sprice2">${fmtPrice(p.price)}</div>
+      </div>
+      <button class="suggestaddbtn" data-id="${p.id}" aria-label="${T[LANG]['cart.addtocart']}">+</button>
+    </div>
+  `).join("");
+
+  wrap.querySelectorAll(".suggestaddbtn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      addToCart(btn.dataset.id);
+      btn.classList.add("added");
+      btn.innerHTML = "✓";
+      setTimeout(renderCart, 500);
+    });
+  });
 }
 
 /* ---------- drawer open/close ---------- */
 const drawer=document.getElementById("drawer"), overlay=document.getElementById("overlay"), shopDrawer=document.getElementById("shopDrawer");
 function openCart(){ shopDrawer.classList.remove("show"); drawer.classList.add("show"); overlay.classList.add("show"); }
 function closeCart(){ drawer.classList.remove("show"); if(!shopDrawer.classList.contains("show")) overlay.classList.remove("show"); }
-function openShop(){ drawer.classList.remove("show"); shopDrawer.classList.add("show"); overlay.classList.add("show"); backToShopList(); }
+function openShop(){ drawer.classList.remove("show"); shopDrawer.classList.add("show"); overlay.classList.add("show"); }
 function closeShop(){ shopDrawer.classList.remove("show"); if(!drawer.classList.contains("show")) overlay.classList.remove("show"); }
 function closeAllDrawers(){ drawer.classList.remove("show"); shopDrawer.classList.remove("show"); overlay.classList.remove("show"); }
 document.getElementById("cartOpenBtn").onclick = openCart;
 document.getElementById("cartCloseBtn").onclick = closeCart;
 document.getElementById("shopOpenBtn").onclick = openShop;
 document.getElementById("shopCloseBtn").onclick = closeShop;
-document.getElementById("shopViewCartBtn").onclick = openCart;
-document.getElementById("navProductsLink").onclick = (e)=>{ e.preventDefault(); openShop(); };
-document.getElementById("footerProductsLink").onclick = (e)=>{ e.preventDefault(); openShop(); };
-document.getElementById("heroCtaBtn").onclick = (e)=>{ e.preventDefault(); openShop(); };
+document.getElementById("navProductsLink").onclick = (e)=>{ e.preventDefault(); openProductsPage(); };
+document.getElementById("footerProductsLink").onclick = (e)=>{ e.preventDefault(); openProductsPage(); };
+document.getElementById("heroCtaBtn").onclick = (e)=>{ e.preventDefault(); openProductsPage(); };
+document.getElementById("navMenuContact").onclick = ()=>{ closeShop(); openContact(false); };
+document.querySelectorAll("[data-navclose]").forEach(el=>{ el.addEventListener("click", closeShop); });
 overlay.onclick = closeAllDrawers;
 
 /* ---------- contact modal (vial-shaped form) ---------- */
@@ -1105,6 +1378,21 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
   }, 3200);
 })();
 
+/* ---------- age / research declaration gate ----------
+   Por decisão do cliente (exigência de segurança jurídica), este aviso
+   aparece em TODA entrada no site, sem exceção — não fica salvo entre
+   visitas (nem em localStorage, nem em sessionStorage/cookie). */
+(function(){
+  const gate = document.getElementById("ageGate");
+  const btn = document.getElementById("ageGateBtn");
+  document.body.style.overflow = "hidden";
+  btn.addEventListener("click", ()=>{
+    gate.classList.add("hide");
+    document.body.style.overflow = "";
+    setTimeout(()=>{ gate.style.display = "none"; }, 320);
+  });
+})();
+
 /* ---------- init ---------- */
 renderProducts();
 setLang(LANG);
@@ -1116,5 +1404,6 @@ new ApexCharts(document.querySelector("#purity"),{...base,chart:{...base.chart,t
 new ApexCharts(document.querySelector("#stability"),{...base,chart:{...base.chart,type:"bar",height:165},series:[{name:"Stability",data:[96.2,97.1,98.0,97.8,98.5]}],colors:["#d7a63b"],plotOptions:{bar:{borderRadius:4,columnWidth:"50%"}},xaxis:{categories:["0h","24h","48h","72h","96h"],labels:{style:{fontSize:"7px"}}},yaxis:{min:90,max:100,labels:{style:{fontSize:"7px"}}},legend:{show:false}}).render();
 new ApexCharts(document.querySelector("#donut"),{chart:{type:"donut",height:165,fontFamily:"Inter"},series:[64,22,9,5],labels:["Peptide","Control","Excipients","Other"],colors:["#d7a63b","#f1cc70","#a7b0b9","#fff"],stroke:{colors:["#071a2c"],width:2},dataLabels:{enabled:false},legend:{position:"right",fontSize:"7px",labels:{colors:"#c7d0d9"}},plotOptions:{pie:{donut:{size:"68%",labels:{show:true,total:{show:true,label:"Purity",formatter:()=>"99.1%"}}}}}}).render();
 </script>
+
 </body>
 </html>

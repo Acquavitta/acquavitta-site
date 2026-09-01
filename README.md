@@ -30,6 +30,8 @@ O ícone ☰ no cabeçalho abre um **menu de navegação simples** (Home, Produt
 ## Banner de entrada (idade + declaração de pesquisa)
 Assim que o site carrega, aparece um cartão pedindo que o visitante confirme que tem 21 anos ou mais e que entende que os produtos são exclusivamente para pesquisa — no estilo comum a outros sites do nicho (ex. Prime Peptides). **Por decisão do cliente (segurança jurídica), esse aviso aparece em toda entrada no site, sem exceção** — não fica salvo entre visitas (nem em localStorage, nem em cookie), então quem já aceitou antes precisa aceitar de novo a cada nova visita/recarregamento da página. Os textos desse banner ficam em `age.title`, `age.text`, `age.age` e `age.cta` (nas 3 línguas) dentro do `index.html`, caso queira ajustar a redação.
 
+**Ao clicar em "Entendi"**, o visitante vai direto pra **página de produtos** (a tela de pedido) — a Home com a parte de marketing/ciência/história fica pulada nesse primeiro momento, mas continua acessível a qualquer momento pelo menu (Home) ou fechando a página de produtos (X no canto). A página de produtos também mostra logo no topo, bem visível, quais **formas de pagamento são aceitas** (Zelle, Cripto, Transferência bancária) e quais não estão disponíveis por enquanto (Cartão, PayPal).
+
 ## Catálogo atual (22 itens)
 BPC-157 · CJC-1295 · Epithalon (10mg e 50mg) · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Selank · Semax · TB-500 · Tesamorelin · PT-141 · Glutathione · NAD+ · Vitamin B12 · IGF-1 LR3 · Oxytocin · AOD-9604 · Água Bacteriostática · Start Kit Água Bacteriostática (15 seringas) · Kit Água Bacteriostática (60 seringas).
 

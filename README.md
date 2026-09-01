@@ -48,20 +48,32 @@ Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa d
 O carrinho (gaveta lateral) agora só mostra os itens, o resumo de valores e o checkbox de compliance — ficou mais limpo. Depois de marcar o checkbox, o botão **"Continuar para pagamento"** abre uma **página cheia dedicada** (mesmo padrão usado por Prime Peptides, Tydes e NuAge Research, que analisamos), com:
 1. **Resumo do pedido** no topo
 2. **Escolha da forma de pagamento** (Zelle, Cripto ou Transferência bancária) — em cards, não texto corrido
-3. **Dados de envio** (nome, e-mail, telefone, endereço) — layout com rótulo acima de cada campo, como um checkout de verdade
+3. **Dados de envio** — nome, e-mail, telefone, e **endereço separado em campos de verdade** (Rua/Número, Apto opcional, Cidade, Estado em lista suspensa com os 50 estados dos EUA, CEP) — evita endereço "fantasma" digitado errado, e o Estado só aceita um estado real da lista.
 
-O e-mail final já inclui qual forma de pagamento a pessoa escolheu, junto com os dados e o pedido.
+## Envio real do pedido e do contato (corrigido de vez — 2 bugs encontrados)
+1. **Bug 1 (mailto)**: o botão "Enviar pedido" usava `mailto:`, que só funciona se a pessoa tiver programa de e-mail configurado no computador. Corrigido trocando pro Formspree.
+2. **Bug 2 (redirecionamento pago)**: ao trocar pro Formspree, usamos o campo `_next` (redirecionamento de volta pro site) tanto no formulário de pedido quanto no de contato — só que descobrimos que **esse redirecionamento é recurso PAGO no Formspree**, não disponível no plano grátis. Ou seja, mesmo com o Formspree funcionando, a pessoa nunca via a tela de "Pedido enviado!"/"Mensagem enviada!" — ela caía na página genérica do próprio Formspree.
+
+**A correção final**: os dois formulários (pedido e contato) agora enviam via **AJAX** (JavaScript busca a resposta direto do Formspree, sem precisar de redirecionamento nenhum) — esse método é gratuito e não depende do plano pago. A tela de sucesso aparece instantaneamente, sem sair da página, e:
+- O pedido completo (forma de pagamento escolhida, dados do cliente, itens, total) chega direto no seu e-mail
+- O cliente vê a tela "Pedido enviado!" na hora, sem recarregar a página
+- O carrinho é esvaziado automaticamente depois do envio
+- Se der algum problema de conexão, aparece um aviso claro pedindo pra tentar de novo ou escrever direto pro e-mail
+
+## E-mails: pedidos vs. contato (separado a pedido do cliente)
+- **Formulário de contato** → `info@acquavitta.com` (endpoint `mrpgzbzy`, já verificado)
+- **Formulário de pedido/checkout** → `sales@acquavitta.com` — criamos um formulário novo no Formspree (`Pedidos Acquavitta`) especificamente pra isso. **Pendente**: assim que você verificar o e-mail `sales@acquavitta.com` no Formspree (clicar no link que chegou na caixa) e me passar a URL desse novo formulário, eu atualizo o `action` do `<form id="checkoutForm">` no `index.html` pra apontar pra ele. Até lá, o checkout está temporariamente usando o mesmo endpoint do contato (`mrpgzbzy`), então os pedidos caem em `info@acquavitta.com` por enquanto.
 
 O fluxo completo:
 1. Cliente escolhe produtos → abre o carrinho → marca o checkbox de compliance → clica em "Continuar para pagamento"
-2. Na página de checkout: escolhe a forma de pagamento, preenche os dados de envio, clica em "Enviar pedido por e-mail"
-3. Abre o e-mail dele com tudo pronto (forma de pagamento escolhida + dados + pedido + total) endereçado a `sales@acquavitta.com`
-4. Você recebe o e-mail, cria o card no Airtable (coluna "Aguardando Zelle")
+2. Na página de checkout: escolhe a forma de pagamento, preenche os dados de envio (incluindo endereço em campos separados), clica em "Enviar pedido"
+3. Envio via AJAX pro Formspree → você recebe o pedido completo por e-mail → cliente vê a tela "Pedido enviado!" na hora
+4. Você cria o card no Airtable (coluna "Aguardando Zelle")
 5. Você responde ao cliente com as instruções de pagamento (Zelle/cripto/transferência)
 6. Cliente paga e manda comprovante
 7. Você confirma, move o card pro Airtable pra "Pagamento Confirmado", libera o envio
 
-Os dados preenchidos (nome, e-mail, telefone, endereço) ficam salvos no navegador do cliente — se ele comprar de novo depois, os campos já vêm pré-preenchidos. O botão "voltar" do navegador na página de checkout funciona igual à página de produtos: fecha a página e volta pro carrinho/Home, sem sair do site.
+Os dados preenchidos (nome, e-mail, telefone, endereço completo) ficam salvos no navegador do cliente — se ele comprar de novo depois, os campos já vêm pré-preenchidos. O botão "voltar" do navegador na página de checkout funciona igual à página de produtos: fecha a página e volta pro carrinho/Home, sem sair do site.
 
 ## Correção: carrinho fantasma (bug corrigido)
 Como o catálogo mudou várias vezes ao longo do projeto (produtos removidos/renomeados), quem tinha testado o carrinho antes podia ficar com itens "fantasmas" salvos no navegador — o contador mostrava um número, mas a lista aparecia vazia. Agora, assim que o site carrega, ele limpa automaticamente qualquer item do carrinho salvo que não exista mais no catálogo atual.

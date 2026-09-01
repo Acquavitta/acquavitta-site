@@ -309,6 +309,18 @@ footer a:hover{color:var(--gold2)}
 .cfrow input,.cfrow textarea{width:100%;background:#ffffff09;border:1px solid #ffffff22;border-radius:8px;padding:11px 13px;color:#fff;font-size:13px;font-family:inherit;box-sizing:border-box}
 .cfrow input:focus,.cfrow textarea:focus{outline:none;border-color:#d7a63b99;background:#ffffff0d}
 .cfrow textarea{resize:vertical;min-height:52px;line-height:1.4}
+.cfrow select{width:100%;background:#ffffff09;border:1px solid #ffffff22;border-radius:8px;padding:11px 13px;color:#fff;font-size:13px;font-family:inherit;box-sizing:border-box;appearance:none}
+.cfrow select:focus{outline:none;border-color:#d7a63b99;background:#ffffff0d}
+.cfrow select option{background:#0d2740;color:#fff}
+.cfrow input:disabled{opacity:.5;cursor:not-allowed}
+.cfrow input.touched:invalid,.cfrow select.touched:invalid{border-color:#c0392b88}
+.cfrow2{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:12px}
+@media(max-width:560px){ .cfrow2{grid-template-columns:1fr} }
+.checkoutsuccess{text-align:center;padding:30px 4px}
+.checkoutsuccess .vsuccessicon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1c8a52,#2fae6c);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.checkoutsuccess h4{font:600 20px "Playfair Display";color:#fff;margin:0 0 10px}
+.checkoutsuccess p{font-size:13px;color:#a8b7c4;line-height:1.7;margin:0 0 22px}
+.checkoutsuccess .btn{width:100%;justify-content:center}
 #checkoutPage .checkoutbtn{width:100%;justify-content:center;margin-top:6px}
 #checkoutPage .cartnote{margin-top:14px}
 
@@ -616,57 +628,96 @@ footer a:hover{color:var(--gold2)}
     <div class="checkoutwrap">
       <div class="checkoutsummary" id="checkoutSummary"></div>
 
-      <div class="checkoutsection">
-        <h4><span class="checkoutstepnum">1</span> <span data-i18n="checkout.paytitle">Escolha a forma de pagamento</span></h4>
-        <div class="paymethodpicker" id="payMethodPicker">
-          <label class="paymethodcard">
-            <input type="radio" name="paymethod" value="zelle" checked>
-            <div class="pmcardbody">
-              <b>Zelle</b>
-              <span data-i18n="checkout.payzelledesc">Transferência direta, sem taxas. As instruções chegam por e-mail.</span>
-            </div>
-          </label>
-          <label class="paymethodcard">
-            <input type="radio" name="paymethod" value="crypto">
-            <div class="pmcardbody">
-              <b data-i18n="checkout.paycryptotitle">Criptomoeda</b>
-              <span data-i18n="checkout.paycryptodesc">USDC/USDT. Endereço da carteira enviado por e-mail.</span>
-            </div>
-          </label>
-          <label class="paymethodcard">
-            <input type="radio" name="paymethod" value="bank">
-            <div class="pmcardbody">
-              <b data-i18n="checkout.paybanktitle">Transferência bancária</b>
-              <span data-i18n="checkout.paybankdesc">Dados bancários enviados por e-mail após a confirmação.</span>
-            </div>
-          </label>
-        </div>
-      </div>
+      <form id="checkoutForm" action="https://formspree.io/f/mrpgzbzy" method="POST">
+        <input type="hidden" name="_subject" value="Novo pedido - AcquaVitta">
+        <input type="hidden" name="order_items" id="hiddenOrderItems">
+        <input type="hidden" name="order_total" id="hiddenOrderTotal">
+        <input type="hidden" name="payment_method" id="hiddenPayMethod">
 
-      <div class="checkoutsection">
-        <h4><span class="checkoutstepnum">2</span> <span data-i18n="checkout.shiptitle">Seus dados para envio</span></h4>
-        <div class="checkoutform">
-          <div class="cfrow">
-            <label data-i18n="cart.infoname">Nome completo</label>
-            <input type="text" id="cfCartName" autocomplete="name">
-          </div>
-          <div class="cfrow">
-            <label data-i18n="cart.infoemail">E-mail</label>
-            <input type="email" id="cfCartEmail" autocomplete="email">
-          </div>
-          <div class="cfrow">
-            <label data-i18n="cart.infophone">Telefone</label>
-            <input type="tel" id="cfCartPhone" autocomplete="tel">
-          </div>
-          <div class="cfrow">
-            <label data-i18n="checkout.addresslabel">Endereço completo de envio</label>
-            <textarea id="cfCartAddress" rows="2" data-i18n-ph="cart.infoaddress" placeholder="Rua, cidade, estado, CEP" autocomplete="street-address"></textarea>
+        <div class="checkoutsection">
+          <h4><span class="checkoutstepnum">1</span> <span data-i18n="checkout.paytitle">Escolha a forma de pagamento</span></h4>
+          <div class="paymethodpicker" id="payMethodPicker">
+            <label class="paymethodcard">
+              <input type="radio" name="paymethod" value="zelle" checked>
+              <div class="pmcardbody">
+                <b>Zelle</b>
+                <span data-i18n="checkout.payzelledesc">Transferência direta, sem taxas. As instruções chegam por e-mail.</span>
+              </div>
+            </label>
+            <label class="paymethodcard">
+              <input type="radio" name="paymethod" value="crypto">
+              <div class="pmcardbody">
+                <b data-i18n="checkout.paycryptotitle">Criptomoeda</b>
+                <span data-i18n="checkout.paycryptodesc">USDC/USDT. Endereço da carteira enviado por e-mail.</span>
+              </div>
+            </label>
+            <label class="paymethodcard">
+              <input type="radio" name="paymethod" value="bank">
+              <div class="pmcardbody">
+                <b data-i18n="checkout.paybanktitle">Transferência bancária</b>
+                <span data-i18n="checkout.paybankdesc">Dados bancários enviados por e-mail após a confirmação.</span>
+              </div>
+            </label>
           </div>
         </div>
-      </div>
 
-      <a class="btn gold checkoutbtn" id="checkoutBtn" data-i18n="cart.checkout">Enviar pedido por e-mail →</a>
-      <div class="cartnote" data-i18n="cart.note">Ao finalizar, seu cliente de e-mail abrirá com o pedido e seus dados prontos para envio a sales@acquavitta.com. Você vai receber por e-mail as instruções de pagamento — o pedido só é confirmado como pago depois da verificação.</div>
+        <div class="checkoutsection">
+          <h4><span class="checkoutstepnum">2</span> <span data-i18n="checkout.shiptitle">Seus dados para envio</span></h4>
+          <div class="checkoutform">
+            <div class="cfrow">
+              <label data-i18n="cart.infoname">Nome completo</label>
+              <input type="text" id="cfCartName" name="name" autocomplete="name" required>
+            </div>
+            <div class="cfrow">
+              <label data-i18n="cart.infoemail">E-mail</label>
+              <input type="email" id="cfCartEmail" name="email" autocomplete="email" required>
+            </div>
+            <div class="cfrow">
+              <label data-i18n="cart.infophone">Telefone</label>
+              <input type="tel" id="cfCartPhone" name="phone" autocomplete="tel" placeholder="(305) 555-1234" pattern="[0-9\s\-\(\)\+]{10,20}" required>
+            </div>
+            <div class="cfrow">
+              <label data-i18n="checkout.address1label">Endereço (rua e número)</label>
+              <input type="text" id="cfAddr1" name="address_line1" autocomplete="address-line1" placeholder="123 Main St" required>
+            </div>
+            <div class="cfrow">
+              <label data-i18n="checkout.address2label">Apto / Suite (opcional)</label>
+              <input type="text" id="cfAddr2" name="address_line2" autocomplete="address-line2">
+            </div>
+            <div class="cfrow2">
+              <div class="cfrow">
+                <label data-i18n="checkout.citylabel">Cidade</label>
+                <input type="text" id="cfCity" name="city" autocomplete="address-level2" required>
+              </div>
+              <div class="cfrow cfrow-state">
+                <label data-i18n="checkout.statelabel">Estado</label>
+                <select id="cfState" name="state" autocomplete="address-level1" required>
+                  <option value="" data-i18n="checkout.stateselect">Selecione...</option>
+                  <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="cfrow cfrow-zip">
+                <label data-i18n="checkout.ziplabel">CEP (ZIP)</label>
+                <input type="text" id="cfZip" name="zip" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="33101" maxlength="10" required>
+              </div>
+            </div>
+            <div class="cfrow">
+              <label data-i18n="checkout.countrylabel">País</label>
+              <input type="text" value="United States" disabled>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn gold checkoutbtn" id="checkoutBtn" data-i18n="cart.checkout">Enviar pedido →</button>
+        <div class="cartnote" data-i18n="cart.note">Ao enviar, você vai receber por e-mail as instruções de pagamento — o pedido só é confirmado como pago depois da verificação.</div>
+      </form>
+
+      <div class="checkoutsuccess" id="checkoutSuccess" style="display:none">
+        <div class="vsuccessicon">✓</div>
+        <h4 data-i18n="checkout.successtitle">Pedido enviado!</h4>
+        <p data-i18n="checkout.successtext">Recebemos seu pedido. Em breve você vai receber por e-mail as instruções de pagamento.</p>
+        <button class="btn ghost" id="checkoutSuccessCloseBtn" data-i18n="contact.close">Fechar</button>
+      </div>
     </div>
   </div>
 </div>
@@ -729,7 +780,6 @@ footer a:hover{color:var(--gold2)}
       <p class="vsub" data-i18n="contact.sub">Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.</p>
       <form class="vform" id="contactForm" action="https://formspree.io/f/mrpgzbzy" method="POST">
         <input type="hidden" name="_subject" value="Contato pelo site - AcquaVitta">
-        <input type="hidden" name="_next" id="cfNext" value="">
         <label for="cfName" data-i18n="contact.name">Nome</label>
         <input type="text" id="cfName" name="name" required maxlength="120">
         <label for="cfPhone" data-i18n="contact.phone">Telefone (opcional)</label>
@@ -767,10 +817,9 @@ footer a:hover{color:var(--gold2)}
    PRODUCT CATALOG
    Preços em USD baseados em pesquisa de mercado (Tydes, Prime
    Peptides e fornecedores similares) — ajuste livremente abaixo.
-   Pedidos são enviados por e-mail para sales@acquavitta.com — edite o
-   endereço abaixo se precisar trocar.
+   Pedidos são enviados via Formspree — veja o formulário de checkout
+   ("checkoutForm") mais abaixo no HTML.
    ========================================================= */
-const ORDERS_EMAIL = "sales@acquavitta.com"; // <-- EDIT: e-mail que recebe os pedidos
 
 const PRODUCTS = [
   {
@@ -947,7 +996,7 @@ pt:{
 "story.kicker":"Nossa história","story.title":"A ciência por trás dos peptídeos","story.p1":"Peptídeos são pequenas cadeias de aminoácidos — os mesmos blocos que formam as proteínas do nosso corpo. A pesquisa nessa área começou há mais de um século, quando cientistas isolaram pela primeira vez uma molécula desse tipo para uso em laboratório.","story.p2":"Desde então, técnicas como a purificação por HPLC tornaram possível produzir peptídeos sintéticos com altíssima pureza, abrindo caminho para milhares de estudos sobre metabolismo, regeneração de tecidos e função celular. Hoje, laboratórios ao redor do mundo seguem essa investigação, sempre em ambiente controlado.","story.badge":"Produtos destinados exclusivamente à pesquisa em laboratório. Não são indicados para uso humano nem uso veterinário.",
 "shop.title":"Catálogo de peptídeos","shop.warning":"Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.","shop.viewcart":"Ver carrinho","shop.note":"Todos os produtos são vendidos exclusivamente para fins de pesquisa científica em laboratório.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA PESQUISA<br><small>Não indicado para consumo humano ou uso veterinário.</small>","footer.nav":"Navegação","footer.legalnav":"Legal","footer.contact":"Contato","footer.follow":"Siga-nos","footer.legal":"Nossos serviços e produtos são destinados exclusivamente para uso em pesquisa e não se destinam ao uso ou consumo pessoal, nem a diagnosticar, tratar, curar ou prevenir qualquer doença. Você concorda em usar nossos serviços e produtos em conformidade com todas as leis e regulamentos aplicáveis. A AcquaVitta se reserva o direito de recusar a venda de produtos caso acredite que um cliente esteja violando os Termos e Condições. Os produtos são fornecidos em forma de pó liofilizado (freeze-dried) e requerem reconstituição antes do uso. Em caso de exposição acidental, contate o Poison Help Line dos EUA: 1-800-222-1222.",
-"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.shipping":"Envio","cart.total":"Total","cart.freeshipprefix":"Faltam","cart.freeshipsuffix":"para frete grátis!","cart.freeshipunlocked":"Você ganhou frete grátis!","cart.youmayneed":"Você também pode precisar","cart.infotitle":"Seus dados para envio","cart.infoname":"Nome completo","cart.infoemail":"E-mail","cart.infophone":"Telefone","cart.infoaddress":"Endereço completo de envio (rua, cidade, estado, CEP)","cart.paymethodslabel":"Formas de pagamento aceitas:","cart.paycrypto":"Cripto","cart.paybank":"Transf. bancária","cart.paycard":"Cartão","cart.gotocheckout":"Continuar para pagamento →","checkout.title":"Finalizar pedido","checkout.paytitle":"Escolha a forma de pagamento","checkout.payzelledesc":"Transferência direta, sem taxas. As instruções chegam por e-mail.","checkout.paycryptotitle":"Criptomoeda","checkout.paycryptodesc":"USDC/USDT. Endereço da carteira enviado por e-mail.","checkout.paybanktitle":"Transferência bancária","checkout.paybankdesc":"Dados bancários enviados por e-mail após a confirmação.","checkout.shiptitle":"Seus dados para envio","checkout.addresslabel":"Endereço completo de envio","cart.checkout":"Enviar pedido por e-mail →","cart.note":"Ao finalizar, seu cliente de e-mail abrirá com o pedido e seus dados prontos para envio a sales@acquavitta.com. Você vai receber por e-mail as instruções de pagamento (Zelle, cripto ou transferência bancária) — o pedido só é confirmado como pago depois da verificação.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>termos de venda</a> e a <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidade</a>."
+"cart.title":"Seu carrinho","cart.empty":"Seu carrinho está vazio.<br>Explore nossos peptídeos de grau de pesquisa.","cart.subtotal":"Subtotal","cart.shipping":"Envio","cart.total":"Total","cart.freeshipprefix":"Faltam","cart.freeshipsuffix":"para frete grátis!","cart.freeshipunlocked":"Você ganhou frete grátis!","cart.youmayneed":"Você também pode precisar","cart.infotitle":"Seus dados para envio","cart.infoname":"Nome completo","cart.infoemail":"E-mail","cart.infophone":"Telefone","cart.infoaddress":"Endereço completo de envio (rua, cidade, estado, CEP)","cart.paymethodslabel":"Formas de pagamento aceitas:","cart.paycrypto":"Cripto","cart.paybank":"Transf. bancária","cart.paycard":"Cartão","cart.gotocheckout":"Continuar para pagamento →","checkout.title":"Finalizar pedido","checkout.paytitle":"Escolha a forma de pagamento","checkout.payzelledesc":"Transferência direta, sem taxas. As instruções chegam por e-mail.","checkout.paycryptotitle":"Criptomoeda","checkout.paycryptodesc":"USDC/USDT. Endereço da carteira enviado por e-mail.","checkout.paybanktitle":"Transferência bancária","checkout.paybankdesc":"Dados bancários enviados por e-mail após a confirmação.","checkout.shiptitle":"Seus dados para envio","checkout.address1label":"Endereço (rua e número)","checkout.address2label":"Apto / Suite (opcional)","checkout.citylabel":"Cidade","checkout.statelabel":"Estado","checkout.stateselect":"Selecione...","checkout.ziplabel":"CEP (ZIP)","checkout.countrylabel":"País","checkout.successtitle":"Pedido enviado!","checkout.successtext":"Recebemos seu pedido. Em breve você vai receber por e-mail as instruções de pagamento.","cart.checkout":"Enviar pedido →","cart.note":"Ao enviar, você vai receber por e-mail as instruções de pagamento (Zelle, cripto ou transferência bancária) — o pedido só é confirmado como pago depois da verificação.","cart.added":"Adicionado ✓","cart.add":"Adicionar","cart.addtocart":"Adicionar ao carrinho","cart.compliance":"Ao finalizar esta compra, confirmo que tenho pelo menos 21 anos de idade e sou um profissional qualificado e/ou licenciado. Reconheço que os produtos adquiridos neste site são estritamente para uso em pesquisa laboratorial e não serão usados para consumo humano ou animal em nenhuma forma. Li e concordo com os <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>termos de venda</a> e a <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidade</a>."
 },
 en:{
 "nav.home":"Home","nav.products":"Products","nav.science":"Science","nav.about":"About","nav.contact":"Contact","nav.cart":"Cart","nav.menu":"Menu","age.badge":"Research","age.title":"Research Use Only","age.text":"By using this site, you declare that all products and information provided are for research purposes only and are not intended for human consumption, veterinary use, or any medical application.","age.age":"<b>You must be 21 years of age or older</b> to use this website.","age.age.b":"You must be 21 years of age or older","age.cta":"I Understand →",
@@ -963,7 +1012,7 @@ en:{
 "story.kicker":"Our story","story.title":"The science behind peptides","story.p1":"Peptides are short chains of amino acids — the same building blocks that make up the proteins in our bodies. Peptide research began over a century ago, when scientists first isolated a peptide molecule for laboratory use.","story.p2":"Since then, techniques like HPLC purification have made it possible to produce synthetic peptides with very high purity, enabling thousands of studies on metabolism, tissue regeneration and cell function. Today, laboratories around the world continue this investigation, always in a controlled setting.","story.badge":"Products intended exclusively for laboratory research. Not for human or veterinary use.",
 "shop.title":"Peptide catalog","shop.warning":"For laboratory research only. Not for human or veterinary use.","shop.viewcart":"View cart","shop.note":"All products are sold exclusively for scientific laboratory research purposes.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"RESEARCH USE ONLY<br><small>Not for human consumption or veterinary use.</small>","footer.nav":"Navigation","footer.legalnav":"Legal","footer.contact":"Contact","footer.follow":"Follow us","footer.legal":"Our services and products are for research use only and are not intended for personal use or consumption, nor are they intended to diagnose, treat, cure, or prevent any disease. You agree to use our services and products in compliance with all applicable laws and regulations. AcquaVitta reserves the right to refuse the sale of products if it believes a customer is violating the Terms and Conditions. Products are supplied in lyophilized (freeze-dried) powder form and require reconstitution prior to use. In case of accidental exposure, contact the U.S. Poison Help Line: 1-800-222-1222.",
-"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.shipping":"Shipping","cart.total":"Total","cart.freeshipprefix":"You are","cart.freeshipsuffix":"away from free shipping!","cart.freeshipunlocked":"You unlocked free shipping!","cart.youmayneed":"You may also need","cart.infotitle":"Your shipping details","cart.infoname":"Full name","cart.infoemail":"Email","cart.infophone":"Phone","cart.infoaddress":"Full shipping address (street, city, state, ZIP)","cart.paymethodslabel":"Accepted payment methods:","cart.paycrypto":"Crypto","cart.paybank":"Bank transfer","cart.paycard":"Card","cart.gotocheckout":"Continue to payment →","checkout.title":"Complete your order","checkout.paytitle":"Choose your payment method","checkout.payzelledesc":"Direct transfer, no fees. Instructions sent by email.","checkout.paycryptotitle":"Cryptocurrency","checkout.paycryptodesc":"USDC/USDT. Wallet address sent by email.","checkout.paybanktitle":"Bank transfer","checkout.paybankdesc":"Bank details sent by email after confirmation.","checkout.shiptitle":"Your shipping details","checkout.addresslabel":"Full shipping address","cart.checkout":"Send order by email →","cart.note":"On checkout, your email client will open with the order and your details ready to send to sales@acquavitta.com. You will receive payment instructions by email (Zelle, crypto, or bank transfer) — your order is only confirmed as paid after verification.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>terms of sale</a> and <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>privacy policy</a>."
+"cart.title":"Your cart","cart.empty":"Your cart is empty.<br>Explore our research-grade peptides.","cart.subtotal":"Subtotal","cart.shipping":"Shipping","cart.total":"Total","cart.freeshipprefix":"You are","cart.freeshipsuffix":"away from free shipping!","cart.freeshipunlocked":"You unlocked free shipping!","cart.youmayneed":"You may also need","cart.infotitle":"Your shipping details","cart.infoname":"Full name","cart.infoemail":"Email","cart.infophone":"Phone","cart.infoaddress":"Full shipping address (street, city, state, ZIP)","cart.paymethodslabel":"Accepted payment methods:","cart.paycrypto":"Crypto","cart.paybank":"Bank transfer","cart.paycard":"Card","cart.gotocheckout":"Continue to payment →","checkout.title":"Complete your order","checkout.paytitle":"Choose your payment method","checkout.payzelledesc":"Direct transfer, no fees. Instructions sent by email.","checkout.paycryptotitle":"Cryptocurrency","checkout.paycryptodesc":"USDC/USDT. Wallet address sent by email.","checkout.paybanktitle":"Bank transfer","checkout.paybankdesc":"Bank details sent by email after confirmation.","checkout.shiptitle":"Your shipping details","checkout.address1label":"Street address","checkout.address2label":"Apt / Suite (optional)","checkout.citylabel":"City","checkout.statelabel":"State","checkout.stateselect":"Select...","checkout.ziplabel":"ZIP code","checkout.countrylabel":"Country","checkout.successtitle":"Order sent!","checkout.successtext":"We received your order. You will receive payment instructions by email shortly.","cart.checkout":"Send order →","cart.note":"On submit, you will receive payment instructions by email (Zelle, crypto, or bank transfer) — your order is only confirmed as paid after verification.","cart.added":"Added ✓","cart.add":"Add","cart.addtocart":"Add to cart","cart.compliance":"By completing this purchase, I confirm that I am at least 21 years of age and a qualified and/or licensed professional. I acknowledge that products purchased on this site are strictly for laboratory research use and will not be used for human or animal consumption in any form. I have read and agree to the <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>terms of sale</a> and <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>privacy policy</a>."
 },
 es:{
 "nav.home":"Inicio","nav.products":"Productos","nav.science":"Ciencia","nav.about":"Nosotros","nav.contact":"Contacto","nav.cart":"Carrito","nav.menu":"Menú","age.badge":"Investigación","age.title":"Solo para investigación","age.text":"Al usar este sitio, usted declara que todos los productos e información aquí presentados se proporcionan exclusivamente con fines de investigación y no están destinados al consumo humano, uso veterinario ni ninguna aplicación médica.","age.age":"<b>Debe tener 21 años de edad o más</b> para usar este sitio.","age.age.b":"Debe tener 21 años de edad o más","age.cta":"Entendido →",
@@ -979,7 +1028,7 @@ es:{
 "story.kicker":"Nuestra historia","story.title":"La ciencia detrás de los péptidos","story.p1":"Los péptidos son pequeñas cadenas de aminoácidos, los mismos bloques que forman las proteínas de nuestro cuerpo. La investigación en esta área comenzó hace más de un siglo, cuando los científicos aislaron por primera vez una molécula de este tipo para uso en laboratorio.","story.p2":"Desde entonces, técnicas como la purificación por HPLC han permitido producir péptidos sintéticos de altísima pureza, abriendo camino a miles de estudios sobre metabolismo, regeneración de tejidos y función celular. Hoy, laboratorios de todo el mundo continúan esta investigación, siempre en un entorno controlado.","story.badge":"Productos destinados exclusivamente a la investigación de laboratorio. No aptos para uso humano ni uso veterinario.",
 "shop.title":"Catálogo de péptidos","shop.warning":"Solo para investigación de laboratorio. No apto para uso humano ni veterinario.","shop.viewcart":"Ver carrito","shop.note":"Todos los productos se venden exclusivamente para fines de investigación científica de laboratorio.",
 "footer.tag":"Research Peptides, Life in Evolution.","footer.researchbadge":"USO EXCLUSIVO PARA INVESTIGACIÓN<br><small>No indicado para consumo humano ni uso veterinario.</small>","footer.nav":"Navegación","footer.legalnav":"Legal","footer.contact":"Contacto","footer.follow":"Síganos","footer.legal":"Nuestros servicios y productos son exclusivamente para uso en investigación y no están destinados al uso o consumo personal, ni a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Usted acepta usar nuestros servicios y productos de conformidad con todas las leyes y regulaciones aplicables. AcquaVitta se reserva el derecho de rechazar la venta de productos si cree que un cliente está violando los Términos y Condiciones. Los productos se suministran en forma de polvo liofilizado y requieren reconstitución antes de su uso. En caso de exposición accidental, contacte la Línea de Ayuda de Envenenamiento de EE. UU.: 1-800-222-1222.",
-"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.shipping":"Envío","cart.total":"Total","cart.freeshipprefix":"Te faltan","cart.freeshipsuffix":"para envío gratis!","cart.freeshipunlocked":"¡Desbloqueaste el envío gratis!","cart.youmayneed":"También podrías necesitar","cart.infotitle":"Tus datos de envío","cart.infoname":"Nombre completo","cart.infoemail":"Correo electrónico","cart.infophone":"Teléfono","cart.infoaddress":"Dirección completa de envío (calle, ciudad, estado, código postal)","cart.paymethodslabel":"Formas de pago aceptadas:","cart.paycrypto":"Cripto","cart.paybank":"Transferencia bancaria","cart.paycard":"Tarjeta","cart.gotocheckout":"Continuar al pago →","checkout.title":"Finalizar pedido","checkout.paytitle":"Elija la forma de pago","checkout.payzelledesc":"Transferencia directa, sin comisiones. Las instrucciones llegan por correo.","checkout.paycryptotitle":"Criptomoneda","checkout.paycryptodesc":"USDC/USDT. Dirección de la billetera enviada por correo.","checkout.paybanktitle":"Transferencia bancaria","checkout.paybankdesc":"Datos bancarios enviados por correo tras la confirmación.","checkout.shiptitle":"Sus datos de envío","checkout.addresslabel":"Dirección completa de envío","cart.checkout":"Enviar pedido por correo →","cart.note":"Al finalizar, su cliente de correo se abrirá con el pedido y sus datos listos para enviar a sales@acquavitta.com. Recibirá por correo las instrucciones de pago (Zelle, cripto o transferencia bancaria) — el pedido solo se confirma como pagado después de la verificación.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>términos de venta</a> y la <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidad</a>."
+"cart.title":"Su carrito","cart.empty":"Su carrito está vacío.<br>Explore nuestros péptidos de grado de investigación.","cart.subtotal":"Subtotal","cart.shipping":"Envío","cart.total":"Total","cart.freeshipprefix":"Te faltan","cart.freeshipsuffix":"para envío gratis!","cart.freeshipunlocked":"¡Desbloqueaste el envío gratis!","cart.youmayneed":"También podrías necesitar","cart.infotitle":"Tus datos de envío","cart.infoname":"Nombre completo","cart.infoemail":"Correo electrónico","cart.infophone":"Teléfono","cart.infoaddress":"Dirección completa de envío (calle, ciudad, estado, código postal)","cart.paymethodslabel":"Formas de pago aceptadas:","cart.paycrypto":"Cripto","cart.paybank":"Transferencia bancaria","cart.paycard":"Tarjeta","cart.gotocheckout":"Continuar al pago →","checkout.title":"Finalizar pedido","checkout.paytitle":"Elija la forma de pago","checkout.payzelledesc":"Transferencia directa, sin comisiones. Las instrucciones llegan por correo.","checkout.paycryptotitle":"Criptomoneda","checkout.paycryptodesc":"USDC/USDT. Dirección de la billetera enviada por correo.","checkout.paybanktitle":"Transferencia bancaria","checkout.paybankdesc":"Datos bancarios enviados por correo tras la confirmación.","checkout.shiptitle":"Sus datos de envío","checkout.address1label":"Dirección (calle y número)","checkout.address2label":"Apto / Suite (opcional)","checkout.citylabel":"Ciudad","checkout.statelabel":"Estado","checkout.stateselect":"Seleccione...","checkout.ziplabel":"Código postal","checkout.countrylabel":"País","checkout.successtitle":"¡Pedido enviado!","checkout.successtext":"Recibimos su pedido. Pronto recibirá por correo las instrucciones de pago.","cart.checkout":"Enviar pedido →","cart.note":"Al enviar, recibirá por correo las instrucciones de pago (Zelle, cripto o transferencia bancaria) — el pedido solo se confirma como pagado después de la verificación.","cart.added":"Añadido ✓","cart.add":"Añadir","cart.addtocart":"Añadir al carrito","cart.compliance":"Al finalizar esta compra, confirmo que tengo al menos 21 años de edad y soy un profesional calificado y/o licenciado. Reconozco que los productos adquiridos en este sitio son estrictamente para uso en investigación de laboratorio y no se usarán para consumo humano ni animal en ninguna forma. He leído y acepto los <a href='terms.html' target='_blank' rel='noopener' style='color:#f1cc70'>términos de venta</a> y la <a href='privacy-policy.html' target='_blank' rel='noopener' style='color:#f1cc70'>política de privacidad</a>."
 }};
 let LANG = localStorage.getItem("av-lang") || "en";
 
@@ -1122,8 +1171,11 @@ function checkoutInfoFilled(){
   const name = document.getElementById("cfCartName").value.trim();
   const email = document.getElementById("cfCartEmail").value.trim();
   const phone = document.getElementById("cfCartPhone").value.trim();
-  const address = document.getElementById("cfCartAddress").value.trim();
-  return name && email && phone && address;
+  const addr1 = document.getElementById("cfAddr1").value.trim();
+  const city = document.getElementById("cfCity").value.trim();
+  const state = document.getElementById("cfState").value.trim();
+  const zip = document.getElementById("cfZip").value.trim();
+  return name && email && phone && addr1 && city && state && zip;
 }
 
 // botão "Continuar para pagamento" no carrinho: só exige itens + compliance
@@ -1136,14 +1188,18 @@ function updateGoToCheckoutState(){
 }
 document.getElementById("complianceCheck").addEventListener("change", updateGoToCheckoutState);
 
-// botão "Enviar pedido" na página de checkout: exige os dados preenchidos
+// botão "Enviar pedido" na página de checkout: exige os dados preenchidos e válidos
 function updateCheckoutState(){
   const checkoutBtn = document.getElementById("checkoutBtn");
-  if(checkoutInfoFilled()){ checkoutBtn.classList.remove("disabled"); }
+  const form = document.getElementById("checkoutForm");
+  if(checkoutInfoFilled() && form.checkValidity()){ checkoutBtn.classList.remove("disabled"); }
   else { checkoutBtn.classList.add("disabled"); }
 }
-["cfCartName","cfCartEmail","cfCartPhone","cfCartAddress"].forEach(id=>{
-  document.getElementById(id).addEventListener("input", updateCheckoutState);
+["cfCartName","cfCartEmail","cfCartPhone","cfAddr1","cfAddr2","cfCity","cfState","cfZip"].forEach(id=>{
+  const el = document.getElementById(id);
+  el.addEventListener("input", updateCheckoutState);
+  el.addEventListener("change", updateCheckoutState);
+  el.addEventListener("blur", ()=>{ el.classList.add("touched"); });
 });
 
 // pré-preenche com os dados salvos da última compra, se houver
@@ -1154,17 +1210,30 @@ function updateCheckoutState(){
       document.getElementById("cfCartName").value = saved.name || "";
       document.getElementById("cfCartEmail").value = saved.email || "";
       document.getElementById("cfCartPhone").value = saved.phone || "";
-      document.getElementById("cfCartAddress").value = saved.address || "";
+      document.getElementById("cfAddr1").value = saved.addr1 || "";
+      document.getElementById("cfAddr2").value = saved.addr2 || "";
+      document.getElementById("cfCity").value = saved.city || "";
+      document.getElementById("cfState").value = saved.state || "";
+      document.getElementById("cfZip").value = saved.zip || "";
     }
   }catch(e){}
 })();
 
 /* ---------- checkout page (pagamento + dados, tela cheia) ---------- */
 const checkoutPage = document.getElementById("checkoutPage");
-function openCheckoutPage(){
+function openCheckoutPage(showSuccess){
   closeCart();
-  renderCheckoutSummary();
-  updateCheckoutState();
+  const form = document.getElementById("checkoutForm");
+  const success = document.getElementById("checkoutSuccess");
+  if(showSuccess){
+    form.style.display = "none";
+    success.style.display = "block";
+  } else {
+    renderCheckoutSummary();
+    updateCheckoutState();
+    form.style.display = "block";
+    success.style.display = "none";
+  }
   checkoutPage.classList.add("show");
   document.body.style.overflow = "hidden";
   history.pushState({avPage:"checkout"}, "", "#checkout");
@@ -1179,9 +1248,10 @@ function closeCheckoutPage(){
 }
 document.getElementById("goToCheckoutBtn").addEventListener("click", (e)=>{
   if(e.currentTarget.classList.contains("disabled")) return;
-  openCheckoutPage();
+  openCheckoutPage(false);
 });
 document.getElementById("checkoutCloseBtn").addEventListener("click", closeCheckoutPage);
+document.getElementById("checkoutSuccessCloseBtn").addEventListener("click", closeCheckoutPage);
 
 function renderCheckoutSummary(){
   const wrap = document.getElementById("checkoutSummary");
@@ -1290,56 +1360,88 @@ function renderCart(){
   // não aqui, pra sempre pegar os dados mais recentes digitados nos campos
 }
 
-function buildCheckoutEmail(){
-  const custName = document.getElementById("cfCartName").value.trim();
-  const custEmail = document.getElementById("cfCartEmail").value.trim();
-  const custPhone = document.getElementById("cfCartPhone").value.trim();
-  const custAddress = document.getElementById("cfCartAddress").value.trim();
+function buildOrderSummaryText(){
   const payMethodInput = document.querySelector('input[name="paymethod"]:checked');
   const payMethodLabel = payMethodInput ? payMethodInput.closest(".paymethodcard").querySelector("b").textContent : "Zelle";
 
   let subtotal = 0;
-  CART.forEach(line=>{
-    const p = PRODUCTS.find(pr=>pr.id===line.id);
-    if(p) subtotal += p.price * line.qty;
-  });
-  const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
-
-  const subject = LANG==="pt" ? "Pedido de pesquisa - AcquaVitta"
-                : LANG==="es" ? "Pedido de investigación - AcquaVitta"
-                : "Research order - AcquaVitta";
-  let msg = LANG==="pt" ? "Olá! Gostaria de fazer o seguinte pedido de pesquisa na AcquaVitta:\n\n"
-          : LANG==="es" ? "¡Hola! Me gustaría hacer el siguiente pedido de investigación en AcquaVitta:\n\n"
-          : "Hi! I'd like to place the following research order with AcquaVitta:\n\n";
-
-  msg += `${LANG==="pt"?"FORMA DE PAGAMENTO ESCOLHIDA":LANG==="es"?"FORMA DE PAGO ELEGIDA":"CHOSEN PAYMENT METHOD"}: ${payMethodLabel}\n\n`;
-  msg += `${LANG==="pt"?"DADOS PARA ENVIO":LANG==="es"?"DATOS DE ENVÍO":"SHIPPING INFO"}\n`;
-  msg += `${LANG==="pt"?"Nome":LANG==="es"?"Nombre":"Name"}: ${custName}\n`;
-  msg += `${LANG==="pt"?"E-mail":LANG==="es"?"Correo":"Email"}: ${custEmail}\n`;
-  msg += `${LANG==="pt"?"Telefone":LANG==="es"?"Teléfono":"Phone"}: ${custPhone}\n`;
-  msg += `${LANG==="pt"?"Endereço":LANG==="es"?"Dirección":"Address"}: ${custAddress}\n`;
-  msg += `\n${LANG==="pt"?"PEDIDO":LANG==="es"?"PEDIDO":"ORDER"}\n`;
+  let itemsText = "";
   CART.forEach(line=>{
     const p = PRODUCTS.find(pr=>pr.id===line.id);
     if(!p) return;
-    msg += `• ${pName(p)}${pDose(p) ? " ("+pDose(p)+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
+    subtotal += p.price * line.qty;
+    itemsText += `${pName(p)}${pDose(p) ? " ("+pDose(p)+")" : ""} x${line.qty} — ${fmtPrice(p.price*line.qty)}\n`;
   });
-  msg += `\nSubtotal: ${fmtPrice(subtotal)}`;
-  msg += `\n${LANG==="pt"?"Envio":LANG==="es"?"Envío":"Shipping"}: ${shippingCost===0 ? (LANG==="pt"?"Grátis":LANG==="es"?"Gratis":"Free") : fmtPrice(shippingCost)}`;
-  msg += `\nTotal: ${fmtPrice(subtotal + shippingCost)}`;
+  const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
+  const shipLabel = shippingCost===0 ? (LANG==="pt"?"Grátis":LANG==="es"?"Gratis":"Free") : fmtPrice(shippingCost);
+  itemsText += `\nSubtotal: ${fmtPrice(subtotal)}\n${LANG==="pt"?"Envio":LANG==="es"?"Envío":"Shipping"}: ${shipLabel}\nTotal: ${fmtPrice(subtotal + shippingCost)}`;
 
-  try{
-    localStorage.setItem("av-checkout-info", JSON.stringify({name:custName, email:custEmail, phone:custPhone, address:custAddress}));
-  }catch(e){}
-
-  return `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+  return { itemsText, total: fmtPrice(subtotal + shippingCost), payMethodLabel };
 }
 
-document.getElementById("checkoutBtn").addEventListener("click", (e)=>{
+const checkoutForm = document.getElementById("checkoutForm");
+checkoutForm.addEventListener("submit", async (e)=>{
   e.preventDefault();
-  if(e.currentTarget.classList.contains("disabled")) return;
-  window.location.href = buildCheckoutEmail();
+  if(!checkoutInfoFilled() || !checkoutForm.checkValidity()){
+    checkoutForm.reportValidity();
+    return;
+  }
+
+  const { itemsText, total, payMethodLabel } = buildOrderSummaryText();
+  document.getElementById("hiddenOrderItems").value = itemsText;
+  document.getElementById("hiddenOrderTotal").value = total;
+  document.getElementById("hiddenPayMethod").value = payMethodLabel;
+
+  const custInfo = {
+    name: document.getElementById("cfCartName").value.trim(),
+    email: document.getElementById("cfCartEmail").value.trim(),
+    phone: document.getElementById("cfCartPhone").value.trim(),
+    addr1: document.getElementById("cfAddr1").value.trim(),
+    addr2: document.getElementById("cfAddr2").value.trim(),
+    city: document.getElementById("cfCity").value.trim(),
+    state: document.getElementById("cfState").value.trim(),
+    zip: document.getElementById("cfZip").value.trim()
+  };
+
+  const submitBtn = document.getElementById("checkoutBtn");
+  const original = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = LANG==="pt" ? "Enviando…" : LANG==="es" ? "Enviando…" : "Sending…";
+
+  // Envio via AJAX (funciona no plano grátis do Formspree — o redirecionamento
+  // personalizado "_next" é recurso pago, então NÃO dependemos dele. A resposta
+  // volta direto em JSON e mostramos a tela de sucesso sem sair da página.
+  try{
+    const fd = new FormData(checkoutForm);
+    const res = await fetch(checkoutForm.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: fd
+    });
+    if(res.ok){
+      try{ localStorage.setItem("av-checkout-info", JSON.stringify(custInfo)); }catch(err){}
+      CART = [];
+      saveCart();
+      renderCart();
+      const wrap = document.getElementById("checkoutForm");
+      const success = document.getElementById("checkoutSuccess");
+      wrap.style.display = "none";
+      success.style.display = "block";
+    } else {
+      alert(LANG==="pt" ? "Não foi possível enviar o pedido agora. Tente novamente em instantes, ou nos escreva direto em sales@acquavitta.com."
+          : LANG==="es" ? "No se pudo enviar el pedido ahora. Inténtelo de nuevo en unos instantes, o escríbanos directamente a sales@acquavitta.com."
+          : "We couldn't send your order right now. Please try again shortly, or email us directly at sales@acquavitta.com.");
+    }
+  } catch(err){
+    alert(LANG==="pt" ? "Não foi possível enviar o pedido agora. Verifique sua conexão e tente novamente, ou nos escreva direto em sales@acquavitta.com."
+        : LANG==="es" ? "No se pudo enviar el pedido ahora. Verifique su conexión e inténtelo de nuevo, o escríbanos a sales@acquavitta.com."
+        : "We couldn't send your order right now. Please check your connection and try again, or email us directly at sales@acquavitta.com.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = original;
+  }
 });
+
 
 /* ---------- cross-sell suggestions inside the cart ---------- */
 function renderCartSuggestions(){
@@ -1409,14 +1511,15 @@ overlay.onclick = closeAllDrawers;
    configurado e ativo. O formulário é enviado do jeito HTML padrão (sem
    JavaScript no meio), porque formulários novos do Formspree bloqueiam por
    segurança o envio "silencioso" via JS a partir de sites recém-configurados.
-   O campo _next abaixo traz o visitante de volta pro site depois do envio,
-   e o site detecta esse retorno pra mostrar a tela de "Mensagem enviada!". */
+   ATUALIZAÇÃO: o redirecionamento "_next" é recurso PAGO no Formspree —
+   no plano grátis ele é ignorado, e o Formspree mostra a própria página
+   genérica dele. Por isso trocamos para envio via AJAX (gratuito): a
+   resposta volta em JSON, direto na página, sem precisar redirecionar. */
 const contactOverlay = document.getElementById("contactOverlay");
 const contactForm = document.getElementById("contactForm");
 const cfMsg = document.getElementById("cfMsg");
 const cfCount = document.getElementById("cfCount");
 const cfSuccess = document.getElementById("cfSuccess");
-const cfNext = document.getElementById("cfNext");
 
 function openContact(showSuccess){
   contactOverlay.classList.add("show");
@@ -1424,7 +1527,6 @@ function openContact(showSuccess){
 }
 function closeContact(){
   contactOverlay.classList.remove("show");
-  if(location.hash === "#contact-sent") history.replaceState(null, "", location.pathname + location.search);
 }
 document.getElementById("contactOpenBtn").onclick = (e)=>{ e.preventDefault(); openContact(false); };
 document.getElementById("contactCloseBtn").onclick = closeContact;
@@ -1434,7 +1536,6 @@ document.getElementById("cfSuccessCloseBtn").onclick = closeContact;
 function resetContactForm(showSuccess){
   contactForm.reset();
   cfCount.textContent = "0";
-  cfNext.value = location.origin + location.pathname + "#contact-sent";
   if(showSuccess){
     contactForm.style.display = "none";
     cfSuccess.style.display = "block";
@@ -1446,8 +1547,37 @@ function resetContactForm(showSuccess){
 
 cfMsg.addEventListener("input", ()=>{ cfCount.textContent = cfMsg.value.length; });
 
-// se o visitante acabou de voltar do Formspree após enviar, mostra a confirmação
-if(location.hash === "#contact-sent"){ openContact(true); }
+contactForm.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  if(!contactForm.checkValidity()){ contactForm.reportValidity(); return; }
+  const submitBtn = document.getElementById("cfSubmitBtn");
+  const original = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = LANG==="pt" ? "Enviando…" : LANG==="es" ? "Enviando…" : "Sending…";
+  try{
+    const fd = new FormData(contactForm);
+    const res = await fetch(contactForm.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: fd
+    });
+    if(res.ok){
+      contactForm.style.display = "none";
+      cfSuccess.style.display = "block";
+    } else {
+      alert(LANG==="pt" ? "Não foi possível enviar agora. Tente novamente, ou escreva direto para info@acquavitta.com."
+          : LANG==="es" ? "No se pudo enviar ahora. Inténtelo de nuevo, o escríbanos a info@acquavitta.com."
+          : "We couldn't send this right now. Please try again, or email us directly at info@acquavitta.com.");
+    }
+  } catch(err){
+    alert(LANG==="pt" ? "Não foi possível enviar agora. Verifique sua conexão, ou escreva direto para info@acquavitta.com."
+        : LANG==="es" ? "No se pudo enviar ahora. Verifique su conexión, o escríbanos a info@acquavitta.com."
+        : "We couldn't send this right now. Please check your connection, or email us directly at info@acquavitta.com.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = original;
+  }
+});
 
 
 /* ---------- scroll reveal ---------- */

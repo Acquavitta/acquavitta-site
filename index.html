@@ -632,6 +632,16 @@ footer a:hover{color:var(--gold2)}
   </div>
   <div class="pagebody">
     <div class="drawerbanner pagebanner"><span class="bicon">ⓘ</span><span data-i18n="shop.warning">Apenas para pesquisa em laboratório. Não é para uso humano nem uso veterinário.</span></div>
+    <div class="paymethods pagebanner" style="margin:0 auto 20px;border-top:0;padding-top:0">
+      <span data-i18n="cart.paymethodslabel">Formas de pagamento aceitas:</span>
+      <div class="paymethodslist">
+        <span class="paypill ok">Zelle</span>
+        <span class="paypill ok" data-i18n="cart.paycrypto">Cripto</span>
+        <span class="paypill ok" data-i18n="cart.paybank">Transf. bancária</span>
+        <span class="paypill no" data-i18n="cart.paycard">Cartão</span>
+        <span class="paypill no">PayPal</span>
+      </div>
+    </div>
     <div class="cascadegrid" id="cascadeGrid"></div>
   </div>
 </div>
@@ -1381,15 +1391,19 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 /* ---------- age / research declaration gate ----------
    Por decisão do cliente (exigência de segurança jurídica), este aviso
    aparece em TODA entrada no site, sem exceção — não fica salvo entre
-   visitas (nem em localStorage, nem em sessionStorage/cookie). */
+   visitas (nem em localStorage, nem em sessionStorage/cookie).
+   Ao aceitar, o visitante vai direto para a página de produtos (tela
+   de pedido), pulando a Home — a Home continua acessível pelo menu. */
 (function(){
   const gate = document.getElementById("ageGate");
   const btn = document.getElementById("ageGateBtn");
   document.body.style.overflow = "hidden";
   btn.addEventListener("click", ()=>{
     gate.classList.add("hide");
-    document.body.style.overflow = "";
-    setTimeout(()=>{ gate.style.display = "none"; }, 320);
+    setTimeout(()=>{
+      gate.style.display = "none";
+      openProductsPage();
+    }, 320);
   });
 })();
 

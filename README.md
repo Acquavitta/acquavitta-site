@@ -42,7 +42,22 @@ Os preços estão em **USD**, definidos por você diretamente (última atualiza�
 ## Compliance no checkout
 Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado, incluindo o número da Central de Intoxicação dos EUA (1-800-222-1222) — mesma linguagem usada por outros sites do nicho (Tydes, RUO Science) — mas em texto discreto, sem caixas coloridas de alerta. O código tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: PAGAMENTO REAL`) explicando a estratégia recomendada: Zelle/cripto/ACH como base (sem chargeback, mais estáveis nesse nicho) e cartão de alto risco como opção adicional — baseado em como a RUO Science, um concorrente real e maduro, resolve isso na prática.
 
-## Carrinho: frete e vendas adicionais (novo)
+## Fluxo de compra: dados do cliente + pagamento (novo)
+Antes de finalizar, o carrinho agora pede **nome completo, e-mail, telefone e endereço de envio** — sem isso, o botão "Finalizar pedido" fica bloqueado (junto com o checkbox de compliance, que também é obrigatório). Isso resolve o problema de receber um pedido sem saber pra onde enviar.
+
+O carrinho também mostra uma lista clara de **formas de pagamento aceitas** (Zelle, cripto, transferência bancária) e **não aceitas por enquanto** (cartão, PayPal, ambos riscados visualmente) — assim o cliente já sabe o que esperar antes de finalizar.
+
+O fluxo completo:
+1. Cliente preenche carrinho + dados de envio + marca o checkbox de compliance
+2. Clica em "Finalizar pedido" → abre o e-mail dele com tudo pronto (dados + pedido + total) endereçado a `sales@acquavitta.com`
+3. Você recebe o e-mail, cria o card no Airtable (coluna "Aguardando Zelle")
+4. Você responde ao cliente com as instruções de pagamento (Zelle/cripto/transferência)
+5. Cliente paga e manda comprovante
+6. Você confirma, move o card pro Airtable pra "Pagamento Confirmado", libera o envio
+
+Os dados preenchidos (nome, e-mail, telefone, endereço) ficam salvos no navegador do cliente — se ele comprar de novo depois, os campos já vêm pré-preenchidos.
+
+## Carrinho: frete e vendas adicionais
 - **Frete**: taxa fixa de $9,95 para pedidos abaixo de $200; **frete grátis automático a partir de $200** (mesma regra que vimos na RUO Science). Pra alterar, edite `SHIPPING_FLAT_RATE` e `FREE_SHIPPING_THRESHOLD` no `index.html`.
 - **Barra de progresso de frete grátis**: mostra "Faltam $X para frete grátis" com uma barrinha visual, e "Você ganhou frete grátis!" quando o cliente atinge o valor.
 - **Sugestões no carrinho** ("Você também pode precisar"): sempre que o carrinho não tiver nenhum item de água bacteriostática, o site sugere automaticamente o Kit de 60 seringas em primeiro lugar (mais vendável), seguido de outros produtos que ainda não estão no carrinho — cada um com botão de adicionar em 1 clique.

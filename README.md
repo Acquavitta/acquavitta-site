@@ -44,20 +44,27 @@ Os preços estão em **USD**, definidos por você diretamente (última atualiza�
 ## Compliance no checkout
 Antes de finalizar o pedido, o carrinho exige que o visitante marque uma caixa de confirmação (idade 21+, profissional qualificado, uso exclusivo de pesquisa, concordância com termos) — o botão "Finalizar pedido" fica bloqueado até isso ser marcado. O rodapé do site também tem um bloco de texto jurídico reforçado, incluindo o número da Central de Intoxicação dos EUA (1-800-222-1222) — mesma linguagem usada por outros sites do nicho (Tydes, RUO Science) — mas em texto discreto, sem caixas coloridas de alerta. O código tem um comentário (`PONTO DE INTEGRAÇÃO FUTURO: PAGAMENTO REAL`) explicando a estratégia recomendada: Zelle/cripto/ACH como base (sem chargeback, mais estáveis nesse nicho) e cartão de alto risco como opção adicional — baseado em como a RUO Science, um concorrente real e maduro, resolve isso na prática.
 
-## Fluxo de compra: dados do cliente + pagamento (novo)
-Antes de finalizar, o carrinho agora pede **nome completo, e-mail, telefone e endereço de envio** — sem isso, o botão "Finalizar pedido" fica bloqueado (junto com o checkbox de compliance, que também é obrigatório). Isso resolve o problema de receber um pedido sem saber pra onde enviar.
+## Fluxo de compra: página dedicada de checkout (atualizado)
+O carrinho (gaveta lateral) agora só mostra os itens, o resumo de valores e o checkbox de compliance — ficou mais limpo. Depois de marcar o checkbox, o botão **"Continuar para pagamento"** abre uma **página cheia dedicada** (mesmo padrão usado por Prime Peptides, Tydes e NuAge Research, que analisamos), com:
+1. **Resumo do pedido** no topo
+2. **Escolha da forma de pagamento** (Zelle, Cripto ou Transferência bancária) — em cards, não texto corrido
+3. **Dados de envio** (nome, e-mail, telefone, endereço) — layout com rótulo acima de cada campo, como um checkout de verdade
 
-O carrinho também mostra uma lista clara de **formas de pagamento aceitas** (Zelle, cripto, transferência bancária) e **não aceitas por enquanto** (cartão, PayPal, ambos riscados visualmente) — assim o cliente já sabe o que esperar antes de finalizar.
+O e-mail final já inclui qual forma de pagamento a pessoa escolheu, junto com os dados e o pedido.
 
 O fluxo completo:
-1. Cliente preenche carrinho + dados de envio + marca o checkbox de compliance
-2. Clica em "Finalizar pedido" → abre o e-mail dele com tudo pronto (dados + pedido + total) endereçado a `sales@acquavitta.com`
-3. Você recebe o e-mail, cria o card no Airtable (coluna "Aguardando Zelle")
-4. Você responde ao cliente com as instruções de pagamento (Zelle/cripto/transferência)
-5. Cliente paga e manda comprovante
-6. Você confirma, move o card pro Airtable pra "Pagamento Confirmado", libera o envio
+1. Cliente escolhe produtos → abre o carrinho → marca o checkbox de compliance → clica em "Continuar para pagamento"
+2. Na página de checkout: escolhe a forma de pagamento, preenche os dados de envio, clica em "Enviar pedido por e-mail"
+3. Abre o e-mail dele com tudo pronto (forma de pagamento escolhida + dados + pedido + total) endereçado a `sales@acquavitta.com`
+4. Você recebe o e-mail, cria o card no Airtable (coluna "Aguardando Zelle")
+5. Você responde ao cliente com as instruções de pagamento (Zelle/cripto/transferência)
+6. Cliente paga e manda comprovante
+7. Você confirma, move o card pro Airtable pra "Pagamento Confirmado", libera o envio
 
-Os dados preenchidos (nome, e-mail, telefone, endereço) ficam salvos no navegador do cliente — se ele comprar de novo depois, os campos já vêm pré-preenchidos.
+Os dados preenchidos (nome, e-mail, telefone, endereço) ficam salvos no navegador do cliente — se ele comprar de novo depois, os campos já vêm pré-preenchidos. O botão "voltar" do navegador na página de checkout funciona igual à página de produtos: fecha a página e volta pro carrinho/Home, sem sair do site.
+
+## Correção: carrinho fantasma (bug corrigido)
+Como o catálogo mudou várias vezes ao longo do projeto (produtos removidos/renomeados), quem tinha testado o carrinho antes podia ficar com itens "fantasmas" salvos no navegador — o contador mostrava um número, mas a lista aparecia vazia. Agora, assim que o site carrega, ele limpa automaticamente qualquer item do carrinho salvo que não exista mais no catálogo atual.
 
 ## Carrinho: frete e vendas adicionais
 - **Frete**: taxa fixa de $9,95 para pedidos abaixo de $200; **frete grátis automático a partir de $200** (mesma regra que vimos na RUO Science). Pra alterar, edite `SHIPPING_FLAT_RATE` e `FREE_SHIPPING_THRESHOLD` no `index.html`.

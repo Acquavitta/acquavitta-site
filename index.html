@@ -1683,8 +1683,7 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
    Por decisão do cliente (exigência de segurança jurídica), este aviso
    aparece em TODA entrada no site, sem exceção — não fica salvo entre
    visitas (nem em localStorage, nem em sessionStorage/cookie).
-   Ao aceitar, o visitante vai direto para a página de produtos (tela
-   de pedido), pulando a Home — a Home continua acessível pelo menu. */
+   Ao aceitar, o visitante cai na Home normalmente. */
 (function(){
   const gate = document.getElementById("ageGate");
   const btn = document.getElementById("ageGateBtn");
@@ -1705,7 +1704,7 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
     gate.classList.add("hide");
     setTimeout(()=>{
       gate.style.display = "none";
-      openProductsPage();
+      document.body.style.overflow = "";
     }, 320);
   });
 })();

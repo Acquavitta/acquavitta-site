@@ -36,7 +36,7 @@ Assim que o site carrega, aparece um cartão de verificação completo, no mesmo
 
 **Por decisão do cliente (segurança jurídica), esse aviso aparece em toda entrada no site, sem exceção** — não fica salvo entre visitas (nem em localStorage, nem em cookie). Os textos ficam em `age.badge`, `age.title`, `age.p1`/`age.p2`/`age.p3`, `age.check1`/`age.check2`/`age.check3`, `age.researcher1` a `age.researcher5`, `age.cta` e `age.exit` (nas 3 línguas) dentro do `index.html`, caso queira ajustar a redação.
 
-**Ao clicar em "Entrar no site"**, o visitante vai direto pra **página de produtos** (a tela de pedido) — a Home com a parte de marketing/ciência/história fica pulada nesse primeiro momento, mas continua acessível a qualquer momento pelo menu (Home) ou fechando a página de produtos (X no canto). A página de produtos também mostra logo no topo, bem visível, quais **formas de pagamento são aceitas** (Zelle, Cripto, Transferência bancária) e quais não estão disponíveis por enquanto (Cartão, PayPal).
+**Ao clicar em "Entrar no site"**, o visitante cai na **Home normalmente** (voltamos atrás nessa decisão — antes pulava direto pra página de produtos, mas o cliente preferiu manter o fluxo tradicional). A página de produtos continua acessível pelo menu, pelo cabeçalho, pelo rodapé ou pelo botão principal do hero — e mostra logo no topo, bem visível, quais **formas de pagamento são aceitas** (Zelle, Cripto, Transferência bancária) e quais não estão disponíveis por enquanto (Cartão, PayPal).
 
 ## Checkout: total no botão + selo de segurança (novo)
 Baseado num checkout real que analisamos (Meridian Peptides), incorporamos dois detalhes de UX que não dependem de processador de pagamento nenhum:

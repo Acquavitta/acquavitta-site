@@ -628,7 +628,7 @@ footer a:hover{color:var(--gold2)}
     <div class="checkoutwrap">
       <div class="checkoutsummary" id="checkoutSummary"></div>
 
-      <form id="checkoutForm" action="https://formspree.io/f/mrpgzbzy" method="POST">
+      <form id="checkoutForm" action="https://formspree.io/f/xbgjggre" method="POST" target="checkoutFrame">
         <input type="hidden" name="_subject" value="Novo pedido - AcquaVitta">
         <input type="hidden" name="order_items" id="hiddenOrderItems">
         <input type="hidden" name="order_total" id="hiddenOrderTotal">
@@ -778,7 +778,7 @@ footer a:hover{color:var(--gold2)}
       <button class="closex" id="contactCloseBtn">✕</button>
       <h3 data-i18n="contact.title">Entre em contato</h3>
       <p class="vsub" data-i18n="contact.sub">Dúvidas, pedidos de catálogo ou parcerias de pesquisa — escreva para nós.</p>
-      <form class="vform" id="contactForm" action="https://formspree.io/f/mrpgzbzy" method="POST">
+      <form class="vform" id="contactForm" action="https://formspree.io/f/mrpgzbzy" method="POST" target="contactFrame">
         <input type="hidden" name="_subject" value="Contato pelo site - AcquaVitta">
         <label for="cfName" data-i18n="contact.name">Nome</label>
         <input type="text" id="cfName" name="name" required maxlength="120">
@@ -811,6 +811,13 @@ footer a:hover{color:var(--gold2)}
     <button class="btn gold" id="ageGateBtn" data-i18n="age.cta">Entendi →</button>
   </div>
 </div>
+
+<!-- iframes escondidos: recebem o envio dos formulários sem sair da página
+     (o Formspree não permite envio via JavaScript/fetch em formulários novos,
+     nem redirecionamento personalizado no plano grátis — este é o jeito
+     confiável de continuar na mesma tela depois de enviar) -->
+<iframe name="checkoutFrame" style="display:none" title="checkout"></iframe>
+<iframe name="contactFrame" style="display:none" title="contact"></iframe>
 
 <script>
 /* =========================================================
@@ -1380,9 +1387,10 @@ function buildOrderSummaryText(){
 }
 
 const checkoutForm = document.getElementById("checkoutForm");
-checkoutForm.addEventListener("submit", async (e)=>{
-  e.preventDefault();
+let checkoutSubmitting = false;
+checkoutForm.addEventListener("submit", (e)=>{
   if(!checkoutInfoFilled() || !checkoutForm.checkValidity()){
+    e.preventDefault();
     checkoutForm.reportValidity();
     return;
   }
@@ -1402,44 +1410,29 @@ checkoutForm.addEventListener("submit", async (e)=>{
     state: document.getElementById("cfState").value.trim(),
     zip: document.getElementById("cfZip").value.trim()
   };
+  try{ localStorage.setItem("av-checkout-info", JSON.stringify(custInfo)); }catch(err){}
 
   const submitBtn = document.getElementById("checkoutBtn");
-  const original = submitBtn.textContent;
   submitBtn.disabled = true;
   submitBtn.textContent = LANG==="pt" ? "Enviando…" : LANG==="es" ? "Enviando…" : "Sending…";
+  checkoutSubmitting = true;
+  // não chama preventDefault: o formulário envia de verdade, de forma nativa,
+  // pro iframe escondido "checkoutFrame" (via o atributo target do <form>) —
+  // é o método mais confiável com o Formspree, sem depender de fetch/JS nem
+  // do redirecionamento "_next" (que é recurso pago)
+});
 
-  // Envio via AJAX (funciona no plano grátis do Formspree — o redirecionamento
-  // personalizado "_next" é recurso pago, então NÃO dependemos dele. A resposta
-  // volta direto em JSON e mostramos a tela de sucesso sem sair da página.
-  try{
-    const fd = new FormData(checkoutForm);
-    const res = await fetch(checkoutForm.action, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: fd
-    });
-    if(res.ok){
-      try{ localStorage.setItem("av-checkout-info", JSON.stringify(custInfo)); }catch(err){}
-      CART = [];
-      saveCart();
-      renderCart();
-      const wrap = document.getElementById("checkoutForm");
-      const success = document.getElementById("checkoutSuccess");
-      wrap.style.display = "none";
-      success.style.display = "block";
-    } else {
-      alert(LANG==="pt" ? "Não foi possível enviar o pedido agora. Tente novamente em instantes, ou nos escreva direto em sales@acquavitta.com."
-          : LANG==="es" ? "No se pudo enviar el pedido ahora. Inténtelo de nuevo en unos instantes, o escríbanos directamente a sales@acquavitta.com."
-          : "We couldn't send your order right now. Please try again shortly, or email us directly at sales@acquavitta.com.");
-    }
-  } catch(err){
-    alert(LANG==="pt" ? "Não foi possível enviar o pedido agora. Verifique sua conexão e tente novamente, ou nos escreva direto em sales@acquavitta.com."
-        : LANG==="es" ? "No se pudo enviar el pedido ahora. Verifique su conexión e inténtelo de nuevo, o escríbanos a sales@acquavitta.com."
-        : "We couldn't send your order right now. Please check your connection and try again, or email us directly at sales@acquavitta.com.");
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = original;
-  }
+document.querySelector('iframe[name="checkoutFrame"]').addEventListener("load", ()=>{
+  if(!checkoutSubmitting) return; // ignora o load inicial (iframe vazio ao carregar a página)
+  checkoutSubmitting = false;
+  const submitBtn = document.getElementById("checkoutBtn");
+  submitBtn.disabled = false;
+  submitBtn.textContent = T[LANG]["cart.checkout"];
+  CART = [];
+  saveCart();
+  renderCart();
+  document.getElementById("checkoutForm").style.display = "none";
+  document.getElementById("checkoutSuccess").style.display = "block";
 });
 
 
@@ -1547,36 +1540,24 @@ function resetContactForm(showSuccess){
 
 cfMsg.addEventListener("input", ()=>{ cfCount.textContent = cfMsg.value.length; });
 
-contactForm.addEventListener("submit", async (e)=>{
-  e.preventDefault();
-  if(!contactForm.checkValidity()){ contactForm.reportValidity(); return; }
+let contactSubmitting = false;
+contactForm.addEventListener("submit", (e)=>{
+  if(!contactForm.checkValidity()){ e.preventDefault(); contactForm.reportValidity(); return; }
   const submitBtn = document.getElementById("cfSubmitBtn");
-  const original = submitBtn.textContent;
   submitBtn.disabled = true;
   submitBtn.textContent = LANG==="pt" ? "Enviando…" : LANG==="es" ? "Enviando…" : "Sending…";
-  try{
-    const fd = new FormData(contactForm);
-    const res = await fetch(contactForm.action, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: fd
-    });
-    if(res.ok){
-      contactForm.style.display = "none";
-      cfSuccess.style.display = "block";
-    } else {
-      alert(LANG==="pt" ? "Não foi possível enviar agora. Tente novamente, ou escreva direto para info@acquavitta.com."
-          : LANG==="es" ? "No se pudo enviar ahora. Inténtelo de nuevo, o escríbanos a info@acquavitta.com."
-          : "We couldn't send this right now. Please try again, or email us directly at info@acquavitta.com.");
-    }
-  } catch(err){
-    alert(LANG==="pt" ? "Não foi possível enviar agora. Verifique sua conexão, ou escreva direto para info@acquavitta.com."
-        : LANG==="es" ? "No se pudo enviar ahora. Verifique su conexión, o escríbanos a info@acquavitta.com."
-        : "We couldn't send this right now. Please check your connection, or email us directly at info@acquavitta.com.");
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = original;
-  }
+  contactSubmitting = true;
+  // envio nativo pro iframe escondido "contactFrame" — mesmo motivo do checkout
+});
+
+document.querySelector('iframe[name="contactFrame"]').addEventListener("load", ()=>{
+  if(!contactSubmitting) return;
+  contactSubmitting = false;
+  const submitBtn = document.getElementById("cfSubmitBtn");
+  submitBtn.disabled = false;
+  submitBtn.textContent = T[LANG]["contact.send"];
+  contactForm.style.display = "none";
+  cfSuccess.style.display = "block";
 });
 
 

@@ -50,19 +50,26 @@ O carrinho (gaveta lateral) agora só mostra os itens, o resumo de valores e o c
 2. **Escolha da forma de pagamento** (Zelle, Cripto ou Transferência bancária) — em cards, não texto corrido
 3. **Dados de envio** — nome, e-mail, telefone, e **endereço separado em campos de verdade** (Rua/Número, Apto opcional, Cidade, Estado em lista suspensa com os 50 estados dos EUA, CEP) — evita endereço "fantasma" digitado errado, e o Estado só aceita um estado real da lista.
 
-## Envio real do pedido e do contato (corrigido de vez — 2 bugs encontrados)
+## Envio real do pedido e do contato (corrigido de vez — 3 bugs encontrados)
 1. **Bug 1 (mailto)**: o botão "Enviar pedido" usava `mailto:`, que só funciona se a pessoa tiver programa de e-mail configurado no computador. Corrigido trocando pro Formspree.
-2. **Bug 2 (redirecionamento pago)**: ao trocar pro Formspree, usamos o campo `_next` (redirecionamento de volta pro site) tanto no formulário de pedido quanto no de contato — só que descobrimos que **esse redirecionamento é recurso PAGO no Formspree**, não disponível no plano grátis. Ou seja, mesmo com o Formspree funcionando, a pessoa nunca via a tela de "Pedido enviado!"/"Mensagem enviada!" — ela caía na página genérica do próprio Formspree.
+2. **Bug 2 (redirecionamento pago)**: ao trocar pro Formspree, usamos o campo `_next` (redirecionamento de volta pro site) — descobrimos que **esse redirecionamento é recurso PAGO no Formspree**, não disponível no plano grátis.
+3. **Bug 3 (AJAX bloqueado)**: tentamos resolver o Bug 2 trocando pra envio via AJAX (JavaScript busca a resposta direto do Formspree) — só que o Formspree **bloqueia envio silencioso via JavaScript em formulários novos** como proteção antispam, e o teste confirmou: o pedido nunca chegava a aparecer nem nas "Submissions" do painel do Formspree.
 
-**A correção final**: os dois formulários (pedido e contato) agora enviam via **AJAX** (JavaScript busca a resposta direto do Formspree, sem precisar de redirecionamento nenhum) — esse método é gratuito e não depende do plano pago. A tela de sucesso aparece instantaneamente, sem sair da página, e:
+**A correção final**: os dois formulários (pedido e contato) enviam de volta pro formato **HTML puro** (o método mais confiável, que já tínhamos confirmado funcionar), mas agora direcionado pra um **iframe escondido** na página (`target="checkoutFrame"` / `target="contactFrame"`) em vez da janela inteira. Isso dá o melhor dos dois mundos:
+- O envio é 100% nativo (não é bloqueado como o AJAX)
+- Não depende do redirecionamento pago `_next` (não precisamos dele — só detectamos quando o iframe termina de carregar)
+- A pessoa nunca sai da página — a tela de sucesso aparece na hora
+
+Testei com um envio real (confirmei que o iframe navega de verdade até `formspree.io`, sem a página principal sair do lugar) e:
 - O pedido completo (forma de pagamento escolhida, dados do cliente, itens, total) chega direto no seu e-mail
-- O cliente vê a tela "Pedido enviado!" na hora, sem recarregar a página
+- O cliente vê a tela "Pedido enviado!" na hora
 - O carrinho é esvaziado automaticamente depois do envio
-- Se der algum problema de conexão, aparece um aviso claro pedindo pra tentar de novo ou escrever direto pro e-mail
 
-## E-mails: pedidos vs. contato (separado a pedido do cliente)
-- **Formulário de contato** → `info@acquavitta.com` (endpoint `mrpgzbzy`, já verificado)
-- **Formulário de pedido/checkout** → `sales@acquavitta.com` — criamos um formulário novo no Formspree (`Pedidos Acquavitta`) especificamente pra isso. **Pendente**: assim que você verificar o e-mail `sales@acquavitta.com` no Formspree (clicar no link que chegou na caixa) e me passar a URL desse novo formulário, eu atualizo o `action` do `<form id="checkoutForm">` no `index.html` pra apontar pra ele. Até lá, o checkout está temporariamente usando o mesmo endpoint do contato (`mrpgzbzy`), então os pedidos caem em `info@acquavitta.com` por enquanto.
+## E-mails: pedidos vs. contato (separado, como pedido — ✅ configurado)
+- **Formulário de contato** → `info@acquavitta.com` (endpoint `mrpgzbzy`)
+- **Formulário de pedido/checkout** → `sales@acquavitta.com` (endpoint `xbgjggre`, formulário "Pedidos Acquavitta" no Formspree)
+
+Testei com um envio real depois de configurar o endpoint novo: confirmei que o iframe do checkout navega até `formspree.io/f/xbgjggre` (não mais o `mrpgzbzy` do contato) e a tela "Pedido enviado!" aparece normalmente. Vale você conferir com seus próprios olhos que o e-mail chegou em `sales@acquavitta.com` (e checar a pasta de spam, por garantia, na primeira vez).
 
 O fluxo completo:
 1. Cliente escolhe produtos → abre o carrinho → marca o checkbox de compliance → clica em "Continuar para pagamento"

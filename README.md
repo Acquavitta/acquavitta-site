@@ -27,10 +27,24 @@ Criei 4 páginas separadas, no mesmo estilo visual do site, linkadas no rodapé 
 ## Navegação e catálogo
 O ícone ☰ no cabeçalho abre um **menu de navegação simples** (Home, Produtos, Ciência, Sobre, Contato) — não é mais o catálogo em si. Ao clicar em "Produtos" (no menu, no cabeçalho, no rodapé ou no botão principal do hero), abre uma **página de catálogo em tela cheia**, com os produtos numa **grade alinhada de 2 colunas** (1 coluna no celular): foto, dose, descrição curta, preço e botão de adicionar ao carrinho direto no card — sem precisar entrar em uma tela de detalhe separada. A página central do site mostra a seção **"A ciência por trás dos peptídeos"**, com um resumo simples e baseado em evidências sobre o que são peptídeos.
 
-## Banner de entrada (idade + declaração de pesquisa)
-Assim que o site carrega, aparece um cartão pedindo que o visitante confirme que tem 21 anos ou mais e que entende que os produtos são exclusivamente para pesquisa — no estilo comum a outros sites do nicho (ex. Prime Peptides). **Por decisão do cliente (segurança jurídica), esse aviso aparece em toda entrada no site, sem exceção** — não fica salvo entre visitas (nem em localStorage, nem em cookie), então quem já aceitou antes precisa aceitar de novo a cada nova visita/recarregamento da página. Os textos desse banner ficam em `age.title`, `age.text`, `age.age` e `age.cta` (nas 3 línguas) dentro do `index.html`, caso queira ajustar a redação.
+## Banner de entrada (idade + declaração de pesquisa) — reforçado
+Assim que o site carrega, aparece um cartão de verificação completo, no mesmo padrão usado por outros sites do nicho (analisamos um exemplo real, "Meridian Compounds", pra montar esse). Inclui:
+- **Texto legal em 3 parágrafos** — cobre que os produtos são estritamente para pesquisa laboratorial, que não são medicamento/alimento/cosmético/suplemento, que não foram avaliados pela FDA, e que não são para consumo humano ou animal. Essa linguagem é o tipo que processadores de pagamento de alto risco esperam ver.
+- **Menu "que tipo de pesquisador você é?"** — não é verificado, mas reforça a seriedade do site (mesmo padrão usado pela Prime Peptides com "Create Research Account").
+- **3 checkboxes separados** (idade 21+, entendimento de que não há alegação médica, entendimento de uso exclusivo para pesquisa) — mais forte juridicamente do que uma caixa só sobre um parágrafo grande. O botão "Entrar no site" só libera quando os 3 estão marcados **e** o menu de pesquisador está preenchido.
+- **Link "Não concordo — sair"** — dá uma saída explícita, não só o caminho de aceitar.
 
-**Ao clicar em "Entendi"**, o visitante vai direto pra **página de produtos** (a tela de pedido) — a Home com a parte de marketing/ciência/história fica pulada nesse primeiro momento, mas continua acessível a qualquer momento pelo menu (Home) ou fechando a página de produtos (X no canto). A página de produtos também mostra logo no topo, bem visível, quais **formas de pagamento são aceitas** (Zelle, Cripto, Transferência bancária) e quais não estão disponíveis por enquanto (Cartão, PayPal).
+**Por decisão do cliente (segurança jurídica), esse aviso aparece em toda entrada no site, sem exceção** — não fica salvo entre visitas (nem em localStorage, nem em cookie). Os textos ficam em `age.badge`, `age.title`, `age.p1`/`age.p2`/`age.p3`, `age.check1`/`age.check2`/`age.check3`, `age.researcher1` a `age.researcher5`, `age.cta` e `age.exit` (nas 3 línguas) dentro do `index.html`, caso queira ajustar a redação.
+
+**Ao clicar em "Entrar no site"**, o visitante vai direto pra **página de produtos** (a tela de pedido) — a Home com a parte de marketing/ciência/história fica pulada nesse primeiro momento, mas continua acessível a qualquer momento pelo menu (Home) ou fechando a página de produtos (X no canto). A página de produtos também mostra logo no topo, bem visível, quais **formas de pagamento são aceitas** (Zelle, Cripto, Transferência bancária) e quais não estão disponíveis por enquanto (Cartão, PayPal).
+
+## Checkout: total no botão + selo de segurança (novo)
+Baseado num checkout real que analisamos (Meridian Peptides), incorporamos dois detalhes de UX que não dependem de processador de pagamento nenhum:
+- O botão final agora mostra o valor total embutido: **"Send order · $79.95 →"** — a pessoa vê exatamente quanto vai pagar sem precisar rolar de volta pro resumo
+- Selo verde **"🔒 Secure, encrypted submission"** logo abaixo do botão, reforçando confiança no envio
+
+## Tipografia — ajuste de legibilidade
+A Playfair Display (fonte serifada dos títulos) ficava difícil de ler em tamanho pequeno (13–18px) em alguns navegadores/telas — principalmente nome e preço de produto no carrinho e na página de produtos. Trocamos esses textos pequenos especificamente para a Inter (a fonte de apoio do site, sempre legível), mantendo a Playfair Display só nos títulos grandes (20px+), onde o visual de "revista científica premium" continua funcionando bem.
 
 ## Catálogo atual (22 itens)
 BPC-157 · CJC-1295 · Epithalon (10mg e 50mg) · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Selank · Semax · TB-500 · Tesamorelin · PT-141 · Glutathione · NAD+ · Vitamin B12 · IGF-1 LR3 · Oxytocin · AOD-9604 · Água Bacteriostática · Start Kit Água Bacteriostática (15 seringas) · Kit Água Bacteriostática (60 seringas).

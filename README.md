@@ -46,8 +46,12 @@ Baseado num checkout real que analisamos (Meridian Peptides), incorporamos dois 
 ## Tipografia — ajuste de legibilidade
 A Playfair Display (fonte serifada dos títulos) ficava difícil de ler em tamanho pequeno (13–18px) em alguns navegadores/telas — principalmente nome e preço de produto no carrinho e na página de produtos. Trocamos esses textos pequenos especificamente para a Inter (a fonte de apoio do site, sempre legível), mantendo a Playfair Display só nos títulos grandes (20px+), onde o visual de "revista científica premium" continua funcionando bem.
 
-## Catálogo atual (22 itens)
-BPC-157 · CJC-1295 · Epithalon (10mg e 50mg) · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Selank · Semax · TB-500 · Tesamorelin · PT-141 · Glutathione · NAD+ · Vitamin B12 · IGF-1 LR3 · Oxytocin · AOD-9604 · Água Bacteriostática · Start Kit Água Bacteriostática (15 seringas) · Kit Água Bacteriostática (60 seringas).
+## Catálogo atual (20 itens)
+BPC-157 · CJC-1295 · Epithalon (10mg e 50mg) · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Selank · Semax · TB-500 · Tesamorelin · PT-141 · Glutathione · NAD+ · Vitamin B12 · IGF-1 LR3 · Oxytocin · AOD-9604 · Água Bacteriostática.
+
+**Removidos a pedido do cliente**: os dois kits de água bacteriostática (Start Kit e Kit 60 seringas) — continham seringas nas fotos e no texto ("seringas de insulina"), e o cliente pediu pra tirar toda referência a itens injetáveis do site. As imagens (`water-kit-15.jpg`, `water-kit-60.jpg`) também foram apagadas da pasta `assets/products/`.
+
+**⚠️ Atenção — pendência que não dá pra resolver só editando texto**: várias fotos reais dos produtos (as fornecidas por você) têm a palavra **"Injection"** e o texto **"For Subcutaneous Use"** impressos no próprio rótulo do frasco, na foto. Isso está *dentro da imagem*, não é texto do site — não tem como remover editando o código, só re-fotografando o produto com um rótulo diferente, ou eu tentar apagar/borrar essa parte da foto (funciona bem em alguns casos, mas pode deixar visualmente estranho dependendo do ângulo/iluminação). Me avise se quiser que eu tente isso em alguma foto específica, ou se prefere providenciar fotos com rótulo sem essa palavra.
 
 ## Idiomas
 O site abre em **inglês** por padrão, com uma aba no topo para trocar entre 🇧🇷 Português (Brasil), 🇺🇸 English e 🇪🇸 Español — as bandeiras são desenhadas direto no código (SVG), sem depender de nenhum servidor externo, então aparecem sempre, em qualquer navegador. A preferência do visitante fica salva no navegador.

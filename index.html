@@ -1012,22 +1012,6 @@ const PRODUCTS = [
     benefit:{pt:"Água bacteriostática para diluição e reconstituição de peptídeos liofilizados em ambiente de pesquisa.",
               en:"Bacteriostatic water for dilution and reconstitution of lyophilized peptides in a research setting.",
               es:"Agua bacteriostática para dilución y reconstitución de péptidos liofilizados en un entorno de investigación."}
-  },
-  {
-    id:"water-kit-15", img:"assets/products/water-kit-15.jpg", color:"#0a2c4e",
-    name:{pt:"Start Kit Água Bacteriostática", en:"Start Kit Bacteriostatic Water", es:"Start Kit Agua Bacteriostática"},
-    dose:{pt:"1× água 10mL + 15 seringas", en:"1× 10mL water + 15 syringes", es:"1× agua 10mL + 15 jeringas"}, price:19.90,
-    benefit:{pt:"Kit de altíssima qualidade destinado para melhor pesquisa: água bacteriostática, seringas de insulina, seringa para mistura e álcool para preparo — tudo em um só kit.",
-              en:"Top-quality kit designed for better research: bacteriostatic water, insulin syringes, a mixing syringe and prep pads — everything in one kit.",
-              es:"Kit de altísima calidad diseñado para una mejor investigación: agua bacteriostática, jeringas de insulina, jeringa de mezcla y toallitas de preparación — todo en un solo kit."}
-  },
-  {
-    id:"water-kit-60", img:"assets/products/water-kit-60.jpg", color:"#0a2c4e",
-    name:{pt:"Kit Água Bacteriostática", en:"Bacteriostatic Water Kit", es:"Kit Agua Bacteriostática"},
-    dose:{pt:"1× água 10mL + 60 seringas", en:"1× 10mL water + 60 syringes", es:"1× agua 10mL + 60 jeringas"}, price:49.90,
-    benefit:{pt:"Kit de altíssima qualidade destinado para melhor pesquisa: água bacteriostática, 60 seringas de insulina, seringas para mistura e álcool para preparo — tudo em um só kit.",
-              en:"Top-quality kit designed for better research: bacteriostatic water, 60 insulin syringes, mixing syringes and prep pads — everything in one kit.",
-              es:"Kit de altísima calidad diseñado para una mejor investigación: agua bacteriostática, 60 jeringas de insulina, jeringas de mezcla y toallitas de preparación — todo en un solo kit."}
   }
 ];
 
@@ -1487,14 +1471,12 @@ function renderCartSuggestions(){
   const wrap = document.getElementById("cartSuggest");
   if(!wrap) return;
   const cartIds = new Set(CART.map(l=>l.id));
-  const waterIds = ["water-kit-60","water-kit-15","water"];
   const suggestions = [];
 
-  // prioritize bacteriostatic water / kits if none are already in the cart
-  const hasWaterItem = waterIds.some(id=>cartIds.has(id));
-  if(!hasWaterItem){
-    const kit = PRODUCTS.find(p=>p.id==="water-kit-60") || PRODUCTS.find(p=>p.id==="water");
-    if(kit) suggestions.push(kit);
+  // prioritize bacteriostatic water if it's not already in the cart
+  if(!cartIds.has("water")){
+    const water = PRODUCTS.find(p=>p.id==="water");
+    if(water) suggestions.push(water);
   }
   // fill remaining slots with other products not already in the cart
   for(const p of PRODUCTS){

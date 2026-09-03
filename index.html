@@ -875,143 +875,80 @@ footer a:hover{color:var(--gold2)}
 const PRODUCTS = [
   {
     id:"bpc-157", img:"assets/products/bpc-157.jpg", color:"#1e5fb8",
-    name:"BPC-157", dose:"10mg / 3mL", price:70.00,
-    benefit:{pt:"Peptídeo pentadecapeptídeo pesquisado por seu potencial na reparação de tecidos, saúde do trato gastrointestinal e recuperação de tendões e ligamentos.",
-              en:"Pentadecapeptide researched for its potential in tissue repair, gastrointestinal health and tendon/ligament recovery.",
-              es:"Pentadecapéptido investigado por su potencial en la reparación de tejidos, la salud gastrointestinal y la recuperación de tendones y ligamentos."}
+    name:"BPC-157", dose:"10mg", price:70.00,
+    benefit:{pt:"BPC-157, também conhecido como pentadecapeptídeo derivado da proteína gástrica humana. Fornecido como material de referência peptídica liofilizado para aplicações de pesquisa laboratorial.",
+              en:"BPC-157, also known as the pentadecapeptide derived from human gastric protein. Supplied as a lyophilized peptide reference material for laboratory research applications.",
+              es:"BPC-157, también conocido como el pentadecapéptido derivado de la proteína gástrica humana. Suministrado como material de referencia peptídica liofilizado para aplicaciones de investigación de laboratorio."}
   },
   {
     id:"cjc-1295", img:"assets/products/cjc-1295.jpg", color:"#7a2ea0",
-    name:"CJC-1295", dose:"5mg / 3mL", price:79.00,
-    benefit:{pt:"Análogo do GHRH estudado por prolongar o pulso natural do hormônio do crescimento, com potencial em composição corporal e recuperação.",
-              en:"GHRH analog studied for extending the natural growth hormone pulse, with potential in body composition and recovery.",
-              es:"Análogo de GHRH estudiado por prolongar el pulso natural de la hormona del crecimiento, con potencial en la composición corporal y la recuperación."}
+    name:"CJC-1295 (Without DAC)", dose:"5mg", price:79.00,
+    benefit:{pt:"CJC-1295 sem DAC, análogo sintético do GHRH. Fornecido como material de referência peptídica liofilizado, testado quanto à identidade do composto para fins de caracterização analítica em laboratório.",
+              en:"CJC-1295 without DAC, a synthetic GHRH analog. Supplied as a lyophilized peptide reference material, purity-tested for compound identity for analytical characterization in laboratory settings.",
+              es:"CJC-1295 sin DAC, análogo sintético de GHRH. Suministrado como material de referencia peptídica liofilizado, verificado en su identidad de compuesto para fines de caracterización analítica en laboratorio."}
   },
   {
     id:"epithalon-10", img:"assets/products/epithalon.jpg", color:"#1c8a4a",
-    name:"Epithalon", dose:"10mg / 3mL", price:79.90,
-    benefit:{pt:"Estudado por seu possível papel na regulação do sono, na atividade da telomerase e em processos ligados ao envelhecimento celular.",
-              en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes.",
-              es:"Estudiado por su posible papel en la regulación del sueño, la actividad de la telomerasa y procesos ligados al envejecimiento celular."}
+    name:"Epithalon", dose:"10mg", price:79.90,
+    benefit:{pt:"Epithalon, também conhecido como tetrapeptídeo Ala-Glu-Asp-Gly (AEDG). Utilizado em pesquisa como peptídeo modelo para estudos de sinalização celular e regulação gênica.",
+              en:"Epithalon, also known as the Ala-Glu-Asp-Gly (AEDG) tetrapeptide. Used in research as a model peptide for cell-signaling and gene-regulation studies.",
+              es:"Epithalon, también conocido como el tetrapéptido Ala-Glu-Asp-Gly (AEDG). Utilizado en investigación como péptido modelo para estudios de señalización celular y regulación génica."}
   },
   {
     id:"epithalon-50", img:"assets/products/epithalon.jpg", color:"#1c8a4a",
-    name:"Epithalon", dose:"50mg / 3mL", price:140.90,
-    benefit:{pt:"Estudado por seu possível papel na regulação do sono, na atividade da telomerase e em processos ligados ao envelhecimento celular.",
-              en:"Studied for its possible role in sleep regulation, telomerase activity and cellular aging processes.",
-              es:"Estudiado por su posible papel en la regulación del sueño, la actividad de la telomerasa y procesos ligados al envejecimiento celular."}
+    name:"Epithalon", dose:"50mg", price:140.90,
+    benefit:{pt:"Epithalon, também conhecido como tetrapeptídeo Ala-Glu-Asp-Gly (AEDG). Utilizado em pesquisa como peptídeo modelo para estudos de sinalização celular e regulação gênica.",
+              en:"Epithalon, also known as the Ala-Glu-Asp-Gly (AEDG) tetrapeptide. Used in research as a model peptide for cell-signaling and gene-regulation studies.",
+              es:"Epithalon, también conocido como el tetrapéptido Ala-Glu-Asp-Gly (AEDG). Utilizado en investigación como péptido modelo para estudios de señalización celular y regulación génica."}
   },
   {
     id:"ghk-cu", img:"assets/products/ghk-cu.jpg", color:"#7a2e8f",
-    name:"GHK-Cu", dose:"50mg / 3mL", price:49.90,
-    benefit:{pt:"Peptídeo de cobre associado, em estudos, à síntese de colágeno, remodelação de tecidos e ação antioxidante na pele.",
-              en:"Copper peptide associated in studies with collagen synthesis, tissue remodeling and antioxidant action on skin.",
-              es:"Péptido de cobre asociado, en estudios, con la síntesis de colágeno, la remodelación de tejidos y la acción antioxidante en la piel."}
+    name:"GHK-Cu", dose:"50mg", price:49.90,
+    benefit:{pt:"GHK-Cu, complexo tripeptídeo de cobre de ocorrência natural (Gly-His-Lys). Fornecido como material de referência liofilizado para estudos analíticos de biologia celular e ciência de materiais.",
+              en:"GHK-Cu, a naturally occurring copper tripeptide complex (Gly-His-Lys). Supplied as a lyophilized reference material for analytical cell-biology and materials-science studies.",
+              es:"GHK-Cu, complejo tripeptídico de cobre de origen natural (Gly-His-Lys). Suministrado como material de referencia liofilizado para estudios analíticos de biología celular y ciencia de materiales."}
   },
   {
-    id:"glow", img:"assets/products/glow.jpg", color:"#c23a7a",
-    name:"Glow Blend", dose:"50mg/10mg/10mg / 3mL", price:149.90,
-    benefit:{pt:"Blend de GHK-Cu, BPC-157 e TB-500 reunido para pesquisas combinadas sobre regeneração de pele, tecidos e recuperação geral.",
-              en:"Blend of GHK-Cu, BPC-157 and TB-500 combined for research into skin regeneration, tissue repair and overall recovery.",
-              es:"Mezcla de GHK-Cu, BPC-157 y TB-500 combinada para la investigación de la regeneración de la piel, los tejidos y la recuperación general."}
+    id:"ghk-bpc-tb500", img:"assets/products/glow.jpg", color:"#c23a7a",
+    name:"GHK-Cu / BPC-157 / TB-500 Blend", dose:"50mg/10mg/10mg", price:149.90,
+    benefit:{pt:"Blend técnico de três compostos peptídicos (GHK-Cu, BPC-157 e Timosina Beta-4/TB-500) combinados em um único material de referência liofilizado, para estudos analíticos comparativos entre compostos.",
+              en:"Technical blend of three peptide compounds (GHK-Cu, BPC-157 and Thymosin Beta-4/TB-500) combined into a single lyophilized reference material, for comparative analytical studies between compounds.",
+              es:"Mezcla técnica de tres compuestos peptídicos (GHK-Cu, BPC-157 y Timosina Beta-4/TB-500) combinados en un único material de referencia liofilizado, para estudios analíticos comparativos entre compuestos."}
   },
   {
     id:"ipamorelin", img:"assets/products/ipamorelin.jpg", color:"#c99a1a",
-    name:"Ipamorelin", dose:"5mg / 3mL", price:59.90,
-    benefit:{pt:"Secretagogo seletivo do GH estudado por seu potencial na recuperação muscular, composição corporal e qualidade do sono.",
-              en:"Selective GH secretagogue studied for its potential in muscle recovery, body composition and sleep quality.",
-              es:"Secretagogo selectivo de GH estudiado por su potencial en la recuperación muscular, la composición corporal y la calidad del sueño."}
+    name:"Ipamorelin", dose:"5mg", price:59.90,
+    benefit:{pt:"Ipamorelin, secretagogo peptídico seletivo do receptor de GH (GHS-R). Fornecido como material de referência liofilizado para estudos de sinalização de receptor em modelos de pesquisa.",
+              en:"Ipamorelin, a selective GH-receptor (GHS-R) secretagogue peptide. Supplied as a lyophilized reference material for receptor-signaling studies in research models.",
+              es:"Ipamorelin, péptido secretagogo selectivo del receptor de GH (GHS-R). Suministrado como material de referencia liofilizado para estudios de señalización de receptores en modelos de investigación."}
   },
   {
     id:"mots-c", img:"assets/products/mots-c.jpg", color:"#5b5f66",
-    name:"MOTS-c", dose:"10mg / 3mL", price:79.90,
-    benefit:{pt:"Peptídeo mitocondrial pesquisado por seu papel no metabolismo energético, na sensibilidade à insulina e na performance física.",
-              en:"Mitochondrial peptide researched for its role in energy metabolism, insulin sensitivity and physical performance.",
-              es:"Péptido mitocondrial investigado por su papel en el metabolismo energético, la sensibilidad a la insulina y el rendimiento físico."}
+    name:"MOTS-c", dose:"10mg", price:79.90,
+    benefit:{pt:"MOTS-c, peptídeo derivado do DNA mitocondrial (mtDNA). Utilizado em pesquisa como composto de referência para estudos de metabolismo energético celular e sinalização mitocondrial.",
+              en:"MOTS-c, a peptide derived from mitochondrial DNA (mtDNA). Used in research as a reference compound for cellular energy-metabolism and mitochondrial-signaling studies.",
+              es:"MOTS-c, péptido derivado del ADN mitocondrial (mtDNA). Utilizado en investigación como compuesto de referencia para estudios de metabolismo energético celular y señalización mitocondrial."}
   },
   {
     id:"selank", img:"assets/products/selank.jpg", color:"#1c9b3b",
-    name:"Selank", dose:"10mg / 3mL", price:68.90,
-    benefit:{pt:"Peptídeo pesquisado por seu potencial efeito ansiolítico, modulação da resposta ao estresse e suporte imunológico.",
-              en:"Peptide researched for its potential anxiolytic effect, stress-response modulation and immune support.",
-              es:"Péptido investigado por su potencial efecto ansiolítico, la modulación de la respuesta al estrés y el apoyo inmunológico."}
+    name:"Selank", dose:"10mg", price:68.90,
+    benefit:{pt:"Selank, heptapeptídeo sintético análogo da tuftsina. Fornecido como material de referência liofilizado, testado quanto à pureza, para estudos analíticos de neurociência comportamental.",
+              en:"Selank, a synthetic heptapeptide analog of tuftsin. Supplied as a purity-tested lyophilized reference material for analytical behavioral-neuroscience studies.",
+              es:"Selank, heptapéptido sintético análogo de la tuftsina. Suministrado como material de referencia liofilizado, verificado en pureza, para estudios analíticos de neurociencia conductual."}
   },
   {
     id:"semax", img:"assets/products/semax.jpg", color:"#e0692a",
-    name:"Semax", dose:"10mg / 3mL", price:64.90,
-    benefit:{pt:"Peptídeo nootrópico estudado por apoiar a cognição: memória, foco e concentração em modelos de pesquisa.",
-              en:"Nootropic peptide studied to support cognition: memory, focus and concentration in research models.",
-              es:"Péptido nootrópico estudiado por apoyar la cognición: memoria, enfoque y concentración en modelos de investigación."}
+    name:"Semax", dose:"10mg", price:64.90,
+    benefit:{pt:"Semax, heptapeptídeo sintético derivado de um fragmento do ACTH. Utilizado em pesquisa como composto de referência para estudos de neuroquímica e cognição em modelos experimentais.",
+              en:"Semax, a synthetic heptapeptide derived from an ACTH fragment. Used in research as a reference compound for neurochemistry and cognition studies in experimental models.",
+              es:"Semax, heptapéptido sintético derivado de un fragmento de la ACTH. Utilizado en investigación como compuesto de referencia para estudios de neuroquímica y cognición en modelos experimentales."}
   },
   {
     id:"tb-500", img:"assets/products/tb-500.jpg", color:"#c81e1e",
-    name:"TB-500", dose:"10mg / 3mL", price:129.90,
-    benefit:{pt:"Fragmento sintético da Timosina Beta-4, pesquisado por seu papel na reparação tecidual, flexibilidade e recuperação muscular.",
-              en:"Synthetic fragment of Thymosin Beta-4, researched for its role in tissue repair, flexibility and muscle recovery.",
-              es:"Fragmento sintético de la Timosina Beta-4, investigado por su papel en la reparación tisular, la flexibilidad y la recuperación muscular."}
-  },
-  {
-    id:"tesamorelin", img:"assets/products/tesamorelin.jpg", color:"#d1a520",
-    name:"Tesamorelin", dose:"10mg / 3mL", price:179.00,
-    benefit:{pt:"Análogo do GHRH estudado por seu papel na liberação de hormônio do crescimento e em modelos de composição corporal.",
-              en:"GHRH analog studied for its role in growth hormone release and body composition research models.",
-              es:"Análogo de GHRH estudiado por su papel en la liberación de la hormona del crecimiento y en modelos de composición corporal."}
-  },
-  {
-    id:"pt-141", img:"assets/products/pt-141.jpg", color:"#c23a7a",
-    name:"PT-141", dose:"", price:69.00,
-    benefit:{pt:"Peptídeo estudado por sua ação central relacionada à libido e ao desejo sexual, atuando em receptores de melanocortina no sistema nervoso.",
-              en:"Peptide studied for its central action related to libido and sexual desire, acting on melanocortin receptors in the nervous system.",
-              es:"Péptido estudiado por su acción central relacionada con la libido y el deseo sexual, actuando sobre receptores de melanocortina en el sistema nervioso."}
-  },
-  {
-    id:"glutathione", img:"assets/products/glutathione.jpg", color:"#2e9e6e",
-    name:"Glutathione", dose:"", price:59.00,
-    benefit:{pt:"Antioxidante natural do corpo, estudado por seu papel na proteção das células contra o estresse oxidativo e no suporte metabólico.",
-              en:"The body's natural antioxidant, studied for its role in protecting cells from oxidative stress and supporting metabolism.",
-              es:"Antioxidante natural del cuerpo, estudiado por su papel en la protección de las células contra el estrés oxidativo y el apoyo metabólico."}
-  },
-  {
-    id:"nad", img:"assets/products/nad.jpg", color:"#5b7fd1",
-    name:"NAD+", dose:"", price:139.90,
-    benefit:{pt:"Coenzima essencial presente em toda célula viva, pesquisada por seu papel central na produção de energia celular e no metabolismo.",
-              en:"Essential coenzyme found in every living cell, researched for its central role in cellular energy production and metabolism.",
-              es:"Coenzima esencial presente en toda célula viva, investigada por su papel central en la producción de energía celular y el metabolismo."}
-  },
-  {
-    id:"vitamin-b12", img:"assets/products/vitamin-b12.jpg", color:"#d1663a",
-    name:"Vitamin B12", dose:"", price:45.90,
-    benefit:{pt:"Vitamina envolvida em diversos processos metabólicos do corpo, estudada por seu papel na produção de energia e na saúde celular.",
-              en:"Vitamin involved in several metabolic processes in the body, studied for its role in energy production and cellular health.",
-              es:"Vitamina implicada en diversos procesos metabólicos del cuerpo, estudiada por su papel en la producción de energía y la salud celular."}
-  },
-  {
-    id:"igf-1-lr3", img:"assets/products/igf-1-lr3.jpg", color:"#8a5bd1",
-    name:"IGF-1 LR3", dose:"1mg / 3mL", price:69.90,
-    benefit:{pt:"Análogo do fator de crescimento IGF-1, pesquisado por seu papel na sinalização celular ligada à hipertrofia muscular.",
-              en:"Analog of the IGF-1 growth factor, researched for its role in cell signaling linked to muscle hypertrophy.",
-              es:"Análogo del factor de crecimiento IGF-1, investigado por su papel en la señalización celular relacionada con la hipertrofia muscular."}
-  },
-  {
-    id:"oxytocin", img:"assets/products/oxytocin.jpg", color:"#d1a53a",
-    name:"Oxytocin", dose:"2mg / 3mL", price:49.90,
-    benefit:{pt:"Peptídeo conhecido como hormônio do vínculo social, estudado por seu papel no bem-estar, na sensação de alegria e na sociabilidade.",
-              en:"Peptide known as the social-bonding hormone, studied for its role in well-being, feelings of joy and sociability.",
-              es:"Péptido conocido como la hormona del vínculo social, estudiado por su papel en el bienestar, la sensación de alegría y la sociabilidad."}
-  },
-  {
-    id:"aod-9604", img:"assets/products/aod-9604.jpg", color:"#3a9ed1",
-    name:"AOD-9604", dose:"", price:119.90,
-    benefit:{pt:"Fragmento sintético estudado por seu papel na quebra de gordura corporal (lipólise) em modelos de pesquisa metabólica.",
-              en:"Synthetic fragment studied for its role in body fat breakdown (lipolysis) in metabolic research models.",
-              es:"Fragmento sintético estudiado por su papel en la descomposición de grasa corporal (lipólisis) en modelos de investigación metabólica."}
-  },
-  {
-    id:"water", img:"assets/products/water.jpg", color:"#0594d2",
-    name:"Bacteriostatic Water", dose:"10mL", price:14.90,
-    benefit:{pt:"Água bacteriostática para diluição e reconstituição de peptídeos liofilizados em ambiente de pesquisa.",
-              en:"Bacteriostatic water for dilution and reconstitution of lyophilized peptides in a research setting.",
-              es:"Agua bacteriostática para dilución y reconstitución de péptidos liofilizados en un entorno de investigación."}
+    name:"TB-500", dose:"10mg", price:129.90,
+    benefit:{pt:"TB-500, fragmento sintético da Timosina Beta-4. Fornecido como material de referência peptídica liofilizado, testado quanto à identidade do composto, para estudos analíticos de biologia celular.",
+              en:"TB-500, a synthetic fragment of Thymosin Beta-4. Supplied as a lyophilized peptide reference material, purity-tested for compound identity, for analytical cell-biology studies.",
+              es:"TB-500, fragmento sintético de la Timosina Beta-4. Suministrado como material de referencia peptídica liofilizado, verificado en su identidad de compuesto, para estudios analíticos de biología celular."}
   }
 ];
 

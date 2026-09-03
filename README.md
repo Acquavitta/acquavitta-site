@@ -46,12 +46,22 @@ Baseado num checkout real que analisamos (Meridian Peptides), incorporamos dois 
 ## Tipografia — ajuste de legibilidade
 A Playfair Display (fonte serifada dos títulos) ficava difícil de ler em tamanho pequeno (13–18px) em alguns navegadores/telas — principalmente nome e preço de produto no carrinho e na página de produtos. Trocamos esses textos pequenos especificamente para a Inter (a fonte de apoio do site, sempre legível), mantendo a Playfair Display só nos títulos grandes (20px+), onde o visual de "revista científica premium" continua funcionando bem.
 
-## Catálogo atual (20 itens)
-BPC-157 · CJC-1295 · Epithalon (10mg e 50mg) · GHK-Cu · Glow Blend (GHK-Cu + BPC-157 + TB-500) · Ipamorelin · MOTS-c · Selank · Semax · TB-500 · Tesamorelin · PT-141 · Glutathione · NAD+ · Vitamin B12 · IGF-1 LR3 · Oxytocin · AOD-9604 · Água Bacteriostática.
+## Catálogo atual (11 itens) — reduzido a uma lista de compliance
+BPC-157 · CJC-1295 (Without DAC) · Epithalon (10mg e 50mg) · GHK-Cu · GHK-Cu / BPC-157 / TB-500 Blend · Ipamorelin · MOTS-c · Selank · Semax · TB-500.
 
-**Removidos a pedido do cliente**: os dois kits de água bacteriostática (Start Kit e Kit 60 seringas) — continham seringas nas fotos e no texto ("seringas de insulina"), e o cliente pediu pra tirar toda referência a itens injetáveis do site. As imagens (`water-kit-15.jpg`, `water-kit-60.jpg`) também foram apagadas da pasta `assets/products/`.
+**Removidos** (a partir de uma lista de risco regulatório/pagamento que você levantou — itens com forte apelo de emagrecimento, alvos prioritários da FDA, ou bloqueados por adquirentes de cartão): Tesamorelin, PT-141, Glutathione, NAD+, Vitamin B12, IGF-1 LR3, Oxytocin, AOD-9604. As fotos correspondentes também foram apagadas da pasta `assets/products/`.
 
-**⚠️ Atenção — pendência que não dá pra resolver só editando texto**: várias fotos reais dos produtos (as fornecidas por você) têm a palavra **"Injection"** e o texto **"For Subcutaneous Use"** impressos no próprio rótulo do frasco, na foto. Isso está *dentro da imagem*, não é texto do site — não tem como remover editando o código, só re-fotografando o produto com um rótulo diferente, ou eu tentar apagar/borrar essa parte da foto (funciona bem em alguns casos, mas pode deixar visualmente estranho dependendo do ângulo/iluminação). Me avise se quiser que eu tente isso em alguma foto específica, ou se prefere providenciar fotos com rótulo sem essa palavra.
+**Água Bacteriostática removida do catálogo** — vender água de reconstituição junto com os peptídeos caracteriza o site como voltado pra preparo/aplicação, o que descaracteriza o modelo "RUO puro" (research use only). Os dois kits de água (com seringas) já tinham sido removidos antes; agora o item avulso "Bacteriostatic Water" também saiu.
+
+**Renomeados para compliance**:
+- `CJC-1295` → **`CJC-1295 (Without DAC)`** — a versão "With DAC" tem meia-vida longa associada a uso humano; deixamos explícito que é a variante sem DAC.
+- `Glow Blend` → **`GHK-Cu / BPC-157 / TB-500 Blend`** — nomes comerciais/apelativos ("Glow") em blends indicam uso final humano; o nome agora é puramente químico/técnico.
+
+**Doses sem mL**: todas as doses no site agora mostram só miligrama (ex: "10mg"), sem indicar volume do frasco (ex: "10mg / 3mL"). Isso evita dar informação que sugira preparo para aplicação.
+
+**Textos reescritos em estilo técnico** (baseado no padrão real da Power Peptides): cada produto agora segue a estrutura "[Nome], também conhecido como [sinônimo/descrição química]. Fornecido como material de referência peptídica liofilizado para [aplicação de pesquisa específica]." — evitando linguagem de benefício/efeito pessoal, focando em caracterização analítica e material de referência de laboratório.
+
+**⚠️ Atenção — pendência que não dá pra resolver só editando texto**: várias fotos reais dos produtos (as fornecidas por você) têm a palavra **"Injection"** e o texto **"For Subcutaneous Use"** impressos no próprio rótulo do frasco, na foto. Isso está *dentro da imagem*, não é texto do site — não tem como remover editando o código. Você já mencionou que vai refazer essas fotos; assim que tiver as novas, é só me mandar que eu troco.
 
 ## Idiomas
 O site abre em **inglês** por padrão, com uma aba no topo para trocar entre 🇧🇷 Português (Brasil), 🇺🇸 English e 🇪🇸 Español — as bandeiras são desenhadas direto no código (SVG), sem depender de nenhum servidor externo, então aparecem sempre, em qualquer navegador. A preferência do visitante fica salva no navegador.
@@ -106,7 +116,7 @@ Como o catálogo mudou várias vezes ao longo do projeto (produtos removidos/ren
 ## Carrinho: frete e vendas adicionais
 - **Frete**: taxa fixa de $9,95 para pedidos abaixo de $200; **frete grátis automático a partir de $200** (mesma regra que vimos na RUO Science). Pra alterar, edite `SHIPPING_FLAT_RATE` e `FREE_SHIPPING_THRESHOLD` no `index.html`.
 - **Barra de progresso de frete grátis**: mostra "Faltam $X para frete grátis" com uma barrinha visual, e "Você ganhou frete grátis!" quando o cliente atinge o valor.
-- **Sugestões no carrinho** ("Você também pode precisar"): sempre que o carrinho não tiver nenhum item de água bacteriostática, o site sugere automaticamente o Kit de 60 seringas em primeiro lugar (mais vendável), seguido de outros produtos que ainda não estão no carrinho — cada um com botão de adicionar em 1 clique.
+- **Sugestões no carrinho** ("Você também pode precisar"): mostra até 3 produtos que ainda não estão no carrinho, cada um com botão de adicionar em 1 clique. (A água bacteriostática saiu do catálogo — veja a seção de compliance acima.)
 
 ## Navegação: botão "voltar" do navegador (novo)
 Ao abrir a página de produtos (tela cheia), o site registra isso no histórico do navegador. Se o visitante clicar no botão "voltar" do navegador (em vez do X pequeno dentro da página), ele fecha a página de produtos e volta pra Home — não sai do site nem volta pra uma página anterior desconhecida.
